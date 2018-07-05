@@ -1,0 +1,344 @@
+
+<!-- =================-->
+  <header id="conent" class="header-cat header-cat-2"> 
+    <div class="container">
+      <form action="/search/service" method="GET">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1>FIND SERVICES PROVIDER</h1>
+        </div>
+        <div class="header-input">
+      <select style="display: block!important; padding: 6px 38px; width: 100%; color: #777; -webkit-appearance: none; border: none; border-radius: 3px; background: #fff;"id="ContentPlaceHolder1_ddljobcat " name="TypeOfService" class="txt-dropdown">
+        {{#each services}}
+        <option value="{{Service}}">{{Service}}</option>
+        {{/each}}
+
+      </select>
+      <!-- <input class="header-int" style="margin: 5px;" type="text" name=""> -->
+      <input class="header-int" style="margin: 5px;" type="text" name="State" placeholder="Location / Pincode in Delhi NCR">
+      <button type="submit" class="header_search">Search</button>
+    </div>
+  </div>
+</form>
+</div>
+</header>
+
+
+
+<div class="row">
+    <div class="col-md-3">
+      <div class="details-card_1">
+        <button style="font-weight: bold;" class="filter_btn" id="filter">filter <i style="position: absolute; right:
+        20px; font-size: 20px; top: 13px;" class="fa fa-filter"></i></button>
+        <div style="background:#fff;width:100%; display: none; padding: 15px;" id="filteraes">
+
+        <button style="margin-bottom: 10px;" class="filter_btn" id="filter1">Select Job Type <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus1" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+        <div style="width:100%; height: 100px; display: none;" id="filteraes1">
+          <select style="padding: 5px 38px; color: #777; -webkit-appearance: none; border: 1px solid #ddd;border-radius: 5px;">
+            <option>work</option>
+          </select>
+        </div>
+
+
+      <button style="margin-bottom: 10px;" class="filter_btn" id="filter2">Any Sallery Range <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus2" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <div style="width:100%; display: none;" id="filteraes2">
+        <form>
+          <input class="Sallery_input" type="text" name="" placeholder="Type Sallery"><br>
+          <div style="display: flex; justify-content: center; align-items: center; padding: 5px;">
+          <p style="text-align: center; margin-bottom: 0px; width: 35px; height: 34px; padding: 5px; border: 1px solid #555; border-radius: 100px;">To</p>
+        </div>
+          <input style="margin-bottom: 10px;" class="Sallery_input" type="text" name="" placeholder="Type Sallery">
+        </form>
+      </div>
+
+
+      <button style="margin-bottom: 10px;" class="filter_btn" id="filter3">Gender <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus3" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <div style="width:100%; display: none;" id="filteraes3">
+        <div class="control-group">
+          <label class="control control--checkbox">Male
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          <label class="control control--checkbox">Female
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          
+        </div>
+      </div>
+
+
+      <button style="margin-bottom: 10px;" class="filter_btn" id="filter4">Timing <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus4" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <div style="width:100%; display: none;" id="filteraes4">
+        <div class="control-group">
+          <label class="control control--checkbox">Full Time Day 
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          <label class="control control--checkbox">Full Time Night
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          <label class="control control--checkbox">Part Time Morning
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          <label class="control control--checkbox">Part Time Evening
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          <label class="control control--checkbox">Daily Based
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          <label class="control control--checkbox">On Requirement
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          
+        </div>
+      </div>
+
+
+      <button style="margin-bottom: 10px;" class="filter_btn" id="filter5">Experiance <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus5" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <div style="width:100%; display: none;" id="filteraes5">
+        <div class="control-group">
+          <label class="control control--checkbox">0 - 2 years 
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          <label class="control control--checkbox">2 - 5 years
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          <label class="control control--checkbox">5 - 10 years
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+          <label class="control control--checkbox">10 years
+            <input type="checkbox"/>
+            <div class="control__indicator"></div>
+          </label>
+        </div>
+        <button style="margin-bottom: 10px; margin-left: 10px;" class="ghst-btn Experiance_btn">Search</button>
+      </div>
+
+
+      <button style="margin-bottom: 10px;" class="filter_btn" id="filter6">ID <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus6" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <div style="width:100%; display: none;" id="filteraes6">
+        <input style="margin-bottom: 10px;" class="Sallery_input" type="text" name="" placeholder="ID">
+        <button style="margin-bottom: 10px;" class="ghst-btn Experiance_btn">Search</button>
+      </div>
+
+    </div>
+    <div>
+      <img src="/img/contact_us.jpg" style="width: 100%;">
+    </div>
+
+
+  </div>
+  </div>   
+
+
+
+
+<div class="col-md-9" style="display: flex; flex-direction: column-reverse;" id="main_header">
+{{#each allService}}
+
+  <div class=" details-card">
+    <div class="candDetails">
+      <div class="imageUser">
+        <i class="icon-male userIcon"></i>
+      </div>           
+      <div class="userDetails mb5">
+        <div class="candName">
+          <span class="TypeOfService" title="{{TypeOfService}}">{{TypeOfService}}</span>
+          <!-- <span class="candAge">20 years  </span> -->
+          <span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span>
+        </div>
+      </div>
+      <div class="employee-name">
+        <div class="cnctAndDwmload">
+        </div>
+      </div>
+      <div class="employee-details">
+        <ul class="emp-list">
+           <span class="emp-heading">Service Specification</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{Specification}}"><span class="brief-skills">{{Specification}}</span><span class="morecontent"></span></span>
+           </span>
+         </li>
+        <li>
+           <span class="emp-heading">Timing for Provide Services</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{ProvideServices}}">{{ProvideServices}} </span>
+           </span>
+         </li>
+         <li>
+           <span class="emp-heading">Services Provider Registered on</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{ProviderRegistered}}">{{ProviderRegistered}} </span>
+           </span>
+         </li>
+         <li>
+           <span class="emp-heading">Services Registered Expiry Date</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{RegisteredExpiry}}"> {{RegisteredExpiry}}</span>
+           </span>
+         </li>
+         <li>
+           <span class="emp-heading">Service Providing Country</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{Country}}"> {{Country}} </span>
+           </span>
+         </li>
+         <li>
+           <span class="emp-heading">Service Providing state</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{State}}"> {{State}} </span>
+           </span>
+         </li>
+          <li>
+           <span class="emp-heading">Service Providing City</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{City}}"> {{City}} </span>
+           </span>
+         </li>
+          <li>
+           <span class="emp-heading">Services Providing Area</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{Area}}"> {{Area}} </span>
+           </span>
+         </li>
+          <li>
+           <span class="emp-heading">Services Provider Agency Name</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{Agency}}"> {{Agency}} </span>
+           </span>
+         </li>
+          <li>
+           <span class="emp-heading">Name of Representative/Service Provider</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{Representative}}">{{Representative}}</span>
+           </span>
+         </li>
+                    
+        <li>
+           <span class="emp-heading">Mobile Number</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{MobileNumber}}">{{MobileNumber}}</span>
+           </span>
+         </li>
+        <li>
+           <span class="emp-heading">Landline Number</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{LandNumber}}">{{LandNumber}}</span>
+           </span>
+         </li>
+        <li>
+           <span class="emp-heading">Contact Timing</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{Timing}}">{{Timing}}</span>
+           </span>
+         </li>
+          <li>
+           <span class="emp-heading">Aadhar Card/Voter Card No./Other</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{aadharcard}}">{{aadharcard}}</span>
+           </span>
+         </li>
+         <li>
+           <span class="emp-heading">Website</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{website}}">{{website}}</span>
+           </span>
+         </li>
+                    
+        <li>
+           <span class="emp-heading">Email/Mobile</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{emailMobile}}">{{emailMobile}}</span>
+           </span>
+         </li>
+        <li>
+           <span class="emp-heading">Address Of Services Provider</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{address}}">{{address}}</span>
+           </span>
+         </li>
+        <li>
+           <span class="emp-heading">Pincode</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{pincode}}">{{pincode}}</span>
+           </span>
+         </li>
+            <li>
+           <span class="emp-heading">Any Information About Your Services</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{information}}">{{information}}</span>
+           </span>
+         </li>
+         <li>
+           <span class="emp-heading">Payment Plan</span>
+           <span class="emp-rep">
+             <span class="jsProfileItem more trucateText" title="{{payment}}">{{payment}}</span>
+           </span>
+         </li>                             
+         <!-- ?php// } ? -->
+        </ul>
+      </div>
+      <div class="hidden-lg hidden-md card-view pull-right hidden-xs hidden-sm"><i class="icon-basic_eye"></i><span></span>
+      </div>
+      <div class="button-div" style="display: none;">
+
+
+
+
+    <button data-toggle="modal" data-target="#myModal" class="ghst-btn demo-action InstantActionbuttons" type="button">Email</button> 
+    <button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="modal" data-target="#myModal" type="button">View contact</button> 
+
+    <div class="container">
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Mera Kaam Kaaj</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h3>Please Contect to the Office</h3>
+          <div class="cont-info number">
+            <i class="fa fa-phone"></i>
+            <a href="tel:1234567890">+91-7428 73 73 73 <br> 7428 76 76 76 </a>
+          </div>
+          <div class="cont-info mail">
+            <i class="fa fa-envelope-o"></i>
+            <a href="mail@startup.com">merakaamkaaj@gmail.com</a>
+          </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" style="background-color: #f16024 !important;" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+    </div>
+
+  </div>
+
+{{/each}}
+</div>
+</div>
+

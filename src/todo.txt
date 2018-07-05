@@ -1,0 +1,6 @@
+#Work that need to be tackle
+-Create the User model
+-Create the CRUD route for the PostJobs
+
+-Create the CRUD route for the PostService
+-Create the CRUD route for the PostWorker

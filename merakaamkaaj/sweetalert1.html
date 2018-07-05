@@ -1,0 +1,37 @@
+
+
+
+<style type="text/css">
+	
+.hading2{
+	margin-top: 20%;
+
+	/*text-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);*/
+}
+
+.card {
+  background: #e2e1e0;
+  text-align: center;
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 60vh;
+  margin: 5rem;
+  position: relative;
+  width: 60%;
+}
+.card-5 {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+</style>
+
+
+<div class="card card-5">
+	<h1>The New State successfully Submited</h1>
+	{{#each state}}
+	<h2 class="hading2">{{State}}</h2>
+	{{/each}}
+	<form action="/get/details" method="GET">
+	<button class="hading2 country_edit" type="submit">Go Back</button>
+	</form>
+</div>

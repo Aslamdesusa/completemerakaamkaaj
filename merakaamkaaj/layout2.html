@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Merakaamkaaj.com</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="/css/font-face.css" rel="stylesheet" media="all">
+    <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Title Icon -->
+    <link href="/img/startup_logo_96dp.png" rel="apple-touch-icon" sizes="96x96">
+    <link href="/img/startup_logo_96dp.png" rel="icon" sizes="96x96" type="image/png">
+    <link href="/img/startup_logo_32dp.png" rel="icon" sizes="32x32" type="image/png">
+    <meta content="/img/startup_logo_96dp.png" name="msapplication-TileImage">
+
+    <!-- Bootstrap CSS-->
+    <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/datatable.css">
+    <link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap.min.css">
+
+
+
+<!--     <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
+    <link rel="stylesheet" href="bower_components/sweetalert/lib/sweet-alert.css">
+ -->
+    <!-- Vendor CSS-->
+    <link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="/css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar ">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <img src="/img/logoadmin.png" style="width: 200px;" alt="CoolAdmin" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li>
+                            <a href="/admin/deshboard">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/get/details">
+                                <i class="fas fa-chart-bar"></i>Add Details</a>
+                        </li>
+                        <li>
+                            <a href="/get/posted/details">
+                                <i class="fas fa-table"></i>Posted Jobs/Resume/Services</a>
+                        </li>
+                        <li>
+                            <a href="/forms">
+                                <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+                        <li>
+                            <a href="/numberOf/Ragistered/users">
+                                <i class="far fa-check-square"></i>Number of Ragistered Users</a>
+                        </li>
+                        <li>
+                            <a href="/forgot/pass">
+                                <i class="far fa-check-square"></i>Forget Password</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+       <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="/img/logoadmin.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li>
+                            <a href="/admin/deshboard">
+                                <i class="fas fa-tachometer-alt"></i>Deshboard</a>
+                        </li>
+                        <li>
+                            <a href="/get/details">
+                                <i class="fas fa-chart-bar"></i>Add Details</a>
+                        </li>
+                        <li>
+                            <a href="/get/posted/details">
+                                <i class="fas fa-table"></i>Posted Details</a>
+                        </li>
+                        <li>
+                            <a href="/forms">
+                                <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+                        <li>
+                            <a href="/numberOf/Ragistered/users">
+                                <i class="far fa-check-square"></i>Number of Ragistered Users</a>
+                        </li>
+                        <li>
+                            <a href="/forgot/pass">
+                                <i class="far fa-check-square"></i>Forget Password</a>
+                        </li>
+                    
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <div class="header-button">
+                                
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="/img/logo.png" alt="John Doe" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">Mera Kaam kaaj</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="/img/logo.png" alt="John Doe" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">Mera Kaam Kaaj</a>
+                                                    </h5>
+                                                    <span class="email">merakaamkaaj@gmail.com</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="/logout">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                         <div>
+                          {{{content}}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="/vendor/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+
+
+    <script src="/js/slimtable.js"></script>
+
+    <!-- Bootstrap JS-->
+    <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="/vendor/slick/slick.min.js">
+    </script>
+    <script src="/vendor/wow/wow.min.js"></script>
+    <script src="/vendor/animsition/animsition.min.js"></script>
+    <script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="/vendor/select2/select2.min.js"></script>
+    <script type='text/javascript' src="/js/unitTest1.js"></script>
+
+
+
+
+    <!-- Main JS-->
+    <!-- <script src="/js/app.js"></script>  -->
+    <script src="/js/main.js"></script>
+    <script type="text/javascript">
+        $('#box_1').click(function(){
+            $('#section_1').show();
+            $('#box_1').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_2').hide();
+            $('#section_3').hide();
+            $('#section_4').hide();
+            $('#section_5').hide();
+            $('#section_6').hide();
+        });
+        $('#box_2').click(function(){
+            $('#section_1').hide();
+            $('#section_2').show();
+            $('#box_2').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_3').hide();
+            $('#section_4').hide();
+            $('#section_5').hide();
+            $('#section_6').hide();
+        });
+        $('#box_3').click(function(){
+            $('#section_1').hide();
+            $('#section_2').hide();
+            $('#section_3').show();
+            $('#box_3').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_4').hide();
+            $('#section_5').hide();
+            $('#section_6').hide();
+        });
+        $('#box_4').click(function(){
+            $('#section_1').hide();
+            $('#section_2').hide();
+            $('#section_3').hide();
+            $('#section_4').show();
+            $('#box_4').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_5').hide();
+            $('#section_6').hide();
+        });
+        $('#box_5').click(function(){
+            $('#section_1').hide();
+            $('#section_2').hide();
+            $('#section_3').hide();
+            $('#section_4').hide();
+            $('#section_5').show();
+            $('#box_5').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_6').hide();
+        });
+        $('#box_6').click(function(){
+            $('#section_1').hide();
+            $('#section_2').hide();
+            $('#section_3').hide();
+            $('#section_4').hide();
+            $('#section_5').hide();
+            $('#section_6').show();
+            $('#box_6').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_2').css({"background-color" : "#fff" , "color" : "#555"});
+            $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
+        });
+    </script>
+    <script type="text/javascript">
+        $('#box_7').click(function(){
+            $('#section_7').show();
+            $('#box_7').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_8').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_9').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_8').hide();
+            $('#section_9').hide();
+            
+        });
+        $('#box_8').click(function(){
+            $('#section_7').hide();
+            $('#section_8').show();
+            $('#box_8').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_7').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_9').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_9').hide();
+        });
+        $('#box_9').click(function(){
+            $('#section_7').hide();
+            $('#section_8').hide();
+            $('#section_9').show();
+            $('#box_9').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_8').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_7').css({"background-color" : "#fff", "color" : "#555"});
+        });
+    </script>
+    <script type="text/javascript">
+        $('#box_10').click(function(){
+            $('#section_10').show();
+            $('#box_10').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_11').hide();
+            $('#section_12').hide();
+            $('#section_13').hide();
+            $('#section_14').hide();
+            $('#section_15').hide();
+            
+        });
+        $('#box_11').click(function(){
+            $('#section_11').show();
+            $('#box_11').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_10').hide();
+            $('#section_12').hide();
+            $('#section_13').hide();
+            $('#section_14').hide();
+            $('#section_15').hide();
+            
+        });
+        $('#box_12').click(function(){
+            $('#section_12').show();
+            $('#box_12').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_11').hide();
+            $('#section_10').hide();
+            $('#section_13').hide();
+            $('#section_14').hide();
+            $('#section_15').hide();
+            
+        });
+        $('#box_13').click(function(){
+            $('#section_13').show();
+            $('#box_13').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_11').hide();
+            $('#section_12').hide();
+            $('#section_10').hide();
+            $('#section_14').hide();
+            $('#section_15').hide();
+            
+        });
+        $('#box_14').click(function(){
+            $('#section_14').show();
+            $('#box_14').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_11').hide();
+            $('#section_12').hide();
+            $('#section_13').hide();
+            $('#section_10').hide();
+            $('#section_15').hide();
+            
+        });
+        $('#box_15').click(function(){
+            $('#section_15').show();
+            $('#box_15').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_11').hide();
+            $('#section_12').hide();
+            $('#section_13').hide();
+            $('#section_14').hide();
+            $('#section_10').hide();
+            
+        });
+    </script>
+    <script type="text/javascript">
+        $('#box_16').click(function(){
+            $('#section_16').show();
+            $('#box_16').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_17').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_18').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_17').hide();
+            $('#section_18').hide();
+        });
+        $('#box_17').click(function(){
+            $('#section_16').hide();
+            $('#section_17').show();
+            $('#box_17').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_16').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_18').css({"background-color" : "#fff", "color" : "#555"});
+            $('#section_18').hide();
+        });
+        $('#box_18').click(function(){
+            $('#section_16').hide();
+            $('#section_17').hide();
+            $('#section_18').show();
+            $('#box_18').css({"background-color" : "#f16024", "color" : "#fff"});
+            $('#box_17').css({"background-color" : "#fff", "color" : "#555"});
+            $('#box_16').css({"background-color" : "#fff", "color" : "#555"});
+        });
+        $(function () {
+        $("#chkPassport").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport").show();
+                $("#dvPassport1").show();
+                $("#dvPassport2").show();
+                $("#dvPassport3").show();
+                $("#dvPassport4").show();
+                $("#dvPassport5").show();
+                $("#dvPassport6").show();
+                $("#dvPassport7").show();
+                $("#dvPassport8").show();
+                $("#dvPassport9").show();
+                $("#AddPassport").hide();
+            } else {
+                $("#dvPassport").hide();
+                $("#dvPassport1").hide();
+                $("#dvPassport2").hide();
+                $("#dvPassport3").hide();
+                $("#dvPassport4").hide();
+                $("#dvPassport5").hide();
+                $("#dvPassport6").hide();
+                $("#dvPassport7").hide();
+                $("#dvPassport8").hide();
+                $("#dvPassport9").hide();
+                $("#AddPassport").hide();
+            }
+        });
+    });
+
+$(function () {
+        $("#chkPassport1").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dcPassport").show();
+                $("#dcPassport1").show();
+                $("#dcPassport2").show();
+                $("#dcPassport3").show();
+                $("#dcPassport4").show();
+                $("#dcPassport5").show();
+                $("#dcPassport6").show();
+                $("#dcPassport7").show();
+                $("#dcPassport8").show();
+                $("#dcPassport9").show();
+                $("#AddPassport").hide();
+            } else {
+                $("#dcPassport").hide();
+                $("#dcPassport1").hide();
+                $("#dcPassport2").hide();
+                $("#dcPassport3").hide();
+                $("#dcPassport4").hide();
+                $("#dcPassport5").hide();
+                $("#dcPassport6").hide();
+                $("#dcPassport7").hide();
+                $("#dcPassport8").hide();
+                $("#dcPassport9").hide();
+                $("#AddPassport").hide();
+            }
+        });
+    });
+    </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+    $(document).ready(function(){
+        $('#example1').DataTable();
+    });
+    $(document).ready(function(){
+        $('#example2').DataTable();
+    });
+</script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('#example3').DataTable();
+} );
+    $(document).ready(function(){
+        $('#example4').DataTable();
+    });
+    $(document).ready(function(){
+        $('#example5').DataTable();
+    });
+    $(document).ready(function(){
+        $('#example6').DataTable();
+    });
+    $(document).ready(function(){
+        $('#example7').DataTable();
+    });
+    $(document).ready(function(){
+        $('#example8').DataTable();
+    });
+
+</script>
+<script type="text/javascript">
+    
+    $('#messages').submit(function() {
+
+    $.post("./your/path/", {
+      Country: "hello"
+    })
+    .done(function(data) {
+      alert("Data Loaded: " + data); // change for whatever callback you want
+    });
+</script>
+
+
+</body>
+
+</html>
+<!-- end document-->

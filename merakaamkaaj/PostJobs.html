@@ -1,0 +1,300 @@
+<style type="text/css">
+   label {
+          display: block;
+          letter-spacing: 1px;
+          padding-top: 20px;
+          
+        }
+        label .label-text {
+          color: #555;
+          cursor: text;
+          font-size: 15px;
+          line-height: 20px;
+          transform: translateY(-30px);
+          transition: all 0.3s;
+        }
+        label .label-text1 {
+          color: #555;
+          cursor: text;
+          font-size: 15px;
+          line-height: 20px;
+          transform: translateY(-35px);
+          transition: all 0.3s;
+        }
+        label input {
+          background-color: transparent;
+          border: 0;
+          border-bottom: 2px solid #4a4a4a1f;
+          color: #555;
+          font-size: 15px;
+          outline: 0;
+          padding: 5px 0px;
+          transition: all 0.3s;
+          width: 100%;
+        }
+        label input:focus {
+          max-width: 100%;
+          border-bottom: 2px solid #f16024;
+        }
+        label input:focus + .label-text {
+          color: #f16024;
+          font-size: 15px;
+          transform: translateY(-50px);
+        }
+        label input:valid + .label-text {
+          font-size: 13px;
+          transform: translateY(-50px);
+        }
+
+        label textarea{
+          background-color: transparent;
+          border: 0;
+          border-bottom: 2px solid #4a4a4a1f;
+          color: #555;
+          font-size: 15px;
+          outline: 0;
+          padding: 5px 0px;
+          transition: all 0.3s;
+          width: 100%;
+        }
+        .dropdown-primary {
+            position: relative;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #ced4da;
+            outline: 0;
+            height: 2.9rem;
+            line-height: 2.9rem;
+            width: 100%;
+            font-size: 1rem;
+            margin: 0 0 .94rem 0;
+            padding: 0;
+            display: block;
+        }
+        #require{
+          color: #f16024;
+          font-size: 22px;
+        }
+        a.btn.btn-default.btn-rounded.mb-4{
+          border-radius: 50px;
+          color: white;
+        }
+</style>
+
+
+
+        <!-- HEADER 
+            =================-->
+              <header id="conent" class="header-cat"> 
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <h1 class="testi-head">Post Jobs</h1>
+                      
+                      <div class="text-center">
+                        <a href="" style="background-color: rgb(241, 97, 54)!important;" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Launch Your Form</a>
+
+                    </div>
+                      <!-- <button class="btn btn-defult">Post Jobs here</button> -->
+                    </div>
+                  </div>
+                </div>
+              </header>
+
+
+         <!-- BODY CONTENT -->
+         <!-- =================== -->
+<!-- MODAL-BOX FOR POST JOBS -->
+
+<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Post a Job</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/post/job" method="POST">
+            <div class="modal-body mx-3">
+              <div class="md-form">
+                    <div style="margin-top: 20px;" class="md-form">
+                                            <select name="jobType" class="mdb-select colorful-select dropdown-primary">
+                                              <option value="" disabled selected>Job Type<span id="require">*</span></option>
+                                              <option value="Assistant For Architect/ Civil Etc">Assistant For Architect/ Civil Etc</option>
+                                              <option value="Accountant/CA/Assistent">Accountant/CA/Assistent</option>
+                                              <option value="1Beautician/ Barber/ Saloon">Beautician/ Barber/ Saloon</option>
+                                              <option value="Body Guard / Bouncers / Security Guard">Body Guard / Bouncers / Security Guard</option>
+                                              <option value="BPO">BPO</option>
+                                              <option value="BPO / Data Entry / Computer Operator">BPO / Data Entry / Computer Operator</option>
+                                              <option value="Call Centre Operator / Excecutive">Call Centre Operator / Excecutive</option>
+                                              <option value="Caretaker /Baby Sitter/Child Care">Caretaker /Baby Sitter/Child Care</option>
+                                              <option value="Carpainter">Carpainter</option>
+                                              <option value="Chemist Assistant">Chemist Assistant</option>
+                                              <option value="Clerk">Clerk</option>
+                                              <option value="Clerk / Back Office Excecutive / Office Assistance">Clerk / Back Office Excecutive / Office Assistance</option>
+                                            </select>
+                                            <!-- <label>Select Gender</label> -->
+                                        </div>
+                                      <label>
+                                        <input type="text" name="skills" required />
+                                        <div class="label-text">Required Specialsation/Slills<span id="require">*</span></div>
+                                      </label>
+                                      <label>
+                                        <textarea name="jobDescription" placeholder="Job Descrition if Any"></textarea>
+                                        <!-- <div class="label-text1">Job Descrition if Any</div> -->
+                                      </label>
+                                      <label>
+                                        <input type="text" name="aVacancy" required />
+                                        <div class="label-text">Available Vacancy<span id="require">*</span></div>
+                                      </label>
+                                      <label>
+                                        <input type="number" name="expiryDate" required />
+                                        <div class="label-text">Job Expiry Date<span id="require">*</span></div>
+                                      </label>
+                                      
+                                      <div class="md-form">
+                                            <select name="country" class="mdb-select colorful-select dropdown-primary" required>
+                                              <option value="" disabled selected>Country<span id="require">*</span></option>
+                                              <option value="INDIA">INDIA</option>
+                                            </select>
+                                        </div>
+                                    
+                                    <div class="md-form">
+                                            <select name="state" class="mdb-select colorful-select dropdown-primary" required>
+                                              <option value="" disabled selected>State<span id="require">*</span></option>
+                                              <option value="Delhi">Delhi</option>
+                                              <option value="NCR">NCR</option>
+                                            </select>
+                                        </div>
+                                    <label>
+                                        <input type="text" name="city" required />
+                                        <div class="label-text">City<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="jobArea" required />
+                                        <div class="label-text">Job Area<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="number" name="pinCode"/>
+                                        <div class="label-text">Pin Code</div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="jobAddress"/>
+                                        <div class="label-text">Job Address</div>
+                                    </label>
+                                    <h3 style="color: #555; margin-top: 10px; margin-bottom: 10px;">Professional Details</h3>
+                                    <label>
+                                        <input type="number" name="salary"/>
+                                        <div class="label-text">Offered Salary (Monthly) INR</div>
+                                    </label>
+                                    <label>
+                                        <input type="number" name="experience" required />
+                                        <div class="label-text">Required Experience (Yearly)<span id="require">*</span></div>
+                                    </label>
+
+                                    <div class="md-form">
+                                            <select name="shift" class="mdb-select colorful-select dropdown-primary" required>
+                                                <option value="" disabled selected>Select Shift</option>
+                                                <option value="Full Time Day">Full Time Day</option>
+                                                <option value="Full Time Night">Full Time Night</option>
+                                                <option value="Part Time Evening">Part Time Evening</option>
+                                                <option value="PArt Time Morning">PArt Time Morning</option>
+                                                <option value="Daily Based">Daily Based</option>
+                                                <option value="On Requirment">On Requirment</option>
+                                            </select>
+                                        </div>
+                                    
+                                   <div class="md-form">
+                                            <select name="gender" class="mdb-select colorful-select dropdown-primary" required>
+                                              <option value="" disabled selected>Gender</option>
+                                              <option value="Male">Male</option>
+                                              <option value="Female">Female</option>
+                                              <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    <label>
+                                        <textarea placeholder="Educations" name="educations"></textarea>
+                                        <!-- <div class="label-text1">Educations</div> -->
+                                    </label>
+                                    <label>
+                                        <textarea placeholder="Known Language" name="knownLanguage"></textarea>
+                                        <!-- <div class="label-text1">Known Language</div> -->
+                                    </label>
+                                    <h3 style="color: #555; margin-top: 10px; margin-bottom: 10px;">Employer Contact Details</h3> 
+                                    <label>
+                                        <input type="text" name="companyName" required />
+                                        <div class="label-text">Name of Company/Business/Other<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="nameOfRepresentative" required />
+                                        <div class="label-text">Name of Representative<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="number" name="mobile" required />
+                                        <div class="label-text">Mobile<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="number" name="landline"/>
+                                        <div class="label-text">Landline No</div>
+                                    </label>
+                                    <label>
+                                        <input type="Email" name="email"/>
+                                        <div class="label-text">Email</div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="idCardNumber" required />
+                                        <div class="label-text">Aadhar/Voter Card No<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="addressOfEmployer"/>
+                                        <div class="label-text">Address of Employer</div>
+                                    </label>
+                                    <div class="md-form">
+                                            <select name="contactTiming" class="mdb-select colorful-select dropdown-primary">
+                                              <option value="" disabled selected>Contect Timing</option>
+                                                  <option value="6 am to 12 pm">6 am to 12 pm</option>
+                                                    <option value="12 pm to 6 pm">12 pm to 6 pm</option>
+                                                    <option value="6 pm to 10 pm">6 pm to 10 pm</option>
+                                                    <option value="6 am to 10 pm">6 am to 10 pm</option>
+                                                    <option value="24 Hour">24 Hour</option>
+                                            </select>
+                                        </div>
+                                    
+                                    <div class="md-form">
+                                            <select name="lookingOverseas" class="mdb-select colorful-select dropdown-primary">
+                                              <option value="" disabled selected>Looking Overseeas</option>
+                                              <option value="Male">Yes</option>
+                                              <option value="Female">No</option>
+                                            </select>
+                                        </div>
+                                        <div class="md-form">
+                                            <select name="paymentPlan" class="mdb-select colorful-select dropdown-primary">
+                                              <option value="" disabled selected>Payment</option>
+                                              <option value="none">Select Plan</option>
+                                              <option value="On Post 1 To 5 Jobs FREE">On Post 1 To 5 Jobs FREE</option>
+                                              <option value="On Post 6 to 10 Jobs 500 Rs.">On Post 6 to 10 Jobs 500 Rs.</option>
+                                              <option value="On Post 10 to 15 Jobs 800 Rs.">On Post 10 to 15 Jobs 800 Rs.</option>
+                                              <option value="On Post More Than 15 Jobs">On Post More Than 15 Jobs</option>
+                                            </select>
+                                        </div>
+
+            <div class="modal-footer d-flex justify-content-center">
+                <button type="submit" style="background-color: rgb(241, 97, 54)!important;" class="btn btn-success">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+        <script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.0.1'></script>
+        <script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/compiled.min.js?ver=4.5.0'></script>
+        <script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/footer-functions.js?ver=4.5.1'></script>
+        <link rel='stylesheet' id='compiled.css-css'  href='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled.min.css?ver=4.5.0' type='text/css' media='all' />
+        -->
+
+

@@ -1,0 +1,230 @@
+
+                        <style type="text/css">
+                            .pagination>li>a, .pagination>li>span {
+                                position: relative;
+                                float: left;
+                                padding: 6px 12px;
+                                margin-left: -1px;
+                                line-height: 1.42857143;
+                                color: #337ab7;
+                                text-decoration: none;
+                                background-color: #fff;
+                                border: 1px solid #ddd;
+                            }
+                            .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+                                z-index: 3;
+                                color: #fff;
+                                cursor: default;
+                                background-color: #337ab7;
+                                border-color: #337ab7;
+                            }
+                            .col-sm-7 {
+                                width: 58.33333333%;
+                            }
+                            div.dataTables_wrapper div.dataTables_paginate {
+                                margin: 0;
+                                white-space: nowrap;
+                                text-align: right;
+                            }
+                            .col-sm-6 {
+                                 width: 50%; 
+                            }
+                            div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+                                margin: 2px 0;
+                                white-space: nowrap;
+                                margin-left: 50%;
+                            }
+                        </style>
+
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div>
+                                    <button style="background: #f16024; color: #fff;" id="box_7" class="header_btn_change">Posted Job</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div>
+                                    <button id="box_8" class="header_btn_change">Posted Resume</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div>
+                                    <button id="box_9" class="header_btn_change">Posted Service</button>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                       
+                        <div id="section_7">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div id="qunit"></div>
+                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+                                    <div class="h_container">
+                                        
+                                    </div>
+                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Job</h2>
+                                     
+                                        
+                                    <form style="margin-top: 150px;">
+                                        <h4 style="color: #555; margin-bottom: 10px;">Search By Job ID</h4>
+                                        <input class="form-control" type="text" name="">
+                                        <input class="submit_btn" type="submit" name="" value="Search">
+                                    </form>
+                                    <div class="table-responsive" style="border-radius: 10px;">
+
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>JobID</th>
+                                                    <th>Company Name</th>
+                                                    <th>Representetive</th>
+                                                    <th>Mobile</th>
+                                                    <th>Post Date</th>
+                                                    <!-- <th>Job ID</th> -->
+                                                    <th>Update</th>
+                                                    <th>Active</th>
+                                                    <th>Delete</th>
+                                                    <th>View</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{#each jobs}}
+                                                <tr>
+                                                    <td>{{_id}}</td>
+                                                    <td>{{companyName}}</td>
+                                                    <td>{{nameOfRepresentative}}</td>
+                                                    <td>{{mobile}}</td>
+                                                    <td>{{date}}</td>
+                                                    <td><input type="" name=""></td>
+                                                    <!-- <td><button>Update</button></td> -->
+                                                    <td><button>Active</button></td>
+                                                    <td><button>View</button></td>
+                                                    <td><button>Delete</button></td>
+                                                </tr>
+                                                {{/each}}
+                                                
+                                        </table>
+
+                                  </div>
+                            
+                            
+                            </div>
+                        </div>
+                    </div>
+
+    </div>
+    <div id="section_8">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div id="qunit"></div>
+                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+                                    <div class="h_container">
+                                        
+                                    </div>
+                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Resume</h2>
+                                     
+                                        
+                                    <form style="margin-top: 150px;">
+                                        <h4 style="color: #555; margin-bottom: 10px;">Search By Resume Id</h4>
+                                        <input class="form-control" type="text" name="">
+                                        <input class="submit_btn" type="submit" name="" value="Search">
+                                    </form>
+                                    <div class="table-responsive" style="border-radius: 10px;">
+
+                                    <table id="example1" class="table table-striped table-bordered" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Worker ID</th>
+                                                    <th>Name</th>
+                                                    <th>Mobile</th>
+                                                    <th>Post Date</th>
+                                                    <th>Update</th>
+                                                    <th>Active</th>
+                                                    <th>View</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{#each resumes}}
+                                                <tr>
+                                                    <td>{{_id}}</td>
+                                                    <td>{{Name}}</td>
+                                                    <td>{{Mobile}}</td>
+                                                    <td>{{Date}}</td>
+                                                    <td><button>Update</button></td>
+                                                    <td><button>Active</button></td>
+                                                    <td><button>view</button></td>
+                                                    <td><button>Delete</button></td>
+                                                </tr>
+                                                {{/each}}
+                                        </table>
+
+                                  </div>
+                            
+                            
+                            </div>
+                        </div>
+                    </div>
+
+
+    </div>
+    <div id="section_9">
+        <div class="row">
+                            <div class="col-lg-12">
+                                <div id="qunit"></div>
+                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+                                    <div class="h_container">
+                                        
+                                    </div>
+                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Service</h2>
+                                     
+                                        
+                                    <form style="margin-top: 150px;">
+                                        <h4 style="color: #555; margin-bottom: 10px;">Search By Service Id</h4>
+                                        <input class="form-control" type="text" name="">
+                                        <input class="submit_btn" type="submit" name="" value="Search">
+                                    </form>
+                                    <div class="table-responsive" style="border-radius: 10px;">
+
+                                    <table id="example2" class="table table-striped table-bordered" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Service ID</th>
+                                                    <th>Agency Name</th>
+                                                    <th>Mobile</th>
+                                                    <th>Post Date</th>
+                                                    <th>Update</th>
+                                                    <th>Active</th>
+                                                    <th>View</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{#each services}}
+                                                <tr>
+                                                    <td>{{_id}}</td>
+                                                    <td>{{Agency}}</td>
+                                                    <td>{{MobileNumber}}</td>
+                                                    <td>{{Date}}</td>
+                                                    <td><button>Update</button></td>
+                                                    <td><button>Active</button></td>
+                                                    <td><button>View</button></td>
+                                                    <td><button>Delete</button></td>
+                                                </tr>
+                                                {{/each}}
+                                        </table>
+
+
+                                  </div>
+                            
+                            
+                            </div>
+                        </div>
+                    </div>
+    </div>
+    
+
+                    

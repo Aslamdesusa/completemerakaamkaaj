@@ -1,0 +1,336 @@
+<style type="text/css">
+   label {
+          display: block;
+          letter-spacing: 1px;
+          padding-top: 20px;
+          
+        }
+        label .label-text {
+          color: #555;
+          cursor: text;
+          font-size: 15px;
+          line-height: 20px;
+          transform: translateY(-30px);
+          transition: all 0.3s;
+        }
+        label .label-text1 {
+          color: #555;
+          cursor: text;
+          font-size: 15px;
+          line-height: 20px;
+          transform: translateY(-35px);
+          transition: all 0.3s;
+        }
+        label input {
+          background-color: transparent;
+          border: 0;
+          border-bottom: 2px solid #4a4a4a1f;
+          color: #555;
+          font-size: 15px;
+          outline: 0;
+          padding: 5px 0px;
+          transition: all 0.3s;
+          width: 100%;
+        }
+        label input:focus {
+          max-width: 100%;
+          border-bottom: 2px solid #f16024;
+        }
+        label input:focus + .label-text {
+          color: #f16024;
+          font-size: 15px;
+          transform: translateY(-50px);
+        }
+        label input:valid + .label-text {
+          font-size: 13px;
+          transform: translateY(-50px);
+        }
+
+        label textarea{
+          background-color: transparent;
+          border: 0;
+          border-bottom: 2px solid #4a4a4a1f;
+          color: #555;
+          font-size: 15px;
+          outline: 0;
+          padding: 5px 0px;
+          transition: all 0.3s;
+          width: 100%;
+        }
+        .dropdown-primary {
+            position: relative;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #ced4da;
+            outline: 0;
+            height: 2.9rem;
+            line-height: 2.9rem;
+            width: 100%;
+            font-size: 1rem;
+            margin: 0 0 .94rem 0;
+            padding: 0;
+            display: block;
+        }
+        #require{
+          color: #f16024;
+          font-size: 22px;
+        }
+        a.btn.btn-default.btn-rounded.mb-4{
+          border-radius: 50px;
+          color: white;
+        }
+</style>
+        <!-- HEADER 
+            =================-->
+              <header id="conent" class="header-cat header-cat-2"> 
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <h1>Post Service</h1>
+                      <div class="text-center">
+                        <a href="" style="background-color: rgb(241, 97, 54)!important;" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Launch Your Form</a>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </header> 
+
+
+
+              <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Post Service</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/post/service" method="POST">
+            <div class="modal-body mx-3">
+              <h4>Provide Service Details:</h4>
+             <div style="margin-top: 20px;" class="md-form">
+                                            <select name="TypeOfService" class="mdb-select colorful-select dropdown-primary">
+                                              <option value="" disabled selected>Select Service<span id="require">*</span></option>
+                                              <option value="ELECTRIC/ELECTRONIC/COMMUNICATION APPLIANCES DEALERS"> ELECTRIC/ELECTRONIC/COMMUNICATION APPLIANCES DEALERS</option>
+                                              <option value="Acquepenture / Sycologist / Physicologist / Physicotheripist">Acquepenture / Sycologist / Physicologist / Physicotheripist</option>
+                                              <option value="ADMISSION CONSULTANT/STUDY CENTER FOR P.G/Ph.D/HIGHERSTUDIES LEVELS">ADMISSION CONSULTANT/STUDY CENTER FOR P.G/Ph.D/HIGHERSTUDIES LEVELS</option>
+                                              <option value="ADMISSION CONSULTANT/STUDY CENTER FOR PRIVATE ITI/POLYTECHNIC/COLLEGES/UNIVERSITIES LEVELS">ADMISSION CONSULTANT/STUDY CENTER FOR PRIVATE ITI/POLYTECHNIC/COLLEGES/UNIVERSITIES LEVELS</option>
+                                              <option value="ADMISSION CONSULTANT/STUDY CENTERFOR SCHOOL LEVELS">ADMISSION CONSULTANT/STUDY CENTERFOR SCHOOL LEVELS</option>
+                                              <option value="ADVERTISEMENT /PUBLISHERS">ADVERTISEMENT /PUBLISHERS</option>
+                                              <option value="ADVOCATES /CA's / SECRETARIES Etc">ADVOCATES /CA's / SECRETARIES Etc</option>
+                                              <option value="AGENTS/SELLER/LIC/BANK/ETC">AGENTS/SELLER/LIC/BANK/ETC</option>
+                                              <option value="ALUMINUM /WOOD/FIBER /GLASS /PVC Work &amp; Seller">ALUMINUM /WOOD/FIBER /GLASS /PVC Work &amp; Seller</option>
+                                              <option value="Animal's Dr.'s &amp; Caretaker">Animal's Dr.'s &amp; Caretaker</option>
+                                              <option value="ANIMALS PROVIDERS FOR EVENTS/PARTIES/MARRIAGE">ANIMALS PROVIDERS FOR EVENTS/PARTIES/MARRIAGE</option>
+                                              <option value="Architector">Architector</option>
+                                              <option value="AUTOMOBILE PARTS">AUTOMOBILE PARTS</option>
+                                              <option value="AYURVEDIC MEDICINES">AYURVEDIC MEDICINES</option>
+                                              <option value="Band">Band</option>
+                                              <option value="BANQUETS /PARTY HALL /FARM HOUSE ETC">BANQUETS /PARTY HALL /FARM HOUSE ETC</option>
+                                              <option value="BATTERY /SOLAR APPLIANCES AND VEHICALS">BATTERY /SOLAR APPLIANCES AND VEHICALS</option>
+                                              <option value="Beauty Parlor / Saloon">Beauty Parlor / Saloon</option>
+                                              <option value="BUILDING MATERIALS SELLER / SUPPLER">BUILDING MATERIALS SELLER / SUPPLER</option>
+                                              <option value="CATERING WORK">CATERING WORK</option>
+                                              <option value="Computer Work For Hardware">Computer Work For Hardware</option>
+                                              <option value="Computer Work For Software">Computer Work For Software</option>
+                                              <option value="Computer Work For Writing / Printing / Designing">Computer Work For Writing / Printing / Designing</option>
+                                              <option value="CONFECTIONARY/ BAKERY">CONFECTIONARY/ BAKERY</option>
+                                              <option value="Construction Work For Shattring">Construction Work For Shattring</option>
+                                              <option value="CONSTRUCTION WORK/BUILDER/CONTRACTOR/MISTRI/LABOUR/ETC">CONSTRUCTION WORK/BUILDER/CONTRACTOR/MISTRI/LABOUR/ETC</option>
+                                              <option value="COOKING /HALWAI">COOKING /HALWAI</option>
+                                              <option value="COURIERS DOMESTIC/INTERNATIONAL">COURIERS DOMESTIC/INTERNATIONAL</option>
+                                              <option value="CYBER/  CAFE / INTERNET CORNER">CYBER/  CAFE / INTERNET CORNER</option>
+                                              <option value="Dentist">Dentist</option>
+                                              <option value="DETECTIVES SERVICES">DETECTIVES SERVICES</option>
+                                              <option value="DIETITIANS/PHYSICIAN ETC">DIETITIANS/PHYSICIAN ETC</option>
+                                              <option value="DJ's Provider">DJ's Provider</option>
+                                              <option value="DOCTORS /CLINICS">DOCTORS /CLINICS</option>
+                                              <option value="DRY CLEANERS FOR HOUSES/OFFICES MATERIALS">DRY CLEANERS FOR HOUSES/OFFICES MATERIALS</option>
+                                              <option value="ELECTRICIAN FOR ELECTRIC/ELECTRONIC/COMMUNICATION APPLIANCES">ELECTRICIAN FOR ELECTRIC/ELECTRONIC/COMMUNICATION APPLIANCES</option>
+                                              <option value="Fire Extinger Sellar">Fire Extinger Sellar</option>
+                                              <option value="FIRECRACKER ETC">FIRECRACKER ETC</option>
+                                              <option value="Flower /Baloons /Lighting etc Decoration">Flower /Baloons /Lighting etc Decoration </option>
+                                              <option value="Fooding">Fooding</option>
+                                              <option value="FOOT WEAR">FOOT WEAR</option>
+                                              <option value="Furniture Seller &amp; Menufacture -- House / Offices">Furniture Seller &amp; Menufacture -- House / Offices</option>
+                                              <option value="GARDENING / PLANTATION /NURSERY">GARDENING / PLANTATION /NURSERY</option>
+                                              <option value="GENERAL STORE">GENERAL STORE</option>
+                                              <option value="GIFT GALLERY">GIFT GALLERY</option>
+                                              <option value="Goat / Camel / Cow / Milk Seller">Goat / Camel / Cow / Milk Seller</option>
+                                              <option value="Guids For Monoments">Guids For Monoments</option>
+                                              <option value="GYM / SPA Etc">GYM / SPA Etc</option>
+                                              <option value="99">HOSPITALS/NURSING HOME</option>
+                                              <option value="HOSPITALS/NURSING HOME">HOSPITALS/NURSING HOME</option>
+                                              <option value="Human Resourcess">Human Resourcess </option>
+                                              <option value="Interior Designer / Decorator">Interior Designer / Decorator</option>
+                                              <option value="Jagran Party / Bhajan Party / Singer Party">Jagran Party / Bhajan Party / Singer Party</option>
+                                              <option value="JCB /CRANS Etc Work">JCB /CRANS Etc Work</option>
+                                              <option value="JEWELLERY">JEWELLERY</option>
+                                              <option value="Laundry Walla Washing/Pressing">Laundry Walla Washing/Pressing</option>
+                                              <option value="Mechanics For Heavy Wheelar">Mechanics For Heavy Wheelar</option>
+                                              <option value="MECHANICS FOR LIGHT FOUR WHEELERS">MECHANICS FOR LIGHT FOUR WHEELERS</option>
+                                              <option value="Mechanics For Two Wheeler">Mechanics For Two Wheeler</option>
+                                              <option value="MEDICALS /PATHOLOGY /DIAGNOSTICS LABS Etc">MEDICALS /PATHOLOGY /DIAGNOSTICS LABS Etc</option>
+                                              <option value="Milk &amp; Milk Products Seller /Dairies">Milk &amp; Milk Products Seller /Dairies</option>
+                                              <option value="MODULAR KITCHEN/CHIMNEY /APPLIANCES">MODULAR KITCHEN/CHIMNEY /APPLIANCES</option>
+                                              <option value="MONEY CHANGERS /TRANSFER AUTHORIZED">MONEY CHANGERS /TRANSFER AUTHORIZED</option>
+                                              <option value="Movers &amp; Packers">Movers &amp; Packers</option>
+                                              <option value="Murti / Idols Provider / Decorators">Murti / Idols Provider / Decorators</option>
+                                              <option value="OPTICAL /FRAMES/GOGGALES/CONTACT LENSES">OPTICAL /FRAMES/GOGGALES/CONTACT LENSES</option>
+                                              <option value="Others">Others</option>
+                                              <option value="Painting/White Wash Work">Painting/White Wash Work</option>
+                                              <option value="Party / Marriage / Events Organiser">Party / Marriage / Events Organiser</option>
+                                              <option value="PET ANIMAL'S SHOP">PET ANIMAL'S SHOP</option>
+                                              <option value="PHARMA /MEDICALS">PHARMA /MEDICALS</option>
+                                              <option value="PHOTOGRAPHERS AND STUDIOS">PHOTOGRAPHERS AND STUDIOS</option>
+                                              <option value="Play Schools">Play Schools</option>
+                                              <option value="POP / Fall Celling / Flooring Work /Blinds / Wall Paper">POP / Fall Celling / Flooring Work /Blinds / Wall Paper</option>
+                                              <option value="PRINTING / DESIGNING WORKS">PRINTING / DESIGNING WORKS</option>
+                                              <option value="PROPERTY DEALER ">PROPERTY DEALER </option>
+                                              <option value="PUBLIC TRANSPORT/TRAVELS SELLER">PUBLIC TRANSPORT/TRAVELS SELLER</option>
+                                              <option value="RESTAURENT/ PUB">RESTAURENT/ PUB</option>
+                                              <option value="SECURITY PURPOSES/CCTV/GUARD/ETC">SECURITY PURPOSES/CCTV/GUARD/ETC</option>
+                                              <option value="-Select Service-">-Select Service-</option>
+                                              <option value="STUDY ACADEMY/TUTION CENTRE">STUDY ACADEMY/TUTION CENTRE</option>
+                                              <option value="TAILORS/BOTIQUE/DRESS DESIGNER/FABRICATION">TAILORS/BOTIQUE/DRESS DESIGNER/FABRICATION</option>
+                                              <option value="TENTS /PANDALS HOUSES">TENTS /PANDALS HOUSES</option>
+                                              <option value="Ticket Seller / Broker For Airlines">Ticket Seller / Broker For Airlines</option>
+                                              <option value="Ticket Seller / Broker For Bus / Train">Ticket Seller / Broker For Bus / Train</option>
+                                              <option value="TOURS /TRAVELS / TRANSPORTERS">TOURS /TRAVELS / TRANSPORTERS</option>
+                                              <option value="TUITION /INSTITUTE /TUTOR  CENTER">TUITION /INSTITUTE /TUTOR  CENTER</option>
+                                              <option value="Tyres">Tyres</option>
+                                              <option value="WATER / COLD DRINKS / ICE / ICE CREMES SUPPLIERS">WATER / COLD DRINKS / ICE / ICE CREMES SUPPLIERS</option>
+                                              <option value="WATER /ELECTRIC METER FITTERS">WATER /ELECTRIC METER FITTERS</option>
+                                              <option value="WATER AQUARIUM">WATER AQUARIUM</option>
+                                              <option value="WATER FILTER /PURIFIER /RO">WATER FILTER /PURIFIER /RO</option>
+                                              <option value="Website &amp; App Developers / Makers">Website &amp; App Developers / Makers</option>
+                                              <option value="WELDING WORKS">WELDING WORKS</option>
+                                              <option value="Woodwork / Car painter">Woodwork / Car painter</option>
+                                              <option value="Yoga / Exercise / Gym Trainer">Yoga / Exercise / Gym Trainer</option>
+                                            </select>
+                                            <!-- <label>Select Gender</label> -->
+                                        </div>
+                                      <label>
+                                        <input type="text" name="Specification"/>
+                                        <div class="label-text">Service Specification</div>
+                                      </label>
+                                      
+                                      <div class="md-form">
+                                            <select name="ProvideServices" class="mdb-select colorful-select dropdown-primary" required>
+                                              <option value="" disabled selected>Timing for Provide Services<span id="require">*</span></option>
+                                              <option value="Full Time Day">Full Time Day</option>
+                                                <option value="Full Time Night">Full Time Night</option>
+                                                <option value="Part Time Evening">Part Time Evening</option>
+                                                <option value="PArt Time Morning">PArt Time Morning</option>
+                                                <option value="Daily Based">Daily Based</option>
+                                                <option value="On Requirment">On Requirment</option>
+                                            </select>
+                                        </div>
+                                        <label>
+                                            <input type="text" name="ProviderRegistered"/>
+                                            <div class="label-text">Services Provider Registered on</div>
+                                      </label>
+                                      <label>
+                                        <input type="text" name="RegisteredExpiry"/>
+                                        <div class="label-text">Services Registered Expiry Date</div>
+                                      </label>
+                                      <div class="md-form">
+                                            <select name="Country" class="mdb-select colorful-select dropdown-primary">
+                                              <option value="" disabled selected>Service Providing Country</option>
+                                              <option value="INDIA">INDIA</option>
+                                            </select>
+                                        </div>                                    
+                                    <div class="md-form">
+                                            <select name="State" class="mdb-select colorful-select dropdown-primary">
+                                              <option value="" disabled selected>Service Providing State</option>
+                                              <option value="Delhi">Delhi</option>
+                                              <option value="NCR">NCR</option>
+                                            </select>
+                                        </div>
+
+
+                                    <label>
+                                        <input type="text" name="City"/>
+                                        <div class="label-text">Service Providing City</div>
+                                    </label>
+
+                                    <label>
+                                        <input type="text" name="Area"/>
+                                        <div class="label-text">Services Providing Area</div>
+                                    </label>
+
+                                    <h3 style="color: #555; margin-top: 10px; margin-bottom: 10px;">Service Provider Details</h3>
+                                    <label>
+                                        <input type="text" name="Agency" required />
+                                        <div class="label-text">Services Provider Agency Name<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="Representative" required />
+                                        <div class="label-text">Name of Representative/Service Provider<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="number" name="MobileNumber" required />
+                                        <div class="label-text">Mobile Number<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="number" name="LandNumber"/>
+                                        <div class="label-text">Landline Number</div>
+                                    </label>
+
+                                    <div class="md-form">
+                                            <select name="Timing" class="mdb-select colorful-select dropdown-primary">
+                                                <option value="" disabled selected>Contect Timing</option>
+                                                  <option value="6 am to 12 pm">6 am to 12 pm</option>
+                                                    <option value="12 pm to 6 pm">12 pm to 6 pm</option>
+                                                    <option value="6 pm to 10 pm">6 pm to 10 pm</option>
+                                                    <option value="6 am to 10 pm">6 am to 10 pm</option>
+                                                    <option value="24 Hour">24 Hour</option>
+                                            </select>
+                                        </div>
+                                    <label>
+                                        <input type="text" name="aadharcard" required />
+                                        <div class="label-text">Aadhar / Voter / Other Govt Card No<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="website"/>
+                                        <div class="label-text">Website</div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="emailMobile"/>
+                                        <div class="label-text">Email/Mobile</div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="address" required />
+                                        <div class="label-text">Address Of Services Provider<span id="require">*</span></div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="pincode"/>
+                                        <div class="label-text">Pincode</div>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="information"/>
+                                        <div class="label-text">Any Information About Your Services</div>
+                                    </label>
+                                    <div class="md-form">
+                                      <select name="payment" class="mdb-select colorful-select dropdown-primary">
+                                        <option value="" disabled selected>Choose Payment Plan</option>
+                                          <option value="Three Hundred Rs. For 6 Month">Three Hundred Rs. For 6 Month</option>
+                                          <option value="Five Hundred Rs.For 12 Month">Five Hundred Rs.For 12 Month</option>
+                                          <option value="Seven Hundred Rs.For 18 Month">Seven Hundred Rs.For 18 Month</option>
+                                          <option value="More Than Upto 18 Months">More Than Upto 18 Months</option>
+                                        <option value="24 Hour">24 Hour</option>
+                                      </select>
+                                  </div>
+              
+            <div class="modal-footer d-flex justify-content-center">
+                <button type="submit" style="background-color: rgb(241, 97, 54)!important;" class="btn btn-success">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
+            </div>
+        </div>
+      </form>
+    </div>
+</div>
+
+
+ 

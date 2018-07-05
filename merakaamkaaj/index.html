@@ -1,0 +1,787 @@
+
+       <style type="text/css">
+         #carousel-item{
+            padding: 20px;
+            height: 70vh;
+            overflow: scroll;
+        }
+        
+       </style>
+
+
+                <!-- HEADER 
+            =================-->
+                <header id="conent">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+ 
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="img-caption-hide"></div>
+                          <img class="d-block w-100 img-fluid" src="/img/1.jpg" alt="First slide">
+                          <div class="carousel-caption d-none d-md-block">
+                            <!-- <h3>Welcome to <span>Startup</span></h3> -->
+                            Provide Worker or Services after right verification We serve our services with your safety
+                            <!-- <div class="btn btn-general btn-white">Buy now</div> -->
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <div class="img-caption-hide"></div>
+                          <img class="d-block w-100" src="/img/2.jpg" alt="Second slide">
+                          <div class="carousel-caption d-none d-md-block">
+                            <!-- <h3><span>Derive </span>with me</h3> -->
+                            Worker & Services provid from your locality In right & fixed ammount get best job / workers / services
+                            <!-- <div class="btn btn-general btn-white">Buy now</div> -->
+                          </div>
+                        </div> 
+                      </div>
+                      <a class="carousel-control-prev carousel-arrs" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="arrow-sliders"><i class="fa fa-angle-left"></i></span>
+                      </a>
+                      <a class="carousel-control-next carousel-arrs" href="#carouselExampleIndicators" role="button" data-slide="next">
+                         <span class="arrow-sliders"><i class="fa fa-angle-right"></i></span>
+                      </a>
+                    </div>
+                  </header>
+
+                  <div class="row-fluid" style="margin-top: 50px; ">
+                    <div class="col-md-12">
+                        <center><p>SEARCH RIGHT WORKER / SERVICES</p></center>
+                   </div>
+                   <div class="row col-md-12">
+                   <div class="col-md-2"></div> 
+                      <div class="col-md-4">
+                        <!-- <button>QUICK SEARCH</button> -->
+                        <button id="border" class="btnnnn btn-success" data-toggle="modal" data-target="#myModal1">LOGIN/RAGISTRATION</button>
+                      </div>
+                      <div class="col-md-4">
+                        <!-- <button>QUICK SEARCH</button> -->
+                        <button id="border" class="btnnnn btn-success" data-toggle="modal" data-target="#myModal">QUICK SEARCH</button>
+                      </div>
+                      <div class="col-md-2"></div>
+                    </div>
+
+
+                  <!--   <form action="/submit" enctype="multipart/form-data" method="POST">
+                        <input type="text" name="fullname" placeholder="Full Name">
+                        <input type="text" name="gender" placeholder="Gender">
+                        <input type="email" name="emailid" placeholder="email">
+                        <input type="text" name="password" placeholder="Password">
+                        <input type="text" name="lookingfor" placeholder="lookingfor">
+                        
+                        <input type="file" name="image">
+                        <button type="submit">save</button>
+                    </form> -->
+
+
+        <!-- HEADER 
+            =================-->
+                <header id="conent1" style="background: #f16024; margin-top: 78px;">
+                    <h3 style="text-align: center;color: #fff; padding-top: 20px;  font-weight: lighter;">OUR WORKERS</h3>
+                    <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
+ 
+                      <div class="carousel-inner">
+                        <div id="carousel-item" class="carousel-item active" style="padding: 20px;">
+                         
+                          <div class="row">
+
+                            {{#each alljobcategory}}                            
+                            <div class="col-md-3">
+                              <div class="cards">
+                              <div class="card">
+                                <center><img src="/uploads/category/{{_id}}.png"></center>
+                                <div class="card-title" style="margin: 0px !important;">
+                                  <a href="#" class="toggle-info btn2">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                  </a>
+                                  <h5 style="color: #555;">
+                                      {{JobCategory}}<br>
+                                      <!-- <small>Image from unsplash.com</small> -->
+                                  </h5>
+                                </div>
+                                <div class="card-flap flap1">
+                                  <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                      <a href="#" class="btn2">Workers</a>
+                                      <a href="#" class="btn2">Jobs</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          {{/each}}
+                        </div> 
+                      </div>
+                    </div>
+                  </header>
+
+
+
+                  <header id="conent2" style="background: #f16024;">
+                    <h3 style="text-align: center;color: #fff; padding-top: 20px; font-weight: lighter;">OUR SERVICE PROVIDER</h3>
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+ 
+                      <div class="carousel-inner">
+                        <div id="carousel-item" class="carousel-item active" style="padding: 20px;">
+                          <div class="row">
+                            {{#each allService}}
+                            <div class="col-md-3">
+                              <div class="cards">
+                              <div class="card">
+                                <center><img src="/uploads/services/{{_id}}.png"></center>
+                                <div class="card-title" style="margin: 0px !important;">
+                                  <a href="#" class="toggle-info btn2">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                  </a>
+                                  <h5 style="color: #555;">
+                                      {{Service}}<br>
+                                  </h5>
+                                </div>
+                                <div class="card-flap flap1">
+                                  <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                      <a href="#" class="btn2">Workers</a>
+                                      <a href="#" class="btn2">Jobs</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          {{/each}}
+                        </div> 
+                      </div>
+                    </div>
+                  </header>
+
+
+<!-- ========================================================================================================  -->
+      <div style="text-align: center;">
+        <h2>How We Work</h2>
+      </div>
+
+      <div class="container">
+        <button id="one1" style="outline: none; background: #F16023; border: 1px solid #F16023; color: #fff; font-size: 15px; padding: 5px 15px; border-radius: 3px; cursor: pointer;">Employer</button>
+        <button id="two2" style="outline: none; background: none; border: 1px solid #F16023; color: #F16023; font-size: 15px; padding: 5px 15px; border-radius: 3px; cursor: pointer;">Worked / Services</button>
+      </div>
+      <section class="main1">
+      
+        <ul class="ch-gridone">
+          <li>
+            <div class="ch-itemone ch-img-1one">        
+              <div class="ch-info-wrapone">
+                <div class="ch-infoone">
+                  <div class="ch-info-frontone ch-img-1one"></div>
+                  <div class="ch-info-backone">
+                    <h3>Collect Details</h3>
+                    <p>Collect Details for required Right Worker / Services</p>
+                  </div>  
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ch-itemone ch-img-2one">
+              <div class="ch-info-wrapone">
+                <div class="ch-infoone">
+                  <div class="ch-info-frontone ch-img-2one"></div>
+                  <div class="ch-info-backone">
+                    <h3>Verification</h3>
+                    <p>Verification of Workers / Services Seekers by Email / OTP / Other</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ch-itemone ch-img-3one">
+              <div class="ch-info-wrapone">
+                <div class="ch-infoone">
+                  <div class="ch-info-frontone ch-img-3one"></div>
+                  <div class="ch-info-backone">
+                    <h3>Post Details</h3>
+                    <p>Post Details of Employer and it's required Worker and Services Provider</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ch-itemone ch-img-4one">
+              <div class="ch-info-wrapone">
+                <div class="ch-infoone">
+                  <div class="ch-info-frontone ch-img-4one"></div>
+                  <div class="ch-info-backone">
+                    <h3>Connect Employers</h3>
+                    <p>Connect Employers with right Workers & Services Provider</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ch-itemone ch-img-5one">
+              <div class="ch-info-wrapone">
+                <div class="ch-infoone">
+                  <div class="ch-info-frontone ch-img-5one"></div>
+                  <div class="ch-info-backone">
+                    <h3>Thank you</h3>
+                    <p>Thanks for using our services meet again</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        
+      </section>
+      <section class="main2" style="display: none;">
+        <ul class="ch-gridone">
+          <li>
+            <div class="ch-itemone ch-img-6one">        
+              <div class="ch-info-wrapone">
+                <div class="ch-infoone">
+                  <div class="ch-info-frontone ch-img-6one"></div>
+                  <div class="ch-info-backone">
+                    <h3>Registration</h3>
+                    <p>Registration of Worker or Services Provider by Site / App / Call</p>
+                  </div>  
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ch-itemone ch-img-7one">
+              <div class="ch-info-wrapone">
+                <div class="ch-infoone">
+                  <div class="ch-info-frontone ch-img-7one"></div>
+                  <div class="ch-info-backone">
+                    <h3>Verification of Worker</h3>
+                    <p>Verification of Worker / Services Provider by Email / OTP / Other</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ch-itemone ch-img-8one">
+              <div class="ch-info-wrapone">
+                <div class="ch-infoone">
+                  <div class="ch-info-frontone ch-img-8one"></div>
+                  <div class="ch-info-backone">
+                    <h3>Post Details</h3>
+                    <p>Post Details of Right Worker / Services Provider on Website</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ch-itemone ch-img-9one">
+              <div class="ch-info-wrapone">
+                <div class="ch-infoone">
+                  <div class="ch-info-frontone ch-img-9one"></div>
+                  <div class="ch-info-backone">
+                    <h3></h3>
+                    <p>Connect Right Worker / Service Provider with Employer according to their skill</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        
+      </section>
+
+
+        <!-- RECENT RIGHT WORKERS/JOBS -->
+    <div class="recents">
+      <h3 style="text-align: center; padding-bottom: 20px; color: #888; font-weight: lighter; text-shadow: 1px 1px #495057;">RECENT RIGHT WORKERS/JOBS</h3>
+        <div class="container-fluid" style="padding: 0px !important;">
+
+            <div class="row">
+                <div style="width: 100%;" id="Div1" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+
+                    <div class="carousel-inner">
+
+                        <div class="item active container" style="padding: 0px !important;">
+                            <marquee onmouseover="this.stop()" onmouseout="this.start()">
+                            <table id="ContentPlaceHolder1_dlservices" cellspacing="0" style="border-collapse:collapse;">
+                              <tr>
+                                <!-- RECENT WORKERS -->
+
+                                {{#each allrecentworkers}}
+                                <td>
+                                  <div class="col-md-12 col-sm-6 col-xs-6">
+                                    <div class="jobs1">
+                                      <span class='list-group gallery'>
+                                        <a class="thumbnail fancybox" rel="ligthbox" href='photo/simg720.jpg'>
+                                          <img src='img/logo.png' />
+                                        </a>
+                                      </span>
+                                      <div style="background: #f16024; padding: 5px; border-radius: 50px; text-align: center; margin-bottom: 20px;">
+                                        <span style="color: #fff;">
+                                          {{JobCat}}
+                                        </span><br>
+                                        <!-- <span style="color: #fff; font-size: 12px;">
+                                          UISINE ART FAMILY RESTURA ...
+                                        </span> -->
+                                      </div>
+                                       <div class="clearfix"></div>
+                                       <table class="table" style="font-size: 12px;">
+                                        <tr>
+                                          <th>JOb Id</th>
+                                          <td>{{_id}}</td>
+                                        </tr>
+                                        <tr>
+                                          <th>Salary (INR)</th>
+                                          <td>{{ExpSalary}}</td>
+                                        </tr>
+                                        <tr>
+                                          <th>Experience</th>
+                                          <td>
+                                            <span id="ContentPlaceHolder1_dlservices_lbllocser_9">{{Experience}}</span>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <th>Education</th>
+                                          <td>{{Class}}/{{Degree}}/{{PG}}/{{Diploma}}</td>
+                                        </tr>
+                                        <tr>
+                                          <th>Location</th>
+                                          <td>{{PriferredLocation}}</td>
+                                        </tr>
+                                        <tr>
+                                          <th>Type</th>
+                                          <td>Worker</td>
+                                        </tr>
+                                        </table>
+                                        <a style="background: #f16024; cursor: pointer; padding: 10px 30px; color: #fff; border-radius: 50px;">View</a>                       
+                                        <div class="clearfix"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  {{/each}}
+
+                                <!-- RECENT JOBS -->
+                                {{#each allrecentjobs}}
+                                  <td>
+                                  <div class="col-md-12 col-sm-6 col-xs-6">
+                                    <div class="jobs1">
+                                      <span class='list-group gallery'>
+                                        <a class="thumbnail fancybox" rel="ligthbox" href='photo/simg720.jpg'>
+                                          <img src='img/logo.png' />
+                                        </a>
+                                      </span>
+                                      <div style="background: #f16024; padding: 5px; border-radius: 50px; text-align: center; margin-bottom: 20px;">
+                                        <span style="color: #fff;">
+                                          {{jobType}}
+                                        </span><br>
+                                        <!-- <span style="color: #fff; font-size: 12px;"> -->
+                                          <!-- UISINE ART FAMILY RESTURA ... -->
+                                        <!-- </span> -->
+                                      </div>
+                                       <div class="clearfix"></div>
+                                       <table class="table" style="font-size: 12px;">
+                                        <tr>
+                                          <th>Job Id</th>
+                                          <td>{{_id}}</td>
+                                        </tr>
+                                        <tr>
+                                          <th>Salary (INR)</th>
+                                          <td>{{salary}}</td>
+                                        </tr>
+                                        <tr>
+                                          <th>Experience</th>
+                                          <td>
+                                            <span id="ContentPlaceHolder1_dlservices_lbllocser_9">{{experience}}</span>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <th>Location</th>
+                                          <td>{{jobArea}}</td>
+                                        </tr>
+                                        <tr>
+                                          <th>Vacancy</th>
+                                          <td>{{aVacancy}}</td>
+                                        </tr>
+                                        <tr>
+                                          <th>Type</th>
+                                          <td>JOb</td>
+                                        </tr>
+                                        </table>
+                                        <a style="background: #f16024; cursor: pointer; padding: 10px 30px; color: #fff; border-radius: 50px;">View</a>                       
+                                        <div class="clearfix"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  {{/each}}
+                                </tr>
+
+                              </table></marquee>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="recents" style="background: #fff !important;">
+                    <h3 style="text-align: center; padding-bottom: 20px; color: #888; font-weight: lighter; text-shadow: 1px 1px #495057;">Recent Services</h3>
+                      <div class="container-fluid" style="padding: 0px !important;">
+
+                          <div class="row">
+                              <div style="width: 100%;" id="Div1" class="carousel slide" data-ride="carousel">
+                                  <!-- Wrapper for slides -->
+
+                                  <div class="carousel-inner">
+
+                                      <div class="item active container" style="padding: 0px !important;">
+                                          <marquee onmouseover="this.stop()" onmouseout="this.start()">
+                                          <table id="ContentPlaceHolder1_dlservices" cellspacing="0" style="border-collapse:collapse;">
+                                            <tr>
+                                              {{#each allrecentsers}}
+                                              <td>
+                                                <div class="col-md-12 col-sm-6 col-xs-6">
+                                                  <div class="jobs2">
+                                                    <span class='list-group gallery'>
+                                                      <a class="thumbnail fancybox" rel="ligthbox" href='photo/simg720.jpg'>
+                                                        <img src='img/logo.png' />
+                                                      </a>
+                                                    </span>
+                                                    <div style="background: #f16024; padding: 5px; border-radius: 50px; text-align: center; margin-bottom: 20px;">
+                                                      <span style="color: #fff;">
+                                                        {{TypeOfService}}
+                                                      </span><br>
+                                                    </div>
+                                                     <div class="clearfix"></div>
+                                                     <table class="table" style="font-size: 12px;">
+                                                      <tr>
+                                                        <th>Service Id</th>
+                                                        <td>{{_id}}</td>
+                                                      </tr>
+                                                      <tr>
+                                                        <th>Specification</th>
+                                                        <td>{{Specification}}</td>
+                                                      </tr>
+                                                      <tr>
+                                                        <th>Service Providing Area</th>
+                                                        <td>
+                                                          <span id="ContentPlaceHolder1_dlservices_lbllocser_9">{{Area}}</span>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <th>Timing for Provide Services</th>
+                                                        <td>{{ProvideServices}}</td>
+                                                      </tr>
+
+                                                      </table>
+                                                      <a style="background: #f16024; cursor: pointer; padding: 10px 30px; color: #fff; border-radius: 50px;">View</a>                       
+                                                      <div class="clearfix"></div>
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                                {{/each}}
+                                              </tr>
+                                            </table></marquee>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+<!-- ======================================================================== -->
+            <!-- LOGIN MODAL FOR ADMIN -->
+            <!-- ====================== -->
+
+        <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login modal</button> -->
+          <!-- LOGIN MODAL -->
+            <!-- ====================== -->
+
+        <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login modal</button> -->
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Admin</h4>
+                    </div>
+                    <div class="modal-body" style="background-image: url('https://wallpaperbrowse.com/media/images/soap-bubble-1958650_960_720.jpg'); padding: 6em !important; ">
+                        <div class="row">
+                            <div class="col-md-12 mini_q">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="Login">
+                                        <form role="form" class="form-horizontal" action="/admin/deshboard" method="POST">
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">
+                                                Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="email1" name="emailid" placeholder="Email" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1" class="col-sm-2 control-label">
+                                                Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    Submit</button>
+                                                <a style="color: #6c757d;" href="javascript:;">Forgot your password?</a>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+<!-- ======================================================================== -->
+
+
+
+            <!-- LOGIN MODAL -->
+            <!-- ====================== -->
+
+        <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login modal</button> -->
+          <!-- LOGIN MODAL -->
+            <!-- ====================== -->
+
+        <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login modal</button> -->
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Login/Registration</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8 mini_q" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#Login1" data-toggle="tab">Login</a></li>
+                                    <li><a href="#Registration1" data-toggle="tab">Registration</a></li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="Login1">
+                                        <form role="form" class="form-horizontal" action="/user/login" method="POST">
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">
+                                                Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="email1" name="emailid" placeholder="Email" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1" class="col-sm-2 control-label">
+                                                Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    Submit</button>
+                                                <a style="color: #6c757d;" href="javascript:;">Forgot your password?</a>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="Registration1">
+                                        <form method="POST" action="/sending/mail" role="form" class="form-horizontal">
+                                        <div class="form-group">
+                                            <div class="col-sm-10">
+                                                <input type="text" name="fullname" class="form-control" id="mobile" placeholder="Full Name" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="gender" required>
+                                                  <option value="" disabled selected>Select Gender</option>
+                                                  <option value="male">Male</option>
+                                                  <option value="female">Female</option>
+                                                  <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-10">
+                                                <input type="text" name="emailid" class="form-control" placeholder="Email" required/>
+                                            </div>
+                                        </div>  
+                                        <div class="form-group">
+                                            <div class="col-sm-10">
+                                                <input type="text" name="password" class="form-control" placeholder="Password" required/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="lookingfor" required>
+                                                  <option value="" disabled selected>Select looking for</option>
+                                                  <option>I am looking for right job.</option>
+                                                  <option>I am looking for right worker.</option>
+                                                  <option>I am looking for right service provider</option>
+                                                  <option>I am service provider</option>
+                                                  <option>I am looking for search right worker</option>
+                                                  <option>I am looking for search right worker</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    Save & Continue</button>
+                                                <button type="button" class="btn btn-default btn-sm">
+                                                    Cancel</button>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="OR" class="hidden-xs">
+                                    OR</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row text-center sign-with">
+                                    <div class="col-md-12">
+                                        <h3>
+                                            Sign in with</h3>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="btn-group btn-group-justified">
+                                            <a href="#" class="btn btn-primary"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-facebook"></i> Facebook</a> <a href="#" class="btn btn-danger"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-google"></i> Google</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+       <!-- modal box     <div class="container"> -->
+  <!-- <h2>Large Modal</h2> -->
+  <!-- Trigger the modal with a button -->
+  <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Large Modal</button> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" style="padding: 2.2em 18px 2.2em 18px;">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- <p class="modal-title">Modal Header</p> -->
+        </div>
+        <div class="modal-body" id="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 style="color: white; background: #f16025; text-align: center; width: 80%; border-radius: 10px; box-shadow: 4px 4px 11px #00000047;">Quick Result</h2>
+            </div>
+          <form action="/quick/search" method="POST">
+          <div class="row col-md-10">
+            <div class="col-md-6">
+              <input class="form-control" name="Visitorname" id="inputdefault" type="text" placeholder="Full name" required>
+              <input class="form-control" id="inputdefault" name="visitorcontect" type="number" placeholder="Contact Number" required>
+            </div>
+            <div class="col-md-6">
+              <input class="form-control" style="display: none;" name="" id="inputdefault" type="number" placeholder="Ex:abc@example.com">
+              
+              <!-- <div class="form-group"> -->
+                                            <!-- <div class="col-sm-10"> -->
+                <select name="visitorlookingfor" class="form-control" required>
+                  <option value="rightjob">I am looking for right job.</option>
+                  <option value="rightworker">I am looking for right worker.</option>
+                  <option value="rigthservice">I am looking for right service provider</option>
+                </select>
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+            </div>
+            <div class="row" style="width: 100%;">
+                <div class="col-md-12">
+                    <button style="padding: 10px; background: #f16024; box-shadow: 4px 4px 11px #00000047; color: #fff; font-size: 12px; width: 100%; margin: auto;" type="submit" class="btn btn-default">Search Quick Result</button>
+                </div>
+            </div>
+          </div>
+        </form>
+        </div>
+          
+
+        </div>
+        <div class="modal-footer" style=" background: #f16025;">
+          <div style="text-align: left!important;">All rights reserved©2017 MeraKaamKaaj.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <style type="text/css">
+      .selectpicker{
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            margin-bottom: 5px;
+            font-size: 16px;
+            line-height: 1.42857143;
+            color: #fff;
+            background-color: #f16024 !important;
+            background-image: none;
+            border: 1px solid #ccc;
+
+      }
+      #body-content{
+        background-color: #f16024;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+      #border {
+            border-radius: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            outline: none;
+            box-shadow: 2px 2px 1px #00000063;
+        }
+      #container {
+        position: relative;
+        width: 30% !important;
+        background-color: white;
+        /*margin: 1%;*/
+
+        }
+        #modal-body{
+          background: url("https://wallpaperbrowse.com/media/images/soap-bubble-1958650_960_720.jpg");
+        }
+
+
+
+    </style>
