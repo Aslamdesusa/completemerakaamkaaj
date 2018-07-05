@@ -61,7 +61,7 @@ server.state('emailid', {
   ttl: 24 * 60 * 1000,
   isHttpOnly: false,
   encoding: 'none',
-  isSecure: process.env.NODE_ENV == 'production',
+  // isSecure: process.env.NODE_ENV == 'production',
   path: '/',
   strictHeader: true
 });
