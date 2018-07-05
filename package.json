@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amarkrsinha1997/Mera-kaam-kaaj.git"
+    "url": "git+https://github.com/Aslamdesusa/completemerakaamkaaj.git"
   },
   "author": "Amar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amarkrsinha1997/Mera-kaam-kaaj/issues"
+    "url": "https://github.com/Aslamdesusa/completemerakaamkaaj.git"
   },
-  "homepage": "https://github.com/amarkrsinha1997/Mera-kaam-kaaj#readme",
+  "homepage": "https://github.com/Aslamdesusa/completemerakaamkaaj.git#readme",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
