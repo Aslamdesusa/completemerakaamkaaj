@@ -9,6 +9,7 @@ var ServiceSchema = new Schema({
     	'default': shortid.generate
     },
 	Service: String,
+	date: {type: Date, default: Date.now}
 });
 
 const Service = mongoose.model('Service', ServiceSchema)

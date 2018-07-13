@@ -7,7 +7,9 @@ var CitySchema = new Schema({
 	_id: {
 		type: String,
     	'default': shortid.generate
-    },	City: String,
+    },	
+    City: String,
+    date: {type: Date, default: Date.now}
 });
 
 const City = mongoose.model('City', CitySchema)

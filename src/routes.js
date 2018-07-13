@@ -1,6 +1,5 @@
 // import all the depanding library and modals 
 import Hapi from 'hapi';
-// import swal from 'sweetalert';
 const db = require('../database').db;
 const Joi = require('joi');
 const fs = require('fs');
@@ -16,11 +15,9 @@ const CityModel = require('../models/addcity')
 const JobCategoryModel = require('../models/addjobcategory')
 const ServiceModel1 = require('../models/addservice')
 const SpecificationModel = require('../models/addspecification')
-const visitorModel = require('../models/visitor') 
-const otpModel = require('../models/userotp')
+const visitorModel = require('../models/visitor')
 const swal = require('../node_modules/sweetalert')
 const nodemailer = require("nodemailer");
-// const LocalStorage = require('localstorage')
 const localStorage = require('node-localstorage')
 const sleep = require('sleep');
 const opn = require('opn');
@@ -29,8 +26,6 @@ const AuthCookie = require('hapi-auth-cookie')
  
 
 import jwt from 'jsonwebtoken';
-
-const server = new Hapi.Server();
 
 const routes = [
 {
@@ -55,10 +50,6 @@ const routes = [
 					data: data,
 				});
 				uuid=data;
-				console.log('====================================')
-				console.log(uuid)
-				console.log(uuid._id)
-				console.log('======================================')
 				var dataa = request.payload;
 	            if (dataa.image) {
 	                var name = uuid._id + ".jpg";
@@ -105,80 +96,8 @@ const routes = [
 		 tags:['api'],
 		 description:"Posting user details",
          notes:"in this route we can post details of a user jobs",
-         validate: {
-         	payload:{
-         		//Job Details
-         		verifi: "unverified",
-			    jobType:Joi.string().required(),
-			    skills:Joi.string().required(), 
-			    jobDescription:Joi.string().allow(null, ''),
-			    aVacancy: Joi.string().required(), 
-			    expiryDate: Joi.string().required(),
-			    country:Joi.string().required(),
-			    state:Joi.string().required(),
-			    city: Joi.string().required(),
-			    jobArea:Joi.string().required(),
-			    pinCode:Joi.number().allow(null, ''),
-			    jobAddress:Joi.string().allow(null, ''),
-
-			    //Professional Details
-			    salary:Joi.number().allow(null, ''),
-			    experience:Joi.number().required(),
-			    shift:Joi.string().required(),
-			    gender:Joi.string().required(),
-			    educations:Joi.string().allow(null, ''),
-			    knownLanguage:Joi.string().allow(null, ''),
-
-			    //Employer Details
-			    companyName:Joi.string().required(),
-			    nameOfRepresentative:Joi.string().required(),
-			    mobile:Joi.number().required(),
-			    landline:Joi.number().allow(null, ''),
-			    email:Joi.string().allow(null, ''),
-			    idCardNumber:Joi.string().required(),
-			    addressOfEmployer:Joi.string().allow(null, ''),
-			    contactTiming:Joi.string().allow(null, ''),
-			    lookingOverseas:Joi.string().allow(null, ''),
-			    paymentPlan:Joi.string().allow(null, ''),
-			}
-		},
 	},
 	handler: (request, reply) => {
-		// console.log(request.payload)
-		// var newUser = new UserModel({
-		// 		verifi: "unverified",
-		// 	    jobType: request.payload.jobType,
-		// 	    skills: request.payload.skillsy, 
-		// 	    jobDescription: request.payload.jobDescription.allow(null, ''),
-		// 	    aVacancy: request.payload.aVacancy, 
-		// 	    expiryDate: request.payload.experience,
-		// 	    country: request.payload.country,
-		// 	    state: request.payload.state,
-		// 	    city: request.payload.city,
-		// 	    jobArea: request.payload.jobArea,
-		// 	    pinCode: request.payload.pinCode.allow(null, ''),
-		// 	    jobAddress: request.payload.jobAddress.allow(null, ''),
-
-		// 	    //Professional Details
-		// 	    salary: request.payload.salary.allow(null, ''),
-		// 	    experience: request.payload.experience,
-		// 	    shift: request.payload.shift,
-		// 	    gender: request.payload.gender,
-		// 	    educations: request.payload.educations,
-		// 	    knownLanguage:request.payload.knownLanguage.allow(null, ''),
-
-		// 	    //Employer Details
-		// 	    companyName:request.payload.companyName,
-		// 	    nameOfRepresentative:request.payload.nameOfRepresentative,
-		// 	    mobile:request.payload.mobile,
-		// 	    landline:request.payload.landline.allow(null, ''),
-		// 	    email:request.payload.email.allow(null, ''),
-		// 	    idCardNumber:request.payload.idCardNumber,
-		// 	    addressOfEmployer:request.payload.addressOfEmployer.allow(null, ''),
-		// 	    contactTiming:request.payload.contactTiming.allow(null, ''),
-		// 	    lookingOverseas:request.payload.lookingOverseas.allow(null, ''),
-		// 	    paymentPlan:request.payload.paymentPlan.allow(null, ''),
-		// 	});
 		var newJobs = new jobsModel(request.payload);
 		newJobs.save(function (err, data){
 			if (err) {
@@ -197,130 +116,55 @@ const routes = [
 },
 {
 	method: 'POST',
-	path: '/Registere/user',
+	path: '/post/service/admin',
 	config: {
-		 //include this route in swagger documentation
-		 tags:['api'],
-		 description:"Registere user details",
-         notes:"in this route we can post details of a user",
-         validate: {
-         	payload:{
-         		fullname:Joi.string().required(),
-         		gender:Joi.string().required(),
-         		emailid:Joi.string().required(),
-         		password:Joi.string().required(),
-    			lookingfor:Joi.string().required(),
-
-			}
+		//include this route in swagger documentation
+		tags:['api'],
+		description:"Posting services",
+		notes:"in this route we can post services",
+		payload: {
+			output: 'stream',
+			parse: true,
+			allow: 'multipart/form-data'
 		},
 	},
 	handler: (request, reply) => {
 		// console.log(request.payload)
-		var newUser = new UserModel(request.payload);
-		newUser.save(function (err, data){
-			if (err) {
-				throw err;
-				console.log(err);
-			}else {
-				reply({
-					statusCode: 200,
-					message: "new user successfully Registered",
-					data: data
-				});
-			}
-		});
-	}
-	
-},
-{
-	method: 'POST',
-	path: '/make/new/Admin',
-	config: {
-		 //include this route in swagger documentation
-		 tags:['api'],
-		 description:"Admin make multiple admin",
-         notes:"in this route Admin can make multiple admin",
-         validate: {
-         	payload:{
-         		emailid:Joi.string().required(),
-         		password:Joi.string().required(),
-			}
-		},
-	},
-	handler: (request, reply) => {
-		// console.log(request.payload)
-		var newAdmin = new AdminModel(request.payload);
-		newAdmin.save(function (err, data){
-			if (err) {
-				throw err;
-				console.log(err);
-			}else {
-				reply({
-					statusCode: 200,
-					message: "new user successfully Registered",
-					data: data
-				});
-			}
-		});
-	}
-	
-},
-
-{
-	method: 'POST',
-	path: '/post/service',
-	config: {
-		 //include this route in swagger documentation
-		 tags:['api'],
-		 description:"Posting services",
-         notes:"in this route we can post services",
-         validate: {
-         	payload:{
-         		TypeOfService: Joi.string().required(),
-				Specification: Joi.string().allow(null, ''),
-				ProvideServices: Joi.string().required(),
-				ProviderRegistered: Joi.string().allow(null, ''),
-				RegisteredExpiry	: Joi.string().allow(null, ''),
-				Country: Joi.string().allow(null, ''),
-				State: Joi.string().allow(null, ''),
-				City: Joi.string().allow(null, ''),
-				Area: Joi.string().allow(null, ''),
-				Agency: Joi.string().required(),
-				Representative: Joi.string().required(),
-				MobileNumber: Joi.number().required(),
-				LandNumber: Joi.string().allow(null, ''),
-				Timing: Joi.string().allow(null, ''),
-				aadharcard: Joi.string().required(),
-				website: Joi.string().allow(null, ''),
-				emailMobile: Joi.string().allow(null, ''),
-				address: Joi.string().required(),
-				pincode: Joi.number().allow(null, ''),
-				information: Joi.string().allow(null, ''),
-				payment: Joi.string().allow(null, ''),
-			}
-		},
-	},
-	handler: (request, reply) => {
-		// console.log(request.payload)
+		var uuid = {}
 		var newService = new ServiceModel(request.payload);
 		newService.save(function (err, data){
 			if (err) {
 				// console.log(err);
 				throw err;
 			}else {
-				console.log(data);
-				reply({
-					statusCode: 200,
-					message: "new Service successfully posted",
-					data: data
-				});
+				reply.redirect('/forms')
+				uuid=data;
+				var dataa = request.payload;
+	            if (dataa.image) {
+	                var name = uuid._id + ".jpg";
+	                const __dirname = '../completemerakaamkaaj/merakaamkaaj/uploads'
+	                var path = __dirname + "/servicepics/" + name;
+	                var file = fs.createWriteStream(path);
+
+	                file.on('error', function (err) { 
+	                    console.error('error') 
+	                });
+	                dataa.image.pipe(file);
+	                dataa.image.on('end', function (err) {
+	                    var ret = {
+	                        filename: uuid._id + ".jpg",
+	                        headers: dataa.image.hapi.headers
+
+	                    }
+	                });
+		        }
 			}
 		});
 	}
 },
 {
 	method: 'POST',
-	path: '/post/resume/form',
+	path: '/post/resume/admin',
 	config: {
 		 //include this route in swagger documentation
 		 tags:['api'],
@@ -456,93 +300,8 @@ const routes = [
 	}
 	
 },
-{
-	method:  'POST',
-	path: '/sending/mail',
-	config: {
-		 //include this route in swagger documentation
-		 tags:['api'],
-		 description:"sending email",
-         notes:"sending email",
-	},
-	handler: (request, h) => {
-		// var userdata = {}
-		var otp = Math.floor(Math.random() * 90000) + 10000;
-		var transporter = nodemailer.createTransport({
-			host: 'smtp.gmail.com',
-			port: 587,
-			secure: false, // true for 465, false for other ports
-			auth: {
-			    user: 'aslam17@navgurukul.org', // generated ethereal user
-			    pass: 'aslam#desusa' // generated ethereal password
-			}
-			});
-			// setup email data with unicode symbols
-	    	var mailOptions = {
-		        from: '"Fred Foo 👻" <aslam17@navgurukul.org>', // sender address
-		        to: request.payload.emailid,  // list of receivers
-		        subject: 'Mera Kaamk Kaaj email verification message', // Subject line
-		        text: 'Hello world', // plain text body
-		        html: 'Dear Mera Kaam Kaaj.Com  User,<br><br>We received a request for registration in merakaamkaaj.com through your email address. Your verification CODE is :<br><br> '+otp+'<br><br> Please note for registration. If you did not request this, it is possible that someone else is trying to access the Account in merakaamkaaj.com. <b>Do not forward or give this code to anyone</b>.<br><br>You received this message because this email address is listed for registration in merakaamkaaj.com. Please click <a href="/">here</a> to ACCESS your account in merakaamkaaj.com.<br><br>Sincerely yours,<br><br>The merakaamkaaj.com tea,' // html body
-		    };
-		// var newUser = new UserModel(request.payload,);
-		var newUser = new UserModel({
-				"fullname": request.payload.fullname,
-				"gender": request.payload.gender,
-				"emailid": request.payload.emailid,
-				"password": request.payload.password,
-				"lookingfor": request.payload.lookingfor,
-				"otp": otp
-			});
-		newUser.save(function(err, data){
-			if (err) {
-				return h.view('error', {message: request.payload.emailid+' Already Exists Please Try With Another Email', errormessage: '409'})
-				console.log('user already exists')
-				return false
-			}else{
-				transporter.sendMail(mailOptions, (err, info) => {
-					if (err) {
-						throw err;
-						console.log(err);
-					}else{
-						h.state('emailid', data.emailid)
-						return h.view('confirmemail', {message: "We've sent an email to "+request.payload.emailid+". If this is a valid email address, you should receive an email with your username(s) within the next few minutes.", successmessage: '200'})
-					}
-				});
-			}
-		})
-	}
-},
-{
-    method:'GET',
-    path:'/verifing/email/address',
-    config:{
-        //include this route in swagger documentation
-        tags:['api'],
-        description:"getting details of a particular user",
-        notes:"getting details of particular user",
-        validate:{
-            params:{
-                emailid:Joi.string(),
-                otp:Joi.string()
-            }
-        },
-    },
-    handler: function(request, reply){
-    	var headers = request.headers.cookie.split('=')
-        var email = headers[1].split(';')[0]
-        var params = email
-        var query = {$and:[{emailid:{$regex: params, $options: 'i'}},{otp:{$regex: request.query.otp, $options: 'i'}}]}
-        
-        UserModel.find(query,function(err, data){
-            if(!data.length){
-                return reply.view('error', {message: 'Wrong OTP Please Fill Right OTP', errormessage: '400'})
-            } else {
-                return reply.view('error', {errormessage: '200', message:'Your Profile successfully Made By Mera Kaam kaaj Please login first', message3: 'LOGIN'})
-            }
-        });
-    }
-},
+
+
 {
 	method: 'POST',
 	path: '/add/city',
@@ -592,10 +351,6 @@ const routes = [
 			}else{
 				reply.view('sweetalert3', {data: data, message: 'New Job Category successfully saved'}, {layout: 'layout2'})
 				uuid=data;
-				console.log('====================================')
-				console.log(uuid)
-				console.log(uuid._id)
-				console.log('======================================')
 				var dataa = request.payload;
 	            if (dataa.image) {
 	                var name = uuid._id + ".png";
@@ -871,25 +626,6 @@ const routes = [
 		})	   
 	}
 },
-
-// ************************************************************
-			// GETTING HOME PAGE DATA
-
-
-
-// ************************************************************
-// ************************************************************
-// ************************************************************
-
-
-// {
-// 	method: 'GET',
-// 	path: '/',
-// 	handler: (request, reply) => {
-// 		// reply.view('index')
-
-// 	}
-// },
 {
 	method: 'GET',
 	path: '/',
@@ -910,7 +646,7 @@ const routes = [
 				console.log(err);
 				throw err;
 			}else{
-				jobcategory=allJobCategory;
+				jobcategory = allJobCategory;
 			}
 		})
 		ServiceModel1.find({}, (err, allService) =>{
@@ -990,56 +726,6 @@ const routes = [
 
 {
     method:'POST',
-    path:'/user/login',
-    config:{
-        //include this route in swagger documentation
-        tags:['api'],
-        description:"getting details of a particular user",
-        notes:"getting details of particular user",
-        validate:{
-            payload:{
-                emailid:Joi.string(),
-                password:Joi.string()
-            }
-        }
-    },
-    handler: function(request, reply){
-    	
-        UserModel.find({'emailid': request.payload.emailid, 'password': request.payload.password}, function(err, data){
-            if (err){
-                reply({
-                    'error': err
-                });
-            } else if (data.length == 0){
-          		var wrong = 'wrong email and password'
-                reply.view('error', {message: 'User dose not exists please try with your correct email and password', errormessage: '404 error'})
-            } else {
-                if (request.payload.password == data[0]['password']){
-                    var emailid = request.payload.emailid;
-                    const token = jwt.sign({
-                        emailid,
-                        userid:data[0]['_id'],
-
-                    },'vZiYpmTzqXMp8PpYXKwqc9ShQ1UhyAfy', {
-                        algorithm: 'HS256',
-                        expiresIn: '1h',
-                    });
-                    reply.state('emailid', emailid)
-                    
-                    request.cookieAuth.set({ token });
-                    // localStorage.setItem('userToken', token);
-                    // request.CookieAuth.Set({token});
-                    return reply.redirect('/user/deshboard')
-
-                     // reply.view('deshboard1', {data: data},{layout: 'layout3'})
-                }
-            }
-        })
-
-    }
-},
-{
-    method:'POST',
     path:'/admin/deshboard',
     config:{
         //include this route in swagger documentation
@@ -1078,31 +764,16 @@ const routes = [
 					
 
                     request.cookieAuth.set({ token });
-                    // var setcookie = response.headers["set-cookie"];
-                    // console.log(request.headers[emailid]);
-                    var headers = request.headers.cookie.split('=')
-                    var email = headers[1].split(';')[0]
-                    var params = email
-                    // const emailid = headers.cookie
-                    console.log(params)
 
-                    // console.log(headers)
-            //         if (request.headers.cookie == 'aslam@gmail.com') {
-       					// console.log('galat')
-            //         }else{
-            //         	console.log('good')
-            //         }
-                    // request.CookieAuth.Set({token});
                     return reply.redirect('/admin/deshboard')
-
-
-                     // reply.view('deshboard1', {data: data},{layout: 'layout3'})
                 }
             }
         })
 
     }
 },
+
+//***************************logout session***************************************************
 {
 	method: 'GET',
 	path: '/logout',
@@ -1112,27 +783,6 @@ const routes = [
 
 	}
 },
-{
-	method: 'GET',
-	path: '/user/posted/details',
-	handler: (request, h)=>{
-		var headers = request.headers.cookie.split('=')
-        var email = headers[1].split(';')[0]
-        var params = email
-        UserModel.find({emailid: params}, function(err, data){
-        	if (err) {
-        		throw err
-        	}else{
-        		h({
-        			data:data
-        		})
-        		console.log(data)
-        	}
-        }); 
-
-	}
-},
-//******************************************************************************
 
 // ********************** Routes to get the list of all data ********************
 {
@@ -1501,66 +1151,6 @@ const routes = [
 	}
 },
 // ******************************user page***************************************
-{
-		method: 'GET',
-		path: '/user/deshboard',
-		config:{
-	    //include this route in swagger documentation
-	    tags:['api'],
-	    description:"getting details of a particular user",
-	    notes:"getting details of particular user",
-	    auth:{
-	    	strategy: 'restricted',
-	    }
-	},
-	handler:(request, h)=>{
-		var headers = request.headers.cookie.split('=')
-        var email = headers[1].split(';')[0]
-        var params = email
-        UserModel.find({emailid: params}, function(err, data){
-        	if (err) {
-        		throw err
-        		console.log(err)
-        	}else{
-        		return h.view('deshboard1', {userdata: data, message: '“It is a great honour to have you in our team. Congratulations and welcome.”',}, {layout: 'layout3'})
-        		console.log(userdata)
-        	}
-        });
-	}
-
-},
-{
-	method: 'GET',
-	path: '/user/forms',
-	config:{
-            //include this route in swagger documentation
-            tags:['api'],
-            description:"getting  admin form",
-            notes:"getting form",
-            validate:{
-                params:{
-                    TypeOfService:Joi.string(),
-                    State:Joi.string()
-                }
-            },
-        auth:{
-	    	strategy: 'restricted',
-	    }
-    },
-	handler: (request, reply)=>{
-		var headers = request.headers.cookie.split('=')
-        var email = headers[1].split(';')[0]
-        var params = email
-        UserModel.find({emailid: params}, function(err, data){
-        	if (err) {
-        		throw err
-        	}else{
-        		return reply.view('form1', {userdata: data}, {layout: 'layout3'})
-        		console.log(data)
-        	}
-        });
-	}
-},
 
 // ***********************Routes for footer html***************************************
 
@@ -1688,151 +1278,6 @@ const routes = [
 				}
 			});
 		}
-},
-
-// =======================================================================================
- // user will post there Job there Own id
- {
-	method: 'PUT',
-	path: '/user/post/job/{userid}',
-	config: {
-		 //include this route in swagger documentation
-		 tags:['api'],
-		 description:"Posting State",
-         notes:"in this route we can post State",
-         validate: {
-         	payload:{
-				jobType:Joi.string(),
-			    skills:Joi.string(), 
-			    jobDescription:Joi.string(),
-			    aVacancy: Joi.string(), 
-			    expiryDate: Joi.string(),
-			    country:Joi.string(),
-			    state:Joi.string(),
-			    jobArea:Joi.string(),
-			    pinCode:Joi.number(),
-			    jobAddress:Joi.string(),
-
-			    //Professional Details
-			    salary:Joi.number(),
-			    experience:Joi.number(),
-			    shift:Joi.string(),
-			    gender:Joi.string(),
-			    educations:Joi.string(),
-			    knownLanguage:Joi.string(),
-
-			    //Employer Details
-			    companyName:Joi.string(),
-			    nameOfRepresentative:Joi.string(),
-			    mobile:Joi.number(),
-			    landline:Joi.number(),
-			    email:Joi.string(),
-			    idCardNumber:Joi.string(),
-			    addressOfEmployer:Joi.string(),
-			    contactTiming:Joi.string(),
-			    lookingOverseas:Joi.string(),
-			    paymentPlan:Joi.string(),
-			},
-			params:{
-				userid: Joi.string()
-			}
-		},
-	},
-	handler: (request, reply) => {
-		var newJobs = new jobsModel(request.payload);
-		newJobs.save(function (err, data){
-			if (err) {
-				throw err;
-			}else {
-				UserModel.findOneAndUpdate({_id: request.params.userid,},{$push: { postedJob: newJobs._id }}, function(err, pushdata){
-					if (err) {
-						throw err
-					}else{
-						reply({
-							message: 'user job successfully posted',
-							data: data
-						});
-					}
-				});
-			}
-		});
-	}
-	
-},
-
-
-
-
-// ******************************************************************************************************
-    // user update data with user ID
-   {
-      method: 'PUT',
-      path: '/Update/job/{id}',
-      config: {
-        // swager documention fields tags, descrioption and, note
-        tags: ['api'],
-        description: 'Update specific user job',
-        notes: 'Update specific user job',
-
-        // Joi api validation
-        validate: {
-          params: {
-            // `id` is required field and can accepte string data
-            id: Joi.string().required()
-          },
-        payload: {
-          		//Job Details
-			    jobType:Joi.string(),
-			    skills:Joi.string(), 
-			    jobDescription:Joi.string(),
-			    aVacancy: Joi.string(), 
-			    expiryDate: Joi.string(),
-			    country:Joi.string(),
-			    state:Joi.string(),
-			    jobArea:Joi.string(),
-			    pinCode:Joi.number(),
-			    jobAddress:Joi.string(),
-
-			    //Professional Details
-			    salary:Joi.number(),
-			    experience:Joi.number(),
-			    shift:Joi.string(),
-			    gender:Joi.string(),
-			    educations:Joi.string(),
-			    knownLanguage:Joi.string(),
-
-			    //Employer Details
-			    companyName:Joi.string(),
-			    nameOfRepresentative:Joi.string(),
-			    mobile:Joi.number(),
-			    landline:Joi.number(),
-			    email:Joi.string(),
-			    idCardNumber:Joi.string(),
-			    addressOfEmployer:Joi.string(),
-			    contactTiming:Joi.string(),
-			    lookingOverseas:Joi.string(),
-			    paymentPlan:Joi.string(),
-          }
-        }
-      },
-      handler: function(request, reply) {
-        // find user with his id and update user data
-        jobsModel.findOneAndUpdate({_id: request.params.id}, request.payload, function (error, data) {
-          if(error){
-            reply({
-              statusCode: 503,
-              message: 'Failed to get data',
-              data: error
-            });
-          }else{
-            reply({
-              statusCode: 200,
-              message: 'Job Update Successfully',
-              data: data
-            });
-          }
-        });
-    }
 },
 {
       method: 'PUT',

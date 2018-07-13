@@ -9,6 +9,7 @@ var StateSchema = new Schema({
     	'default': shortid.generate
     },
 	State: String,
+	date: {type: Date, default: Date.now}
 });
 
 const State = mongoose.model('State', StateSchema)

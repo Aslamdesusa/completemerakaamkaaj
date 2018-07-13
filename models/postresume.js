@@ -68,7 +68,8 @@ var PostResumeSchema = new Schema({
      Experience1:String,
      shift1:String,
      jobDescription1:String,
-     SalaryWithdrawn:Number 
+     SalaryWithdrawn:Number, 
+     date: {type: Date, default: Date.now}
 
 
 });

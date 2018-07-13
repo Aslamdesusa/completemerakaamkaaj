@@ -11,6 +11,8 @@ var PostServiceSchema = new Schema({
     	'default': shortid.generate
     },
     //Job Details
+    userobjectid:String,
+    verifi: String,
     TypeOfService: String(),
 	Specification: String(),
 	ProvideServices: String(),
@@ -32,6 +34,7 @@ var PostServiceSchema = new Schema({
 	pincode: Number(),
 	information: String(),
 	payment: String(),
+	date: {type: Date, default: Date.now}
 });
 
 const PostService = mongoose.model('PostService', PostServiceSchema)

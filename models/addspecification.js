@@ -10,6 +10,7 @@ var SpecificationSchema = new Schema({
     	'default': shortid.generate
     },
 	Specification: String,
+	date: {type: Date, default: Date.now}
 });
 
 const Specification = mongoose.model('Specification', SpecificationSchema)

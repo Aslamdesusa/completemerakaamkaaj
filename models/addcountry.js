@@ -10,6 +10,7 @@ var CountrySchema = new Schema({
     	'default': shortid.generate
     },
 	Country: String,
+	date: {type: Date, default: Date.now}
 });
 
 const Country = mongoose.model('Country', CountrySchema)

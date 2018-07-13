@@ -2,9 +2,9 @@
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                {{#each userdata}}
-                <h1>Welcome {{fullname}}</h1>
-                {{/each}}
+                {{#if userdata}}
+                <h1>Welcome {{userdata.firstname}} {{ userdata.lastname}}</h1>
+                {{/if}}
                 <h3>{{message}}</h3>
             </div>
             <!-- END MAIN CONTENT-->

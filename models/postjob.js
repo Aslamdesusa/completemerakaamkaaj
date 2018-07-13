@@ -12,6 +12,7 @@ var PostJobSchema = new Schema({
     },
 	
     //Job Details
+    objectid:String,
     verifi: String,
     jobType:String,
     skills:{type:String, required:true},
@@ -44,6 +45,7 @@ var PostJobSchema = new Schema({
     contactTiming:String,
     lookingOverseas:String,
     paymentPlan:String,
+    date: {type: Date, default: Date.now}
 });
 
 const PostJob = mongoose.model('PostJob', PostJobSchema)

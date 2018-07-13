@@ -9,6 +9,7 @@ var JobCategorySchema = new Schema({
     	'default': shortid.generate
     },
 	JobCategory: String,
+	date: {type: Date, default: Date.now}
 });
 
 const JobCategory = mongoose.model('JobCategory', JobCategorySchema)

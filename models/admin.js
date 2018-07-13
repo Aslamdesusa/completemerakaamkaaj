@@ -11,6 +11,7 @@ var AdminSchema = new Schema({
     },
     emailid: {type:Email, required:true, unique:true},
     password: {type:String, required:true},
+    date: {type: Date, default: Date.now}
 });
 
 const Admin = mongoose.model('Admin', AdminSchema)

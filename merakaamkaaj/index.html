@@ -60,19 +60,6 @@
                       <div class="col-md-2"></div>
                     </div>
 
-
-                  <!--   <form action="/submit" enctype="multipart/form-data" method="POST">
-                        <input type="text" name="fullname" placeholder="Full Name">
-                        <input type="text" name="gender" placeholder="Gender">
-                        <input type="email" name="emailid" placeholder="email">
-                        <input type="text" name="password" placeholder="Password">
-                        <input type="text" name="lookingfor" placeholder="lookingfor">
-                        
-                        <input type="file" name="image">
-                        <button type="submit">save</button>
-                    </form> -->
-
-
         <!-- HEADER 
             =================-->
                 <header id="conent1" style="background: #f16024; margin-top: 78px;">
@@ -540,7 +527,7 @@
                                             </div>
                                             <div class="col-sm-10">
                                                 <button type="submit" class="btn btn-primary btn-sm">
-                                                    Submit</button>
+                                                    Login</button>
                                                 <a style="color: #6c757d;" href="javascript:;">Forgot your password?</a>
                                             </div>
                                         </div>
@@ -591,16 +578,16 @@
                                         <form role="form" class="form-horizontal" action="/user/login" method="POST">
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">
-                                                Email</label>
+                                                Email/Mobile</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email1" name="emailid" placeholder="Email" />
+                                                <input type="text" class="form-control" id="email1" name="emailid" placeholder="Email" />
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1" class="col-sm-2 control-label">
                                                 Password</label>
                                             <div class="col-sm-10">
-                                                <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                                <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required/>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -615,10 +602,39 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="Registration1">
-                                        <form method="POST" action="/sending/mail" role="form" class="form-horizontal">
+                                        <form method="POST" action="/sending/mail" enctype="multipart/form-data" role="form" class="form-horizontal">
                                         <div class="form-group">
                                             <div class="col-sm-10">
-                                                <input type="text" name="fullname" class="form-control" id="mobile" placeholder="Full Name" required />
+                                                <input type="text" name="firstname" class="form-control" id="mobile" placeholder="First Name" required />
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="lastname" class="form-control" id="mobile" placeholder="Last Name" required />
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile" required />
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-sm-10">
+                                                <input id="input" type="email" name="emailid" class="form-control" placeholder="Email" pattern="^(([-\w\d]+)(\.[-\w\d]+)*@([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|[\d]{1,3})){1,2})$" spellcheck="false" title="your email address like merakaamkaaj@gmail.com" required/>
+                                            </div>
+                                            </div>  
+                                            <div class="col-sm-10">
+                                                <input type="text" name="address" class="form-control" id="mobile" placeholder="Address" required/>
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="state" required>
+                                                  <option value="" disabled selected>Select State</option>
+                                                  <option value="Delhi">Delhi</option>
+                                                  <option value="NCR">NCR</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="city" class="form-control" id="mobile" placeholder="City" required />
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="pincode" class="form-control" id="mobile" placeholder="Pin-Code" required />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -632,15 +648,18 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-sm-10">
-                                                <input type="text" name="emailid" class="form-control" placeholder="Email" required/>
-                                            </div>
-                                        </div>  
-                                        <div class="form-group">
-                                            <div class="col-sm-10">
-                                                <input type="text" name="password" class="form-control" placeholder="Password" required/>
-                                            </div>
+                                          <div class="col-sm-10">
+                                          <input type="password" id="psw" name="password" class="form-control name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and one lowercase letter and special characters, and at least 8 or more characters" required>
                                         </div>
+                                      </div>
+                                        <div id="message">
+                                              <h3>Password must contain the following:</h3>
+                                              <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                                              <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                                              <p id="number" class="invalid">A <b>number</b></p>
+                                              <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                                              <p id="spec" class="invalid">A <b>special character</b></p>
+                                            </div>
                                         <div class="form-group">
                                             <div class="col-sm-10">
                                                 <select class="form-control" name="lookingfor" required>
@@ -653,6 +672,7 @@
                                                   <option>I am looking for search right worker</option>
                                                 </select>
                                             </div>
+                                            <input style="margin-top: 20px;" class="form-control" type="file" name="image" required>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-2">
@@ -660,7 +680,7 @@
                                             <div class="col-sm-10">
                                                 <button type="submit" class="btn btn-primary btn-sm">
                                                     Save & Continue</button>
-                                                <button type="button" class="btn btn-default btn-sm">
+                                                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">
                                                     Cancel</button>
                                             </div>
                                         </div>
@@ -745,6 +765,20 @@
     </div>
   </div>
     <style type="text/css">
+    .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 1.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-bottom: 10px;
+}
       .selectpicker{
             display: block;
             width: 100%;
@@ -782,6 +816,126 @@
           background: url("https://wallpaperbrowse.com/media/images/soap-bubble-1958650_960_720.jpg");
         }
 
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+#input:invalid:not(:focus) {
+    outline: 1px solid #f00;
+}
+
+/* Style the container for inputs */
+.container {
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+    display:none;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#message p {
+    padding: 1px 40px;
+    font-size: 16px;
+    line-height: 1rem;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+}
+
 
 
     </style>
+    <script>
+var myInput = document.getElementById("psw");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+var spec = document.getElementById("spec");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+    document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+  // validate special character
+  var specel = /[#?!@$%^&*-]/g;
+  if(myInput.value.match(specel)) {  
+    spec.classList.remove("invalid");
+    spec.classList.add("valid");
+  } else {
+    spec.classList.remove("valid");
+    spec.classList.add("invalid");
+  }
+}
+</script>

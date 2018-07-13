@@ -292,14 +292,21 @@
             <div class="row">
                             <div class="col-lg-12">
                                 <div id="qunit"></div>
-                                <form action="/post/service" method="POST">
+                                <form action="/post/service/admin" method="POST" enctype="multipart/form-data">
                                   <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
                                     <div class="h_container">
                                         
                                     </div>
                                     <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">POST A SERVICE</h2>
                                     <h3 style="color: #555; margin-top: 110px;">Provide Service Details</h3>
-                                                                      
+                                      <label style="display: none;">
+                                            <input type="text" value="admin" name="userobjectid"/>
+                                            <div class="label-text">admin object id</div>
+                                      </label>
+                                      <label style="display: none;">
+                                            <input type="text" value="unverfied" name="verifi"/>
+                                            <div class="label-text">verified/unverfied</div>
+                                      </label>                              
                                         <div style="margin-top: 20px;" class="md-form">
                                             <select name="TypeOfService" class="mdb-select colorful-select dropdown-primary">
                                               <option value="" disabled selected>Select Service<span id="require">*</span></option>
@@ -513,6 +520,7 @@
                                         <option value="24 Hour">24 Hour</option>
                                       </select>
                                   </div>
+                                  <input style="margin-top: 20px;" class="form-control" type="file" name="image" required>
 
                                    
                                     <button type="submit" style="background: #f16024; color: #fff; padding: 5px 20px; border-radius: 3px;">Submit</button>     
@@ -526,7 +534,7 @@
             <div class="row">
                             <div class="col-lg-12">
                                 <div id="qunit"></div>
-                                <form action="/post/resume/form" method="POST">
+                                <form action="/post/resume/admin" method="POST" enctype="multipart/form-data">
                                   <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
                                     <div class="h_container">
                                         
@@ -607,7 +615,6 @@
                                   <option value="Supervisior">Supervisior</option>
                                   <option value="DIPLOMA/DEGREE HOLDER">DIPLOMA/DEGREE HOLDER</option>
                                 </select>
-                                <!-- <label>Required Job Category</label> -->
                             </div>
 
 
@@ -997,6 +1004,7 @@
                         <input type="number" name="SalaryWithdrawn" />
                         <div class="label-text">Salary Withdrawn (INR/Month)</div>
                     </label>
+                    <input style="margin-top: 20px;" class="form-control" type="file" name="image" required>
                                     <button type="submit" style="background: #f16024; color: #fff; padding: 5px 20px; border-radius: 3px;">Submit</button>
                                     
                                     
