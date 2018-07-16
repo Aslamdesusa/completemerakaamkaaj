@@ -5,7 +5,10 @@
             height: 70vh;
             overflow: scroll;
         }
-        
+        .ch-itemone{
+          border-radius: 50% 0% 50% 50%;
+          box-shadow: inset 9px 1px 0px 1px rgba(0,0,0,0.1);
+        }
        </style>
 
 
@@ -271,7 +274,7 @@
                 <div class="ch-infoone">
                   <div class="ch-info-frontone ch-img-9one"></div>
                   <div class="ch-info-backone">
-                    <h3></h3>
+                    <h3>Job Seeker</h3>
                     <p>Connect Right Worker / Service Provider with Employer according to their skill</p>
                   </div>
                 </div>
@@ -302,13 +305,13 @@
                                 {{#each allrecentworkers}}
                                 <td>
                                   <div class="col-md-12 col-sm-6 col-xs-6">
-                                    <div class="jobs1">
+                                    <div class="jobs2">
                                       <span class='list-group gallery'>
                                         <a class="thumbnail fancybox" rel="ligthbox" href='photo/simg720.jpg'>
                                           <img src='img/logo.png' />
                                         </a>
                                       </span>
-                                      <div style="background: #f16024; padding: 5px; border-radius: 50px; text-align: center; margin-bottom: 20px;">
+                                      <div style="background: #f16024; overflow: hidden; text-overflow: ellipsis; padding: 5px; border-radius: 50px; text-align: center; margin-bottom: 20px;">
                                         <span style="color: #fff;">
                                           {{JobCat}}
                                         </span><br>
@@ -362,7 +365,7 @@
                                           <img src='img/logo.png' />
                                         </a>
                                       </span>
-                                      <div style="background: #f16024; padding: 5px; border-radius: 50px; text-align: center; margin-bottom: 20px;">
+                                      <div style="background: #f16024; overflow: hidden; text-overflow: ellipsis; padding: 5px; border-radius: 50px; text-align: center; margin-bottom: 20px;">
                                         <span style="color: #fff;">
                                           {{jobType}}
                                         </span><br>
@@ -416,7 +419,7 @@
                   </div>
 
 
-                  <div class="recents" style="background: #fff !important;">
+                  <div class="recents" style="background: #ededed !important;">
                     <h3 style="text-align: center; padding-bottom: 20px; color: #888; font-weight: lighter; text-shadow: 1px 1px #495057;">Recent Services</h3>
                       <div class="container-fluid" style="padding: 0px !important;">
 
@@ -439,7 +442,7 @@
                                                         <img src='img/logo.png' />
                                                       </a>
                                                     </span>
-                                                    <div style="background: #f16024; padding: 5px; border-radius: 50px; text-align: center; margin-bottom: 20px;">
+                                                    <div style="background: #f16024; overflow: hidden; text-overflow: ellipsis; padding: 5px; border-radius: 50px; text-align: center; margin-bottom: 20px;">
                                                       <span style="color: #fff;">
                                                         {{TypeOfService}}
                                                       </span><br>
@@ -759,7 +762,7 @@
 
         </div>
         <div class="modal-footer" style=" background: #f16025;">
-          <div style="text-align: left!important;">All rights reserved©2017 MeraKaamKaaj.com</div>
+          <div class="col-md-10">All Right Reserved©2017 Merakaamkaaj.com | Design &amp; Maintinance by: <a href="http://webflies.in/" target="_blank">Webflies Solution</a> </div>
         </div>
       </div>
     </div>

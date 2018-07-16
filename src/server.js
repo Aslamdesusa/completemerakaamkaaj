@@ -4,6 +4,8 @@ import Vision from 'vision';
 import jwt from 'jsonwebtoken'
 import swal from 'sweetalert';
 
+const env2 = require('env2') 
+
 const server = new Hapi.Server();
 import routes from './routes'
 import user from './userapi'
@@ -41,7 +43,7 @@ server.register(require('hapi-auth-cookie'), (err)=>{
 })
 
 server.state('emailid', {
-  ttl: 60* 24 * 60 * 1000,
+  ttl: 24 * 60 * 60 * 1000,
   isHttpOnly: false,
   encoding: 'none',
   isSecure: process.env.NODE_ENV == 'production',
@@ -64,6 +66,46 @@ server.register( require( 'hapi-auth-jwt' ), ( err ) => {
     server.route(user)
 
 } );
+
+
+var assert = require('assert');
+// require('env2')('env2');
+console.log(process.env);
+// var Hapi = require('hapi');
+// var server = new Hapi.Server();
+// server.connection({
+//     host: 'localhost',
+//     port: Number(process.env.PORT)
+// });
+
+var opts = {
+  REDIRECT_URL: '/googleauth',  // must match google app redirect URI
+  handler: require('./google_oauth_handler.js'), // your handler
+  access_type: 'offline', // options: offline, online
+  approval_prompt: 'auto', // options: always, auto
+  scope: 'https://www.googleapis.com/auth/plus.profile.emails.read' // profile
+};
+
+var hapi_auth_google = require('../lib');
+
+server.register([{ register: require('../lib'), options:opts }], function (err) {
+  // handle the error if the plugin failed to load:
+  assert(!err, "FAILED TO LOAD PLUGIN!!! :-("); // fatal error
+});
+
+server.route({
+  method: 'GET',
+  path: '/login',
+  handler: function(req, reply) {
+    var url = server.generate_google_oauth2_url();
+        var imgsrc = 'https://developers.google.com/accounts/images/sign-in-with-google.png';
+        var btn = '<a href="' + url +'"><img src="' +imgsrc +'" alt="Login With Google"></a>'
+    reply(btn);
+  }
+});
+
+
+module.exports = server;
 
 
 server.views({

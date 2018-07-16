@@ -26,26 +26,30 @@ const routes = [
         tags:['api'],
         description:"getting details of a particular user",
         notes:"getting details of particular user",
-        validate:{
-            payload:{
-                emailid:Joi.string(),
-                password:Joi.string()
-            }
-        }
+        validate: {
+         	payload:{
+         		emailid:Joi.string().required(),
+         		password:Joi.string().required(),
+
+			}
+		},
     },
     handler: function(request, reply){
     	
-        UserModel.find({'emailid': request.payload.emailid, 'password': request.payload.password}, function(err, data){
+        UserModel.find({emailid: request.payload.emailid, 'password': request.payload.password}, function(err, data){
             if (err){
                 reply({
                     'error': err
                 });
             } else if (data.length == 0){
+            	// reply('wrong credentials')
           		// var wrong = 'wrong email and password'
                 reply.view('error', {message: 'User dose not exists please try with your correct email and password', errormessage: '404 error'})
             } else {
                     // reply.state('emailid', emailid)
                     request.cookieAuth.set(data[0]);
+                    // console.log(data)
+                    // reply(data)
                     // request.cookieAuth.set({ token });
                     return reply.redirect('/user/deshboard')
             }

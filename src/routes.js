@@ -628,6 +628,55 @@ const routes = [
 },
 {
 	method: 'GET',
+	path: '/ragistered/users',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting ragistered users details",
+         notes:"in this route we are getting all ragistered users details",
+         auth:{
+	    	strategy: 'restricted',
+	    }
+
+     },
+	handler: (request, reply) =>{
+		var lookingforrightworker = {};
+		var iamprovider = {};
+		var lookingforrightjob = {};
+		var rightserprov = {};
+		UserModel.find({lookingfor: 'i am looking for right Worker'}, (err, data) =>{
+			if (err) {
+				console.log(err);
+				throw err;
+			}else{
+				lookingforrightworker=data;
+				// reply.view('table', {jobs: provider}, {layout: 'layout2'})
+			}
+		})
+		UserModel.find().limit(500).exec({lookingfor: 'i am service provider'}, (err, data) =>{
+			if (err) {
+				console.log(err);
+				throw err;
+			}else{
+				iamprovider=data;
+			}
+		})
+		UserModel.find().limit(10000).exec({lookingfor: 'i am looking for right job'}, (err, data) =>{
+			if (err) {
+				console.log(err);
+				throw err;
+			}else{
+				lookingforrightjob=data;
+				console.log(lookingforrightjob)
+				reply.view('typo', {lookingforrightworker: lookingforrightworker, lookingforrightjob: lookingforrightjob, prov: iamprovider}, {layout: 'layout2'})
+
+			}
+		})	   
+	}
+},
+
+{
+	method: 'GET',
 	path: '/',
 	config	: {
 		 //include this route in swagger documentation
@@ -1104,28 +1153,6 @@ const routes = [
     },
 	handler: (request, reply)=>{
 		reply.view('form', null, {layout: 'layout2'})
-	}
-},
-{
-	method: 'GET',
-	path: '/numberOf/Ragistered/users',
-	config:{
-            //include this route in swagger documentation
-            tags:['api'],
-            description:"getting  all registered details",
-            notes:"getting all registered deta in one form",
-            validate:{
-                params:{
-                    TypeOfService:Joi.string(),
-                    State:Joi.string()
-                }
-            },
-        auth:{
-	    	strategy: 'restricted',
-	    }
-    },
-	handler: (request, reply) =>{
-		reply.view('typo', null,{layout: 'layout2'})
 	}
 },
 {

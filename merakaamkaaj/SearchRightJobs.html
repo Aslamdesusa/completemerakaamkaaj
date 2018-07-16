@@ -167,7 +167,6 @@
 
 
       <!-- <=============================data========================================>   -->
-
 <div class="userDetails mb5">
         <div class="candName">
             <span class="job-type" title="{{jobType}}">{{jobType}}</span>
@@ -213,30 +212,36 @@
              <span class="jsProfileItem more trucateText" title="{{country}}"> {{country}} </span>
            </span>
          </li>
-                              <li>
+          
+      <div id="{{_id}}" class="collapse">     
+          <li>
            <span class="emp-heading">State</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{state}}"> {{state}} </span>
            </span>
          </li>
+
           <li>
            <span class="emp-heading">Job Area </span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{jobArea}}"> {{jobArea}} </span>
            </span>
          </li>
+
           <li>
            <span class="emp-heading">Pin Code</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{pinCode}}"> {{pinCode}} </span>
            </span>
          </li>
+
           <li>
            <span class="emp-heading">Job Address</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{jobAddress}}"> {{jobAddress}} </span>
            </span>
          </li>
+
           <li>
            <span class="emp-heading">Salary</span>
            <span class="emp-rep">
@@ -250,30 +255,35 @@
              <span class="jsProfileItem more trucateText" title="{{experience}}">{{experience}}</span>
            </span>
          </li>
+
         <li>
            <span class="emp-heading">Shift</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{shift}}">{{shift}}</span>
            </span>
          </li>
+
         <li>
            <span class="emp-heading">Gender</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{gender}}">{{gender}}</span>
            </span>
          </li>
+
             <li>
            <span class="emp-heading">Educations</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{educations}}">{{educations}}</span>
            </span>
          </li>
+
           <li>
            <span class="emp-heading">Known Language</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{knownLanguage}}">{{knownLanguage}}</span>
            </span>
          </li>
+
          <li>
            <span class="emp-heading">Name of Company/Bussiness/Other</span>
            <span class="emp-rep">
@@ -287,55 +297,63 @@
              <span class="jsProfileItem more trucateText" title="{{nameOfRepresentative}}">{{nameOfRepresentative}}</span>
            </span>
          </li>
+
         <li>
            <span class="emp-heading">Mobile</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{mobile}}">{{mobile}}</span>
            </span>
          </li>
+
         <li>
            <span class="emp-heading">Landline No</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{landline}}">{{landline}}</span>
            </span>
          </li>
+
             <li>
            <span class="emp-heading">Email </span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{email}}">{{email}}</span>
            </span>
          </li>
+
          <li>
            <span class="emp-heading">Addhar/Voter Card No.</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{idCardNumber}}">{{idCardNumber}}</span>
            </span>
          </li>
+
              <li>
            <span class="emp-heading">Address of Employer</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="Erode, Coimbatore, Madurai, Noida">{{addressOfEmployer}}</span>
            </span>
          </li>
+
         <li>
            <span class="emp-heading">Contact Timing</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{contactTiming}}">{{contactTiming}}</span>
            </span>
          </li>
+
             <li>
            <span class="emp-heading">Looking Overseas </span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{lookingOverseas}}">{{lookingOverseas}}</span>
            </span>
          </li>
+
          <li>
            <span class="emp-heading">Payment Plan</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{paymentPlan}}">{{paymentPlan}}</span>
            </span>
          </li>
-                 
+      </div>      
                                          
          <!-- ?php// } ? -->
         </ul>
@@ -347,13 +365,13 @@
     <div class="hidden-lg hidden-md card-view pull-right hidden-xs hidden-sm"><i class="icon-basic_eye"></i><span>  </span>
     </div>
    
-   <div class="button-div" style="display: none;">
+   <div class="button-div">
 
 
 
 
     <button data-toggle="modal" data-target="#myModal" class="ghst-btn demo-action InstantActionbuttons" type="button">Email</button> 
-    <button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="modal" data-target="#myModal" type="button">View contact</button> 
+    <button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="collapse" data-target="#{{_id}}" type="button">View all details</button> 
 
     <div class="container">
   <!-- The Modal -->

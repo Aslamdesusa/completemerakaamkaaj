@@ -219,6 +219,7 @@
              <span class="jsProfileItem more trucateText" title="{{Country}}"> {{Country}} </span>
            </span>
          </li>
+      <div id="{{_id}}" class="collapse"> 
           <li>
            <span class="emp-heading">State</span>
            <span class="emp-rep">
@@ -449,7 +450,7 @@
              <span class="jsProfileItem more trucateText" title="{{SalaryWithdrawn}}">{{SalaryWithdrawn}}</span>
            </span>
          </li>
-                 
+      </div>         
                                          
          <!-- ?php// } ? -->
         </ul>
@@ -471,6 +472,8 @@
 
     <button data-toggle="modal" data-target="#myModal" class="ghst-btn demo-action InstantActionbuttons" type="button">Email</button> 
     <button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="modal" data-target="#myModal" type="button">View contact</button> 
+
+    <button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="collapse" data-target="#{{_id}}" type="button">View all details</button> 
 
     <div class="container">
   <!-- The Modal -->
