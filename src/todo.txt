@@ -4,3 +4,10 @@
 
 -Create the CRUD route for the PostService
 -Create the CRUD route for the PostWorker
+
+
+# sentimental analyisis for check negitivity  
+# detabase table creation with criyto curentiy name
+# coindecko api getting coin name and current data and commit and twitter ka name also 
+
+# in one min 4 data 

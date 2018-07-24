@@ -102,7 +102,7 @@
                                                     <th>Delete</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody> 
                                                 {{#each lookingforrightworker}}
                                                 <tr>
                                                     <td>{{firstname}} {{ lastname}}</td>
@@ -112,9 +112,10 @@
                                                     <td>{{address}}</td>
                                                     <td>{{city}}</td>
                                                     <td>{{date}}</td>
-                                                    <td><button>Delete</button></td>
+                                                    <td><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
+                                            </tbody>
                                         </table>
 
                                   </div>
@@ -166,9 +167,10 @@
                                                     <td>{{address}}</td>
                                                     <td>{{city}}</td>
                                                     <td>{{date}}</td>
-                                                    <td><button>Delete</button></td>
+                                                    <td><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
+                                            </tbody>
                                         </table>
 
                                   </div>
@@ -220,9 +222,10 @@
                                                     <td>{{address}}</td>
                                                     <td>{{city}}</td>
                                                     <td>{{date}}</td>
-                                                    <td><button>Delete</button></td>
+                                                    <td><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
+                                            </tbody>
                                         </table>
 
                                   </div>
@@ -264,6 +267,7 @@
                                                     <th>Delete</th>
                                                 </tr>
                                             </thead>
+                                            <tbody id="updatetable">
                                             <tbody>
                                                 {{#each rightserprov}}
                                                 <tr>
@@ -274,9 +278,10 @@
                                                     <td>{{address}}</td>
                                                     <td>{{city}}</td>
                                                     <td>{{date}}</td>
-                                                    <td><button>Delete</button></td>
+                                                    <td><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
+                                            </tbody>
                                         </table>
 
                                   </div>

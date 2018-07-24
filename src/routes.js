@@ -644,7 +644,7 @@ const routes = [
 		var iamprovider = {};
 		var lookingforrightjob = {};
 		var rightserprov = {};
-		UserModel.find({lookingfor: 'i am looking for right Worker'}, (err, data) =>{
+		UserModel.find().limit(500).exec({lookingfor: 'i am looking for right Worker'}, (err, data) =>{
 			if (err) {
 				console.log(err);
 				throw err;
@@ -661,7 +661,15 @@ const routes = [
 				iamprovider=data;
 			}
 		})
-		UserModel.find().limit(10000).exec({lookingfor: 'i am looking for right job'}, (err, data) =>{
+		UserModel.find().limit(500).exec({lookingfor: 'i am service provider'}, (err, data) =>{
+			if (err) {
+				console.log(err);
+				throw err;
+			}else{
+				iamprovider=data;
+			}
+		})
+		UserModel.find().limit(1000).exec({lookingfor: 'i am looking for right job'}, (err, data) =>{
 			if (err) {
 				console.log(err);
 				throw err;
@@ -1237,7 +1245,278 @@ const routes = [
 		return h.view('securegetway', {layout: 'layout'})
 	}
 },
+// =====================================================
+// delete by admin
+{
+		method: 'GET',
+		path: '/delete/country/{uuid}',
+		config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular country',
+		notes: 'In this route we are Deletting of data particular data',
 
+		// Joi api validation
+		validate: {
+		    params: {
+		        uuid: Joi.string().required()
+		    }
+		}
+		},
+		handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		CountryModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+			if(error){
+				reply.view('error', {message: 'error in deleting country'}, {layout: 'layout2'})
+			}else{
+				reply.redirect('/get/details')
+			}
+		});
+	}
+},
+{
+		method: 'GET',
+		path: '/delete/state/{uuid}',
+		config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular state',
+		notes: 'In this route we are Deletting of data particular data',
+
+		// Joi api validation
+		validate: {
+		    params: {
+		        uuid: Joi.string().required()
+		    }
+		}
+		},
+		handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		StateModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+			if(error){
+				reply.view('error', {message: 'error in deleting state'}, {layout: 'layout2'})
+			}else{
+				reply.redirect('/get/details')
+			}
+		});
+	}
+},
+{
+		method: 'GET',
+		path: '/delete/city/{uuid}',
+		config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular city',
+		notes: 'In this route we are Deletting of data particular data',
+
+		// Joi api validation
+		validate: {
+		    params: {
+		        uuid: Joi.string().required()
+		    }
+		}
+		},
+		handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		CityModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+			if(error){
+				reply.view('error', {message: 'error in deleting city'}, {layout: 'layout2'})
+			}else{
+				reply.redirect('/get/details')
+			}
+		});
+	}
+},
+{
+		method: 'GET',
+		path: '/delete/category/{uuid}',
+		config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job category',
+		notes: 'In this route we are Deletting of data particular data',
+
+		// Joi api validation
+		validate: {
+		    params: {
+		        uuid: Joi.string().required()
+		    }
+		}
+		},
+		handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		JobCategoryModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+			if(error){
+				reply.view('error', {message: 'error in deleting job category'}, {layout: 'layout2'})
+			}else{
+				reply.redirect('/get/details')
+			}
+		});
+	}
+},
+{
+		method: 'GET',
+		path: '/delete/service/{uuid}',
+		config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular service',
+		notes: 'In this route we are Deletting of data particular data',
+
+		// Joi api validation
+		validate: {
+		    params: {
+		        uuid: Joi.string().required()
+		    }
+		}
+		},
+		handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		ServiceModel1.findOneAndRemove({_id: request.params.uuid}, function (error){
+			if(error){
+				reply.view('error', {message: 'error in deleting service'}, {layout: 'layout2'})
+			}else{
+				reply.redirect('/get/details')
+			}
+		});
+	}
+},
+{
+		method: 'GET',
+		path: '/delete/specification/{uuid}',
+		config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job specification',
+		notes: 'In this route we are Deletting of data particular data',
+
+		// Joi api validation
+		validate: {
+		    params: {
+		        uuid: Joi.string().required()
+		    }
+		}
+		},
+		handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		SpecificationModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+			if(error){
+				reply.view('error', {message: 'error in deleting job specification'}, {layout: 'layout2'})
+			}else{
+				reply.redirect('/get/details')
+			}
+		});
+	}
+},
+{
+		method: 'GET',
+		path: '/delete/registered/user/{uuid}',
+		config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job specification',
+		notes: 'In this route we are Deletting of data particular data',
+
+		// Joi api validation
+		validate: {
+		    params: {
+		        uuid: Joi.string().required()
+		    }
+		}
+		},
+		handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		UserModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+			if(error){
+				reply.view('error', {message: 'error in deleting job specification'}, {layout: 'layout2'})
+			}else{
+				reply.redirect('/ragistered/users')
+			}
+		});
+	}
+},
+{
+		method: 'GET',
+		path: '/delete/user/resume/{uuid}',
+		config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job specification',
+		notes: 'In this route we are Deletting of data particular data',
+
+		// Joi api validation
+		validate: {
+		    params: {
+		        uuid: Joi.string().required()
+		    }
+		}
+		},
+		handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		ResumeModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+			if(error){
+				reply.view('error', {message: 'error in deleting job specification'}, {layout: 'layout2'})
+			}else{
+				reply.redirect('/get/posted/details')
+			}
+		});
+	}
+},
+{
+		method: 'GET',
+		path: '/delete/user/job/{uuid}',
+		config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job specification',
+		notes: 'In this route we are Deletting of data particular data',
+
+		// Joi api validation
+		validate: {
+		    params: {
+		        uuid: Joi.string().required()
+		    }
+		}
+		},
+		handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		jobsModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+			if(error){
+				reply.view('error', {message: 'error in deleting job specification'}, {layout: 'layout2'})
+			}else{
+				reply.redirect('/get/posted/details')
+			}
+		});
+	}
+},
+{
+		method: 'GET',
+		path: '/delete/user/service/{uuid}',
+		config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job specification',
+		notes: 'In this route we are Deletting of data particular data',
+
+		// Joi api validation
+		validate: {
+		    params: {
+		        uuid: Joi.string().required()
+		    }
+		}
+		},
+		handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		ServiceModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+			if(error){
+				reply.view('error', {message: 'error in deleting job specification'}, {layout: 'layout2'})
+			}else{
+				reply.redirect('/get/posted/details')
+			}
+		});
+	}
+},
 // **********************Routes for deleting the data by Id **************************** 
 {
 		method: 'DELETE',

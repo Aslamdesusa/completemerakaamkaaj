@@ -12,6 +12,7 @@ var PostServiceSchema = new Schema({
     },
     //Job Details
     userobjectid:String,
+    serviceid: String,
     verifi: String,
     TypeOfService: String(),
 	Specification: String(),
@@ -34,6 +35,7 @@ var PostServiceSchema = new Schema({
 	pincode: Number(),
 	information: String(),
 	payment: String(),
+	termsandcondition: Boolean,
 	date: {type: Date, default: Date.now}
 });
 

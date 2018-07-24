@@ -106,14 +106,9 @@
                                                 <tr>
                                                     <td>{{_id}}</td>
                                                     <td>{{Country}}</td>
-                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
+                                                    <td style="display: flex;"><button class="country_edit">Edit</button> <form action="/delete/country/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
-                                                <tr>
-                                                    <td>Cedric Kelly</td>
-                                                    <td>Senior Javascript Developer</td>
-                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                   </div>
@@ -161,14 +156,9 @@
                                                 <tr>
                                                     <td>{{_id}}</td>
                                                     <td>{{State}}</td>
-                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
+                                                    <td style="display: flex;"><button class="country_edit">Edit</button><form action="/delete/state/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
-                                                <tr>
-                                                    <td>Cedric Kelly</td>
-                                                    <td>Senior Javascript Developer</td>
-                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
-                                                </tr>
                                             </tbody>
                                         </table>
 
@@ -411,14 +401,9 @@
                                                 <tr>
                                                     <td>{{_id}}</td>
                                                     <td>{{City}}</td>
-                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
+                                                    <td style="display: flex;"><button class="country_edit">Edit</button> <form action="/delete/city/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
-                                                <tr>
-                                                    <td>Cedric Kelly</td>
-                                                    <td>Senior Javascript Developer</td>
-                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
-                                                </tr>
                                             </tbody>
                                         </table>
 
@@ -463,14 +448,9 @@
                                                 <tr>
                                                     <td>{{_id}}</td>
                                                     <td>{{JobCategory}}</td>
-                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
+                                                    <td style="display: flex;"><button class="country_edit">Edit</button> <form action="/delete/category/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
-                                                <tr>
-                                                    <td>Cedric Kelly</td>
-                                                    <td>Senior Javascript Developer</td>
-                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
-                                                </tr>
                                             </tbody>
                                         </table>
 
@@ -520,7 +500,7 @@
                                                 <tr>
                                                     <td>Cedric Kelly</td>
                                                     <td>Senior Javascript Developer</td>
-                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
+                                                    <td style="display: flex;"><button class="country_edit">Edit</button> <form action="/delete/service/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -556,6 +536,33 @@
                                         <input class="form-control" type="text" name="Specification">
                                         <input class="submit_btn" type="submit" value="submit">
                                     </form>
+
+                                    div class="table-responsive" style="border-radius: 10px;">
+                                    <table id="example7" class="table table-striped table-bordered" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Specification Name</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{#each allService}}
+                                                <tr>
+                                                    <td>{{_id}}</td>
+                                                    <td>{{Specification}}</td>
+                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
+                                                </tr>
+                                                {{/each}}
+                                                <tr>
+                                                    <td>Cedric Kelly</td>
+                                                    <td>Senior Javascript Developer</td>
+                                                    <td style="display: flex;"><button class="country_edit">Edit</button> <form action="/delete/specification/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                  </div>
                                     
                             
                             

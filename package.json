@@ -25,6 +25,7 @@
     "express": "^4.16.3",
     "file-system": "^2.2.2",
     "fs": "0.0.1-security",
+    "googleapis": "^27.0.0",
     "hapi": "^16.6.2",
     "hapi-auth-cookie": "^7.0.0",
     "hapi-auth-google": "^16.2.0",
