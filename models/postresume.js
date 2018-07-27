@@ -1,17 +1,14 @@
 var mongoose = require('mongoose');
-var shortid = require('shortid');
-    
 // const Email = require('mongoose-type-mail');
 
 var Schema = mongoose.Schema;
 
 var PostResumeSchema = new Schema({
-    _id: {
-        type: String,
-        'default': shortid.generate
-    },
-	
     //Contact Information
+    objectid: String,
+    Declration: String,
+    verifi: String,
+    pwid: String,
     JobCat:String,
     Name:{type:String, required:true},
     Mobile: {type: Number, required:true},
@@ -21,6 +18,7 @@ var PostResumeSchema = new Schema({
     Country:String,
     State:String,
     City:String,
+    Area:String,
     Pincode:Number,
     Address:String,
 

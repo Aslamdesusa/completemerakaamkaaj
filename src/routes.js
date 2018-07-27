@@ -889,7 +889,7 @@ const routes = [
 	handler: (request, reply) =>{
 		var jobcategory = {}
 		var allResume = {}
-		JobCategoryModel.find({}, (err, allJobCategory) =>{
+		JobCategoryModel.find().limit(100).exec({}, (err, allJobCategory) =>{
 			if (err) {
 				console.log(err);
 				throw err;
@@ -898,7 +898,7 @@ const routes = [
 			}
 		})
 		sleep.sleep(5)
-		ResumeModel.find({},(err, data) => {
+		ResumeModel.find().limit(50).exec({},(err, data) => {
 			if (err){
 				console.log(err);
 				throw err;		
@@ -922,7 +922,7 @@ const routes = [
 	handler: (request, reply) =>{
 		var services = {}
 		var allService = {}
-		ServiceModel1.find({}, (err, allService) =>{
+		ServiceModel1.find().limit(100).exec({}, (err, allService) =>{
 			if (err) {
 				console.log(err);
 				throw err;
@@ -930,7 +930,7 @@ const routes = [
 				services=allService;
 			}
 		}) 
-		ServiceModel.find({},(err, data) => {
+		ServiceModel.find().limit(50).exec({},(err, data) => {
 			if (err){
 				console.log(err);
 				throw err;		
@@ -1055,7 +1055,7 @@ const routes = [
             	query._id = idsearch
             }
 
-            jobsModel.find(query,function(err, data){
+            jobsModel.find().limit(100).exec(query,function(err, data){
             	console.log(data)
                 if(data.length === 0){
                 	return reply.view('SearchRightJobs',{
@@ -1097,33 +1097,6 @@ const routes = [
             });
         }
     },
-    {
-       method:'GET',
-       path:'/jobs/skipjobs/{pagenumber}',
-       config:{
-           //including in swagger documentation
-           tags:['api'],
-           description:'get jobs from page number',
-           notes:'getting jobs from page number',
-           validate:{
-               params:{
-                   pagenumber:Joi.number()
-               }
-           }
-       },
-       handler: function(request, reply){
-           console.log(request.params.pagenumber.toString());
-           jobsModel.find({}).skip(Number(request.params.pagenumber.toString() + 0)).limit(5).exec(function(err, data){
-               if(err){
-                   reply({"error": err});
-               } else {
-                   reply({"data": data, 'k': 'कार्य प्रगति पर है '});
-               }
-           });
-       }
-
-   },
-
 
 // ******************************Admin page******************************
 
