@@ -42,15 +42,9 @@ const routes = [
                     'error': err
                 });
             } else if (data.length == 0){
-            	// reply('wrong credentials')
-          		// var wrong = 'wrong email and password'
                 reply.view('error', {message: 'User dose not exists please try with your correct email and password', errormessage: '404 error'})
             } else {
-                    // reply.state('emailid', emailid)
                     request.cookieAuth.set(data[0]);
-                    // console.log(data)
-                    // reply(data)
-                    // request.cookieAuth.set({ token });
                     return reply.redirect('/user/deshboard')
             }
         })
@@ -197,6 +191,67 @@ const routes = [
 			}
 		});
 	}
+},
+{
+	method: 'POST',
+	path: '/send/otp',
+	handler: function(request, reply){
+		var otp = Math.floor(Math.random() * 90000) + 10000;
+		var newUser = new UserModel({
+			"firstname": request.payload.firstname,
+			"lastname": request.payload.lastname,
+			"mobile": request.payload.mobile,
+			"emailid": request.payload.emailid,
+			"password": request.payload.password,
+			"address": request.payload.address,
+			"state": request.payload.state,
+			"city": request.payload.city,
+			"pincode": request.payload.pincode,
+			"gender": request.payload.gender,
+			"lookingfor": request.payload.lookingfor,
+			"otp": otp
+		});
+		request.cookieAuth.set(newUser);
+		console.log(newUser)
+		axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+request.payload.mobile+'&sid=MERAKK&msg='+otp+'&fl=0&gwid=2')
+		  .then(reply => {
+		  	console.log('messages sent to your number')
+		  })
+		  .catch(error => {
+		    console.log(error);
+		  });
+		  return reply.view('confirmemail', {message: "We've sent an OTP to "+request.payload.mobile+". If this is a valid Phone Number, you should receive an OTP within the next few minutes.", successmessage: '200'})
+	}
+},
+{
+    method:'POST',
+    path:'/verifing/phone/number',
+    config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"getting details of a particular user",
+        notes:"getting details of particular user",
+        auth:{
+    		strategy: 'restricted',
+	    }
+    },
+    handler: function(request, reply){
+      	var headers = request.auth.credentials;
+  		let otp = headers.otp;	
+  		console.log(otp)
+  		var newUser = new UserModel(headers);
+  		if (otp == request.payload.otp) {
+  			newUser.save(function(err, data){
+  				if (err) {
+  					return reply.view('error', {message: 'User Already Exists Please try with another email', errormessage: '400'})
+  				}else{
+  					return reply.view('error', {errormessage: '200', message:'Your Profile successfully Made By Mera Kaam kaaj Please login first', message3: 'LOGIN'})
+  				}
+  			})
+  		}else{
+  			return reply.view('error', {message: 'Wrong OTP Please try with correct OTP PIN if you h', errormessage: '400'})
+  		}
+    }
 },
 {
 	method:  'POST',

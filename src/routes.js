@@ -1,5 +1,6 @@
 // import all the depanding library and modals 
 import Hapi from 'hapi';
+import axios from 'axios';
 const db = require('../database').db;
 const Joi = require('joi');
 const fs = require('fs');
@@ -22,6 +23,9 @@ const localStorage = require('node-localstorage')
 const sleep = require('sleep');
 const opn = require('opn');
 const AuthCookie = require('hapi-auth-cookie')
+var springedge = require('springedge');
+// const request = require('request');
+// const axios = require('axios');
 
  
 
@@ -1651,5 +1655,32 @@ const routes = [
         });
     }
 },
+{
+	method: 'GET',
+	path: '/send',
+	handler: function(request, reply){
+		// reply.redirect('https://instantalerts.co/api/web/send/?apikey=6c05481mpqilv3oyy9fl2m835ick34zmr&sender=SEDEMO&to=9205169278&message=Hello Brother+message&format=json')
+		var springedge = require('springedge');
+ 
+var params = {
+  'sender': 'SEDEMO',
+  'apikey': '6c05481mpqilv3oyy9fl2m835ick34zmr',
+  'to': [
+    '9205169278'  //Moblie Numbers 
+  ],
+  'message': 'Hi, this is a test message',
+  'format': 'json'
+};
+ 
+springedge.messages.send(params, 5000, function (err, response) {
+  if (err) {
+    return console.log(err);
+  }
+  console.log(response);
+});
+	}
+},
+
+
 ]
 export default routes;
