@@ -1,6 +1,5 @@
 // import all the depanding library and modals 
 import Hapi from 'hapi';
-import axios from 'axios';
 const db = require('../database').db;
 const Joi = require('joi');
 const fs = require('fs');
@@ -24,8 +23,6 @@ const sleep = require('sleep');
 const opn = require('opn');
 const AuthCookie = require('hapi-auth-cookie')
 var springedge = require('springedge');
-// const request = require('request');
-// const axios = require('axios');
 
  
 

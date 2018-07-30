@@ -1,3 +1,4 @@
+import axios from 'axios';
 const db = require('../database').db;
 const Joi = require('joi');
 const fs = require('fs');
@@ -12,6 +13,7 @@ const localStorage = require('node-localstorage')
 const sleep = require('sleep');
 const opn = require('opn');
 const AuthCookie = require('hapi-auth-cookie')
+
 
 
 
@@ -213,7 +215,8 @@ const routes = [
 		});
 		request.cookieAuth.set(newUser);
 		console.log(newUser)
-		axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+request.payload.mobile+'&sid=MERAKK&msg='+otp+'&fl=0&gwid=2')
+		let otpmessage = 'merakaamkaaj.com \n Your OTP is:'+otp
+		axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+request.payload.mobile+'&sid=MERAKK&msg='+otpmessage+'&fl=1&gwid=2')
 		  .then(reply => {
 		  	console.log('messages sent to your number')
 		  })
@@ -243,13 +246,21 @@ const routes = [
   		if (otp == request.payload.otp) {
   			newUser.save(function(err, data){
   				if (err) {
-  					return reply.view('error', {message: 'User Already Exists Please try with another email', errormessage: '400'})
+  					return reply.view('error', {message: 'User Already Exists Please Try With Another Email or Phone Number', errormessage: '400'})
   				}else{
-  					return reply.view('error', {errormessage: '200', message:'Your Profile successfully Made By Mera Kaam kaaj Please login first', message3: 'LOGIN'})
+  					let success = 'Registered Successfully Thanks To Be A Member Of Merakaamkaaj.com your ID: '+headers.emailid+' Your Password: '+headers.password+''
+  					axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+headers.mobile+'&sid=MERAKK&msg='+success+'&fl=0&gwid=2')
+  					.then(reply => {
+  						console.log("messages sent to your number")
+  					})
+  					.catch(error => {
+  						console.log(error);
+  					});
+  					return reply.view('error', {errormessage: '200', message:'Your Profile Has Successfully Made By Mera Kaam kaaj Please Login First', message3: 'LOGIN'})
   				}
   			})
   		}else{
-  			return reply.view('error', {message: 'Wrong OTP Please try with correct OTP PIN if you h', errormessage: '400'})
+  			return reply.view('error', {message: "Wrong OTP Please Try With Correct OTP PIN if you Didn't Get Any Code Please Go Back And Try Again", errormessage: '400'})
   		}
     }
 },
