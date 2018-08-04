@@ -19,7 +19,6 @@ const visitorModel = require('../models/visitor')
 const swal = require('../node_modules/sweetalert')
 const nodemailer = require("nodemailer");
 const localStorage = require('node-localstorage')
-const sleep = require('sleep');
 const opn = require('opn');
 const AuthCookie = require('hapi-auth-cookie')
 var springedge = require('springedge');
@@ -863,7 +862,6 @@ const routes = [
 				jobcategory=allJobCategory;
 			}
 		})
-		sleep.sleep(5)
 		jobsModel.find({},(err, data) => {
 			if (err){
 				console.log(err);
@@ -898,7 +896,6 @@ const routes = [
 				jobcategory=allJobCategory;
 			}
 		})
-		sleep.sleep(5)
 		ResumeModel.find().limit(50).exec({},(err, data) => {
 			if (err){
 				console.log(err);
@@ -939,7 +936,6 @@ const routes = [
 			else{
 				allService=data
 				reply.view('searchRightService',{allService : allService, services : services,})
-				sleep.sleep(6)
 				console.log(services)
 				console.log(allService)
 			}

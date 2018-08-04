@@ -10,7 +10,6 @@ const UserModel = require('../models/users')
 const swal = require('../node_modules/sweetalert')
 const nodemailer = require("nodemailer");
 const localStorage = require('node-localstorage')
-const sleep = require('sleep');
 const opn = require('opn');
 const AuthCookie = require('hapi-auth-cookie')
 
