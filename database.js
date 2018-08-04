@@ -3,7 +3,9 @@ const Mongoose = require('mongoose');
 
 
 // const databaseURI = 'mongodb://kumar:mera55555#@ds141641.mlab.com:41641/merakaamkaaj';
-const mongoDbUri = 'mongodb://kumar:mera55555#@ds141641.mlab.com:41641/merakaamkaaj';
+const mongoDbUri = 'mongodb://aslam:aslam123@ds263161.mlab.com:63161/merakaamkaaj1';
+
+mongodb://<dbuser>:<dbpassword>@ds141641.mlab.com:41641/merakaamkaaj
 // Making connection with 'MongoDB'
 Mongoose.connect(mongoDbUri, { useMongoClient:true })
 
@@ -19,3 +21,5 @@ db.once('open', function callback(){
 });
 
 exports.db=db;
+
+
