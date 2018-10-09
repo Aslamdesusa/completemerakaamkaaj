@@ -128,15 +128,12 @@
                                     </div>
                                     <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD STATE</h2>
                                     <h4 style="margin-top: 110px; color: #555; margin-bottom: 10px;">Country Name</h4>
-                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="margin-bottom: 10px">
-                                            <select class="js-select2" name="type">
-                                                <option selected="selected">Select Country</option>
-                                                <option value="">Option 1</option>
-                                                <option value="">Option 2</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
                                     <form action="/add/state" method="POST">
+                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="margin-bottom: 10px">
+                                            <select class="js-select2" name="Country"> 
+                                                <option selected="selected" value="INDIA">INDIA</option>
+                                            </select>
+                                        </div>
                                         <h4 style="color: #555; margin-bottom: 10px;">State Name</h4>
                                         <input class="form-control" type="text" name="State">
                                         <input class="submit_btn" type="submit" name="" value="submit">
@@ -148,6 +145,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>State Name</th>
+                                                    <th>Country Name</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -156,6 +154,7 @@
                                                 <tr>
                                                     <td>{{_id}}</td>
                                                     <td>{{State}}</td>
+                                                    <td>{{Country}}</td>
                                                     <td style="display: flex;"><button class="country_edit">Edit</button><form action="/delete/state/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}

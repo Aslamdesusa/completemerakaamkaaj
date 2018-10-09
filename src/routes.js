@@ -22,6 +22,7 @@ const localStorage = require('node-localstorage')
 const opn = require('opn');
 const AuthCookie = require('hapi-auth-cookie')
 var springedge = require('springedge');
+const async = require('async');
 
  
 
@@ -284,14 +285,23 @@ const routes = [
          validate: {
          	payload:{
 				State: Joi.string().required(),
-			}
+				Country: Joi.string().required(),
+			},
 		},
+         auth:{
+         	strategy: 'restricted',
+         },
 	},
 	handler: (request, reply) => {
-		var newState = new StateModel(request.payload);
+		let authenticated_user = request.auth.credentials;
+		console.log(authenticated_user)
+		var newState = new StateModel({
+			"State": request.payload.State,
+			"Country": request.payload.Country,
+		});
 		newState.save(function (err, data){
 			if (err) {
-				throw err;
+				return reply('state already Exists');
 			}else {
 				reply.view('sweetalert1', {state: data}, {layout: 'layout2'})
 				return false;
@@ -511,77 +521,128 @@ const routes = [
 	config	: {
 		 //include this route in swagger documentation
 		 tags:['api'],
-		 description:"getting jobs",
-         notes:"in this route we are getting all jobs",
+		 description:"getting all category data and other data",
+         notes:"getting all data which is need in admin page",
          auth:{
 	    	strategy: 'restricted',
 	    }
-
      },
-	handler: (request, reply) =>{
-		var country = {};
-		var state = {};
-		var city = {};
-		var jobcategory = {};
-		var services = {};
-		var specification = {};
-		CountryModel.find({},(err, allCountry) => {
-			if (err){
-				console.log(err);
-				throw err;		
-			}else{
-				country=allCountry;
-			}
-		});
-		StateModel.find({}, (err, allState) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				state=allState;
-			}
-		})
-		CityModel.find({}, (err, allCity) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				city=allCity;
-			}
-		})
-		JobCategoryModel.find({}, (err, allJobCategory) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				jobcategory=allJobCategory;
-			}
-		})
-		ServiceModel1.find({}, (err, allService) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				services=allService;
-			}
-		})
-		SpecificationModel.find({}, (err, allSpecification) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				specification=allSpecification;
-				reply.view('adddetails', {allCountry: country, allState: state, allCity: city, alljobcategory: jobcategory, allService: services, allSpecification: specification}, {layout: 'layout2'})
-				console.log(country)
-				console.log(state)
-				console.log(city)
-				console.log(jobcategory)
-				console.log(services)
-				console.log(specification)
-			}
-		}) 	   
-	}
+     handler: (request, reply) =>{
+     	async function getallDetails(){
+     		var country;
+			var state;
+			var city;
+			var jobcategory;
+			var services;
+			var specification;
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		CountryModel.find()
+     		.then(function(allCountry){
+     			country = allCountry
+     			StateModel.find()
+     			.then(function(allState){
+     				state = allState
+     				CityModel.find()
+     				.then(function(allCity){
+     					city=allCity;
+     					JobCategoryModel.find()
+     					.then(function(allJobCategory){
+     						jobcategory = allJobCategory
+     						ServiceModel1.find()
+     						.then(function(allService){
+     							services=allService;
+     							SpecificationModel.find()
+     							.then(function(allSpecification){
+     								specification=allSpecification
+     								return reply.view('adddetails', {allCountry: country, allState: state, allCity: city, alljobcategory: jobcategory, allService: services, allSpecification: specification}, {layout: 'layout2'})	
+     							})
+     						});
+     					});
+     				});
+
+     			});
+     		});
+     	}
+     	getallDetails();
+     }
 },
+// {
+// 	method: 'GET',
+// 	path: '/get/details',
+// 	config	: {
+// 		 //include this route in swagger documentation
+// 		 tags:['api'],
+// 		 description:"getting jobs",
+//          notes:"in this route we are getting all jobs",
+//          auth:{
+// 	    	strategy: 'restricted',
+// 	    }
+
+//      },
+// 	handler: (request, reply) =>{
+// 		var country = {};
+// 		var state = {};
+// 		var city = {};
+// 		var jobcategory = {};
+// 		var services = {};
+// 		var specification = {};
+// 		CountryModel.find({},(err, allCountry) => {
+// 			if (err){
+// 				console.log(err);
+// 				throw err;		
+// 			}else{
+// 				country=allCountry;
+// 			}
+// 		});
+// 		StateModel.find({}, (err, allState) =>{
+// 			if (err) {
+// 				console.log(err);
+// 				throw err;
+// 			}else{
+// 				state=allState;
+// 			}
+// 		})
+// 		CityModel.find({}, (err, allCity) =>{
+// 			if (err) {
+// 				console.log(err);
+// 				throw err;
+// 			}else{
+// 				city=allCity;
+// 			}
+// 		})
+// 		JobCategoryModel.find({}, (err, allJobCategory) =>{
+// 			if (err) {
+// 				console.log(err);
+// 				throw err;
+// 			}else{
+// 				jobcategory=allJobCategory;
+// 			}
+// 		})
+// 		ServiceModel1.find({}, (err, allService) =>{
+// 			if (err) {
+// 				console.log(err);
+// 				throw err;
+// 			}else{
+// 				services=allService;
+// 			}
+// 		})
+// 		SpecificationModel.find({}, (err, allSpecification) =>{
+// 			if (err) {
+// 				console.log(err);
+// 				throw err;
+// 			}else{
+// 				specification=allSpecification;
+// 				reply.view('adddetails', {allCountry: country, allState: state, allCity: city, alljobcategory: jobcategory, allService: services, allSpecification: specification}, {layout: 'layout2'})
+// 				console.log(state)
+// 				console.log(city)
+// 				console.log(jobcategory)
+// 				console.log(services)
+// 				console.log(country)
+// 				console.log(specification)
+// 			}
+// 		}) 	   
+// 	}
+// },
 {
 	method: 'GET',
 	path: '/get/posted/details',
@@ -682,67 +743,49 @@ const routes = [
 		})	   
 	}
 },
-
 {
 	method: 'GET',
 	path: '/',
 	config	: {
 		 //include this route in swagger documentation
 		 tags:['api'],
-		 description:"getting jobs",
-         notes:"in this route we are getting all jobs"
+		 description:"getting home data",
+         notes:"getting home data"
      },
-	handler: (request, reply) =>{
-		var jobcategory = {};
-		var services = {};
-		var recentsers = {};	
-		var recentjobs = {};
-		var recentworkers = {}
-		JobCategoryModel.find({}, (err, allJobCategory) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				jobcategory = allJobCategory;
-			}
-		})
-		ServiceModel1.find({}, (err, allService) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				services=allService;
-				// console.log(jobcategory)
-				// console.log(services)
-			}
-		})
-		ServiceModel.find().limit(10).exec({}, (err, recentservices) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				recentsers=recentservices;
-			}
-		}) 
-		jobsModel.find().limit(5).exec({}, (err, recentjob) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				recentjobs=recentjob;
-			}
-		})
-		ResumeModel.find().limit(5).exec({}, (err, recentworker) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				recentworkers=recentworker;
-				return reply.view('index', {alljobcategory: jobcategory, allService: services, allrecentsers : recentsers, allrecentjobs :recentjobs, allrecentworkers :recentworkers  })
-				
-			}
-		});	   
-	}
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		var jobcategory;
+     		var services;
+     		var recentsers;
+     		var recentjobs;
+			var recentworkers;
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		JobCategoryModel.find()
+     		.then(function(jobCategoryData){
+     			jobcategory = jobCategoryData
+     			ServiceModel1.find()
+     			.then(function(servicesCat){
+     				services = servicesCat
+     				ServiceModel.find().limit(10).exec()
+     				.then(function(recentservices){
+     					recentsers=recentservices;
+     					jobsModel.find().limit(5).exec()
+     					.then(function(recentjob){
+     						recentjobs = recentjob
+     						ResumeModel.find().limit(5).exec()
+     						.then(function(recentworker){
+     							recentworkers=recentworker;
+     							return reply.view('index', {alljobcategory: jobcategory, allService: services, allrecentsers : recentsers, allrecentjobs :recentjobs, allrecentworkers :recentworkers  })
+     						});
+     					});
+     				});
+
+     			});
+     		});
+     	}
+     	getJobCat();
+     }
 },
 {
 	method: 'POST',

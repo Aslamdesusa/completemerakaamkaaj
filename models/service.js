@@ -35,6 +35,7 @@ var PostServiceSchema = new Schema({
 	pincode: Number(),
 	information: String(),
 	payment: String(),
+	isAgreeAdmin: Boolean,
 	termsandcondition: Boolean,
 	date: {type: Date, default: Date.now}
 });

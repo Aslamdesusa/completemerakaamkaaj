@@ -4,18 +4,31 @@ import Vision from 'vision';
 import jwt from 'jsonwebtoken'
 import swal from 'sweetalert';
 
+var https = require('https');
+var fs = require('fs')
+
 const env2 = require('env2') 
 
 const server = new Hapi.Server();
 import routes from './routes'
 import user from './userapi'
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 
 server.connection( {
     port: port,
     routes: { cors: true }
 });
+
+// var https_options = {
+//  key: fs.readFileSync("/path/to/private.key"),
+//  cert: fs.readFileSync("/key/merakaamkaaj_com.crt"),
+//  ca: [
+    //      fs.readFileSync('path/to/COMODORSAXXXXXXXXXSecureServerCA.crt'),
+   //       fs.readFileSync('path/to/COMODORSAAddTrustCA.crt') 
+  //     ]
+
+//};
 
 server.register([
     Inert,
@@ -37,7 +50,7 @@ server.register(require('hapi-auth-cookie'), (err)=>{
     ttl: 24 * 60 * 60 * 1000, 
     password: 'vZiYpmTzqXMp8PpYXKwqc9ShQ1UhyAfy',
     cookie: 'merakaamkaaj-cookie',
-    isSecure: false, 
+    isSecure: false,    
     redirectTo: '/'
   });
 })
@@ -95,14 +108,15 @@ handler: {
 
 });
 
-
 server.start(err => {
 
-    if (err) {
-        console.error( err );
+     if (err) {
+         console.error( err );
 
-    }
-    console.log('hapi-auth-cookie successfully registered') 
-    console.log( `Server started at ${ server.info.uri }` );
+     }
+     console.log('hapi-auth-cookie successfully registered') 
+     console.log( `Server started at ${ server.info.uri }` );
 
-});
+ });
+
+

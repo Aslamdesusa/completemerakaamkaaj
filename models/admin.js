@@ -11,6 +11,7 @@ var AdminSchema = new Schema({
     },
     emailid: {type:Email, required:true, unique:true},
     password: {type:String, required:true},
+    mobile: Number, 
     date: {type: Date, default: Date.now}
 });
 

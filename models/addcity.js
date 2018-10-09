@@ -7,7 +7,9 @@ var CitySchema = new Schema({
 	_id: {
 		type: String,
     	'default': shortid.generate
-    },	
+    },
+    Country: String,
+    State: String,	
     City: String,
     date: {type: Date, default: Date.now}
 });
