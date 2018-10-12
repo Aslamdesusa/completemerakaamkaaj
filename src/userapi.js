@@ -499,6 +499,22 @@ const routes = [
         tags:['api'],
         description:"verifing phone number",
         notes:"verifing phone number",
+        validate: {
+         	payload:{
+         		firstname:Joi.string().required(),
+         		lastname:Joi.string().required(),
+         		mobile:Joi.string().required(),
+         		emailid:Joi.string().required(),
+         		password:Joi.string().required(),
+         		address:Joi.string().required(),
+         		state:Joi.string().required(),
+         		city:Joi.string().required(),
+         		pincode:Joi.number().required(),
+         		gender:Joi.string().required(),
+         		lookingfor:Joi.string().required(),
+
+			}
+		},
     },
 	handler: function(request, reply){
 		var otp = Math.floor(Math.random() * 90000) + 10000;
@@ -537,6 +553,11 @@ const routes = [
         tags:['api'],
         description:"verifing phone number",
         notes:"verifing phone number",
+        validate:{
+        	payload:{
+        		otp:Joi.string().required(),
+        	}
+        },
         auth:{
     		strategy: 'restricted',
 	    }

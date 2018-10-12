@@ -7,7 +7,7 @@
         }
         .ch-itemone{
           border-radius: 50% 0% 50% 50%;
-          box-shadow: inset 9px 1px 0px 1px rgba(0,0,0,0.1);
+          box-shadow: inset 0px 0px 50px 1px rgba(0,0,0,0.1);
         }
        </style>
 
@@ -21,7 +21,7 @@
                         <div class="carousel-item active">
                           <div class="img-caption-hide"></div>
                           <img class="d-block w-100 img-fluid" src="/img/1.jpg" alt="First slide">
-                          <div class="carousel-caption d-none d-md-block">
+                          <div class="silder-para d-md-block">
                             <!-- <h3>Welcome to <span>Startup</span></h3> -->
                             Provide Worker or Services after right verification We serve our services with your safety
                             <!-- <div class="btn btn-general btn-white">Buy now</div> -->
@@ -30,7 +30,7 @@
                         <div class="carousel-item">
                           <div class="img-caption-hide"></div>
                           <img class="d-block w-100" src="/img/2.jpg" alt="Second slide">
-                          <div class="carousel-caption d-none d-md-block">
+                          <div class="silder-para d-md-block">
                             <!-- <h3><span>Derive </span>with me</h3> -->
                             Worker & Services provid from your locality In right & fixed ammount get best job / workers / services
                             <!-- <div class="btn btn-general btn-white">Buy now</div> -->
@@ -75,7 +75,7 @@
                           <div class="row">
 
                             {{#each alljobcategory}}                            
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                               <div class="cards">
                               <div class="card">
                                 <center><img src="/uploads/category/{{_id}}.png"></center>
@@ -115,7 +115,7 @@
                         <div id="carousel-item" class="carousel-item active" style="padding: 20px;">
                           <div class="row">
                             {{#each allService}}
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                               <div class="cards">
                               <div class="card">
                                 <center><img src="/uploads/services/{{_id}}.png"></center>
@@ -156,7 +156,6 @@
         <button id="two2" style="outline: none; background: none; border: 1px solid #F16023; color: #F16023; font-size: 15px; padding: 5px 15px; border-radius: 3px; cursor: pointer;">Worked / Services</button>
       </div>
       <section class="main1">
-      
         <ul class="ch-gridone">
           <li>
             <div class="ch-itemone ch-img-1one">        
@@ -305,6 +304,7 @@
                                 <td>
                                   <div class="col-md-12 col-sm-6 col-xs-6">
                                     <div class="jobs2">
+                                      <div>
                                       <span class='list-group gallery'>
                                         <a class="thumbnail fancybox" rel="ligthbox" href='photo/simg720.jpg'>
                                           <img src='img/logo.png' />
@@ -317,6 +317,7 @@
                                         <!-- <span style="color: #fff; font-size: 12px;">
                                           UISINE ART FAMILY RESTURA ...
                                         </span> -->
+                                      </div>
                                       </div>
                                        <div class="clearfix"></div>
                                        <table class="table" style="font-size: 12px;">
@@ -347,7 +348,7 @@
                                           <td>Worker</td>
                                         </tr>
                                         </table>
-                                        <a style="background: #f16024; cursor: pointer; padding: 10px 30px; color: #fff; border-radius: 50px;">View</a>                       
+                                                               
                                         <div class="clearfix"></div>
                                       </div>
                                     </div>
@@ -401,7 +402,7 @@
                                           <td>JOb</td>
                                         </tr>
                                         </table>
-                                        <a style="background: #f16024; cursor: pointer; padding: 10px 30px; color: #fff; border-radius: 50px;">View</a>                       
+                                                              
                                         <div class="clearfix"></div>
                                       </div>
                                     </div>
@@ -468,7 +469,7 @@
                                                       </tr>
 
                                                       </table>
-                                                      <a style="background: #f16024; cursor: pointer; padding: 10px 30px; color: #fff; border-radius: 50px;">View</a>                       
+                                                                            
                                                       <div class="clearfix"></div>
                                                     </div>
                                                   </div>

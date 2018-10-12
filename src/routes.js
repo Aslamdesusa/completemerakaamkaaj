@@ -267,7 +267,7 @@ const routes = [
 			if (err) {
 				throw err;
 			}else {
-				reply.view('sweetalert', {country: data}, {layout: 'layout2'})
+				reply({country: data, message: 'Country successfully ragistered'})
 				return false;
 			}
 		});
@@ -303,7 +303,7 @@ const routes = [
 			if (err) {
 				return reply('state already Exists');
 			}else {
-				reply.view('sweetalert1', {state: data}, {layout: 'layout2'})
+				reply({state: data})
 				return false;
 			}
 		});
@@ -324,6 +324,8 @@ const routes = [
          	payload:{
 				//Contact Information
 				City: Joi.string().required(),
+				Country: Joi.string().required(),
+				State: Joi.string().required(),
 			}
 		},
 	},
@@ -335,7 +337,7 @@ const routes = [
 				// console.log(err);
 				throw err;
 			}else {
-				reply.view('sweetalert2', {city: data}, {layout: 'layout2'})
+				reply({city: data})
 				return false;
 			}
 		});
@@ -359,7 +361,7 @@ const routes = [
     		if (err) {
     			reply('error saving data')
 			}else{
-				reply.view('sweetalert3', {data: data, message: 'New Job Category successfully saved'}, {layout: 'layout2'})
+				reply({message: 'New Job Category successfully saved'})
 				uuid=data;
 				var dataa = request.payload;
 	            if (dataa.image) {
@@ -380,7 +382,7 @@ const routes = [
 	                    }
 	                });
 		        }
-			} 
+			}
 
 		});
 
@@ -403,7 +405,7 @@ const routes = [
     		if (err) {
     			reply('error saving data')
 			}else{
-				reply.view('sweetalert4', {data: data, message: 'New Service successfully saved',}, {layout: 'layout2'})
+				reply({service: data, message: 'A new Service Has Added successfully'})
 				uuid=data;
 				console.log('====================================')
 				console.log(uuid)
@@ -1261,7 +1263,7 @@ const routes = [
 // =====================================================
 // delete by admin
 {
-		method: 'GET',
+		method: 'DELETE',
 		path: '/delete/country/{uuid}',
 		config: {
 		// swager documention fields tags, descrioption and, note
@@ -1282,13 +1284,13 @@ const routes = [
 			if(error){
 				reply.view('error', {message: 'error in deleting country'}, {layout: 'layout2'})
 			}else{
-				reply.redirect('/get/details')
+				reply({message: 'Country Has Deleted Successfully'})
 			}
 		});
 	}
 },
 {
-		method: 'GET',
+		method: 'DELETE',
 		path: '/delete/state/{uuid}',
 		config: {
 		// swager documention fields tags, descrioption and, note
@@ -1309,13 +1311,13 @@ const routes = [
 			if(error){
 				reply.view('error', {message: 'error in deleting state'}, {layout: 'layout2'})
 			}else{
-				reply.redirect('/get/details')
+				return reply({message: 'State Has Deleted Successfully'})
 			}
 		});
 	}
 },
 {
-		method: 'GET',
+		method: 'DELETE',
 		path: '/delete/city/{uuid}',
 		config: {
 		// swager documention fields tags, descrioption and, note
@@ -1334,15 +1336,15 @@ const routes = [
 		//find user data from his ID and remove data into databases.
 		CityModel.findOneAndRemove({_id: request.params.uuid}, function (error){
 			if(error){
-				reply.view('error', {message: 'error in deleting city'}, {layout: 'layout2'})
+				reply({message: 'Error Deleting data'})
 			}else{
-				reply.redirect('/get/details')
+				reply({message: 'Entry Deleted Successfully'})
 			}
 		});
 	}
 },
 {
-		method: 'GET',
+		method: 'DELETE',
 		path: '/delete/category/{uuid}',
 		config: {
 		// swager documention fields tags, descrioption and, note
@@ -1361,15 +1363,15 @@ const routes = [
 		//find user data from his ID and remove data into databases.
 		JobCategoryModel.findOneAndRemove({_id: request.params.uuid}, function (error){
 			if(error){
-				reply.view('error', {message: 'error in deleting job category'}, {layout: 'layout2'})
+				reply({message: 'error in deleting job category'})
 			}else{
-				reply.redirect('/get/details')
+				reply({message: 'Entry Deleted Successfully'})
 			}
 		});
 	}
 },
 {
-		method: 'GET',
+		method: 'DELETE',
 		path: '/delete/service/{uuid}',
 		config: {
 		// swager documention fields tags, descrioption and, note
@@ -1388,9 +1390,9 @@ const routes = [
 		//find user data from his ID and remove data into databases.
 		ServiceModel1.findOneAndRemove({_id: request.params.uuid}, function (error){
 			if(error){
-				reply.view('error', {message: 'error in deleting service'}, {layout: 'layout2'})
+				reply({message: 'error in deleting service'})
 			}else{
-				reply.redirect('/get/details')
+				reply({message: 'Entry Deleted Successfully'})
 			}
 		});
 	}

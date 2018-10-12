@@ -22,13 +22,7 @@
         <meta name="twitter:card" content="Mera Kaam Kaaj" />
         <meta name="twitter:site" content="Mera kaam kaaj" />
         <meta name="twitter:creator" content="Mera kaam kaaj" />
-<!--         <link rel="stylesheet" type="text/css" href="https://www.merakaamkaaj.com/styles/style.css">
- -->
         <link rel="stylesheet" type="text/css" href="/css/cardslider.css">
-        
-
-        <!-- <link rel="stylesheet" type="text/css" href="http://straydogstudio.github.io/film_roll/css/bootstrap-responsive.min.css"> -->
-        
 
         <link rel="stylesheet" type="text/css" href="https://previews.envatousercontent.com/files/190236521/css/theme.css">
         <link rel="stylesheet" type="text/css" href="https://previews.envatousercontent.com/files/190236521/css/responsive_bootstrap_carousel_mega_min.css">
@@ -43,7 +37,6 @@
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
         <script src="/js/jquery.min.js"></script>
         <script> $(window).on('load', function(){ $(".loader").fadeOut(2000); }); </script>
 
@@ -58,7 +51,7 @@
             <div class="fixed-top" style="background: #f16024;">
               <div style="background: #fff;">
                 <div class="d-none d-sm-block">
-                <button style="position: fixed; z-index: 10; right: 13px; top: 100px; background: #fff; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50px; outline: none;" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive1" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" title="More option">
+                <button style="position: fixed; z-index: 10; right: 13px; top: 110px; background: #fff; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50px; outline: none;" class="navbar-toggler navbar-toggler-right header-min-btn" type="button">
                   <i class="material-icons" style="font-size: 30px;color:#f16024">expand_more</i>
                 </button>
                 </div>
@@ -109,7 +102,7 @@
 
                 <a class="navbar-brand js-scroll-trigger" href="/"><img src="/img/logo.png" style="    height: 104px !important; position: absolute !important; top: 10px !important;" alt="Merakaamkaaj.log" class="logoimg-fluid"></a>
                 <div class="d-block d-sm-none d-md-none d-lg-none d-xl-none">
-                <button style=" position: absolute; border-radius: 50px; padding: 0px !important; right: 100px; top: 10px; display: flex; border-radius: 50px; outline: none;" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapsess" data-target="#navbarResponsive1" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" title="More option">
+                <button style=" position: absolute; border-radius: 50px; padding: 0px !important; right: 100px; top: 10px; display: flex; border-radius: 50px; outline: none;" class="navbar-toggler navbar-toggler-right header-min-btn" type="button">
                   <i class="material-icons" style="font-size: 30px;color:#fff">expand_more</i>
                 </button>
                 </div>
@@ -122,7 +115,7 @@
                   <i class="fa fa-bars"></i>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="collapse navbar-collapse" id="navbarResponsive" style="background-color: #f16024;">
                   <ul class="navbar-nav text-uppercase ml-auto">                    
                     <li class="nav-item" id="home">
                       <a class="nav-link js-scroll-trigger " href="/">Home</a>
@@ -242,7 +235,6 @@
           color: #fff;
           background-color: #bd2e2e !important;
           border-color: #d0c7c4;
-          width: 21%;
           border-style: none !important;
           text-align: center;
           cursor: pointer;
@@ -250,10 +242,10 @@
         #border344 {
           font-size: 12px;
           border-radius: 100px;
-          padding: 6px;
+          padding: 6px 10px;
           margin-top: 10px;
           outline: none;
-          box-shadow: 3px 6px 12px #00000063;
+          box-shadow: 1px 1px 1px #00000063;
         }
         .goog-te-gadget-simple{
           background-color: #f16025 !important;
@@ -302,6 +294,12 @@
             <script src="/intigretion/app.js"></script>
             <script type="text/javascript">
           $(document).ready(function(){
+
+            $(".header-min-btn").click(function(){
+                  $("#navbarResponsive1").toggle(400);
+                  
+              });
+
               $("#filter").click(function(){
                   $("#filteraes").toggle(400);
                   
