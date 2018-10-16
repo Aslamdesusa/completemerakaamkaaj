@@ -1,4 +1,4 @@
-
+ 
     <style type="text/css">
 
 
@@ -120,7 +120,10 @@
                                     </div>
                                     <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">POST A JOB</h2>
                                     <h3 style="color: #555; margin-top: 110px;">Job Details</h3>
-                                                                      
+                                    <label>
+                                        <input type="text" name="JobID" required />
+                                        <div class="label-text">JOB ID<span id="require">*</span></div>
+                                      </label>
                                     
                                         <div style="margin-top: 20px;" class="md-form">
                                             <select name="jobType" class="mdb-select colorful-select dropdown-primary">
@@ -272,7 +275,7 @@
                                               <option value="Female">No</option>
                                             </select>
                                         </div>
-                                        <div class="md-form">
+                                        <!-- <div class="md-form">
                                             <select name="paymentPlan" class="mdb-select colorful-select dropdown-primary">
                                               <option value="" disabled selected>Payment</option>
                                               <option value="none">Select Plan</option>
@@ -281,7 +284,7 @@
                                               <option value="On Post 10 to 15 Jobs 800 Rs.">On Post 10 to 15 Jobs 800 Rs.</option>
                                               <option value="On Post More Than 15 Jobs">On Post More Than 15 Jobs</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                     <button type="submit" style="background: #f16024; color: #fff; padding: 5px 20px; border-radius: 3px;">Submit</button>
                                   </div>
                                 </form>

@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var PostResumeSchema = new Schema({
     //Contact Information
     objectid: String,
-    Declration: String,
+    Declration: String, 
     verifi: String,
     pwid: String,
     JobCat:String,

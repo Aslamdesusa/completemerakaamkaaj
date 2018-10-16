@@ -18,7 +18,7 @@ var PostServiceSchema = new Schema({
 	Specification: String(),
 	ProvideServices: String(),
 	ProviderRegistered: String(),
-	RegisteredExpiry: String(),
+	RegisteredExpiry: String(), 
 	Country: String(),
 	State: String(),
 	City: String(),

@@ -1,4 +1,6 @@
 import axios from 'axios';
+// import bson.objectid from 'ObjectId';
+
 const db = require('../database').db;
 const Joi = require('joi');
 const fs = require('fs');
@@ -15,6 +17,8 @@ const JobCategoryModel = require('../models/addjobcategory')
 const ServiceModel1 = require('../models/addservice')
 const AuthCookie = require('hapi-auth-cookie')
 const async = require('async');
+var oid = require('objectid')
+// from bson.objectid import ObjectId
 
 
 
@@ -1104,6 +1108,50 @@ const routes = [
      		});
      	}
      	getallDetails();
+	}
+},
+{
+	method: 'GET',
+	path: '/change/status/to/verify/unverify/{serviceid}',
+	config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"admin can change the status of any data",
+        notes:"admin can cahnge the status of any data which is verify of not",
+        validate:{
+	        params:{
+	        	serviceid: Joi.string()
+	        }
+            
+        },
+    },
+	handler: function(request, reply){
+		var unverify = ({
+			verifi: "Noactive"
+		});
+		var varify = ({
+			verifi: "Active"
+		});
+		ServiceModel.findOne({'serviceid': request.params.serviceid}, function(err, result){
+			if (result.verifi == "Active") {
+				ServiceModel.findOneAndUpdate({'serviceid' : request.params.serviceid}, unverify, function(err, data){
+				console.log('got it')
+					if (err) {
+						throw err
+					}else{
+						reply(data)
+					}
+				})
+			}else if (result.verifi == "Noactive") {
+				ServiceModel.findOneAndUpdate({'serviceid' : request.params.serviceid}, varify, function(err, data){
+					if (err) {
+						throw err
+					}else{
+						reply(data)
+					}
+				})
+			}
+		})
 	}
 },
 // {

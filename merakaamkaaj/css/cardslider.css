@@ -40,6 +40,7 @@ div.cards {
 }
 div.card {
   width: 100%;
+  min-height: 200px;
   background: #ffffff;
   display: inline-block;
   margin: 8px;

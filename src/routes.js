@@ -24,6 +24,9 @@ const AuthCookie = require('hapi-auth-cookie')
 var springedge = require('springedge');
 const async = require('async');
 
+import axios from 'axios';
+
+
  
 
 import jwt from 'jsonwebtoken';
@@ -99,7 +102,43 @@ const routes = [
          notes:"in this route we can post details of a user jobs",
 	},
 	handler: (request, reply) => {
-		var newJobs = new jobsModel(request.payload);
+		var newJobs = new jobsModel({
+			 //Job Details
+		    "objectid":request.payload.objectid,
+		    "JobID":request.payload.JobID,
+		    "Declration": request.payload.Declration,
+		    "verifi": "No Active",
+		    "jobType":request.payload.jobType,
+		    "skills":request.payload.skills,
+		    "jobDescription":request.payload.jobDescription,
+		    "aVacancy":request.payload.aVacancy,
+		    "expiryDate": request.payload.expiryDate, //{ type: Date,required: true, default: Date.now },
+		    "country":request.payload.country,
+		    "state":request.payload.state,
+		    "city":request.payload.city,
+		    "jobArea":request.payload.jobArea,
+		    "pinCode":request.payload.pinCode,
+		    "jobAddress":request.payload.jobAddress,
+
+		    //Professional Details
+		    "salary":request.payload.salary,
+		    "experience":request.payload.experience,
+		    "shift":request.payload.shift,
+		    "gender":request.payload.gender,
+		    "educations":request.payload.educations,
+		    "knownLanguage":request.payload.knownLanguage,
+
+		    //Employer Details
+		    "companyName":request.payload.companyName,
+		    "nameOfRepresentative":request.payload.nameOfRepresentative,
+		    "mobile":request.payload.mobile,
+		    "landline":request.payload.landline,
+		    "email":request.payload.email,
+		    "idCardNumber":request.payload.idCardNumber,
+		    "addressOfEmployer":request.payload.addressOfEmployer,
+		    "contactTiming":request.payload.contactTiming,
+		    "lookingOverseas":request.payload.lookingOverseas,
+		});
 		newJobs.save(function (err, data){
 			if (err) {
 				throw err;
@@ -1178,6 +1217,20 @@ const routes = [
 		reply.view('form', null, {layout: 'layout2'})
 	}
 },
+// user can change there password ========================================
+{
+	method: 'GET',
+	path: '/new/password',
+	config:{
+            //include this route in swagger documentation
+            tags:['api'],
+            description:"getting new password form",
+            notes:"getting new password form",
+    },
+	handler: (request, reply) =>{
+		reply.view('new-password', null,{layout: 'layout-forget-password'})
+	}
+},
 {
 	method: 'GET',
 	path: '/forgot/pass',
@@ -1186,20 +1239,71 @@ const routes = [
             tags:['api'],
             description:"getting foret password form",
             notes:"getting forget password form",
-            validate:{
-                params:{
-                    TypeOfService:Joi.string(),
-                    State:Joi.string()
-                }
-            },
-        auth:{
-	    	strategy: 'restricted',
-	    }
     },
 	handler: (request, reply) =>{
-		reply.view('forget-pass', null,{layout: 'layout2'})
+		reply.view('forget-pass', null,{layout: 'layout-forget-password'})
 	}
 },
+{
+	method: 'GET',
+	path: '/confirm/user/{mobile}',
+	config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"user can change the password",
+        notes:"user can change the password with there email id and may be there password",
+        validate:{
+            params:{
+                mobile:Joi.string()
+            }
+        },
+    },
+	handler: (request, reply) =>{
+		// password change
+		UserModel.find({mobile: request.params.mobile}, function(err, data){
+			if (data.length == 0) {
+				reply('user dose not Exists Please try with your Correct email and password')
+			}else{
+				let changepassword = 'merakaamkaaj.com \n Reset your merakaamkaaj \n password.\n To do so, click the following link: \n '+ 'https//merakaamkaaj.com/new/password?mobile=' + request.params.mobile
+				axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+request.params.mobile+'&sid=MERAKK&msg='+changepassword+'&fl=1&gwid=2')
+				  .then(function(result){
+				  	reply('messages sent to your number')
+				  })
+				  .catch(error => {
+				    console.log(error);
+				  });
+			}
+		})	
+	}
+},
+{
+	method: 'PUT',
+	path: '/change/password/with-secure-link',
+	config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"user can change the password",
+        notes:"user can change the password with there email id and may be there password",
+        // validate:{
+        //     params:{
+        //         mobile:Joi.string()
+        //     }
+        // },
+    },
+	handler: (request, reply) =>{
+		// password change
+		UserModel.findOneAndUpdate({mobile: request.query.mobile}, request.payload, function(err, data){
+			if (err) {
+				throw err
+			}else{
+				reply('password changed successfully')
+			}
+		})
+	}
+},
+
+
+
 // ******************************user page***************************************
 
 // ***********************Routes for footer html***************************************
@@ -1623,7 +1727,7 @@ const routes = [
       },
       handler: function(request, reply) {
         // find user with his id and update user data
-        jobsModel.findOneAndUpdate({_id: request.params.id}, request.payload, function (error, data) {
+        ServiceModel.findOneAndUpdate({_id: request.params.id}, request.payload, function (error, data) {
           if(error){
             reply({
               statusCode: 503,

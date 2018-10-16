@@ -12,7 +12,9 @@ var PostJobSchema = new Schema({
     },
 	
     //Job Details
-    objectid:String,
+    objectID: String,
+    JobID:String,
+    Declration: String,
     verifi: String,
     jobType:String,
     skills:{type:String, required:true},
