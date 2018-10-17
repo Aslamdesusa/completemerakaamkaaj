@@ -339,6 +339,26 @@
             $(".navbar").find(".active").removeClass("active");
             $(this).parent().addClass("active");
           });
+
+          var counterload = 0;
+
+              $(".loadmorebtn").click(function() {
+                counterload++;
+                $.ajax({
+                    url : "/get/rightservice/with/limit?count="+counterload,
+                    type : "GET",
+                    dataType: 'json',
+                    success : function(data){
+                      console.log(data)
+                      var HTML = '';
+                      alert('data siccess')
+                      for (var i = 0; i < data.length; i += 1) {
+                        HTML = '<h1>Hello<h1>'
+                      $('#append-data').append(HTML);
+                    }
+                  },
+                });
+                });
         </script>
         <script type="text/javascript">
           function googleTranslateElementInit() {

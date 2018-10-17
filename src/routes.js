@@ -804,7 +804,7 @@ const routes = [
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
      		JobCategoryModel.find()
      		.then(function(jobCategoryData){
-     			jobcategory = jobCategoryData
+     			jobcategory = jobCategoryData 
      			ServiceModel1.find()
      			.then(function(servicesCat){
      				services = servicesCat
@@ -1004,26 +1004,46 @@ const routes = [
 	handler: (request, reply) =>{
 		var services = {}
 		var allService = {}
-		ServiceModel1.find().limit(100).exec({}, (err, allService) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				services=allService;
-			}
-		}) 
-		ServiceModel.find().limit(50).exec({},(err, data) => {
-			if (err){
-				console.log(err);
-				throw err;		
-			}
-			else{
-				allService=data
-				reply.view('searchRightService',{allService : allService, services : services,})
-				console.log(services)
-				console.log(allService)
-			}
-		}); 	   
+		async function getallDetails(){
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     			ServiceModel.find({}).limit(20).skip(20 * request.query.count)
+     			.then(function(allService){
+     				allService = allService
+     				ServiceModel1.find()
+     				.then(function(allServiceCat){
+     					services = allServiceCat;
+     					return reply.view('searchRightService',{allService : allService, services : services,})
+     			});
+     		});
+     	}
+     	getallDetails()
+	}
+},
+{
+	method: 'GET',
+	path: '/get/rightservice/with/limit',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting Service",
+         notes:"in this route we are getting all services"
+     },
+	handler: (request, reply) =>{
+		var services = {}
+		var allService = {}
+		async function getallDetails(){
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     			ServiceModel.find({}).limit(20).skip(20 * request.query.count)
+     			.then(function(allService){
+     				allService = allService
+     				ServiceModel1.find()
+     				.then(function(allServiceCat){
+     					services = allServiceCat;
+     					return reply({allService : allService, services : services,})
+     			});
+     		});
+     	}
+     	getallDetails()
 	}
 },
 {

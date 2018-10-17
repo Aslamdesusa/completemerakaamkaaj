@@ -1,39 +1,11 @@
-// $(document).ready(function(){
-//   $('.btn2').click(function(){
-//     var dataId = $(this).attr("title");
-//     // var temp = $('#JobCategoryH').html();
-//     alert(dataId)
-//     $.ajax({
-//       type: 'GET',
-//       url: '/world/'+dataId,
-//       dataType: 'json',
-//       success: function(data){
-//         alert('success')
-//         location.reload();
-//         // var HTML = '';
-//         // for (var i = 0; i < data.length; i += 1) {
-//         //         HTML = '<option value="' + data[i].username + '">' + data[i].firstName + '</option>'
-//         //       $('#updateoptionteach').append(HTML);
-//         //       }     
-//         }
-//     });
-//   });
-// });
 
 $(document).ready(function(){
   $('.btn2').click(function(){
-    var dataId = $(this).attr("href").split("/").join("/");
+    var dataId = $(this).attr("href");
     alert(dataId)
-    window.location('/search/right/worker/'+dataId)
+    window.location.href='/search/right/worker?JobCat='+dataId
   });
 });
-
-// $(document).ready(function(){
-//   $('#btn3').click(function(){
-//     var dataId = $(this).attr("href");
-//     location.replace('http://localhost:8000'+dataId)
-//   });
-// });
 
 
 $(document).ready(function(){

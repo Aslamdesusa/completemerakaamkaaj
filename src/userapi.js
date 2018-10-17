@@ -1045,38 +1045,66 @@ const routes = [
 },
 {
 	method: 'GET',
-	path: '/search/right/worker/{worker}',
+	path: '/search/right/worker',
 	config:{
         //include this route in swagger documentation
         tags:['api'],
-        description:"getting  admin form",
+        description:"getting admin form",
         notes:"getting form",
-        validate:{
-            params:{
-                worker:Joi.string()
-            }
-        },
     },
-	handler: function(request, reply){
+	handler: (request, reply) =>{
 		// return reply('dsf')
 		async function getallDetails(){
      		var worker;
 			var jobcat;
-			var query = {$and:[{worker:{$regex: request.params.worker, $options: 'i'}}]}
+			var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}]}
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
      		ResumeModel.find(query)
      		.then(function(allworker){
      			worker = allworker
-     			JobCategoryModel.find()
+     			JobCategoryModel.find({})
      			.then(function(allJobCategory){
      				jobcat = allJobCategory
 	     			return reply.view('SearchRightWorker', {allResume : worker, jobcategorys: jobcat})
+
+	     			// return reply({allResume : worker, jobcategorys: jobcat})
      			});
      		});
      	}
      	getallDetails();
 	}
 },
+// {
+// 	method: 'GET',
+// 	path: '/search/right/worker',
+// 	config:{
+//         //include this route in swagger documentation
+//         tags:['api'],
+//         description:"getting admin form",
+//         notes:"getting form",
+//     },
+// 	handler: (request, reply) =>{
+// 		// return reply('dsf')
+// 		async function getallDetails(){
+//      		var worker;
+// 			var jobcat;
+// 			var query = {$and:[{TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}}]}
+//      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+//      		ServiceModel.find(query)
+//      		.then(function(allService){
+//      			worker = allworker
+//      			JobCategoryModel.find({})
+//      			.then(function(allJobCategory){
+//      				jobcat = allJobCategory
+// 	     			return reply.view('SearchRightWorker', {allResume : worker, jobcategorys: jobcat})
+
+// 	     			// return reply({allResume : worker, jobcategorys: jobcat})
+//      			});
+//      		});
+//      	}
+//      	getallDetails();
+// 	}
+// },
 {
 	method: 'GET',
 	path: '/world/{worker}',
