@@ -15364,3 +15364,21 @@ span.emp-heading {
 }
 
 
+.modal-backdrop.show {
+    opacity: 0;
+    z-index: -1000;
+}
+
+
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 500px;
+    margin: 5.75rem auto;
+}
+}
+
+
+.modal-content{
+    box-shadow: 0px 0px 20px 4px #aaa;
+    border: none;
+}

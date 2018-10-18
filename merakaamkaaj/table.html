@@ -146,6 +146,7 @@
                         </div>
                        
                         <div id="section_7">
+
                         <div class="row">
                             <div class="col-lg-12">
                                 <div id="qunit"></div>
@@ -188,10 +189,10 @@
                                                               More Option
                                                             </button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                              <a class="dropdown-item modaleditbtn" href="#">Edit</a>
+                                                              <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit</a>
                                                               <a class="dropdown-item" href="#">Active</a>
-                                                              <a class="dropdown-item madelviewbtn" href="#">View</a>
-                                                              <a class="dropdown-item madeldeletebtn" href="#"><form method="GET" action="/delete/user/job/{{_id}}"><button>Delete</button></form></a>
+                                                              <a class="dropdown-item" data-toggle="modal" data-target="#ModalView" href="#">View</a>
+                                                              <a class="dropdown-item DeleteJobsBtn" data-toggle="modal" title="{{companyName}}" value="{{_id}}" data-target="#ModalDelete" href="#">DELETE</a>
                                                             </div>
                                                           </div> 
                                                     </td>
@@ -208,6 +209,407 @@
                     </div>
 
     </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="ModalView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <div class=" details-card" id="updatetable">
+                            <div class="candDetails"> 
+                                <div class="imageUser">
+                                    <img src="/img/img/{{Gender}}.png" style="width: 54px; height: 54px;">
+                                </div>           
+                            
+                            
+                            
+                                <!-- <=============================data========================================>   -->
+                            
+                            <div class="userDetails mb5">
+                                    <div class="candName">
+                                        <span class="job-type" title="{{JobCat}}">{{JobCat}}</span>
+                                        <!-- <span class="candAge">20 years  </span> -->
+                                        <span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span>
+                                    </div>   
+                                </div>
+                            
+                                <div class="employee-name">
+                                    <div class="cnctAndDwmload">
+                                    </div>
+                                </div>
+                            
+                            
+                                <div class="employee-details">
+                                    <ul class="emp-list">
+                                    <li>
+                                        <span class="emp-heading">Name</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Name}}"><span class="brief-skills">{{Name}}</span><span class="morecontent"></span></span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Mobile</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="**********">**********</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Alternate Number</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{AlternateNum}}">{{AlternateNum}} </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Email id/Phone</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{EmailorMobile}}"> {{EmailorMobile}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Adhar /Voter Card No</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{AdharNo}}"> {{AdharNo}} </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Country</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Country}}"> {{Country}} </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">State</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{State}}"> {{State}} </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">City</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{City}}"> {{City}} </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Pincode</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Pincode}}"> {{Pincode}} </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Address</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Address}}">{{Address}}</span>
+                                        </span>
+                                    </li>
+                                                
+                                    <li>
+                                        <span class="emp-heading">Gender </span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Gender}}">{{Gender}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Shift</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{shift}}">{{shift}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Gender</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{gender}}">{{gender}}</span>
+                                        </span>
+                                    </li>
+                                        <li>
+                                        <span class="emp-heading">DOB</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{DOB}}">{{DOB}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Religin</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Religin}}">{{Religin}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">known Language</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{knownLanguage}}">{{knownLanguage}}</span>
+                                        </span>
+                                    </li>
+                                                
+                                    <li>
+                                        <span class="emp-heading">Class</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Class}}">{{Class}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Degree</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Degree}}">{{Degree}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">PG</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{PG}}">{{PG}}</span>
+                                        </span>
+                                    </li>
+                                        <li>
+                                        <span class="emp-heading">Diploma</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Diploma}}">{{Diploma}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Course</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Course}}">{{Course}}</span>
+                                        </span>
+                                    </li>
+                                        <li>
+                                        <span class="emp-heading">Career Objective</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{CareerObjective}}">{{CareerObjective}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Other Details</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{OtherDetails}}">{{OtherDetails}}</span>
+                                        </span>
+                                    </li>
+                                        <li>
+                                        <span class="emp-heading">Reference Name</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{ReferenceName}}">{{ReferenceName}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Reference Mobile</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{ReferenceMobile}}">{{ReferenceMobile}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Looking Overseas</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{LookingOverseas}}">{{LookingOverseas}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Name of Impoloyer</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{NameofImpoloyer}}">{{NameofImpoloyer}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Position Designation</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{PositionDesignation}}">{{PositionDesignation}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Main Job Category</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{MainJobCategory}}">{{MainJobCategory}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Skills</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Skills}}">{{Skills}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Experience</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Experience}}">{{Experience}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">current Salary</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{currentSalary}}">{{currentSalary}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Expected Salary</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{ExpSalary}}">{{ExpSalary}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Priferred Shift</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{PriferredShift}}">{{PriferredShift}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Priferred Job Description</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{PriferredJobDescription}}">{{PriferredJobDescription}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Priferred Location</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{PriferredLocation}}">{{PriferredLocation}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">previous Name of Impoloyer</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{NameofImpoloyer1}}">{{NameofImpoloyer1}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">previous Position Designation</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Skills}}">{{PositionDesignation1}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">previous Job Category</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{JobCategory1}}">{{JobCategory1}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">previous State/City</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{State1City1}}">{{State1City1}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">previous Experience</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{Experience1}}">{{Experience1}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">previous shift</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{shift1}}">{{shift1}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">previous job Description</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{jobDescription1}}">{{jobDescription1}}</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="emp-heading">Salary Withdrawn</span>
+                                        <span class="emp-rep">
+                                        <span class="jsProfileItem more trucateText" title="{{SalaryWithdrawn}}">{{SalaryWithdrawn}}</span>
+                                        </span>
+                                    </li>
+                                        
+                                                                    
+                                    <!-- ?php// } ? -->
+                                    </ul>
+                                </div>
+                            
+                            
+                            
+                            
+                                <div class="hidden-lg hidden-md card-view pull-right hidden-xs hidden-sm"><i class="icon-basic_eye"></i><span>  </span>
+                                </div>
+                            
+                            
+                            
+                            
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+        <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+
+            <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete confirmation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4><strong id="jobName"> </strong> will be permanently deleted. Are you sure you want to do this?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
+                        <button type="button" class="btn btn-primary deletedsuccess">Delete</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
     <div id="section_8">
                         <div class="row">
                             <div class="col-lg-12">
@@ -249,10 +651,10 @@
                                                                 More Option
                                                             </button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit</a>
                                                                 <a class="dropdown-item" href="#">Active</a>
-                                                                <a class="dropdown-item" href="#">View</a>
-                                                                <a class="dropdown-item" href="#"><form method="GET" action="/delete/user/resume/{{_id}}"><button>Delete</button></form></a>
+                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalView" href="#">View</a>
+                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalDelete" href="#"><form method="GET" action="/delete/user/resume/{{_id}}"><button>Delete</button></form></a>
                                                             </div>
                                                             </div> 
                                                     </td>
@@ -278,375 +680,7 @@
 
 
 
-<!-- The Modal -->
-<div class="modaledit">
-    <!-- Modal content -->
-    <div class="modal-contentalert">
-        <span class="closealert">&times;</span>
-        <div class="row">
-            <div class="col-md-12">
-                    <h2>Edit</h2>
-                <form action="/action_page.php">
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="remember"> Remember me</label>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-            </div>
-            
-        </div>
-    </div>
-</div>
 
-
-
-
-<!-- The Modal -->
-<div class="modalview">
-    <!-- Modal content -->
-    <div class="modal-contentalert">
-        <span class="closealert">&times;</span>
-        <div class="row">
-            <div class="col-md-12">
-                    <div class=" details-card" id="updatetable">
-                        <div class="candDetails"> 
-                            <div class="imageUser">
-                                <img src="/img/img/{{Gender}}.png" style="width: 54px; height: 54px;">
-                            </div>           
-                        
-                        
-                        
-                            <!-- <=============================data========================================>   -->
-                        
-                        <div class="userDetails mb5">
-                                <div class="candName">
-                                    <span class="job-type" title="{{JobCat}}">{{JobCat}}</span>
-                                    <!-- <span class="candAge">20 years  </span> -->
-                                    <span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span>
-                                </div>   
-                            </div>
-                        
-                            <div class="employee-name">
-                                <div class="cnctAndDwmload">
-                                </div>
-                            </div>
-                        
-                        
-                            <div class="employee-details">
-                                <ul class="emp-list">
-                                <li>
-                                    <span class="emp-heading">Name</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Name}}"><span class="brief-skills">{{Name}}</span><span class="morecontent"></span></span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Mobile</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="**********">**********</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Alternate Number</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{AlternateNum}}">{{AlternateNum}} </span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Email id/Phone</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{EmailorMobile}}"> {{EmailorMobile}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Adhar /Voter Card No</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{AdharNo}}"> {{AdharNo}} </span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Country</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Country}}"> {{Country}} </span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">State</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{State}}"> {{State}} </span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">City</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{City}}"> {{City}} </span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Pincode</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Pincode}}"> {{Pincode}} </span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Address</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Address}}">{{Address}}</span>
-                                    </span>
-                                </li>
-                                            
-                                <li>
-                                    <span class="emp-heading">Gender </span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Gender}}">{{Gender}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Shift</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{shift}}">{{shift}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Gender</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{gender}}">{{gender}}</span>
-                                    </span>
-                                </li>
-                                    <li>
-                                    <span class="emp-heading">DOB</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{DOB}}">{{DOB}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Religin</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Religin}}">{{Religin}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">known Language</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{knownLanguage}}">{{knownLanguage}}</span>
-                                    </span>
-                                </li>
-                                            
-                                <li>
-                                    <span class="emp-heading">Class</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Class}}">{{Class}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Degree</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Degree}}">{{Degree}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">PG</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{PG}}">{{PG}}</span>
-                                    </span>
-                                </li>
-                                    <li>
-                                    <span class="emp-heading">Diploma</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Diploma}}">{{Diploma}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Course</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Course}}">{{Course}}</span>
-                                    </span>
-                                </li>
-                                    <li>
-                                    <span class="emp-heading">Career Objective</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{CareerObjective}}">{{CareerObjective}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Other Details</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{OtherDetails}}">{{OtherDetails}}</span>
-                                    </span>
-                                </li>
-                                    <li>
-                                    <span class="emp-heading">Reference Name</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{ReferenceName}}">{{ReferenceName}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Reference Mobile</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{ReferenceMobile}}">{{ReferenceMobile}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Looking Overseas</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{LookingOverseas}}">{{LookingOverseas}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Name of Impoloyer</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{NameofImpoloyer}}">{{NameofImpoloyer}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Position Designation</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{PositionDesignation}}">{{PositionDesignation}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Main Job Category</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{MainJobCategory}}">{{MainJobCategory}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Skills</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Skills}}">{{Skills}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Experience</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Experience}}">{{Experience}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">current Salary</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{currentSalary}}">{{currentSalary}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Expected Salary</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{ExpSalary}}">{{ExpSalary}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Priferred Shift</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{PriferredShift}}">{{PriferredShift}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Priferred Job Description</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{PriferredJobDescription}}">{{PriferredJobDescription}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Priferred Location</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{PriferredLocation}}">{{PriferredLocation}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">previous Name of Impoloyer</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{NameofImpoloyer1}}">{{NameofImpoloyer1}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">previous Position Designation</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Skills}}">{{PositionDesignation1}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">previous Job Category</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{JobCategory1}}">{{JobCategory1}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">previous State/City</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{State1City1}}">{{State1City1}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">previous Experience</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{Experience1}}">{{Experience1}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">previous shift</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{shift1}}">{{shift1}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">previous job Description</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{jobDescription1}}">{{jobDescription1}}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="emp-heading">Salary Withdrawn</span>
-                                    <span class="emp-rep">
-                                    <span class="jsProfileItem more trucateText" title="{{SalaryWithdrawn}}">{{SalaryWithdrawn}}</span>
-                                    </span>
-                                </li>
-                                    
-                                                                
-                                <!-- ?php// } ? -->
-                                </ul>
-                            </div>
-                        
-                        
-                        
-                        
-                            <div class="hidden-lg hidden-md card-view pull-right hidden-xs hidden-sm"><i class="icon-basic_eye"></i><span>  </span>
-                            </div>
-                        
-                        
-                        
-                        
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</div>
-
-
-<!-- The Modal -->
-<div class="modaldelete">
-    <!-- Modal content -->
-    <div class="modal-contentalert">
-        <span class="closealert">&times;</span>
-        <div class="row">
-            <div class="col-md-6">
-                <button style="background: #f16024; color: #fff;" id="box_7" class="header_btn_change">Cancel</button>
-            </div>
-            <div class="col-md-6">
-                <button style="background: #f16024; color: #fff;" id="box_7" class="header_btn_change">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
@@ -714,16 +748,21 @@
                                                                 More Option
                                                             </button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit</a>
                                                                 <a class="dropdown-item" href="#">Active</a>
-                                                                <a class="dropdown-item" href="#">View</a>
-                                                                <a class="dropdown-item" href="#"><form method="GET" action="/delete/user/service/{{_id}}"><button>Delete</button></form></a>
+                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalView" href="#">View</a>
+                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalDelete" href="#"><form method="GET" action="/delete/user/service/{{_id}}"><button>Delete</button></form></a>
                                                             </div>
                                                             </div> 
                                                     </td>
                                                 </tr>
                                                 {{/each}}
                                         </table>
+
+
+
+                                        
+
 
 
                                   </div>

@@ -1639,28 +1639,24 @@ const routes = [
 	}
 },
 {
-		method: 'GET',
-		path: '/delete/user/job/{uuid}',
+		method: 'DELETE',	
+		path: '/delete/user/job',
 		config: {
-		// swager documention fields tags, descrioption and, note
-		tags : ['api'],
-		description: 'Deletting particular job specification',
-		notes: 'In this route we are Deletting of data particular data',
-
-		// Joi api validation
-		validate: {
-		    params: {
-		        uuid: Joi.string().required()
-		    }
-		}
+			// swager documention fields tags, descrioption and, note
+			tags : ['api'],
+			description: 'Deletting particular job specification',
+			notes: 'In this route we are Deletting of data particular data',
+			auth:{
+				strategy: 'restricted',
+			},
 		},
 		handler: function(request, reply){
 		//find user data from his ID and remove data into databases.
-		jobsModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+		jobsModel.findOneAndRemove({_id: request.query._id}, function (error){
 			if(error){
-				reply.view('error', {message: 'error in deleting job specification'}, {layout: 'layout2'})
+				reply('error')
 			}else{
-				reply.redirect('/get/posted/details')
+				reply('success')
 			}
 		});
 	}
