@@ -93,20 +93,20 @@
                                     <!-- </form> -->
                                     <div class="table-responsive" style="border-radius: 10px;">
 
-                                    <table id="example3" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="example3" class="table tableres table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Country Name</th>
-                                                    <th>Action</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Country Name</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="addcitytable">
                                                 {{#each allCountry}}
                                                 <tr>
-                                                    <td>{{_id}}</td>
-                                                    <td>{{Country}}</td>
-                                                    <td style="display: flex;"><button class="country_edit">Edit</button> <button data-id="{{_id}}" id="addcitydeltebutton" class="country_delete">Delete</button></td>
+                                                    <td data-label="ID">{{_id}}</td>
+                                                    <td data-label="Country Name">{{Country}}</td>
+                                                    <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button> <button data-id="{{_id}}" id="addcitydeltebutton" class="country_delete">Delete</button></td>
                                                 </tr>
                                                 {{/each}}
                                             </tbody>
@@ -139,22 +139,22 @@
 
                                     <div class="table-responsive" style="border-radius: 10px;">
 
-                                    <table id="example4" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="example4" class="table tableres table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>State Name</th>
-                                                    <th>Country Name</th>
-                                                    <th>Action</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">State Name</th>
+                                                    <th scope="col">Country Name</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="addstatebody">
                                                 {{#each allState}}
                                                 <tr>
-                                                    <td>{{_id}}</td>
-                                                    <td>{{State}}</td>
-                                                    <td>{{Country}}</td>
-                                                    <td style="display: flex;"><button class="country_edit">Edit</button><button data-id="{{_id}}" id="addStateDelButton" class="country_delete">Delete</button></td>
+                                                    <td data-label="ID">{{_id}}</td>
+                                                    <td data-label="State Name">{{State}}</td>
+                                                    <td data-label="Country Name">{{Country}}</td>
+                                                    <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button><button data-id="{{_id}}" id="addStateDelButton" class="country_delete">Delete</button></td>
                                                 </tr>
                                                 {{/each}}
                                             </tbody>
@@ -200,24 +200,24 @@
 
                                 <div class="table-responsive" style="border-radius: 10px;">
 
-                                    <table id="example5" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="example5" class="table tableres table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>City Name</th>
-                                                <th>State Name</th>
-                                                <th>Country Name</th>
-                                                <th>Action</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">City Name</th>
+                                                <th scope="col">State Name</th>
+                                                <th scope="col">Country Name</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody id="addCityBody">
                                             {{#each allCity}}
                                             <tr>
-                                                <td>{{_id}}</td>
-                                                <td>{{City}}</td>
-                                                <td>{{State}}</td>
-                                                <td>{{Country}}</td>
-                                                <td style="display: flex;"><button class="country_edit">Edit</button><button data-id="{{_id}}" id="DeleteCityButton" class="country_delete">Delete</button></td>
+                                                <td data-label="ID">{{_id}}</td>
+                                                <td data-label="City Name">{{City}}</td>
+                                                <td data-label="State Name">{{State}}</td>
+                                                <td data-label="Country Name">{{Country}}</td>
+                                                <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button><button data-id="{{_id}}" id="DeleteCityButton" class="country_delete">Delete</button></td>
                                             </tr>
                                             {{/each}}
                                         </tbody>
@@ -250,20 +250,20 @@
                                 </div>
                                 <div class="table-responsive" style="border-radius: 10px;">
 
-                                <table id="example6" class="table table-striped table-bordered" style="width:100%">
+                                <table id="example6" class="table tableres table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Job Category Name</th>
-                                                <th>Action</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Job Category Name</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {{#each alljobcategory}}
                                             <tr>
-                                                <td>{{_id}}</td>
-                                                <td>{{JobCategory}}</td>
-                                                <td style="display: flex;"><button class="country_edit">Edit</button><button id="DeleteCat" class="country_delete" data-id="{{_id}}">Delete</button></td>
+                                                <td data-label="ID">{{_id}}</td>
+                                                <td data-label="Job Category Name">{{JobCategory}}</td>
+                                                <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button><button id="DeleteCat" class="country_delete" data-id="{{_id}}">Delete</button></td>
                                             </tr>
                                             {{/each}}
                                         </tbody>
@@ -293,20 +293,20 @@
                                         </div>
                                     </div>
                                     <div class="table-responsive" style="border-radius: 10px;">
-                                    <table id="example7" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="example7" class="table tableres table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Services Name</th>
-                                                    <th>Action</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Services Name</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="ServiceBody">
                                                 {{#each allService}}
                                                 <tr>
-                                                    <td>{{_id}}</td>
-                                                    <td>{{Service}}</td>
-                                                    <td style="display: flex;"><button class="country_edit">Edit</button> <button data-id="{{_id}}" id="DeleteService" class="country_delete">Delete</button></td>
+                                                    <td data-label="ID">{{_id}}</td>
+                                                    <td data-label="Services Name">{{Service}}</td>
+                                                    <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button> <button data-id="{{_id}}" id="DeleteService" class="country_delete">Delete</button></td>
                                                 </tr>
                                                 {{/each}}
                                             </tbody>
@@ -345,26 +345,26 @@
                                     </form>
 
                                     div class="table-responsive" style="border-radius: 10px;">
-                                    <table id="example7" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="example7" class="table tableres table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Specification Name</th>
-                                                    <th>Action</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Specification Name</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {{#each allService}}
                                                 <tr>
-                                                    <td>{{_id}}</td>
-                                                    <td>{{Specification}}</td>
-                                                    <td><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
+                                                    <td data-label="ID">{{_id}}</td>
+                                                    <td data-label="Specification Name">{{Specification}}</td>
+                                                    <td data-label="Action"><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
                                                 </tr>
                                                 {{/each}}
                                                 <tr>
-                                                    <td>Cedric Kelly</td>
-                                                    <td>Senior Javascript Developer</td>
-                                                    <td style="display: flex;"><button class="country_edit">Edit</button> <form action="/delete/specification/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td>
+                                                    <td data-label="ID">Cedric Kelly</td>
+                                                    <td data-label="Specification Name">Senior Javascript Developer</td>
+                                                    <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button> <form action="/delete/specification/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td>
                                                 </tr>
                                             </tbody>
                                         </table>

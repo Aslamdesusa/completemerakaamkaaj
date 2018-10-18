@@ -89,30 +89,30 @@
                                     </div>
                                     <div class="table-responsive" style="border-radius: 10px;">
 
-                                    <table id="example9" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="example9" class="table tableres table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Password</th>
-                                                    <th>Mobile</th>
-                                                    <th>Address</th>
-                                                    <th>City</th>
-                                                    <th>Registration Date</th>
-                                                    <th>Delete</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Password</th>
+                                                    <th scope="col">Mobile</th>
+                                                    <th scope="col">Address</th>
+                                                    <th scope="col">City</th>
+                                                    <th scope="col">Registration Date</th>
+                                                    <th scope="col">Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody> 
                                                 {{#each lookingforrightworker}}
                                                 <tr>
-                                                    <td>{{firstname}} {{ lastname}}</td>
-                                                    <td>{{emailid}}</td>
-                                                    <td>{{password}}</td>
-                                                    <td>{{mobile}}</td>
-                                                    <td>{{address}}</td>
-                                                    <td>{{city}}</td>
-                                                    <td>{{date}}</td>
-                                                    <td><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
+                                                    <td data-label="Name">{{firstname}} {{ lastname}}</td>
+                                                    <td data-label="Email">{{emailid}}</td>
+                                                    <td data-label="Password">{{password}}</td>
+                                                    <td data-label="Mobile">{{mobile}}</td>
+                                                    <td data-label="Address">{{address}}</td>
+                                                    <td data-label="City">{{city}}</td>
+                                                    <td data-label="Registration Date">{{date}}</td>
+                                                    <td data-label="Delete"><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
                                             </tbody>
@@ -144,30 +144,30 @@
                                     </div>
                                     <div class="table-responsive" style="border-radius: 10px;">
 
-                                    <table id="example10" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="example10" class="table tableres table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Password</th>
-                                                    <th>Mobile</th>
-                                                    <th>Address</th>
-                                                    <th>City</th>
-                                                    <th>Registration Date</th>
-                                                    <th>Delete</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Password</th>
+                                                    <th scope="col">Mobile</th>
+                                                    <th scope="col">Address</th>
+                                                    <th scope="col">City</th>
+                                                    <th scope="col">Registration Date</th>
+                                                    <th scope="col">Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {{#each lookingforrightjob}}
                                                 <tr>
-                                                    <td>{{firstname}} {{ lastname}}</td>
-                                                    <td>{{emailid}}</td>
-                                                    <td>{{password}}</td>
-                                                    <td>{{mobile}}</td>
-                                                    <td>{{address}}</td>
-                                                    <td>{{city}}</td>
-                                                    <td>{{date}}</td>
-                                                    <td><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
+                                                    <td data-label="Name">{{firstname}} {{ lastname}}</td>
+                                                    <td data-label="Email">{{emailid}}</td>
+                                                    <td data-label="Password">{{password}}</td>
+                                                    <td data-label="Mobile">{{mobile}}</td>
+                                                    <td data-label="Address">{{address}}</td>
+                                                    <td data-label="City">{{city}}</td>
+                                                    <td data-label="Registration Date">{{date}}</td>
+                                                    <td data-label="Delete"><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
                                             </tbody>
@@ -199,30 +199,30 @@
                                     </div>
                                     <div class="table-responsive" style="border-radius: 10px;">
 
-                                   <table id="example11" class="table table-striped table-bordered" style="width:100%">
+                                   <table id="example11" class="table tableres table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Password</th>
-                                                    <th>Mobile</th>
-                                                    <th>Address</th>
-                                                    <th>City</th>
-                                                    <th>Registration Date</th>
-                                                    <th>Delete</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Password</th>
+                                                    <th scope="col">Mobile</th>
+                                                    <th scope="col">Address</th>
+                                                    <th scope="col">City</th>
+                                                    <th scope="col">Registration Date</th>
+                                                    <th scope="col">Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {{#each prov}}
                                                 <tr>
-                                                    <td>{{firstname}} {{ lastname}}</td>
-                                                    <td>{{emailid}}</td>
-                                                    <td>{{password}}</td>
-                                                    <td>{{mobile}}</td>
-                                                    <td>{{address}}</td>
-                                                    <td>{{city}}</td>
-                                                    <td>{{date}}</td>
-                                                    <td><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
+                                                    <td data-label="Name">{{firstname}} {{ lastname}}</td>
+                                                    <td data-label="Email">{{emailid}}</td>
+                                                    <td data-label="Password">{{password}}</td>
+                                                    <td data-label="Mobile">{{mobile}}</td>
+                                                    <td data-label="Address">{{address}}</td>
+                                                    <td data-label="City">{{city}}</td>
+                                                    <td data-label="Registration Date">{{date}}</td>
+                                                    <td data-label="Delete"><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
                                                 </tr>
                                                 {{/each}}
                                             </tbody>
@@ -254,32 +254,33 @@
                                     </div>
                                     <div class="table-responsive" style="border-radius: 10px;">
 
-                                    <table id="example12" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="example12" class="table tableres table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Password</th>
-                                                    <th>Mobile</th>
-                                                    <th>Address</th>
-                                                    <th>City</th>
-                                                    <th>Registration Date</th>
-                                                    <th>Delete</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Password</th>
+                                                    <th scope="col">Mobile</th>
+                                                    <th scope="col">Address</th>
+                                                    <th scope="col">City</th>
+                                                    <th scope="col">Registration Date</th>
+                                                    <th scope="col">Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="updatetable">
                                             <tbody>
                                                 {{#each rightserprov}}
                                                 <tr>
-                                                    <td>{{firstname}} {{ lastname}}</td>
-                                                    <td>{{emailid}}</td>
-                                                    <td>{{password}}</td>
-                                                    <td>{{mobile}}</td>
-                                                    <td>{{address}}</td>
-                                                    <td>{{city}}</td>
-                                                    <td>{{date}}</td>
-                                                    <td><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
+                                                    <td data-label="Name">{{firstname}} {{ lastname}}</td>
+                                                    <td data-label="Email">{{emailid}}</td>
+                                                    <td data-label="Password">{{password}}</td>
+                                                    <td data-label="Mobile">{{mobile}}</td>
+                                                    <td data-label="Address">{{address}}</td>
+                                                    <td data-label="City">{{city}}</td>
+                                                    <td data-label="Registration Date">{{date}}</td>
+                                                    <td data-label="Delete"><form method="GET" action="/delete/registered/user/{{_id}}"><button>Delete</button></form></td>
                                                 </tr>
+                                                
                                                 {{/each}}
                                             </tbody>
                                         </table>
@@ -310,7 +311,7 @@
                                     </div>
                                     <div class="table-responsive" style="border-radius: 10px;">
 
-                                    <table id="testTable" class="paginated table-borderless table-striped table-earning">
+                                    <table id="testTable" class="paginated tableres table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
                                                 <th scope="col">SL.#</th>
@@ -328,70 +329,70 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
 
                                         </tbody>
@@ -423,7 +424,7 @@
                                     </div>
                                     <div class="table-responsive" style="border-radius: 10px;">
 
-                                    <table id="testTable" class="paginated table-borderless table-striped table-earning">
+                                    <table id="testTable" class="paginated tableres table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
                                                 <th scope="col">SL.#</th>
@@ -441,70 +442,70 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>MERA KAAM KAAJ. COM</td>
-                                            <td>merakaamkaaj@gmail.com</td>
-                                            <td>Mera7676*</td>
-                                            <td>7428767676</td>
-                                            <td>DELHI</td>
-                                            <td>NOIDA ; GURUGAON ; DELHI.</td>
-                                            <td>25/05/2018</td>
-                                            <td><button class="country_delete">Remove</button></td>
+                                            <td data-label="SL.#">1</td>
+                                            <td data-label="Name">MERA KAAM KAAJ. COM</td>
+                                            <td data-label="Email">merakaamkaaj@gmail.com</td>
+                                            <td data-label="Password">Mera7676*</td>
+                                            <td data-label="Mobile">7428767676</td>
+                                            <td data-label="Address">DELHI</td>
+                                            <td data-label="City">NOIDA ; GURUGAON ; DELHI.</td>
+                                            <td data-label="Registration Date">25/05/2018</td>
+                                            <td data-label="Delete"><button class="country_delete">Remove</button></td>
                                         </tr>
 
                                         </tbody>

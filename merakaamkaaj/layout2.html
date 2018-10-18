@@ -45,6 +45,7 @@
 
     <!-- Main CSS-->
     <link href="/css/theme.css" rel="stylesheet" media="all">
+    
 
 </head>
 
@@ -530,6 +531,39 @@ $(function () {
         <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap.min.js"></script>
 
     <script type="text/javascript">
+
+            $('.madelviewbtn').click(function(){
+                $('.modalview').show();
+            });
+            $(".closealert").click(function(){
+                console.log("hello");
+                $('.modalview').hide();
+            })
+
+            $('.modaleditbtn').click(function(){
+                $('.modaledit').show();
+            });
+            $(".closealert").click(function(){
+                console.log("hello");
+                $('.modaledit').hide();
+            })
+
+
+            $('.madeldeletebtn').click(function(){
+                $('.modaldelete').show();
+            });
+            $(".closealert").click(function(){
+                console.log("hello");
+                $('.modaldelete').hide();
+            })
+
+
+
+
+
+
+
+
     $(document).ready(function() {
     $('#example').DataTable();
 } );
@@ -561,7 +595,7 @@ $(function () {
     });
 
 </script>
-</script>
+
   <script type="text/javascript">
     $(document).ready(function() {
     $('#example9').DataTable();
