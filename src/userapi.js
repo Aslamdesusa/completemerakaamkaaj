@@ -461,7 +461,7 @@ const routes = [
                 reply('User dose not exists please try with your correct email and password')
             } else {
                     request.cookieAuth.set(data[0]);
-                    return reply.redirect('/user/deshboard')
+                    return reply(data)
             }
         })
 
