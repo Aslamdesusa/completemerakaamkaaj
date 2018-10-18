@@ -808,13 +808,13 @@ const routes = [
      			ServiceModel1.find()
      			.then(function(servicesCat){
      				services = servicesCat
-     				ServiceModel.find().limit(10).exec()
+     				ServiceModel.find({verifi: 'Active'}).limit(10).exec()
      				.then(function(recentservices){
      					recentsers=recentservices;
-     					jobsModel.find().limit(5).exec()
+     					jobsModel.find({verifi: 'Active'}).limit(5).exec()
      					.then(function(recentjob){
      						recentjobs = recentjob
-     						ResumeModel.find().limit(5).exec()
+     						ResumeModel.find({verifi: 'Active'}).limit(5).exec()
      						.then(function(recentworker){
      							recentworkers=recentworker;
      							return reply.view('index', {alljobcategory: jobcategory, allService: services, allrecentsers : recentsers, allrecentjobs :recentjobs, allrecentworkers :recentworkers  })
@@ -936,28 +936,24 @@ const routes = [
          notes:"in this route we are getting all jobs"
      },
 	handler: (request, reply) =>{
-		var jobcategory = {}
-		var allJobs = {}
-		JobCategoryModel.find({}, (err, allJobCategory) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				jobcategory=allJobCategory;
-			}
-		})
-		jobsModel.find({},(err, data) => {
-			if (err){
-				console.log(err);
-				throw err;		
-			}
-			else{
-				allJobs = data
-				reply.view('SearchRightJobs', {allJobs : allJobs, jobcategorys: jobcategory})
-				console.log(jobcategory)
-				console.log(allJobs)
-			}
-		}); 	   
+ 		var jobs;
+		var jobcat;
+		async function getallDetails(){
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		jobsModel.find({}).limit(20).skip(20 * request.query.count)
+     		.then(function(alljobs){
+     			jobs = alljobs
+     			JobCategoryModel.find({})
+     			.then(function(allJobCategory){
+     				jobcat = allJobCategory
+     				console.log(jobs)
+	     			return reply.view('SearchRightJobs', {allJobs : jobs, jobcategorys: jobcat})
+
+	     			// return reply({allResume : worker, jobcategorys: jobcat})
+     			});
+     		});
+     	}
+     	getallDetails() 	   
 	}
 },
 {
@@ -970,26 +966,21 @@ const routes = [
          notes:"in this route we are getting all services"
      },
 	handler: (request, reply) =>{
-		var jobcategory = {}
-		var allResume = {}
-		JobCategoryModel.find().limit(100).exec({}, (err, allJobCategory) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				jobcategory=allJobCategory;
-			}
-		})
-		ResumeModel.find().limit(50).exec({},(err, data) => {
-			if (err){
-				console.log(err);
-				throw err;		
-			}
-			else{
-				allResume=data
-				reply.view('SearchRightWorker',{allResume : data, jobcategorys: jobcategory})
-			}
-		}); 	   
+		var resumes;
+		var jobCat ;
+		async function getallDetails(){
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ResumeModel.find({verifi: 'Active'}).limit(20).skip(20 * request.query.count)
+     		.then(function(allResume){
+     			resumes = allResume
+     			JobCategoryModel.find({})
+     			.then(function(allJobCategory){
+     				jobCat = allJobCategory
+	     			return reply.view('SearchRightWorker', {allResume : resumes, jobcategorys: jobCat})
+     			});
+     		});
+     	}
+     	getallDetails() 	   
 	}
 },
 {
@@ -1102,17 +1093,55 @@ const routes = [
             },
         },
         handler: function(request, reply){
+            async function getallDetails(){
+     		var workers;
+			var jobcat;
             var query = {$and:[{jobType:{$regex: request.query.jobType, $options: 'i'}},{state:{$regex: request.query.state, $options: 'i'}}]}
-            
-            jobsModel.find(query,function(err, data){
-                if(err){
-                    reply({'error':err});
-                } else {
-                    reply.view('SearchRightJobs',{allJobs : data})
-                }
-            });
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		jobsModel.find(query)
+     		.then(function(allJobs){
+     			workers = allJobs
+     			JobCategoryModel.find({})
+     			.then(function(allCatJOb){
+     				jobcat = allCatJOb
+	     			return reply.view('SearchRightJobs', {allJobs : workers, jobcategorys: jobcat})
+     			});
+     		});
+     	}
+     	getallDetails()
         }
     },
+    {
+	method: 'GET',
+	path: '/search/worker',
+	config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"getting admin form",
+        notes:"getting form",
+    },
+	handler: (request, reply) =>{
+		// return reply('dsf')
+		async function getallDetails(){
+     		var worker;
+			var jobcat;
+			var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}, {State:{$regex: request.query.state, $options: 'i'}}]}
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ResumeModel.find(query).limit(20).skip(20 * request.query.count)
+     		.then(function(allworker){
+     			worker = allworker
+     			JobCategoryModel.find({})
+     			.then(function(allJobCategory){
+     				jobcat = allJobCategory
+	     			return reply.view('SearchRightWorker', {allResume : worker, jobcategorys: jobcat})
+
+	     			// return reply({allResume : worker, jobcategorys: jobcat})
+     			});
+     		});
+     	}
+     	getallDetails();
+	}
+},
     {
         method:'GET',
         path:'/filter/search/jobs',
@@ -1186,16 +1215,23 @@ const routes = [
             },
         },
         handler: function(request, reply){
+			async function getallDetails(){
+     		var service;
+			var serCat;
             var query = {$and:[{TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}},{State:{$regex: request.query.State, $options: 'i'}}]}
-            
-            ServiceModel.find(query,function(err, data){
-                if(err){
-                    reply({'error':err});
-                } else {
-                	// reply({'data': data})
-                    reply.view('searchRightService',{allService : data})
-                }
-            });
+			// var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}]}
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ServiceModel.find(query)
+     		.then(function(allService){
+     			service = allService
+     			ServiceModel1.find({})
+     			.then(function(allSerCat){
+     				serCat = allSerCat
+	     			return reply.view('searchRightService', {allService : service, services: serCat})
+     			});
+     		});
+     	}
+     	getallDetails()            
         }
     },
 

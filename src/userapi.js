@@ -1074,6 +1074,69 @@ const routes = [
      	getallDetails();
 	}
 },
+{
+	method: 'GET',
+	path: '/search/right/jobs',
+	config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"Getting Jobs from pic our workers",
+        notes:"Getting Jobs from pic our worker",
+    },
+	handler: (request, reply) =>{
+		// return reply('dsf')
+		async function getallDetails(){
+     		var jobs;
+			var jobcat;
+			var query = {$and:[{jobType:{$regex: request.query.jobType, $options: 'i'}}]}
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		jobsModel.find(query)
+     		.then(function(allService){
+     			console.log(allService)
+     			jobs = allService
+     			JobCategoryModel.find({})
+     			.then(function(allJobCategory){
+     				jobcat = allJobCategory
+	     			return reply.view('SearchRightJobs', {allJobs : jobs, jobcategorys: jobcat})
+
+	     			// return reply({allResume : worker, jobcategorys: jobcat})
+     			});
+     		});
+     	}
+     	getallDetails();
+	}
+},
+{
+	method: 'GET',
+	path: '/search/right/services',
+	config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"Getting Jobs from pic our workers",
+        notes:"Getting Jobs from pic our worker",
+    },
+	handler: (request, reply) =>{
+		// return reply('dsf')
+		async function getallDetails(){
+     		var service;
+			var serCat;
+			var query = {$and:[{TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}}]}
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ServiceModel.find(query)
+     		.then(function(allService){
+     			console.log(allService)
+     			service = allService
+     			ServiceModel1.find({})
+     			.then(function(allserCategory){
+     				serCat = allserCategory
+	     			return reply.view('searchRightService', {allService : service, services: serCat})
+	     			// return reply({allService : service, services: serCat})
+     			});
+     		});
+     	}
+     	getallDetails();
+	}
+},
 // {
 // 	method: 'GET',
 // 	path: '/search/right/worker',
