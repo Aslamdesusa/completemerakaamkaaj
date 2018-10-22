@@ -28,6 +28,29 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+	$('.DeleteJobsBtn').click(function(){
+		var val = $(this).attr("value");
+		var title = $(this).attr("title");
+
+		$('#jobName').empty();
+		$('#jobName').append(title);
+	$('.deletedsuccess').click(function(){
+		$.ajax({
+			url : "/delete/user/job?_id="+val,
+			type : "DELETE",
+			success : function(json){
+				location.reload()
+			},
+			error : function(err){
+				alert(err);
+			}  
+		});
+	})
+		 
+	})
+});
+
+$(document).ready(function(){
 	$('table').on('click','#addcitydeltebutton' ,function(e){
 		$(this).closest('tr').remove()
 		e.preventDefault();

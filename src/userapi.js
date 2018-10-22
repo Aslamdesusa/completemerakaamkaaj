@@ -454,12 +454,23 @@ const routes = [
     	
         UserModel.findOne({'emailid': request.payload.emailid, 'password': request.payload.password}, function(err, data){
             if (err){
+<<<<<<< HEAD
             	reply({'error': err});
             }else if (!data){
                 reply({StatusCode: 404, message: 'User dose not exists please try with your correct email and password'})
             }else{
             	request.cookieAuth.set(data);
             	return reply(data)
+=======
+                reply({
+                    'error': err
+                });
+            } else if (data.length == 0){
+                reply('User dose not exists please try with your correct email and password')
+            } else {
+                    request.cookieAuth.set(data[0]);
+                    return reply(data)
+>>>>>>> bf888c8aa6b31171056710dc0f50ca54e234bb5d
             }
         })
 
