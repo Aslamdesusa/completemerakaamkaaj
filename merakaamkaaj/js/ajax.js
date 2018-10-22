@@ -15,7 +15,7 @@ $(document).ready(function(){
 			data : CountryModal,
 			success : function(json){
 				console.log(json)
-				var HTML = '<tr><td>'+json.country._id+'</td><td>'+json.country.Country+'</td><td style="display: flex;"><button class="country_edit">Edit</button><button data-id="'+json.country._id+'" id="addcitydeltebutton" class="country_delete">Delete</button></td></tr>'
+				var HTML = '<tr><td data-label="ID">'+json.country._id+'</td><td data-label="Country Name">'+json.country.Country+'</td><td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button><button data-id="'+json.country._id+'" id="addcitydeltebutton" class="country_delete">Delete</button></td></tr>'
 				$('#addcitytable').append(HTML);
 				alert('A New Country '+json.country.Country+' Added successfully')
 			},

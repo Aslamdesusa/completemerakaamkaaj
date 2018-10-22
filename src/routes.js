@@ -985,6 +985,26 @@ const routes = [
 },
 {
 	method: 'GET',
+	path: '/get/rightworkers/with/limit',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting worker",
+         notes:"in this route we are getting all worker"
+     },
+	handler: (request, reply) =>{
+		async function getallDetails(){
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ResumeModel.find({verifi: 'Active'}).limit(20).skip(20 * request.query.count)
+     		.then(function(allResume){
+     			return reply(allResume)
+     		});
+     	}
+     	getallDetails() 	   
+	}
+},
+{
+	method: 'GET',
 	path: '/get/rightservice',
 	config	: {
 		 //include this route in swagger documentation

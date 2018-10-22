@@ -452,16 +452,14 @@ const routes = [
     },
     handler: function(request, reply){
     	
-        UserModel.find({emailid: request.payload.emailid, 'password': request.payload.password}, function(err, data){
+        UserModel.findOne({'emailid': request.payload.emailid, 'password': request.payload.password}, function(err, data){
             if (err){
-                reply({
-                    'error': err
-                });
-            } else if (data.length == 0){
-                reply('User dose not exists please try with your correct email and password')
-            } else {
-                    request.cookieAuth.set(data[0]);
-                    return reply.redirect('/user/deshboard')
+            	reply({'error': err});
+            }else if (!data){
+                reply({StatusCode: 404, message: 'User dose not exists please try with your correct email and password'})
+            }else{
+            	request.cookieAuth.set(data);
+            	return reply(data)
             }
         })
 
@@ -536,17 +534,22 @@ const routes = [
 			"lookingfor": request.payload.lookingfor,
 			"otp": otp
 		});
-		request.cookieAuth.set(newUser);
-		console.log(newUser)
-		let otpmessage = 'merakaamkaaj.com \n Your OTP is:'+otp
-		axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+request.payload.mobile+'&sid=MERAKK&msg='+otpmessage+'&fl=1&gwid=2')
-		  .then(reply => {
-		  	console.log('messages sent to your number')
-		  })
-		  .catch(error => {
-		    console.log(error);
-		  });
-		  return reply({message: "We've sent an OTP to "+request.payload.mobile+". If this is a valid Phone Number, you should receive an OTP within the next few minutes."})
+		UserModel.findOne({'mobile': request.payload.mobile}, function(err, data){
+			if (!data) {
+				request.cookieAuth.set(newUser);
+				console.log(newUser)
+				let otpmessage = 'merakaamkaaj.com \n Your OTP is:'+otp
+				axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+request.payload.mobile+'&sid=MERAKK&msg='+otpmessage+'&fl=1&gwid=2')
+				.then(function(response){
+					return reply({StatusCode: 200, message: "We've sent an OTP to "+request.payload.mobile+". If this is a valid Phone Number, you should receive an OTP within the next few minutes."})
+				})
+				.catch(error => {
+					console.log(error);
+				});
+			}else{
+				return reply({StatusCode: 404, message: 'User Already Exists Please Try With Another Email or Phone Number'})
+			}
+		});
 	}
 },
 {
@@ -570,26 +573,25 @@ const routes = [
       	var headers = request.auth.credentials;
   		let otp = headers.otp;	
   		console.log(otp)
-  		var newUser = new UserModel(headers);
-  		if (otp == request.payload.otp) {
-  			newUser.save(function(err, data){
-  				if (err) {
-  					return reply({message: 'User Already Exists Please Try With Another Email or Phone Number'})
-  				}else{
-  					let success = 'Registered Successfully Thanks To Be A Member Of Merakaamkaaj.com your ID: '+headers.emailid+' Your Password: '+headers.password+''
-  					axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+headers.mobile+'&sid=MERAKK&msg='+success+'&fl=0&gwid=2')
-  					.then(reply => {
-  						console.log("messages sent to your number")
-  					})
-  					.catch(error => {
+  			if (otp == request.payload.otp) {
+  				var newUser = new UserModel(headers);
+  				newUser.save(function(err, data){
+  					if (err) {
+  						return reply({StatusCode: 400, message: 'User Already Exists Please Try With Another Email or Phone Number'})
+  					}else{
+  						let success = 'Registered Successfully Thanks To Be A Member Of Merakaamkaaj.com your ID: '+headers.emailid+' Your Password: '+headers.password+''
+  						axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+headers.mobile+'&sid=MERAKK&msg='+success+'&fl=0&gwid=2')
+  						.then(function(result){
+  							return reply({StatusCode: 200, message:'Your Profile Has Successfully Made By Mera Kaam kaaj Please Login First'})
+  						})
+  						.catch(error => {
   						console.log(error);
   					});
-  					return reply({message:'Your Profile Has Successfully Made By Mera Kaam kaaj Please Login First'})
   				}
   			})
-  		}else{
-  			return reply({message: "Wrong OTP Please Try With Correct OTP PIN if you Didn't Get Any Code Please Go Back And Try Again"})
-  		}
+  			}else{
+  				return reply({StatusCode: 404, message: "Wrong OTP Please Try With Correct OTP PIN if you Didn't Get Any Code Please Go Back And Try Again"})
+  			}
     }
 },
 {

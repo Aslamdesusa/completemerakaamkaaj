@@ -1,4 +1,10 @@
-
+<style type="text/css">
+  .WorkerActive{
+          background-color: #d64408 !important;
+          border-radius: 5px !important;
+          color: yellow !important;
+        }
+</style>
 
 <!-- HEADER 
 =================-->
@@ -156,8 +162,8 @@
 </form>
 
 
-<div class="col-md-9" style="display: flex; flex-direction: column-reverse;" id="main_header">
-<input type="button" class="btn loadmorebtn" style="background: #f16024; color: #fff;" value="Laod more..">
+<div class="col-md-9" style="display: flex; flex-direction: column;">
+
 <h1 style="text-align: center; color: red; margin-bottom: 5%;">{{message}}</h1>
 {{#each allResume}}
 
@@ -187,6 +193,7 @@
 
     <div class="employee-details">
         <ul class="emp-list">
+          <li>
            <span class="emp-heading">Name</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{Name}}"><span class="brief-skills">{{Name}}</span><span class="morecontent"></span></span>
@@ -201,13 +208,13 @@
          <li>
            <span class="emp-heading">Alternate Number</span>
            <span class="emp-rep">
-             <span class="jsProfileItem more trucateText" title="{{AlternateNum}}">{{AlternateNum}} </span>
+             <span class="jsProfileItem more trucateText" title="***********">*********** </span>
            </span>
          </li>
          <li>
            <span class="emp-heading">Email id/Phone</span>
            <span class="emp-rep">
-             <span class="jsProfileItem more trucateText" title="{{EmailorMobile}}"> {{EmailorMobile}}</span>
+             <span class="jsProfileItem more trucateText" title="***********">***********</span>
            </span>
          </li>
          <li>
@@ -258,12 +265,6 @@
            <span class="emp-heading">Shift</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{shift}}">{{shift}}</span>
-           </span>
-         </li>
-        <li>
-           <span class="emp-heading">Gender</span>
-           <span class="emp-rep">
-             <span class="jsProfileItem more trucateText" title="{{gender}}">{{gender}}</span>
            </span>
          </li>
             <li>
@@ -518,7 +519,8 @@
     </div>
     </div>
   {{/each}}
-
+    <div id="main_header"></div>
+    <input type="button" class="btn loadmorebtn" style="background: #f16024; color: #fff;" value="Laod more..">
     </div>
 
     </div>
