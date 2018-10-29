@@ -160,9 +160,9 @@
 </form>
 
 
-<div class="col-md-9" style="display: flex; flex-direction: column-reverse;" id="main_header">
+<div class="col-md-9 alljobsDetails" style="display: flex; flex-direction: column;">
 <h1 style="text-align: center; color: red; margin-bottom: 5%;">{{message}}</h1>
-<input type="button" class="btn loadmorebtn" style="background: #f16024; color: #fff;" value="Laod more..">
+
 
 {{#each allJobs}}
 
@@ -349,7 +349,7 @@
          </li>
 
             <li>
-           <span class="emp-heading">Looking Overseas </span>
+           <span class="emp-heading">Looking Overseas</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{lookingOverseas}}">{{lookingOverseas}}</span>
            </span>
@@ -408,7 +408,7 @@
         
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" style="background-color: #f16024 !important;" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" style="background-color: #f16024 !important; {{button}}" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
         
       </div>
@@ -421,6 +421,8 @@
     </div>
     </div>
   {{/each}}
+  <div id="main_header2"></div>
+  <input type="button" class="btn loadmorebtn2" style="background: #f16024; color: #fff;" value="Laod more">
 
     </div>
 
@@ -428,3 +430,30 @@
 
 <!-- ================================================================================ -->
  
+
+
+<script type="text/javascript">
+  var counterload2 = 0;
+$(".loadmorebtn2").click(function() {
+  $(".loadmorebtn2").val('Loading.......');
+  counterload2++;
+  $.ajax({
+    url : "/get/rightjob/with/limit?jobType="+title+"&count="+counterload2,
+    type : "GET",
+    dataType: 'json',
+    success : function(data){
+      if (data.length == 0) {
+        $(".loadmorebtn").val('Finish');
+        return false
+      }
+      console.log(data)
+      var HTML = '';
+      for (var i = 0; i < data.length; i += 1) {
+        HTML = '<div class="details-card"><div class="candDetails"><div class="imageUser"><img src="/img/img/Female_avatar-06-512.png" style="width: 20px; height: 30px;"></div><div class="userDetails mb5"><div class="candName"><span class="job-type" title="'+data[i].jobType+'">'+data[i].jobType+'</span><span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span></div></div><div class="employee-name"><div class="cnctAndDwmload"></div></div><div class="employee-details"><ul class="emp-list"><li><span class="emp-heading">Specialisation/Skills</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].skills+'"><span class="brief-skills">'+data[i].skills+'</span><span class="morecontent"></span></span></span></li><li><span class="emp-heading">Job Description</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].jobDescription+'">'+data[i].jobDescription+'</span></span></li><li><span class="emp-heading">Vacancy</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].aVacancy+'">'+data[i].aVacancy+'</span></span></li><li><span class="emp-heading">Job Expiry date</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].expiryDate+'">'+data[i].expiryDate+'</span></span></li><li><span class="emp-heading">Service Providing Country</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].country+'">'+data[i].country+'</span></span></li><div id="'+data[i]._id+'" class="collapse"><li><span class="emp-heading">Service Providing state</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].state+'">'+data[i].state+'</span></span></li><li><span class="emp-heading">Job Area</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].jobArea+'">'+data[i].jobArea+'</span></span></li><li><span class="emp-heading">Pin Code</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].pinCode+'">'+data[i].pinCode+'</span></span></li><li><span class="emp-heading">Job Address</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].jobAddress+'">'+data[i].jobAddress+'</span></span></li><li><span class="emp-heading">Salary</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].salary+'">'+data[i].salary+'</span></span></li><li><span class="emp-heading">Reqd. Experience</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].experience+'">'+data[i].experience+'</span></span></li><li><span class="emp-heading">Shift</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].shift+'">'+data[i].shift+'</span></span></li><li><span class="emp-heading">Gender</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].gender+'">'+data[i].gender+'</span></span></li><li><span class="emp-heading">Educations</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].educations+'">'+data[i].educations+'</span></span></li><li><span class="emp-heading">known Language</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].knownLanguage+'">'+data[i].knownLanguage+'</span></span></li><li><span class="emp-heading">Name of Company/Bussiness/Other</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].companyName+'">'+data[i].companyName+'</span></span></li><li><span class="emp-heading">Name of Representative</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].nameOfRepresentative+'">'+data[i].nameOfRepresentative+'</span></span></li><li><span class="emp-heading">Mobile</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].mobile+'">'+data[i].mobile+'</span></span></li><li><span class="emp-heading">Landline No</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].landline+'">'+data[i].landline+'</span></span></li><li><span class="emp-heading">Email</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].email+'">'+data[i].email+'</span></span></li><li><span class="emp-heading">Addhar/Voter Card No.</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].idCardNumber+'">'+data[i].idCardNumber+'</span></span></li><li><span class="emp-heading">Address of Employer</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].addressOfEmployer+'">'+data[i].addressOfEmployer+'</span></span></li><li><span class="emp-heading">Contact Timing</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].contactTiming+'">'+data[i].contactTiming+'</span></span></li><li><span class="emp-heading">Looking Overseas</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].lookingOverseas+'">'+data[i].lookingOverseas+'</span></span></li></div></ul></div><div class="hidden-lg hidden-md card-view pull-right hidden-xs hidden-sm"><i class="icon-basic_eye"></i><span></span></div><div class="button-div"><button data-toggle="modal" data-target="#myModal" class="ghst-btn demo-action InstantActionbuttons" type="button">Email</button><button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="collapse" data-target="#'+data[i]._id+'" type="button">View all details</button></div></div></div>'
+        $("#main_header2").append(HTML)
+        $(".loadmorebtn2").val('load more')
+        }
+    },
+  });
+});
+</script>

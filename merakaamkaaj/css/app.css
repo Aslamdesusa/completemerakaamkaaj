@@ -6267,10 +6267,10 @@ header {
     z-index: 1000;
     background: rgba(3, 6, 41, 0.31); }*/
   header .carousel-inner .carousel-item .silder-para {
-    color: #721c24;
+    color: #f16025;
     font-size: 17px;
-    background: #f1f1f1;
-    border-radius: 0px;
+    background: #f3eeee;
+    border-radius: 100px;
     border-left: 12px solid #fff;
     border-right: 12px solid #fff;
     padding: 24px;
@@ -8580,7 +8580,7 @@ a, .btn-link {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /*color: #fff;*/
+    color: #fff;
 }
 footer .container .row .social ul li a{
     height: 35px;

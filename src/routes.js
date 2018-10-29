@@ -23,6 +23,8 @@ const opn = require('opn');
 const AuthCookie = require('hapi-auth-cookie')
 var springedge = require('springedge');
 const async = require('async');
+var ObjectID = require('mongodb').ObjectID
+
 
 import axios from 'axios';
 
@@ -686,51 +688,198 @@ const routes = [
 // },
 {
 	method: 'GET',
-	path: '/get/posted/details',
+	path: '/posted/job',
 	config	: {
 		 //include this route in swagger documentation
 		 tags:['api'],
-		 description:"getting posted details",
-         notes:"in this route we are getting all posted details",
-         auth:{
-	    	strategy: 'restricted',
-	    }
-
+		 description:"getting home data",
+         notes:"getting home data"
      },
-	handler: (request, reply) =>{
-		var jobs = {};
-		var resumes = {};
-		var services = {};
-		jobsModel.find({},(err, allJobs) => {
-			if (err){
-				console.log(err);
-				throw err;		
-			}else{
-				jobs=allJobs;
-			}
-		});
-		ResumeModel.find({}, (err, allResume) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				resumes=allResume;
-			}
-		})
-		ServiceModel.find({}, (err, allService) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				services=allService;
-				reply.view('table', {jobs: jobs, resumes: resumes, services: services}, {layout: 'layout2'})
-			}
-		})	   
-	}
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		jobsModel.find()
+     		.then(function(result){
+     			return reply.view('postedJob', {jobs: result}, {layout: 'layout2'}) 
+     		});
+     	}
+     	getJobCat();
+     }
 },
 {
 	method: 'GET',
-	path: '/ragistered/users',
+	path: '/posted/Resume',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data"
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ResumeModel.find().limit(20).exec()
+     		.then(function(result){
+     			console.log(result)
+     			return reply.view('postedResume', {resumes: result}, {layout: 'layout2'}) 
+     		});
+     	}
+     	getJobCat();
+     }
+},
+{
+	method: 'GET',
+	path: '/posted/service',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data"
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ServiceModel.find()
+     		.then(function(result){
+     			return reply.view('postedService', {services: result}, {layout: 'layout2'}) 
+     		});
+     	}
+     	getJobCat();
+     }
+},
+// NUMBERS OF ragistered User
+{
+	method: 'GET',
+	path: '/posted/job/users',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data"
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		UserModel.find({lookingfor: 'i am looking for right Worker'}).limit(20).exec()
+     		.then(function(result){
+     			return reply.view('ragisterRightWorker', {lookingforrightworker: result}, {layout: 'layout2'}) 
+     		});
+     	}
+     	getJobCat();
+     }
+},
+{
+	method: 'GET',
+	path: '/posted/resumes/user',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data"
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		UserModel.find({lookingfor: 'i am looking for right job'}).limit(20).exec()
+     		.then(function(result){
+     			return reply.view('PostedResumeUser', {lookingforrightjob: result}, {layout: 'layout2'}) 
+     		});
+     	}
+     	getJobCat();
+     }
+},
+{
+	method: 'GET',
+	path: '/service/provider/user',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data"
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		UserModel.find({lookingfor: 'i am service provider'}).limit(20).exec()
+     		.then(function(result){
+     			return reply.view('ServiceProviderUser', {prov: result}, {layout: 'layout2'}) 
+     		});
+     	}
+     	getJobCat();
+     }
+},
+{
+	method: 'GET',
+	path: '/service/seeking/user',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data"
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		UserModel.find({lookingfor: 'i am service provider'}).limit(20).exec()
+     		.then(function(result){
+     			return reply.view('ServiceSeekingUser', null, {layout: 'layout2'}) 
+     		});
+     	}
+     	getJobCat();
+     }
+},
+{
+	method: 'GET',
+	path: '/resent/search/right/worker',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data"
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		UserModel.find({lookingfor: 'i am service provider'}).limit(20).exec()
+     		.then(function(result){
+     			return reply.view('ResentSearchRightWorker', null, {layout: 'layout2'}) 
+     		});
+     	}
+     	getJobCat();
+     }
+},
+{
+	method: 'GET',
+	path: '/resent/search/right/job',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data"
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		UserModel.find({lookingfor: 'i am service provider'}).limit(20).exec()
+     		.then(function(result){
+     			return reply.view('ResentSearchRightJob', null, {layout: 'layout2'}) 
+     		});
+     	}
+     	getJobCat();
+     }
+},
+
+{
+	method: 'GET',
+	path: '/posted/service/provider/user',
 	config	: {
 		 //include this route in swagger documentation
 		 tags:['api'],
@@ -940,17 +1089,19 @@ const routes = [
 		var jobcat;
 		async function getallDetails(){
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		jobsModel.find({}).limit(20).skip(20 * request.query.count)
+     		jobsModel.find({verifi: 'Active'}).limit(20).skip(20 * request.query.count)
      		.then(function(alljobs){
-     			jobs = alljobs
-     			JobCategoryModel.find({})
-     			.then(function(allJobCategory){
-     				jobcat = allJobCategory
-     				console.log(jobs)
-	     			return reply.view('SearchRightJobs', {allJobs : jobs, jobcategorys: jobcat})
-
-	     			// return reply({allResume : worker, jobcategorys: jobcat})
+     			if (alljobs == 0) {
+     				return reply.view('SearchRightJobs', {message: 'Update Soon'})
+     			}else{
+     				jobs = alljobs
+     				JobCategoryModel.find({})
+     				.then(function(allJobCategory){
+     					jobcat = allJobCategory
+     					console.log(jobs)
+     					return reply.view('SearchRightJobs', {allJobs : jobs, jobcategorys: jobcat})
      			});
+     			}
      		});
      	}
      	getallDetails() 	   
@@ -995,9 +1146,49 @@ const routes = [
 	handler: (request, reply) =>{
 		async function getallDetails(){
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		ResumeModel.find({verifi: 'Active'}).limit(20).skip(20 * request.query.count)
+     		ResumeModel.find({verifi: 'Active', JobCat: request.query.JobCat}).limit(20).skip(20 * request.query.count)
      		.then(function(allResume){
      			return reply(allResume)
+     		});
+     	}
+     	getallDetails() 	   
+	}
+},
+{
+	method: 'GET',
+	path: '/get/rightservice/with/limit',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting worker",
+         notes:"in this route we are getting all worker"
+     },
+	handler: (request, reply) =>{
+		async function getallDetails(){
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ServiceModel.find({verifi: 'Active', TypeOfService: request.query.TypeOfService}).limit(20).skip(20 * request.query.count)
+     		.then(function(allService){
+     			return reply(allService)
+     		});
+     	}
+     	getallDetails() 	   
+	}
+},
+{
+	method: 'GET',
+	path: '/get/rightjob/with/limit',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting worker",
+         notes:"in this route we are getting all worker"
+     },
+	handler: (request, reply) =>{
+		async function getallDetails(){
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		jobsModel.find({verifi: 'Active', jobType: request.query.jobType}).limit(20).skip(20 * request.query.count)
+     		.then(function(allJobs){
+     			return reply(allJobs)
      		});
      	}
      	getallDetails() 	   
@@ -1024,33 +1215,6 @@ const routes = [
      				.then(function(allServiceCat){
      					services = allServiceCat;
      					return reply.view('searchRightService',{allService : allService, services : services,})
-     			});
-     		});
-     	}
-     	getallDetails()
-	}
-},
-{
-	method: 'GET',
-	path: '/get/rightservice/with/limit',
-	config	: {
-		 //include this route in swagger documentation
-		 tags:['api'],
-		 description:"getting Service",
-         notes:"in this route we are getting all services"
-     },
-	handler: (request, reply) =>{
-		var services = {}
-		var allService = {}
-		async function getallDetails(){
-     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     			ServiceModel.find({}).limit(20).skip(20 * request.query.count)
-     			.then(function(allService){
-     				allService = allService
-     				ServiceModel1.find()
-     				.then(function(allServiceCat){
-     					services = allServiceCat;
-     					return reply({allService : allService, services : services,})
      			});
      		});
      	}
@@ -1267,6 +1431,11 @@ const routes = [
 {
 	method: 'GET',
 	path: '/admin/deshboard',
+	config:{
+		auth:{
+			strategy: "restricted"
+		}
+	},
 	handler: (request, reply) =>{
 		reply.view('deshboard', null,{layout: 'layout2'})
 	}
@@ -1368,7 +1537,7 @@ const routes = [
     },
 	handler: (request, reply) =>{
 		// password change
-		UserModel.findOneAndUpdate({mobile: request.query.mobile}, request.payload, function(err, data){
+		UserModel.findOneAndUpdate({Status: request.query.Status}, request.payload, function(err, data){
 			if (err) {
 				throw err
 			}else{
@@ -1605,28 +1774,22 @@ const routes = [
 	}
 },
 {
-		method: 'GET',
-		path: '/delete/registered/user/{uuid}',
+		method: 'DELETE',
+		path: '/delete/registered/user',
 		config: {
 		// swager documention fields tags, descrioption and, note
 		tags : ['api'],
 		description: 'Deletting particular job specification',
 		notes: 'In this route we are Deletting of data particular data',
-
 		// Joi api validation
-		validate: {
-		    params: {
-		        uuid: Joi.string().required()
-		    }
-		}
 		},
 		handler: function(request, reply){
 		//find user data from his ID and remove data into databases.
-		UserModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+		UserModel.findOneAndRemove({_id: ObjectID(request.query._id)}, function (error){
 			if(error){
-				reply.view('error', {message: 'error in deleting job specification'}, {layout: 'layout2'})
+				reply('user already deleted')
 			}else{
-				reply.redirect('/ragistered/users')
+				reply('user deleted Successfully')
 			}
 		});
 	}
@@ -1659,24 +1822,116 @@ const routes = [
 	}
 },
 {
-		method: 'DELETE',	
-		path: '/delete/user/job',
-		config: {
-			// swager documention fields tags, descrioption and, note
-			tags : ['api'],
-			description: 'Deletting particular job specification',
-			notes: 'In this route we are Deletting of data particular data',
-			auth:{
-				strategy: 'restricted',
-			},
-		},
-		handler: function(request, reply){
+	method: 'DELETE',	
+	path: '/delete/user/job',
+	config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job specification',
+		notes: 'In this route we are Deletting of data particular data',
+		// auth:{
+		// 	strategy: 'restricted',
+		// },
+	},
+	handler: function(request, reply){
 		//find user data from his ID and remove data into databases.
-		jobsModel.findOneAndRemove({_id: request.query._id}, function (error){
-			if(error){
-				reply('error')
+		jobsModel.findOneAndRemove({_id: ObjectID(request.query._id)}, function(err, data){
+			if (!data) {
+				reply('Job Already Deleted')
 			}else{
-				reply('success')
+				reply(data)
+			}
+		});
+	}
+},
+{
+	method: 'DELETE',	
+	path: '/delete/user/Service',
+	config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job specification',
+		notes: 'In this route we are Deletting of data particular data',
+		// auth:{
+		// 	strategy: 'restricted',
+		// },
+	},
+	handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		ServiceModel.findOneAndRemove({_id: ObjectID(request.query._id)}, function(err, data){
+			if (!data) {
+				reply('Services Already Deleted')
+			}else{
+				reply(data)
+			}
+		});
+	}
+},
+{
+	method: 'GET',	
+	path: '/get/user/job',
+	config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job specification',
+		notes: 'In this route we are Deletting of data particular data',
+		// auth:{
+		// 	strategy: 'restricted',
+		// },
+	},
+	handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		jobsModel.findOne({_id: ObjectID(request.query._id)}, function(err, data){
+			if (err) {
+				throw err
+			}else{
+				reply(data)
+			}
+		});
+	}
+},
+{
+	method: 'GET',	
+	path: '/get/user/service',
+	config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job specification',
+		notes: 'In this route we are Deletting of data particular data',
+		// auth:{
+		// 	strategy: 'restricted',
+		// },
+	},
+	handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		ServiceModel.findOne({_id: ObjectID(request.query._id)}, function(err, data){
+			if (err) {
+				throw err
+			}else{
+				reply(data)
+			}
+		});
+	}
+},
+{
+	method: 'GET',	
+	path: '/get/user/resume',
+	config: {
+		// swager documention fields tags, descrioption and, note
+		tags : ['api'],
+		description: 'Deletting particular job specification',
+		notes: 'In this route we are Deletting of data particular data',
+		// auth:{
+		// 	strategy: 'restricted',
+		// },
+	},
+	handler: function(request, reply){
+		//find user data from his ID and remove data into databases.
+		ResumeModel.findOne({_id: ObjectID(request.query._id)}, function(err, data){
+			if (err) {
+				throw err
+			}else{
+				reply(data)
 			}
 		});
 	}

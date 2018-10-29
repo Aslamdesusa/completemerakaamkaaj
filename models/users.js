@@ -16,6 +16,8 @@ var UsersSchema = new Schema({
     pincode: Number,
     gender: String,
     lookingfor: String,
+    Status: {type: String, enum: ['SuperAdmin', 'User']},
+    picture: String,
     otp: String,
     date: {type: Date, default: Date.now}
 });

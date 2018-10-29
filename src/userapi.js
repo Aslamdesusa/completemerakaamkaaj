@@ -1,4 +1,6 @@
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
+
 // import bson.objectid from 'ObjectId';
 
 const db = require('../database').db;
@@ -17,8 +19,7 @@ const JobCategoryModel = require('../models/addjobcategory')
 const ServiceModel1 = require('../models/addservice')
 const AuthCookie = require('hapi-auth-cookie')
 const async = require('async');
-var oid = require('objectid')
-// from bson.objectid import ObjectId
+var ObjectID = require('mongodb').ObjectID
 
 
 
@@ -44,16 +45,29 @@ const routes = [
     },
     handler: function(request, reply){
     	
-        UserModel.find({emailid: request.payload.emailid, 'password': request.payload.password}, function(err, data){
+        UserModel.findOne({emailid: request.payload.emailid, 'password': request.payload.password}, function(err, data){
             if (err){
                 reply({
                     'error': err
                 });
             } else if (data.length == 0){
-                reply.view('error', {message: 'User dose not exists please try with your correct email and password', errormessage: '404 error'})
-            } else {
-                    request.cookieAuth.set(data[0]);
-                    return reply.redirect('/user/deshboard')
+	            reply.view('error', {message: 'User dose not exists please try with your correct email and password', errormessage: '404 error'})
+	        } 
+            else if (data.Status == "SuperAdmin") {
+            	var emailid = request.payload.emailid;
+            	const token = jwt.sign({
+            		emailid,
+            		userid:data['_id'],
+            	},'vZiYpmTzqXMp8PpYXKwqc9ShQ1UhyAfy', {
+            		algorithm: 'HS256',
+            		expiresIn: '1h',
+            	});
+            	reply.state('emailid', emailid)
+            	request.cookieAuth.set({ token });
+            	return reply.redirect('/admin/deshboard')
+            }else if (data.Status == "User") {
+            	request.cookieAuth.set(data);
+                return reply.redirect('/user/deshboard')
             }
         })
 
@@ -74,7 +88,7 @@ const routes = [
 	handler:(request, h)=>{
   		let authenticated_user = request.auth.credentials;
   		let email_id = authenticated_user.emailid;
-  		console.log(email_id)
+  		console.log(authenticated_user)
         UserModel.findOne({emailid: email_id}, function(err, user){
         	if (err) {
         		throw err
@@ -454,24 +468,13 @@ const routes = [
     	
         UserModel.findOne({'emailid': request.payload.emailid, 'password': request.payload.password}, function(err, data){
             if (err){
-<<<<<<< HEAD
             	reply({'error': err});
             }else if (!data){
                 reply({StatusCode: 404, message: 'User dose not exists please try with your correct email and password'})
             }else{
             	request.cookieAuth.set(data);
             	return reply(data)
-=======
-                reply({
-                    'error': err
-                });
-            } else if (data.length == 0){
-                reply('User dose not exists please try with your correct email and password')
-            } else {
-                    request.cookieAuth.set(data[0]);
-                    return reply(data)
->>>>>>> bf888c8aa6b31171056710dc0f50ca54e234bb5d
-            }
+            } 
         })
 
     }
@@ -1216,80 +1219,42 @@ const routes = [
 },
 {
 	method: 'GET',
-	path: '/change/status/to/verify/unverify/{serviceid}',
+	path: '/change/status/to/verify/unverify',
 	config:{
         //include this route in swagger documentation
         tags:['api'],
         description:"admin can change the status of any data",
         notes:"admin can cahnge the status of any data which is verify of not",
-        validate:{
-	        params:{
-	        	serviceid: Joi.string()
-	        }
-            
-        },
     },
 	handler: function(request, reply){
 		var unverify = ({
-			verifi: "Noactive"
+			verifi: "In Active"
 		});
 		var varify = ({
 			verifi: "Active"
 		});
-		ServiceModel.findOne({'serviceid': request.params.serviceid}, function(err, result){
+		ServiceModel.findOne({_id: ObjectID(request.query._id)}, function(err, result){
 			if (result.verifi == "Active") {
-				ServiceModel.findOneAndUpdate({'serviceid' : request.params.serviceid}, unverify, function(err, data){
+				ServiceModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, unverify, function(err, data){
 				console.log('got it')
 					if (err) {
 						throw err
 					}else{
-						reply(data)
+						reply({message: "Successfully In Active Service"})
 					}
 				})
-			}else if (result.verifi == "Noactive") {
-				ServiceModel.findOneAndUpdate({'serviceid' : request.params.serviceid}, varify, function(err, data){
+			}else if (result.verifi == "In Active") {
+				ServiceModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, varify, function(err, data){
 					if (err) {
 						throw err
 					}else{
-						reply(data)
+						reply({message:'Successfully Active Service'})
 					}
 				})
 			}
 		})
 	}
 },
-// {
-	// method: 'GET',
-	// path: '/world',
-	// config: {
- //        //include this route in swagger documentation
- //        tags:['api'],
- //        description:"getting worker details",
- //        notes:"getting worker details with paramiters",
- //        validate:{
- //        	params:{
- //        		worker:Joi.string().required()
- //        	}
- //        }
- //    },
-    // handler: function(request, reply){
-    	// reply('hello world')
-   //  	async function getallDetails(){
-   //   		var worker;
-			// var jobcat;
-   //   		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-   //   		ResumeModel.find({JobCat: request.params.worker})
-   //   		.then(function(allworker){
-   //   			worker = allworker
-   //   			return reply.view('SearchRightWorker',{allResume : worker, jobcategorys: jobcat})
-   //   			// JobCategoryModel.find()
-   //   			// .then(function(allJobCategory){
-   //   			// 	jobcat = allJobCategory
-   //   			// });
-   //   		});
-   //   	}
-   //   	getallDetails();
-    // }
-// }
 ]
 export default routes;
+ 

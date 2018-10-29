@@ -12,6 +12,7 @@ const env2 = require('env2')
 const server = new Hapi.Server();
 import routes from './routes'
 import user from './userapi'
+import googleAuth from './googleAuth'
 
 const port = process.env.PORT || 8000;
 
@@ -51,7 +52,8 @@ server.register(require('hapi-auth-cookie'), (err)=>{
     password: 'vZiYpmTzqXMp8PpYXKwqc9ShQ1UhyAfy',
     cookie: 'merakaamkaaj-cookie',
     isSecure: false,    
-    redirectTo: '/'
+    redirectTo: '/',
+    isSameSite: 'Lax'
   });
 })
 
@@ -77,6 +79,7 @@ server.register( require( 'hapi-auth-jwt' ), ( err ) => {
     // We move this in the callback because we want to make sure that the authentication module has loaded before we attach the routes. It will throw an error, otherwise.
     server.route(routes)
     server.route(user)
+    server.route(googleAuth)
 
 } );
 

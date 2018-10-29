@@ -1,5 +1,4 @@
-
-                        <style type="text/css">
+<style type="text/css">
                             .pagination>li>a, .pagination>li>span {
                                 position: relative;
                                 float: left;
@@ -125,27 +124,8 @@
                         </style>
 
 
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div>
-                                    <button style="background: #f16024; color: #fff;" id="box_7" class="header_btn_change">Posted Job</button>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div>
-                                    <button id="box_8" class="header_btn_change">Posted Resume</button>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div>
-                                    <button id="box_9" class="header_btn_change">Posted Service</button>
-                                </div>
-                            </div>
-                            
 
-                        </div>
-                       
-                        <div id="section_7">
+<div id="section_54">
 
                         <div class="row">
                             <div class="col-lg-12">
@@ -211,15 +191,7 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-    <div class="modal fade" id="ModalView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal fade" id="ModalView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -292,141 +264,7 @@
                 </div>
                 </div>
 
-
-    <div id="section_8">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="qunit"></div>
-                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                    <div class="h_container">
-                                        
-                                    </div>
-                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Resume</h2>
-                                     
-                                        
-                                    <form style="margin-top: 150px;">
-                                        <h4 style="color: #555; margin-bottom: 10px;">Search By Resume Id</h4>
-                                        <input class="form-control" type="text" name="">
-                                        <input class="submit_btn" type="submit" name="" value="Search">
-                                    </form>
-                                    <div class="table-responsive" style="border-radius: 10px;">
-
-                                    <table id="example1" class="table tableres table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Worker ID</th>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Mobile</th>
-                                                    <th scope="col">Post Date</th>
-                                                    <th scope="col">Update / Active <br> Delete / View</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{#each resumes}}
-                                                <tr>
-                                                    <td data-label="Worker ID">{{_id}}</td>
-                                                    <td data-label="Name">{{Name}}</td>
-                                                    <td data-label="Mobile">{{Mobile}}</td>
-                                                    <td data-label="Post Date">{{Date}}</td>
-                                                    <td data-label="Update/Active/Delete/View">
-                                                            <div class="dropdown">
-                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                More Option
-                                                            </button>
-                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit</a>
-                                                                <a class="dropdown-item" href="#">Active</a>
-                                                                <a class="dropdown-item getallResume" title="{{_id}}" data-toggle="modal" data-target="#ModalView" href="#">View</a>
-                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalDelete" href="#"><form method="GET" action="/delete/user/resume/{{_id}}"><button>Delete</button></form></a>
-                                                            </div>
-                                                            </div> 
-                                                    </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
-
-                                  </div>
-                            
-                            
-                            </div>
-                        </div>
-                    </div>
-
-
-    </div>
-
-
-    <div id="section_9">
-        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="qunit"></div>
-                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                    <div class="h_container">
-                                        
-                                    </div>
-                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Service</h2>
-                                     
-                                        
-                                    <form style="margin-top: 150px;">
-                                        <h4 style="color: #555; margin-bottom: 10px;">Search By Service Id</h4>
-                                        <input class="form-control" type="text" name="">
-                                        <input class="submit_btn" type="submit" name="" value="Search">
-                                    </form>
-                                    <div class="table-responsive" style="border-radius: 10px;">
-
-                                    <table id="example2" class="table tableres table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Service ID</th>
-                                                    <th scope="col">Agency Name</th>
-                                                    <th scope="col">Mobile</th>
-                                                    <th scope="col">Post Date</th>
-                                                    <th scope="col">Update / Active <br> Delete / View</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{#each services}}
-                                                <tr>
-                                                    <td data-label="Service ID">{{serviceid}}</td>
-                                                    <td data-label="Agency Name">{{Agency}}</td>
-                                                    <td data-label="Mobile">{{MobileNumber}}</td>
-                                                    <td data-label="Post Date">{{date}}</td>
-                                                    <td data-label="Update/Active/Delete/View">
-                                                            <div class="dropdown">
-                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                More Option
-                                                            </button>
-                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit</a>
-                                                                <a class="dropdown-item changeStatusService" value="{{verifi}}" title="{{_id}}" data-toggle="modal" data-target="#ModalActivate" href="#">{{verifi}}</a>
-                                                                <a class="dropdown-item getallService" title="{{_id}}" data-toggle="modal" data-target="#ModalView" href="#">View</a>
-                                                                <a class="dropdown-item deleteserbtn" title="{{Agency}}" value="{{_id}}" data-toggle="modal" data-target="#ModalDelete" href="#">Delete</a>
-                                                            </div>
-                                                            </div> 
-                                                    </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
-
-
-
-                                        
-
-
-
-                                  </div>
-                            
-                            
-                            </div>
-                        </div>
-                    </div>
-    </div>
-
-
-
-     <div class="modal fade" id="ModalActivate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal fade" id="ModalActivate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">

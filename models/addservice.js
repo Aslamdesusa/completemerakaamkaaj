@@ -1,13 +1,9 @@
 var mongoose = require('mongoose');
-var shortid = require('shortid');
+// var shortid = require('shortid');
 
 var Schema = mongoose.Schema;
 
 var ServiceSchema = new Schema({
-	_id: {
-		type: String,
-    	'default': shortid.generate
-    },
 	Service: String,
 	date: {type: Date, default: Date.now}
 });

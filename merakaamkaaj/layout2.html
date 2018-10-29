@@ -118,18 +118,40 @@
                             <a href="/get/details">
                                 <i class="fas fa-chart-bar"></i>Add Details</a>
                         </li>
+                        
                         <li>
-                            <a href="/get/posted/details">
-                                <i class="fas fa-table"></i>Posted Details</a>
+                            <div class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown"><i class="fas fa-table"></i><span>Posted Details</span></a>
+                        
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item menu-option" href="/posted/job">Posted Job</a>
+                                <a class="dropdown-item menu-option" href="/posted/Resume">Posted Resume</a>
+                                <a class="dropdown-item menu-option" href="/posted/service">Posted Service</a>
+                              </div>
+                            </div>
+                            
+                          
                         </li>
+                        <li>
+                            <div class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown"><i class="fas fa-table"></i><span>Ragistered Users</span></a>
+                        
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item menu-option" href="/posted/job/users">Posted Job Users</a>
+                                <a class="dropdown-item menu-option" href="/posted/resumes/user">Posted Resume Users</a>
+                                <a class="dropdown-item menu-option" href="/service/provider/user">Service Provider User</a>
+                                <a class="dropdown-item menu-option" href="/service/seeking/user">Service Seeking User</a>
+                                <a class="dropdown-item menu-option" href="/resent/search/right/worker">Search Right Worker</a>
+                                <a class="dropdown-item menu-option" href="/resent/search/right/job">Search Right Job</a>
+                              </div>
+                            </div>
+                        </li>
+
                         <li>
                             <a href="/forms">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
-                        <li>
-                            <a href="/ragistered/users">
-                                <i class="far fa-check-square"></i>Number of Ragistered Users</a>
-                        </li>
+                        
                         <li>
                             <a href="/forgot/pass">
                                 <i class="far fa-check-square"></i>Forget Password</a>
@@ -238,211 +260,211 @@
     <!-- <script src="/js/app.js"></script>  -->
     <script src="/js/main.js"></script>
     <script type="text/javascript">
-        $('#box_1').click(function(){
-            $('#section_1').show();
-            $('#box_1').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_2').hide();
-            $('#section_3').hide();
-            $('#section_4').hide();
-            $('#section_5').hide();
-            $('#section_6').hide();
-        });
-        $('#box_2').click(function(){
-            $('#section_1').hide();
-            $('#section_2').show();
-            $('#box_2').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_3').hide();
-            $('#section_4').hide();
-            $('#section_5').hide();
-            $('#section_6').hide();
-        });
-        $('#box_3').click(function(){
-            $('#section_1').hide();
-            $('#section_2').hide();
-            $('#section_3').show();
-            $('#box_3').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_4').hide();
-            $('#section_5').hide();
-            $('#section_6').hide();
-        });
-        $('#box_4').click(function(){
-            $('#section_1').hide();
-            $('#section_2').hide();
-            $('#section_3').hide();
-            $('#section_4').show();
-            $('#box_4').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_5').hide();
-            $('#section_6').hide();
-        });
-        $('#box_5').click(function(){
-            $('#section_1').hide();
-            $('#section_2').hide();
-            $('#section_3').hide();
-            $('#section_4').hide();
-            $('#section_5').show();
-            $('#box_5').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_6').hide();
-        });
-        $('#box_6').click(function(){
-            $('#section_1').hide();
-            $('#section_2').hide();
-            $('#section_3').hide();
-            $('#section_4').hide();
-            $('#section_5').hide();
-            $('#section_6').show();
-            $('#box_6').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_2').css({"background-color" : "#fff" , "color" : "#555"});
-            $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
-        });
-    </script>
-    <script type="text/javascript">
-        $('#box_7').click(function(){
-            $('#section_7').show();
-            $('#box_7').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_8').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_9').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_8').hide();
-            $('#section_9').hide();
+    //     $('#box_1').click(function(){
+    //         $('#section_1').show();
+    //         $('#box_1').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_2').hide();
+    //         $('#section_3').hide();
+    //         $('#section_4').hide();
+    //         $('#section_5').hide();
+    //         $('#section_6').hide();
+    //     });
+    //     $('#box_2').click(function(){
+    //         $('#section_1').hide();
+    //         $('#section_2').show();
+    //         $('#box_2').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_3').hide();
+    //         $('#section_4').hide();
+    //         $('#section_5').hide();
+    //         $('#section_6').hide();
+    //     });
+    //     $('#box_3').click(function(){
+    //         $('#section_1').hide();
+    //         $('#section_2').hide();
+    //         $('#section_3').show();
+    //         $('#box_3').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_4').hide();
+    //         $('#section_5').hide();
+    //         $('#section_6').hide();
+    //     });
+    //     $('#box_4').click(function(){
+    //         $('#section_1').hide();
+    //         $('#section_2').hide();
+    //         $('#section_3').hide();
+    //         $('#section_4').show();
+    //         $('#box_4').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_5').hide();
+    //         $('#section_6').hide();
+    //     });
+    //     $('#box_5').click(function(){
+    //         $('#section_1').hide();
+    //         $('#section_2').hide();
+    //         $('#section_3').hide();
+    //         $('#section_4').hide();
+    //         $('#section_5').show();
+    //         $('#box_5').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_2').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_6').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_6').hide();
+    //     });
+    //     $('#box_6').click(function(){
+    //         $('#section_1').hide();
+    //         $('#section_2').hide();
+    //         $('#section_3').hide();
+    //         $('#section_4').hide();
+    //         $('#section_5').hide();
+    //         $('#section_6').show();
+    //         $('#box_6').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_2').css({"background-color" : "#fff" , "color" : "#555"});
+    //         $('#box_3').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_4').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_5').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_1').css({"background-color" : "#fff", "color" : "#555"});
+    //     });
+    // </script>
+    // <script type="text/javascript">
+    //     $('#box_7').click(function(){
+    //         $('#section_7').show();
+    //         $('#box_7').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_8').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_9').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_8').hide();
+    //         $('#section_9').hide();
             
-        });
-        $('#box_8').click(function(){
-            $('#section_7').hide();
-            $('#section_8').show();
-            $('#box_8').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_7').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_9').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_9').hide();
-        });
-        $('#box_9').click(function(){
-            $('#section_7').hide();
-            $('#section_8').hide();
-            $('#section_9').show();
-            $('#box_9').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_8').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_7').css({"background-color" : "#fff", "color" : "#555"});
-        });
-    </script>
-    <script type="text/javascript">
-        $('#box_10').click(function(){
-            $('#section_10').show();
-            $('#box_10').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_11').hide();
-            $('#section_12').hide();
-            $('#section_13').hide();
-            $('#section_14').hide();
-            $('#section_15').hide();
+    //     });
+    //     $('#box_8').click(function(){
+    //         $('#section_7').hide();
+    //         $('#section_8').show();
+    //         $('#box_8').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_7').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_9').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_9').hide();
+    //     });
+    //     $('#box_9').click(function(){
+    //         $('#section_7').hide();
+    //         $('#section_8').hide();
+    //         $('#section_9').show();
+    //         $('#box_9').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_8').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_7').css({"background-color" : "#fff", "color" : "#555"});
+    //     });
+    // </script>
+    // <script type="text/javascript">
+    //     $('#box_10').click(function(){
+    //         $('#section_10').show();
+    //         $('#box_10').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_11').hide();
+    //         $('#section_12').hide();
+    //         $('#section_13').hide();
+    //         $('#section_14').hide();
+    //         $('#section_15').hide();
             
-        });
-        $('#box_11').click(function(){
-            $('#section_11').show();
-            $('#box_11').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_10').hide();
-            $('#section_12').hide();
-            $('#section_13').hide();
-            $('#section_14').hide();
-            $('#section_15').hide();
+    //     });
+    //     $('#box_11').click(function(){
+    //         $('#section_11').show();
+    //         $('#box_11').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_10').hide();
+    //         $('#section_12').hide();
+    //         $('#section_13').hide();
+    //         $('#section_14').hide();
+    //         $('#section_15').hide();
             
-        });
-        $('#box_12').click(function(){
-            $('#section_12').show();
-            $('#box_12').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_11').hide();
-            $('#section_10').hide();
-            $('#section_13').hide();
-            $('#section_14').hide();
-            $('#section_15').hide();
+    //     });
+    //     $('#box_12').click(function(){
+    //         $('#section_12').show();
+    //         $('#box_12').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_11').hide();
+    //         $('#section_10').hide();
+    //         $('#section_13').hide();
+    //         $('#section_14').hide();
+    //         $('#section_15').hide();
             
-        });
-        $('#box_13').click(function(){
-            $('#section_13').show();
-            $('#box_13').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_11').hide();
-            $('#section_12').hide();
-            $('#section_10').hide();
-            $('#section_14').hide();
-            $('#section_15').hide();
+    //     });
+    //     $('#box_13').click(function(){
+    //         $('#section_13').show();
+    //         $('#box_13').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_11').hide();
+    //         $('#section_12').hide();
+    //         $('#section_10').hide();
+    //         $('#section_14').hide();
+    //         $('#section_15').hide();
             
-        });
-        $('#box_14').click(function(){
-            $('#section_14').show();
-            $('#box_14').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_11').hide();
-            $('#section_12').hide();
-            $('#section_13').hide();
-            $('#section_10').hide();
-            $('#section_15').hide();
+    //     });
+    //     $('#box_14').click(function(){
+    //         $('#section_14').show();
+    //         $('#box_14').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_15').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_11').hide();
+    //         $('#section_12').hide();
+    //         $('#section_13').hide();
+    //         $('#section_10').hide();
+    //         $('#section_15').hide();
             
-        });
-        $('#box_15').click(function(){
-            $('#section_15').show();
-            $('#box_15').css({"background-color" : "#f16024", "color" : "#fff"});
-            $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
-            $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
-            $('#section_11').hide();
-            $('#section_12').hide();
-            $('#section_13').hide();
-            $('#section_14').hide();
-            $('#section_10').hide();
+    //     });
+    //     $('#box_15').click(function(){
+    //         $('#section_15').show();
+    //         $('#box_15').css({"background-color" : "#f16024", "color" : "#fff"});
+    //         $('#box_11').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_12').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_13').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_14').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#box_10').css({"background-color" : "#fff", "color" : "#555"});
+    //         $('#section_11').hide();
+    //         $('#section_12').hide();
+    //         $('#section_13').hide();
+    //         $('#section_14').hide();
+    //         $('#section_10').hide();
             
-        });
-    </script>
-    <script type="text/javascript">
+    //     });
+    // </script>
+    // <script type="text/javascript">
         $('#box_16').click(function(){
             $('#section_16').show();
             $('#box_16').css({"background-color" : "#f16024", "color" : "#fff"});

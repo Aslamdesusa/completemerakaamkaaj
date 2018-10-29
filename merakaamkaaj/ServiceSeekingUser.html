@@ -1,0 +1,125 @@
+  <!-- MAIN CONTENT--><style type="text/css">
+          .pagination>li>a, .pagination>li>span {
+                                position: relative;
+                                float: left;
+                                padding: 6px 12px;
+                                margin-left: -1px;
+                                line-height: 1.42857143;
+                                color: #337ab7;
+                                text-decoration: none;
+                                background-color: #fff;
+                                border: 1px solid #ddd;
+                            }
+                            .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+                                z-index: 3;
+                                color: #fff;
+                                cursor: default;
+                                background-color: #337ab7;
+                                border-color: #337ab7;
+                            }
+                            .col-sm-7 {
+                                width: 58.33333333%;
+                            }
+                            div.dataTables_wrapper div.dataTables_paginate {
+                                margin: 0;
+                                white-space: nowrap;
+                                text-align: right;
+                            }
+                            .col-sm-6 {
+                                 width: 50%; 
+                            }
+                            div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+                                margin: 2px 0;
+                                white-space: nowrap;
+                                margin-left: 50%;
+                            }
+                        </style>
+
+
+                        <div id="section_554">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div id="qunit"></div>
+                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+                                    <div class="h_container">
+                                        
+                                    </div>
+                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Service Seeking User</h2>
+                                      <div style="margin-top: 130px;">
+                                    <form style="width: 100%; padding: 10px;">
+                                        <h4 style="color: #555; margin-bottom: 10px;">Search By Email OR Mobile</h4>
+                                        <input class="form-control" type="text" name="">
+                                        <input class="submit_btn" type="submit" name="" value="Search">
+                                    </form>
+                                    </div>
+                                    <div class="table-responsive" style="border-radius: 10px;">
+
+                                    <table id="example12" class="table tableres table-striped table-bordered" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Password</th>
+                                                    <th scope="col">Mobile</th>
+                                                    <th scope="col">City</th>
+                                                    <th scope="col">Registration Date</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="updatetable">
+                                            <tbody>
+                                                {{#each rightserprov}}
+                                                <tr id="{{_id}}">
+                                                    <td data-label="Name">{{firstname}} {{ lastname}}</td>
+                                                    <td data-label="Email">{{emailid}}</td>
+                                                    <td data-label="Password">{{password}}</td>
+                                                    <td data-label="Mobile">{{mobile}}</td>
+                                                    <td data-label="City" title="{{address}}">{{city}}</td>
+                                                    <td data-label="Registration Date">{{date}}</td>
+                                                    <td data-label="Action">
+                                                            <div class="dropdown">
+                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                More Option
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit</a>
+                                                                <a class="dropdown-item gettinguserdata" title="{{_id}}" data-toggle="modal" data-target="#ModalView" href="#">View</a>
+                                                                <a class="dropdown-item delteRagisteruser" id="{{_id}}" value="{{_id}}" title="{{firstname}} {{ lastname}}" data-toggle="modal" data-target="#ModalDelete" href="#"><button>Delete</button></a>
+                                                            </div>
+                                                            </div> 
+                                                    </td>
+                                                </tr>
+                                                
+                                                {{/each}}
+                                            </tbody>
+                                        </table>
+
+                                  </div>
+                            
+                            
+                            </div>
+                        </div>
+                    </div>
+
+    </div>
+
+<!-- DELETE USER -->
+     <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4><strong id="jobName"> </strong> will be permanently deleted. Are you sure you want to do this?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
+                <button type="button" class="btn btn-primary deletedsuccess">Delete</button>
+            </div>
+            </div>
+        </div>
+    </div>

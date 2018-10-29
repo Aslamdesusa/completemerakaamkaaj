@@ -148,13 +148,11 @@
 
 
 
-<div class="col-md-9" style="display: flex; flex-direction: column-reverse;" id="main_header">
-<input type="button" class="btn loadmorebtn" style="background: #f16024; color: #fff;" value="Laod more..">
+<div class="col-md-9" style="display: flex; flex-direction: column;">
 {{#each allService}}
   <div class="details-card"">
     <div class="candDetails">
       <div class="imageUser">
-        <img src="/img/img/Female_avatar-06-512.png" style="width: 20px; height: 30px;">
         <img src="/img/img/Female_avatar-06-512.png" style="width: 20px; height: 30px;">
       </div>           
       <div class="userDetails mb5">
@@ -170,6 +168,7 @@
       </div>
       <div class="employee-details">
         <ul class="emp-list">
+          <li>
            <span class="emp-heading">Service Specification</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{Specification}}"><span class="brief-skills">{{Specification}}</span><span class="morecontent"></span></span>
@@ -308,14 +307,36 @@
   </div>
 </div>
 
-<div id="append-data">
-  
-</div>
-
 {{/each}}
+<div id="main_header1"></div>
+<input type="button" class="btn loadmorebtn1" style="background: #f16024; color: #fff;" value="Laod more">
 </div>
 </div>
 
 <script type="text/javascript">
+          var counterload1 = 0;
+          $(".loadmorebtn1").click(function() {
+            $(".loadmorebtn1").val('Loading.......');
+            var title = $(".TypeOfService").attr('title');
+            counterload1++;
+            $.ajax({
+              url : "/get/rightservice/with/limit?TypeOfService="+title+"&count="+counterload1,
+              type : "GET",
+              dataType: 'json',
+              success : function(data){
+                if (data.length == 0) {
+                  $(".loadmorebtn1").val('Finish');
+                  return false
+                }
+                console.log(data)
+                var HTML = '';
+                for (var i = 0; i < data.length; i += 1) {
+                  HTML = '<div class="details-card""><div class="candDetails"><div class="imageUser"><img src="/img/img/Female_avatar-06-512.png" style="width: 20px; height: 30px;"></div><div class="userDetails mb5"><div class="candName"><span class="TypeOfService" title="'+data[i].TypeOfService+'">'+data[i].TypeOfService+'</span><span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span></div></div><div class="employee-name"><div class="cnctAndDwmload"></div></div><div class="employee-details"><ul class="emp-list"><li><span class="emp-heading">Service Specification</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Specification+'"><span class="brief-skills">'+data[i].Specification+'</span><span class="morecontent"></span></span></span></li><li><span class="emp-heading">Timing for Provide Services</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].ProvideServices+'">'+data[i].ProvideServices+'</span></span></li><li><span class="emp-heading">Services Provider Registered on</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].ProviderRegistered+'">'+data[i].ProviderRegistered+'</span></span></li><li><span class="emp-heading">Services Registered Expiry Date</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].RegisteredExpiry+'">'+data[i].RegisteredExpiry+'</span></span></li><li><span class="emp-heading">Service Providing Country</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Country+'">'+data[i].Country+'</span></span></li><div id="'+data[i]._id+'" class="collapse"><li><span class="emp-heading">Service Providing state</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].State+'">'+data[i].State+'</span></span></li><li><span class="emp-heading">Service Providing City</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].City+'">'+data[i].City+'</span></span></li><li><span class="emp-heading">Services Providing Area</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Area+'">'+data[i].Area+'</span></span></li><li><span class="emp-heading">Services Provider Agency Name</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Agency+'">'+data[i].Agency+'</span></span></li><li><span class="emp-heading">Name of Representative/Service Provider</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Representative+'">'+data[i].Representative+'</span></span></li><li><span class="emp-heading">Mobile Number</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].MobileNumber+'">'+data[i].MobileNumber+'</span></span></li><li><span class="emp-heading">Landline Number</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].LandNumber+'">'+data[i].LandNumber+'</span></span></li><li><span class="emp-heading">Contact Timing</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Timing+'">'+data[i].Timing+'</span></span></li><li><span class="emp-heading">Aadhar Card/Voter Card No./Other</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].aadharcard+'">'+data[i].aadharcard+'</span></span></li><li><span class="emp-heading">Website</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].website+'">'+data[i].website+'</span></span></li><li><span class="emp-heading">Email/Mobile</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].emailMobile+'">'+data[i].emailMobile+'</span></span></li><li><span class="emp-heading">Address Of Services Provider</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].address+'">'+data[i].address+'</span></span></li><li><span class="emp-heading">Pincode</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].pincode+'">'+data[i].pincode+'</span></span></li><li><span class="emp-heading">Any Information About Your Services</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].information+'">'+data[i].information+'</span></span></li> </div></ul></div><div class="hidden-lg hidden-md card-view pull-right hidden-xs hidden-sm"><i class="icon-basic_eye"></i><span></span></div><div class="button-div"><button data-toggle="modal" data-target="#myModal" class="ghst-btn demo-action InstantActionbuttons" type="button">Email</button><button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="collapse" data-target="#'+data[i]._id+'" type="button">View all details</button></div></div></div>'
+                  $("#main_header1").append(HTML);
+                  $(".loadmorebtn1").val('Laod more');
 
-</script>
+                }
+              },
+            });
+          });
+        </script>

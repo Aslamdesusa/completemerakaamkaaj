@@ -1,15 +1,10 @@
+var assert = require('assert');
 var mongoose = require('mongoose');
-var shortid = require('shortid');
-
 // const Email = require('mongoose-type-mail');
 
 var Schema = mongoose.Schema;
 
 var PostServiceSchema = new Schema({
-	_id: {
-		type: String,
-    	'default': shortid.generate
-    },
     //Job Details
     userobjectid:String,
     serviceid: String,

@@ -28,7 +28,7 @@
                           <img class="d-block w-100 img-fluid" src="/img/1.jpg" alt="First slide">
                           <div class="silder-para d-md-block">
                             <!-- <h3>Welcome to <span>Startup</span></h3> -->
-                            Provide Worker or Services after right verification We serve our services with your safety
+                            We Provide Worker & Services after right verification with your safety.
                             <!-- <div class="btn btn-general btn-white">Buy now</div> -->
                           </div>
                         </div>
@@ -37,7 +37,7 @@
                           <img class="d-block w-100" src="/img/2.jpg" alt="Second slide">
                           <div class="silder-para d-md-block">
                             <!-- <h3><span>Derive </span>with me</h3> -->
-                            Worker & Services provid from your locality In right & fixed ammount get best job / workers / services
+                            We provide Worker & Services from your locality. In right & fixed ammount get best job / workers / services
                             <!-- <div class="btn btn-general btn-white">Buy now</div> -->
                           </div>
                         </div> 
@@ -489,72 +489,6 @@
                                   </div>
                                 </div>
 <!-- ======================================================================== -->
-            <!-- LOGIN MODAL FOR ADMIN -->
-            <!-- ====================== -->
-
-        <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login modal</button> -->
-          <!-- LOGIN MODAL -->
-            <!-- ====================== -->
-
-        <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login modal</button> -->
-        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="myModalLabel">Admin</h4>
-                    </div>
-                    <div class="modal-body" style="background-image: url('https://wallpaperbrowse.com/media/images/soap-bubble-1958650_960_720.jpg'); padding: 6em !important; ">
-                        <div class="row">
-                            <div class="col-md-12 mini_q">
-                                <!-- Nav tabs -->
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
-                                </ul>
-                                <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="Login">
-                                        <form role="form" class="form-horizontal" action="/admin/deshboard" method="POST">
-                                        <div class="form-group">
-                                            <label for="email" class="col-sm-2 control-label">
-                                                Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email1" name="emailid" placeholder="Email" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1" class="col-sm-2 control-label">
-                                                Password</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                            </div>
-                                            <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary btn-sm">
-                                                    Login</button>
-                                                <a style="color: #6c757d;" href="javascript:;">Forgot your password?</a>
-                                            </div>
-                                        </div>
-                                        </form>
-                                    </div>
-                                  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-<!-- ======================================================================== -->
-
-
 
             <!-- LOGIN MODAL -->
             <!-- ====================== -->
@@ -672,12 +606,12 @@
                                             <div class="col-sm-10">
                                                 <select class="form-control" name="lookingfor" required>
                                                   <option value="" disabled selected>Select looking for</option>
-                                                  <option>I am looking for right job.</option>
-                                                  <option>I am looking for right worker.</option>
-                                                  <option>I am looking for right service provider</option>
-                                                  <option>I am service provider</option>
-                                                  <option>I am looking for search right worker</option>
-                                                  <option>I am looking for search right worker</option>
+                                                  <option value="i am looking for right job">I am looking for right job.</option>
+                                                  <option value="i am looking for right Worker">I am looking for right worker.</option>
+                                                  <option value="i am looking for right service provider">I am looking for right service provider</option>
+                                                  <option value="i am service provider">I am service provider</option>
+                                                  <option value="i am looking for search right worker">I am looking for search right worker</option>
+                                                  <option value="i am looking for search right worker">I am looking for search right worker</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -705,7 +639,8 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="btn-group btn-group-justified">
-                                            <a href="#" class="btn btn-primary"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-facebook"></i> Facebook</a> <a href="#" class="btn btn-danger"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-google"></i> Google</a>
+                                            <a href="#" class="btn btn-primary"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-facebook"></i> Facebook</a> 
+                                            <a href="/login" class="btn btn-danger" id="googlelogin"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-google"></i> Google</a>
                                         </div>
                                     </div>
                                 </div>
@@ -945,4 +880,13 @@ myInput.onkeyup = function() {
     spec.classList.add("invalid");
   }
 }
+</script>
+
+<script type="text/javascript">
+  // var url = '/oauthcallback'
+  // window.onmessage = function(url, e) { 
+  //     alert(e)
+  //     console.log(e)
+  //  };
+ 
 </script>
