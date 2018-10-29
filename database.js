@@ -2,8 +2,8 @@
 const Mongoose = require('mongoose');
 
 
-// const databaseURI = 'mongodb://kumar:mera55555#@ds141641.mlab.com:41641/merakaamkaaj';
-const mongoDbUri = 'mongodb://aslam:aslam123@ds263161.mlab.com:63161/merakaamkaaj1';
+const mongoDbUri = 'mongodb://kumar:kumar123@ds141641.mlab.com:41641/merakaamkaaj';
+// const mongoDbUri = 'mongodb://kumar:kumar123@ds141641.mlab.com:41641/merakaamkaaj';
 
 mongodb://<dbuser>:<dbpassword>@ds141641.mlab.com:41641/merakaamkaaj
 // Making connection with 'MongoDB'

@@ -22,13 +22,7 @@
         <meta name="twitter:card" content="Mera Kaam Kaaj" />
         <meta name="twitter:site" content="Mera kaam kaaj" />
         <meta name="twitter:creator" content="Mera kaam kaaj" />
-<!--         <link rel="stylesheet" type="text/css" href="https://www.merakaamkaaj.com/styles/style.css">
- -->
         <link rel="stylesheet" type="text/css" href="/css/cardslider.css">
-        
-
-        <!-- <link rel="stylesheet" type="text/css" href="http://straydogstudio.github.io/film_roll/css/bootstrap-responsive.min.css"> -->
-        
 
         <link rel="stylesheet" type="text/css" href="https://previews.envatousercontent.com/files/190236521/css/theme.css">
         <link rel="stylesheet" type="text/css" href="https://previews.envatousercontent.com/files/190236521/css/responsive_bootstrap_carousel_mega_min.css">
@@ -43,8 +37,7 @@
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-        <script src="js/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/js/jquery.min.js"></script>
         <script> $(window).on('load', function(){ $(".loader").fadeOut(2000); }); </script>
 
     </head>
@@ -58,7 +51,7 @@
             <div class="fixed-top" style="background: #f16024;">
               <div style="background: #fff;">
                 <div class="d-none d-sm-block">
-                <button style="position: fixed; z-index: 10; right: 13px; top: 100px; background: #fff; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50px; outline: none;" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive1" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" title="More option">
+                <button style="position: fixed; z-index: 10; right: 13px; top: 110px; background: #fff; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50px; outline: none;" class="navbar-toggler navbar-toggler-right header-min-btn" type="button">
                   <i class="material-icons" style="font-size: 30px;color:#f16024">expand_more</i>
                 </button>
                 </div>
@@ -109,7 +102,7 @@
 
                 <a class="navbar-brand js-scroll-trigger" href="/"><img src="/img/logo.png" style="    height: 104px !important; position: absolute !important; top: 10px !important;" alt="Merakaamkaaj.log" class="logoimg-fluid"></a>
                 <div class="d-block d-sm-none d-md-none d-lg-none d-xl-none">
-                <button style=" position: absolute; border-radius: 50px; padding: 0px !important; right: 100px; top: 10px; display: flex; border-radius: 50px; outline: none;" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapsess" data-target="#navbarResponsive1" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" title="More option">
+                <button style=" position: absolute; border-radius: 50px; padding: 0px !important; right: 100px; top: 10px; display: flex; border-radius: 50px; outline: none;" class="navbar-toggler navbar-toggler-right header-min-btn" type="button">
                   <i class="material-icons" style="font-size: 30px;color:#fff">expand_more</i>
                 </button>
                 </div>
@@ -122,31 +115,31 @@
                   <i class="fa fa-bars"></i>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="collapse navbar-collapse" id="navbarResponsive" style="background-color: #f16024;">
                   <ul class="navbar-nav text-uppercase ml-auto">                    
                     <li class="nav-item" id="home">
-                      <a class="nav-link js-scroll-trigger " href="/">Home</a>
+                      <a class="nav-link js-scroll-trigger HomeActive" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link js-scroll-trigger " href="/get/rightworkers">Search Right Worker</a>
+                      <a class="nav-link js-scroll-trigger WorkerActive" href="/get/rightworkers">Search Right Worker</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link js-scroll-trigger " href="/get/rightservice">Search right services</a>
+                      <a class="nav-link js-scroll-trigger ServiceActive" id="HomeLess" href="/get/rightservice">Search right services</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link js-scroll-trigger" href="/get/rightjob">Search Right Jobs</a>
+                      <a class="nav-link js-scroll-trigger RightJobsActive" href="/get/rightjob">Search Right Jobs</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link js-scroll-trigger" href="/post/new/job">Post Jobs</a>
+                      <a class="nav-link js-scroll-trigger JobsActive" href="/post/new/job">Post Jobs</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link js-scroll-trigger" href="/post/service">Post services</a>
+                      <a class="nav-link js-scroll-trigger PostServiceActive" href="/post/service">Post services</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link js-scroll-trigger" href="/post/resume">post Resume</a>
+                      <a class="nav-link js-scroll-trigger PostResumeActive" href="/post/resume">post Resume</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link js-scroll-trigger" href="/plans">Plans</a>
+                      <a class="nav-link js-scroll-trigger PlansActive" href="/plans">Plans</a>
                     </li>
                   </ul>
                 </div>
@@ -205,7 +198,7 @@
                       <p><a style="color: white;" href="/privacypolicy">PRIVACY POLICY</a></p>
                       <p>LEGAL ACTION</p>
                       <p><a style="color: white;" href="/securegetwaypayment">SECURE PAYMENT GATEWAY</a></p>
-                      <button id="border344" class="btnnnn344 btn-success" data-toggle="modal" data-target="#myModal2" style="color: white;">ADMIN LOGIN</button>
+            
 
                     </div>
                   </div>  
@@ -234,7 +227,7 @@
 
               </div>
               <div class="container-fluid footer-b text-center">
-                <div class="col-md-10">All Right Reserved©2017 Merakaamkaaj.com | Design &amp; Maintinance by: <a href="http://navgurukul.org/" target="_blank">NavGurukul Foundation</a> </div>
+                <div class="col-md-10">All Right Reserved©2017 Merakaamkaaj.com | Design &amp; Maintinance by: <a href="http://navgurukul.org/" target="_blank">Aslam Desusa</a> </div>
               </div>
             </footer>
             <style type="text/css">
@@ -242,7 +235,6 @@
           color: #fff;
           background-color: #bd2e2e !important;
           border-color: #d0c7c4;
-          width: 21%;
           border-style: none !important;
           text-align: center;
           cursor: pointer;
@@ -250,30 +242,30 @@
         #border344 {
           font-size: 12px;
           border-radius: 100px;
-          padding: 6px;
+          padding: 6px 10px;
           margin-top: 10px;
           outline: none;
-          box-shadow: 3px 6px 12px #00000063;
+          box-shadow: 1px 1px 1px #00000063;
         }
         .goog-te-gadget-simple{
           background-color: #f16025 !important;
         }
             </style>
 
-        <script src="http://straydogstudio.github.io/film_roll/js/vendor/jquery-1.10.1.min.js"></script>
+        <!-- <script src="http://straydogstudio.github.io/film_roll/js/vendor/jquery-1.10.1.min.js"></script> -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.12.1/plugins/CSSPlugin.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.12.1/easing/EasePack.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.12.1/TweenLite.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.12.1/jquery.gsap.min.js"></script>
-        <script src="http://straydogstudio.github.io/film_roll/js/vendor/jquery.touchSwipe.min.js"></script>
-        <script src="http://straydogstudio.github.io/film_roll/js/jquery.film_roll.min.js"></script>
+        <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.12.1/jquery.gsap.min.js"></script> -->
+        <!-- <script src="http://straydogstudio.github.io/film_roll/js/vendor/jquery.touchSwipe.min.js"></script> -->
+        <!-- <script src="http://straydogstudio.github.io/film_roll/js/jquery.film_roll.min.js"></script> -->
         <script src="http://straydogstudio.github.io/film_roll/js/index.js"></script>
         
 
         <script src="/js/popper.min.js"></script>
         <script src="/js/cardslider.js"></script>
         <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/jquery.easing.min.js"></script>
+        <!-- <script src="/js/jquery.easing.min.js"></script> -->
         <script src="/js/owl.carousel.min.js"></script>
         <script src="/js/wow.min.js"></script> 
         <script src="/js/app.js"></script>
@@ -295,13 +287,19 @@
 
             <script src="/js/popper.min.js"></script>
             <script src="/js/bootstrap.min.js"></script>
-            <script src="/js/jquery.easing.min.js"></script>
+            <!-- <script src="/js/jquery.easing.min.js"></script> -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
             <script src="/js/wow.min.js"></script> 
             <script src="/js/app.js"></script> 
             <script src="/intigretion/app.js"></script>
             <script type="text/javascript">
           $(document).ready(function(){
+
+            $(".header-min-btn").click(function(){
+                  $("#navbarResponsive1").toggle(400);
+                  
+              });
+
               $("#filter").click(function(){
                   $("#filteraes").toggle(400);
                   
@@ -337,10 +335,28 @@
           });
         </script>
         <script type="text/javascript">
-          $(".navbar a").on("click", function(){
-            $(".navbar").find(".active").removeClass("active");
-            $(this).parent().addClass("active");
-          });
+
+          var counterload = 0;
+
+              $(".loadmorebtn").click(function() {
+                $(".loadmorebtn").val('Loading.......');
+                counterload++;
+                $.ajax({
+                    url : "/get/rightworkers/with/limit?count="+counterload,
+                    type : "GET",
+                    dataType: 'json',
+                    success : function(data){
+                      console.log(data)
+                      var HTML = '';
+                      for (var i = 0; i < data.length; i += 1) {
+                        HTML = '<div class="details-card" id="updatetable"><div class="candDetails"><div class="imageUser"><img src="/img/img/'+data[i].Gender+'.png" style="width: 54px; height: 54px;"></div><div class="userDetails mb5"><div class="candName"><span class="job-type" title="{{JobCat}}">{{JobCat}}</span><span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span></div></div><div class="employee-name"><div class="cnctAndDwmload"></div></div><div class="employee-details"><ul class="emp-list"><li><span class="emp-heading">Name</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Name+'">'+data[i].Name+'</span></span></li><li><span class="emp-heading">Mobile</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="***********">***********</span></span></li><li><span class="emp-heading">Alternate Number</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="***********">***********</span></span></li><li><span class="emp-heading">Email id/Phone</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="***********">***********</span></span></li><li><span class="emp-heading">Adhar /Voter Card No</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].AdharNo+'">'+data[i].AdharNo+'</span></span></li><li><span class="emp-heading">Country</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Country+'">'+data[i].Country+'</span></span></li><li><span class="emp-heading">State</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].State+'">'+data[i].State+'</span></span></li><li><span class="emp-heading">City</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].City+'">'+data[i].City+'</span></span></li><div id="'+data[i]._id+'" class="collapse"><li><span class="emp-heading">Pincode</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Pincode+'">'+data[i].Pincode+'</span></span></li><li><span class="emp-heading">Address</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Address+'">'+data[i].Address+'</span></span></li><li><span class="emp-heading">Gender</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Gender+'">'+data[i].Gender+'</span></span></li><li><span class="emp-heading">Shift</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].shift+'">'+data[i].shift+'</span></span></li><li><span class="emp-heading">DOB</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].DOB+'">'+data[i].DOB+'</span></span></li><li><span class="emp-heading">Religin</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Religin+'">'+data[i].Religin+'</span></span></li><li><span class="emp-heading">known Language</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].knownLanguage+'">'+data[i].knownLanguage+'</span></span></li><li><span class="emp-heading">Class</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Class+'">'+data[i].Class+'</span></span></li><li><span class="emp-heading">Degree</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Degree+'">'+data[i].Degree+'</span></span></li><li><span class="emp-heading">PG</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PG+'">'+data[i].PG+'</span></span></li><li><span class="emp-heading">Diploma</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Diploma+'">'+data[i].Diploma+'</span></span></li><li><span class="emp-heading">Course</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Course+'">'+data[i].Course+'</span></span></li><li><span class="emp-heading">Career Objective</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].CareerObjective+'">'+data[i].CareerObjective+'</span></span></li><li><span class="emp-heading">Other Details</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].OtherDetails+'">'+data[i].OtherDetails+'</span></span></li><li><span class="emp-heading">Reference Mobile</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].ReferenceMobile+'">'+data[i].ReferenceMobile+'</span></span></li><li><span class="emp-heading">Looking Overseas</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].LookingOverseas+'">'+data[i].LookingOverseas+'</span></span></li><li><span class="emp-heading">Name of Impoloyer</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].NameofImpoloyer+'">'+data[i].NameofImpoloyer+'</span></span></li><li><span class="emp-heading">Position Designation</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PositionDesignation+'">'+data[i].PositionDesignation+'</span></span></li><li><span class="emp-heading">Main Job Category</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].MainJobCategory+'">'+data[i].MainJobCategory+'</span></span></li><li><span class="emp-heading">Skills</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Skills+'">'+data[i].Skills+'</span></span></li><li><span class="emp-heading">Experience</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Experience+'">'+data[i].Experience+'</span></span></li><li><span class="emp-heading">Current Salary</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].currentSalary+'">'+data[i].currentSalary+'</span></span></li><li><span class="emp-heading">Expected Salary</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].ExpSalary+'">'+data[i].ExpSalary+'</span></span></li><li><span class="emp-heading">Priferred Shift</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PriferredShift+'">'+data[i].PriferredShift+'</span></span></li><li><span class="emp-heading">Priferred Job Description</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PriferredJobDescription+'">'+data[i].PriferredJobDescription+'</span></span></li><li><span class="emp-heading">Priferred Location</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PriferredLocation+'">'+data[i].PriferredLocation+'</span></span></li><li><span class="emp-heading">previous Name of Impoloyer</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].NameofImpoloyer1+'">'+data[i].NameofImpoloyer1+'</span></span></li><li><span class="emp-heading">previous Position Designation</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PositionDesignation1+'">'+data[i].PositionDesignation1+'</span></span></li><li><span class="emp-heading">previous Job Category</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].JobCategory1+'">'+data[i].JobCategory1+'</span></span></li><li><span class="emp-heading">previous State/City</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].State1City1+'">'+data[i].State1City1+'</span></span></li><li><span class="emp-heading">previous Experience</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Experience1+'">'+data[i].Experience1+'</span></span></li><li><span class="emp-heading">previous shift</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].shift1+'">'+data[i].shift1+'</span></span></li><li><span class="emp-heading">previous job Description</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].jobDescription1+'">'+data[i].jobDescription1+'</span></span></li><li><span class="emp-heading">Salary Withdrawn</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].SalaryWithdrawn+'">'+data[i].SalaryWithdrawn+'</span></span></li></div></ul></div><div class="hidden-lg hidden-md card-view pull-right hidden-xs hidden-sm"><i class="icon-basic_eye"></i><span></span></div><div class="button-div"><button data-toggle="modal" data-target="#myModal" class="ghst-btn demo-action InstantActionbuttons" type="button">Email</button><button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="modal" data-target="#myModal" type="button">View contact</button><button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="collapse" data-target="#'+data[i]._id+'" type="button">View all details</button><div class="container"></div></div></div></div>'
+                      $('#main_header').append(HTML);
+                      $(".loadmorebtn").val('load more');
+                    }
+                  },
+                });
+                });
+  
         </script>
         <script type="text/javascript">
           function googleTranslateElementInit() {
@@ -353,6 +369,3 @@
         
     </body>
 </html>
-
-
-        

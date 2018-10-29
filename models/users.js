@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var UsersSchema = new Schema({
 
-	firstname: String,
+    firstname: String,
     lastname: String,
     mobile: {type: String, required: true, unique: true},
     emailid: {type: String, required:true, unique:true},
@@ -16,6 +16,8 @@ var UsersSchema = new Schema({
     pincode: Number,
     gender: String,
     lookingfor: String,
+    Status: {type: String, enum: ['SuperAdmin', 'User']},
+    picture: String,
     otp: String,
     date: {type: Date, default: Date.now}
 });

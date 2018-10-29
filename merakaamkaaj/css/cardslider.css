@@ -12,7 +12,7 @@ a.btn2 {
   box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
   color: #ffffff;
   display: inline-block;
-  padding: 6px 30px 8px;
+  padding: 7px;
   position: relative;
   text-decoration: none;
   transition: all 0.1s 0s ease-out;
@@ -40,6 +40,7 @@ div.cards {
 }
 div.card {
   width: 100%;
+  min-height: 200px;
   background: #ffffff;
   display: inline-block;
   margin: 8px;

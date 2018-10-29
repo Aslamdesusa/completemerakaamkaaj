@@ -3452,8 +3452,6 @@ tbody.collapse.show {
   flex: 1; }
 
 .list-group {
-  display: flex;
-  flex-direction: column;
   padding-left: 0;
   margin-bottom: 0; }
 
@@ -6268,29 +6266,26 @@ header {
     position: absolute;
     z-index: 1000;
     background: rgba(3, 6, 41, 0.31); }*/
-  header .carousel-inner .carousel-item .carousel-caption {
-    z-index: 1001;
-    /* bottom: 35%; */
-    /* top: 42%; */
+  header .carousel-inner .carousel-item .silder-para {
     color: #721c24;
     font-size: 17px;
-    background: #ffffff9e;
-    border-radius: 100px;
+    background: #f1f1f1;
+    border-radius: 0px;
     border-left: 12px solid #fff;
     border-right: 12px solid #fff;
+    padding: 24px;
+    text-align: center;
+    margin-top: 10px;
 }
-    header .carousel-inner .carousel-item .carousel-caption h3 span {
+    header .carousel-inner .carousel-item .silder-para h3 span {
       color: #f4fc53; }
-  @media (min-width: 992px) {
-    /*header .carousel-inner .carousel-item img {
-      height: 80vh; }*/
-    header .carousel-inner .carousel-item .carousel-caption h3 {
-      font-size: 65px; }
-    header .carousel-inner .carousel-item .carousel-caption p {
-      font-size: 20px; } }
-  @media (max-width: 991px) {
-    header .carousel-inner .carousel-item .carousel-caption h3 {
-      font-size: 45px; } }
+  @media (max-width: 750px) {
+    header .carousel-inner .carousel-item .silder-para {
+      font-size: 12px; 
+
+    } 
+
+    }
   header .carousel-arrs span i {
     width: 50px;
     height: 50px;
@@ -6394,6 +6389,10 @@ header {
     color: #003977;
     text-decoration: none; }
   @media (max-width: 767px) {
+
+    div#navbarResponsive {
+      z-index: 10;
+    }
     .about .about-cont {
       margin-top: 30px; } }
 
@@ -6835,7 +6834,7 @@ footer {
     position: absolute;
     width: 100%; }
   footer .container .row {
-    padding: 100px 0 50px; }
+    padding: 10px 0 10px; }
     footer .container .row .company-desc address i {
       font-size: 30px; }
     footer .container .row .social ul {
@@ -6861,6 +6860,7 @@ footer {
       footer .container .row .social .cont-info a {
         margin-left: 5px;
         color: #fff;
+        font-size: 13px;
         text-decoration: none; }
     footer .container .row .latest-news {
       margin-bottom: 15px; }
@@ -6873,7 +6873,9 @@ footer {
         margin-right: 10px; }
       footer .container .row .latest-news p {
         margin: 0;
-        line-height: 22px; }
+        line-height: 20px;
+        font-size: 13px;
+         }
       @media (max-width: 991px) {
         footer .container .row .latest-news img {
           margin-bottom: 40px;
@@ -7607,7 +7609,7 @@ footer {
 .jobs2 {
     background-color: #fff;
     border-radius: 5px;
-    padding: 12px 12px 26px 12px;
+    padding: 20px 12px 0px 12px;
     box-shadow: 1px 1px 13px #ccc;
     width: 350px;
     overflow: hidden;
@@ -8192,6 +8194,8 @@ div#OR {
 .candDetails .candName {
     width: 100%;
     display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -8546,7 +8550,7 @@ a, .btn-link {
             padding: 4px 20px;
       }
       .candDetails .candName{
-        width: auto;
+        width: 180px;
       }
       .details-card .userDetails{
         width: auto;
@@ -8747,3 +8751,5 @@ a.yellow { color: yellow; }
       padding-top: 0px !important;
     }
 }
+
+

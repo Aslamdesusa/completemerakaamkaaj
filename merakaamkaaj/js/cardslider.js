@@ -1,3 +1,28 @@
+
+$(document).ready(function(){
+  $('.workerid').click(function(){
+    var dataId = $(this).attr("href");
+    alert(dataId)
+    window.location.href='/search/right/worker?JobCat='+dataId
+  });
+});
+
+$(document).ready(function(){
+  $('.jobid').click(function(){
+    var dataId = $(this).attr("href");
+    alert(dataId)
+    window.location.href='/search/right/jobs?jobType='+dataId
+  });
+});
+
+$(document).ready(function(){
+  $('.searviceid').click(function(){
+    var dataId = $(this).attr("href");
+    alert(dataId)
+    window.location.href='/search/right/services?TypeOfService='+dataId
+  });
+});
+
 $(document).ready(function(){
   var zindex = 10;
   
@@ -42,3 +67,4 @@ $(document).ready(function(){
     
   });
 });
+

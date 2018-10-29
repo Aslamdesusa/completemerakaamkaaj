@@ -1,22 +1,30 @@
-
+<style type="text/css">
+  .WorkerActive{
+          background-color: #d64408 !important;
+          border-radius: 5px !important;
+          color: yellow !important;
+        }
+</style>
 
 <!-- HEADER 
 =================-->
+<div id="allworkers">
+  
+
 <header id="conent" class="header-cat header-cat-1"> 
 <div class="container">
-  <form action="/search/jobs" method="GET">
+  <form action="/search/worker" method="GET">
     <div class="row">
     <div class="col-md-12 text-center">
       <h1>Find your Right Worker</h1>
     </div>
     <div class="header-input">
-      <select style="display: block!important; padding: 6px 38px; width: 100%; color: #777; -webkit-appearance: none; border: none; border-radius: 3px; background: #fff;" id="ContentPlaceHolder1_ddljobcat sort-news" name="jobType" class="txt-dropdown">
+      <select style="display: block!important; padding: 6px 38px; width: 100%; color: #777; -webkit-appearance: none; border: none; border-radius: 3px; background: #fff;" id="ContentPlaceHolder1_ddljobcat sort-news" name="JobCat" class="txt-dropdown">
         {{#each jobcategorys}}
         <option value="{{JobCategory}}">{{JobCategory}}</option>
         {{/each}}
 
       </select>
-      <!-- <input class="header-int" style="margin: 5px;" type="text" name=""> -->
       <input class="header-int" style="margin: 5px;" type="text" name="state" placeholder="Location / Pincode in Delhi NCR">
       <button type="submit" class="header_search">Search</button>
     </div>
@@ -154,8 +162,9 @@
 </form>
 
 
-<div class="col-md-9" style="display: flex; flex-direction: column-reverse;" id="main_header">
-<h1 style="text-align: center; color: red; margin-bottom: 20%;">{{message}}</h1>
+<div class="col-md-9" style="display: flex; flex-direction: column;">
+
+<h1 style="text-align: center; color: red; margin-bottom: 5%;">{{message}}</h1>
 {{#each allResume}}
 
 <div class=" details-card" id="updatetable">
@@ -184,6 +193,7 @@
 
     <div class="employee-details">
         <ul class="emp-list">
+          <li>
            <span class="emp-heading">Name</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{Name}}"><span class="brief-skills">{{Name}}</span><span class="morecontent"></span></span>
@@ -198,13 +208,13 @@
          <li>
            <span class="emp-heading">Alternate Number</span>
            <span class="emp-rep">
-             <span class="jsProfileItem more trucateText" title="{{AlternateNum}}">{{AlternateNum}} </span>
+             <span class="jsProfileItem more trucateText" title="***********">*********** </span>
            </span>
          </li>
          <li>
            <span class="emp-heading">Email id/Phone</span>
            <span class="emp-rep">
-             <span class="jsProfileItem more trucateText" title="{{EmailorMobile}}"> {{EmailorMobile}}</span>
+             <span class="jsProfileItem more trucateText" title="***********">***********</span>
            </span>
          </li>
          <li>
@@ -255,12 +265,6 @@
            <span class="emp-heading">Shift</span>
            <span class="emp-rep">
              <span class="jsProfileItem more trucateText" title="{{shift}}">{{shift}}</span>
-           </span>
-         </li>
-        <li>
-           <span class="emp-heading">Gender</span>
-           <span class="emp-rep">
-             <span class="jsProfileItem more trucateText" title="{{gender}}">{{gender}}</span>
            </span>
          </li>
             <li>
@@ -515,10 +519,12 @@
     </div>
     </div>
   {{/each}}
-
+    <div id="main_header"></div>
+    <input type="button" class="btn loadmorebtn" style="background: #f16024; color: #fff;" value="Laod more">
     </div>
 
     </div>
 
 <!-- ================================================================================ -->
- 
+</div> 
+

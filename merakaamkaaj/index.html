@@ -7,7 +7,12 @@
         }
         .ch-itemone{
           border-radius: 50% 0% 50% 50%;
-          box-shadow: inset 9px 1px 0px 1px rgba(0,0,0,0.1);
+          box-shadow: inset 0px 0px 50px 1px rgba(0,0,0,0.1);
+        }
+        .HomeActive{
+          background-color: #d64408 !important;
+          border-radius: 5px !important;
+          color: yellow !important;
         }
        </style>
 
@@ -21,7 +26,7 @@
                         <div class="carousel-item active">
                           <div class="img-caption-hide"></div>
                           <img class="d-block w-100 img-fluid" src="/img/1.jpg" alt="First slide">
-                          <div class="carousel-caption d-none d-md-block">
+                          <div class="silder-para d-md-block">
                             <!-- <h3>Welcome to <span>Startup</span></h3> -->
                             Provide Worker or Services after right verification We serve our services with your safety
                             <!-- <div class="btn btn-general btn-white">Buy now</div> -->
@@ -30,7 +35,7 @@
                         <div class="carousel-item">
                           <div class="img-caption-hide"></div>
                           <img class="d-block w-100" src="/img/2.jpg" alt="Second slide">
-                          <div class="carousel-caption d-none d-md-block">
+                          <div class="silder-para d-md-block">
                             <!-- <h3><span>Derive </span>with me</h3> -->
                             Worker & Services provid from your locality In right & fixed ammount get best job / workers / services
                             <!-- <div class="btn btn-general btn-white">Buy now</div> -->
@@ -75,7 +80,7 @@
                           <div class="row">
 
                             {{#each alljobcategory}}                            
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                               <div class="cards">
                               <div class="card">
                                 <center><img src="/uploads/category/{{_id}}.png"></center>
@@ -84,16 +89,16 @@
                                     <span class="left"></span>
                                     <span class="right"></span>
                                   </a>
-                                  <h5 style="color: #555;">
-                                      {{JobCategory}}<br>
-                                      <!-- <small>Image from unsplash.com</small> -->
+                                  <h5 title="{{JobCategory}}" style="color: #555;">
+                                      {{JobCategory}}
                                   </h5>
                                 </div>
-                                <div class="card-flap flap1">
+                                <div  class="card-flap flap1">
                                   <div class="card-flap flap2">
                                     <div class="card-actions">
-                                      <a href="#" class="btn2">Workers</a>
-                                      <a href="#" class="btn2">Jobs</a>
+                                      
+                                      <a href="{{JobCategory}}" title="{{JobCategory}}" id="btn2" class="btn2 workerid">Workers</a>
+                                      <a href="{{JobCategory}}" title="{{JobCategory}}" id="btn3" class="btn2 jobid">Jobs</a>
                                     </div>
                                   </div>
                                 </div>
@@ -116,7 +121,7 @@
                         <div id="carousel-item" class="carousel-item active" style="padding: 20px;">
                           <div class="row">
                             {{#each allService}}
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                               <div class="cards">
                               <div class="card">
                                 <center><img src="/uploads/services/{{_id}}.png"></center>
@@ -132,8 +137,7 @@
                                 <div class="card-flap flap1">
                                   <div class="card-flap flap2">
                                     <div class="card-actions">
-                                      <a href="#" class="btn2">Workers</a>
-                                      <a href="#" class="btn2">Jobs</a>
+                                      <a href="{{Service}}" title="{{Service}}" id="btn4" class="btn2 searviceid">Services</a>
                                     </div>
                                   </div>
                                 </div>
@@ -157,7 +161,6 @@
         <button id="two2" style="outline: none; background: none; border: 1px solid #F16023; color: #F16023; font-size: 15px; padding: 5px 15px; border-radius: 3px; cursor: pointer;">Worked / Services</button>
       </div>
       <section class="main1">
-      
         <ul class="ch-gridone">
           <li>
             <div class="ch-itemone ch-img-1one">        
@@ -306,6 +309,7 @@
                                 <td>
                                   <div class="col-md-12 col-sm-6 col-xs-6">
                                     <div class="jobs2">
+                                      <div>
                                       <span class='list-group gallery'>
                                         <a class="thumbnail fancybox" rel="ligthbox" href='photo/simg720.jpg'>
                                           <img src='img/logo.png' />
@@ -319,10 +323,11 @@
                                           UISINE ART FAMILY RESTURA ...
                                         </span> -->
                                       </div>
+                                      </div>
                                        <div class="clearfix"></div>
                                        <table class="table" style="font-size: 12px;">
                                         <tr>
-                                          <th>JOb Id</th>
+                                          <th>Worker Id</th>
                                           <td>{{pwid}}</td>
                                         </tr>
                                         <tr>
@@ -348,7 +353,7 @@
                                           <td>Worker</td>
                                         </tr>
                                         </table>
-                                        <a style="background: #f16024; cursor: pointer; padding: 10px 30px; color: #fff; border-radius: 50px;">View</a>                       
+                                                               
                                         <div class="clearfix"></div>
                                       </div>
                                     </div>
@@ -377,7 +382,7 @@
                                        <table class="table" style="font-size: 12px;">
                                         <tr>
                                           <th>Job Id</th>
-                                          <td>{{_id}}</td>
+                                          <td>{{JobID}}</td>
                                         </tr>
                                         <tr>
                                           <th>Salary (INR)</th>
@@ -402,7 +407,7 @@
                                           <td>JOb</td>
                                         </tr>
                                         </table>
-                                        <a style="background: #f16024; cursor: pointer; padding: 10px 30px; color: #fff; border-radius: 50px;">View</a>                       
+                                                              
                                         <div class="clearfix"></div>
                                       </div>
                                     </div>
@@ -469,7 +474,7 @@
                                                       </tr>
 
                                                       </table>
-                                                      <a style="background: #f16024; cursor: pointer; padding: 10px 30px; color: #fff; border-radius: 50px;">View</a>                       
+                                                                            
                                                       <div class="clearfix"></div>
                                                     </div>
                                                   </div>
@@ -577,7 +582,7 @@
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
-                                    <div class="tab-pane" id="Login1">
+                                    <div class="tab-pane show active" id="Login1">
                                         <form role="form" class="form-horizontal" action="/user/login" method="POST">
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">
@@ -599,7 +604,7 @@
                                             <div class="col-sm-10">
                                                 <button type="submit" class="btn btn-primary btn-sm">
                                                     Submit</button>
-                                                <a style="color: #6c757d;" href="javascript:;">Forgot your password?</a>
+                                                <a style="color: #6c757d;" href="/forgot/pass" target="_blank">Forgot your password?</a>
                                             </div>
                                         </div>
                                         </form>
@@ -700,7 +705,8 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="btn-group btn-group-justified">
-                                            <a href="#" class="btn btn-primary"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-facebook"></i> Facebook</a> <a href="#" class="btn btn-danger"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-google"></i> Google</a>
+                                            <a href="#" class="btn btn-primary"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-facebook"></i> Facebook</a> 
+					    <a href="/login" class="btn btn-danger"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-google"></i> Google</a>
                                         </div>
                                     </div>
                                 </div>
@@ -761,7 +767,7 @@
 
         </div>
         <div class="modal-footer" style=" background: #f16025;">
-          <div class="col-md-10">All Right Reserved©2017 Merakaamkaaj.com | Design &amp; Maintinance by: <a href="http://webflies.in/" target="_blank">Webflies Solution</a> </div>
+          <div class="col-md-10">All Right Reserved©2017 Merakaamkaaj.com | Design &amp; Maintinance by: <a href="http://navgurukul.org/" target="_blank">Aslam Desusa</a> </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,4 @@
+hapi-auth-cookie successfully registered
+Server started at http://mera-machine:80
+Connection with database succeeded mongodb://kumar:mera55555@ds141641.mlab.com:41641/merakaamkaaj
+(node:15913) DeprecationWarning: Mongoose: mpromise (mongoose's default promise library) is deprecated, plug in your own promise library instead: http://mongoosejs.com/docs/promises.html
