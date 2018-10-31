@@ -57,6 +57,8 @@ const routes = [
               console.log('refresh_token: '+ tokens.refresh_token);
               axios.get('https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token='+tokens.refresh_token)
               .then(function(data){
+                console.log(data)
+                console.log('data')
                 var newUser = new UserModel({
                       "firstname": data.data.given_name,
                       "lastname": data.data.family_name,
@@ -74,6 +76,8 @@ const routes = [
                     });
                   UserModel.findOne({emailid: data.data.email})
                 .then(function(result){
+                  console.log(result)
+                  console.log('result')
                   if (!result) {
                     request.cookieAuth.set(newUser);
                     return reply.redirect('/homepage/1')
@@ -89,6 +93,8 @@ const routes = [
             }else{
               axios.get('https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token='+tokens.access_token)
               .then(function(data){
+                console.log(data)
+                console.log('data')
                 var newUser = new UserModel({
                       "firstname": data.data.given_name,
                       "lastname": data.data.family_name,
@@ -133,11 +139,10 @@ const routes = [
   },
   handler: function(request, reply){
     let authenticated_user = request.auth.credentials;
-    console.log(authenticated_user)
     var newUser = new UserModel(authenticated_user);
     newUser.save(function(err, data){
       if (err) {
-        reply(err)
+        reply('user already exist please')
       }else{
         return reply.redirect('/user/deshboard')
       }

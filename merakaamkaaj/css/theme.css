@@ -241,7 +241,7 @@ section {
 }
 
 .section__content {
-    position: relative;
+    position: initial;
     margin: 0 auto;
     z-index: 1;
 }
@@ -1199,7 +1199,7 @@ section {
         position: relative;
         top: 0;
         left: 0;
-        z-index: 0;
+        z-index: 10;
     }
 }
 
@@ -1455,7 +1455,7 @@ section {
     -ms-transform-origin: right top;
     -o-transform-origin: right top;
     transform-origin: right top;
-    z-index: 3;
+    z-index: 3 !important;
 }
 
 .account-dropdown .info {
@@ -1735,7 +1735,7 @@ section {
     display: block;
     padding: 10px 15px;
     padding-right: 25px;
-    padding-left: 0;
+    padding-left: 15px;
     border-bottom: 1px solid #e6e6e6;
     text-transform: capitalize;
     line-height: inherit;

@@ -20,7 +20,7 @@ var PostServiceSchema = new Schema({
 	Area: String(),
 	Agency: String(),
 	Representative: String(),
-	MobileNumber: Number(),
+	MobileNumber: {type: Number, required:true},
 	LandNumber: String(),
 	Timing: String(),
 	aadharcard: String(),

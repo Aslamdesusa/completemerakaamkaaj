@@ -520,7 +520,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting jobs",
-         notes:"in this route we are getting all jobs"
+         notes:"in this route we are getting all jobs",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
 	handler: (request, reply) =>{
 		CountryModel.find({},(err, data) => {
@@ -543,7 +546,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting jobs",
-         notes:"in this route we are getting all jobs"
+         notes:"in this route we are getting all jobs",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
 	handler: (request, reply) =>{
 		CountryModel.find({},(err, data) => {
@@ -609,83 +615,6 @@ const routes = [
      	getallDetails();
      }
 },
-// {
-// 	method: 'GET',
-// 	path: '/get/details',
-// 	config	: {
-// 		 //include this route in swagger documentation
-// 		 tags:['api'],
-// 		 description:"getting jobs",
-//          notes:"in this route we are getting all jobs",
-//          auth:{
-// 	    	strategy: 'restricted',
-// 	    }
-
-//      },
-// 	handler: (request, reply) =>{
-// 		var country = {};
-// 		var state = {};
-// 		var city = {};
-// 		var jobcategory = {};
-// 		var services = {};
-// 		var specification = {};
-// 		CountryModel.find({},(err, allCountry) => {
-// 			if (err){
-// 				console.log(err);
-// 				throw err;		
-// 			}else{
-// 				country=allCountry;
-// 			}
-// 		});
-// 		StateModel.find({}, (err, allState) =>{
-// 			if (err) {
-// 				console.log(err);
-// 				throw err;
-// 			}else{
-// 				state=allState;
-// 			}
-// 		})
-// 		CityModel.find({}, (err, allCity) =>{
-// 			if (err) {
-// 				console.log(err);
-// 				throw err;
-// 			}else{
-// 				city=allCity;
-// 			}
-// 		})
-// 		JobCategoryModel.find({}, (err, allJobCategory) =>{
-// 			if (err) {
-// 				console.log(err);
-// 				throw err;
-// 			}else{
-// 				jobcategory=allJobCategory;
-// 			}
-// 		})
-// 		ServiceModel1.find({}, (err, allService) =>{
-// 			if (err) {
-// 				console.log(err);
-// 				throw err;
-// 			}else{
-// 				services=allService;
-// 			}
-// 		})
-// 		SpecificationModel.find({}, (err, allSpecification) =>{
-// 			if (err) {
-// 				console.log(err);
-// 				throw err;
-// 			}else{
-// 				specification=allSpecification;
-// 				reply.view('adddetails', {allCountry: country, allState: state, allCity: city, alljobcategory: jobcategory, allService: services, allSpecification: specification}, {layout: 'layout2'})
-// 				console.log(state)
-// 				console.log(city)
-// 				console.log(jobcategory)
-// 				console.log(services)
-// 				console.log(country)
-// 				console.log(specification)
-// 			}
-// 		}) 	   
-// 	}
-// },
 {
 	method: 'GET',
 	path: '/posted/job',
@@ -693,7 +622,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting home data",
-         notes:"getting home data"
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
      handler: (request, reply) =>{
      	async function getJobCat(){
@@ -714,7 +646,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting home data",
-         notes:"getting home data"
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
      handler: (request, reply) =>{
      	async function getJobCat(){
@@ -735,7 +670,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting home data",
-         notes:"getting home data"
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
      handler: (request, reply) =>{
      	async function getJobCat(){
@@ -757,7 +695,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting home data",
-         notes:"getting home data"
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
      handler: (request, reply) =>{
      	async function getJobCat(){
@@ -778,7 +719,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting home data",
-         notes:"getting home data"
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
      handler: (request, reply) =>{
      	async function getJobCat(){
@@ -799,7 +743,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting home data",
-         notes:"getting home data"
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
      handler: (request, reply) =>{
      	async function getJobCat(){
@@ -820,7 +767,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting home data",
-         notes:"getting home data"
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
      handler: (request, reply) =>{
      	async function getJobCat(){
@@ -841,7 +791,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting home data",
-         notes:"getting home data"
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
      handler: (request, reply) =>{
      	async function getJobCat(){
@@ -862,7 +815,10 @@ const routes = [
 		 //include this route in swagger documentation
 		 tags:['api'],
 		 description:"getting home data",
-         notes:"getting home data"
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
      },
      handler: (request, reply) =>{
      	async function getJobCat(){

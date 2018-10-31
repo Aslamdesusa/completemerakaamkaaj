@@ -27,6 +27,41 @@ var ObjectID = require('mongodb').ObjectID
 
 
 const routes = [
+// =============================================================================
+// User Posted Details
+{
+	method: 'GET',
+	path: '/user/get/posted/resume',
+	config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"getting details of a particular user",
+        notes:"getting details of particular user",
+        auth:{
+	    	strategy: 'restricted',
+	    }
+	},
+	handler: function(request, reply){
+		async function getallDetails(){
+			let authenticated_user = request.auth.credentials;
+			let authenticated_u_m = authenticated_user.mobile;
+			await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+			ResumeModel.find({Mobile: authenticated_u_m})
+			.then(function(resumes){
+				ServiceModel.find({MobileNumber: authenticated_u_m})
+				.then(function(services){
+					console.log(services)
+					console.log(authenticated_user)
+					jobsModel.find({MobileNumber: authenticated_u_m})
+					.then(function(jobs){
+						return reply.view('userposted', {resumedata: resumes, service: services, jobs: jobs}, {layout: 'layout3'})
+					});
+				});
+			});
+		}
+		getallDetails();
+	},
+},
 {
     method:'POST',
     path:'/user/login',
@@ -398,31 +433,6 @@ const routes = [
     }
 },
 // ============user getting posted details and getting form ==================================
-{
-		method: 'GET',
-		path: '/user/posted/details',
-		config:{
-		//include this route in swagger documentation
-		tags:['api'],
-		description:"getting  admin form",
-	    notes:"getting form",
-	    auth:{
-    		strategy: 'restricted',
-	    }
-    },
-	handler: (request, h)=>{
-		let authenticated_user = request.auth.credentials;
-  		let email_id = authenticated_user.emailid;
-        UserModel.findOne({emailid: email_id}, function(err, user){
-        	if (err) {
-        		throw err
-        	}else{
-        		console.log(user)
-        		return h.view('userposted', {userdata: user,}, {layout: 'layout3'})
-        	}
-        });
-	}
-},
 {
 		method: 'GET',
 		path: '/user/forms',
