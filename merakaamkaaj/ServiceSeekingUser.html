@@ -61,8 +61,6 @@
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Password</th>
                                                     <th scope="col">Mobile</th>
-                                                    <th scope="col">City</th>
-                                                    <th scope="col">Registration Date</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
@@ -74,16 +72,15 @@
                                                     <td data-label="Email">{{emailid}}</td>
                                                     <td data-label="Password">{{password}}</td>
                                                     <td data-label="Mobile">{{mobile}}</td>
-                                                    <td data-label="City" title="{{address}}">{{city}}</td>
-                                                    <td data-label="Registration Date">{{date}}</td>
                                                     <td data-label="Action">
                                                             <div class="dropdown">
                                                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 More Option
                                                             </button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit</a>
-                                                                <a class="dropdown-item gettinguserdata" title="{{_id}}" data-toggle="modal" data-target="#ModalView" href="#">View</a>
+                                                                <!-- <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit<
+                                                                    /a> -->
+                                                                <a class="dropdown-item gettingUserData" title="{{_id}}" data-toggle="modal" data-target="#ModalViewForUserData" href="#">View</a>
                                                                 <a class="dropdown-item delteRagisteruser" id="{{_id}}" value="{{_id}}" title="{{firstname}} {{ lastname}}" data-toggle="modal" data-target="#ModalDelete" href="#"><button>Delete</button></a>
                                                             </div>
                                                             </div> 

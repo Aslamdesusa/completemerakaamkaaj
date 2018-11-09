@@ -24,6 +24,9 @@ const AuthCookie = require('hapi-auth-cookie')
 var springedge = require('springedge');
 const async = require('async');
 var ObjectID = require('mongodb').ObjectID
+var url = require('url');
+// var MongoDataTable = require('mongo-datatable');
+
 
 
 import axios from 'axios';
@@ -34,6 +37,56 @@ import axios from 'axios';
 import jwt from 'jsonwebtoken';
 
 const routes = [
+{
+	method: 'GET',
+	path: '/get/country-by-id',
+	handler: function(request, reply){
+		CountryModel.findOne({_id: request.query._id})
+		.then(function(result){
+			return reply(result)
+		})
+	}
+},
+{
+	method: 'GET',
+	path: '/get/state-by-id',
+	handler: function(request, reply){
+		StateModel.findOne({_id: request.query._id})
+		.then(function(result){
+			return reply(result)
+		})
+	}
+},
+{
+	method: 'GET',
+	path: '/get/city-by-id',
+	handler: function(request, reply){
+		CityModel.findOne({_id: request.query._id})
+		.then(function(result){
+			return reply(result)
+		})
+	}
+},
+{
+	method: 'GET',
+	path: '/get/category-by-id',
+	handler: function(request, reply){
+		JobCategoryModel.findOne({_id: request.query._id})
+		.then(function(result){
+			return reply(result)
+		})
+	}
+},
+{
+	method: 'GET',
+	path: '/get/service-category-by-id',
+	handler: function(request, reply){
+		ServiceModel1.findOne({_id: request.query._id})
+		.then(function(result){
+			return reply(result)
+		})
+	}
+},
 {
     method: 'POST',
     path: '/submit',
@@ -402,7 +455,7 @@ const routes = [
     		if (err) {
     			reply('error saving data')
 			}else{
-				reply({message: 'New Job Category successfully saved'})
+				reply({message: 'New Job Category successfully saved', data: data})
 				uuid=data;
 				var dataa = request.payload;
 	            if (dataa.image) {
@@ -654,10 +707,37 @@ const routes = [
      handler: (request, reply) =>{
      	async function getJobCat(){
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		ResumeModel.find().limit(20).exec()
+     		ResumeModel.find().limit(10).skip(10 * request.query.count)
+     		.then(function(result){
+     			ResumeModel.count()
+     			.then(function(resultCount){
+     				console.log(resultCount)
+     				return reply.view('postedResume', {resumes: result, numberCount: resultCount}, {layout: 'layout2'}) 
+     			})
+     		});
+     	}
+     	getJobCat();
+     }
+},
+{
+	method: 'GET',
+	path: '/posted/resume/json',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ResumeModel.find().limit(10).skip(10 * request.query.count)
      		.then(function(result){
      			console.log(result)
-     			return reply.view('postedResume', {resumes: result}, {layout: 'layout2'}) 
+     			return reply(result)
      		});
      	}
      	getJobCat();
@@ -679,9 +759,37 @@ const routes = [
      	async function getJobCat(){
      		console.log('hello')
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		ServiceModel.find()
+     		ServiceModel.find().limit(10).skip(10 * request.query.count)
      		.then(function(result){
-     			return reply.view('postedService', {services: result}, {layout: 'layout2'}) 
+     			ServiceModel.count()
+     			.then(function(resultCount){
+     				return reply.view('postedService', {services: result, totoalSer: resultCount}, {layout: 'layout2'}) 
+     			});
+     		});
+     	}
+     	getJobCat();
+     }
+},
+{
+	method: 'GET',
+	path: '/posted/service/josn',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ServiceModel.find().limit(10).skip(10 * request.query.count)
+     		.then(function(result){
+     			console.log(result)
+     			return reply(result)
      		});
      	}
      	getJobCat();
@@ -728,9 +836,37 @@ const routes = [
      	async function getJobCat(){
      		console.log('hello')
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		UserModel.find({lookingfor: 'i am looking for right job'}).limit(20).exec()
+     		UserModel.find({lookingfor: 'i am looking for right job'}).limit(10).skip(10 * request.query.count)
      		.then(function(result){
-     			return reply.view('PostedResumeUser', {lookingforrightjob: result}, {layout: 'layout2'}) 
+     			UserModel.find({lookingfor: 'i am looking for right job'}).count()
+     			.then(function(resultCount){
+     				console.log(resultCount)
+     				return reply.view('PostedResumeUser', {lookingforrightjob: result, countUpdate: resultCount}, {layout: 'layout2'}) 
+     			})
+     		});
+     	}
+     	getJobCat();
+     }
+},
+{
+	method: 'GET',
+	path: '/posted/resumes/user/json',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		UserModel.find({lookingfor: 'i am looking for right job'}).limit(10).skip(10 * request.query.count)
+     		.then(function(result){
+     			return reply(result)
      		});
      	}
      	getJobCat();
@@ -752,9 +888,36 @@ const routes = [
      	async function getJobCat(){
      		console.log('hello')
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		UserModel.find({lookingfor: 'i am service provider'}).limit(20).exec()
+     		UserModel.find({lookingfor: 'i am service provider'}).limit(10).skip(10 * request.query.count)
      		.then(function(result){
-     			return reply.view('ServiceProviderUser', {prov: result}, {layout: 'layout2'}) 
+     			UserModel.find({lookingfor: 'i am service provider'}).count()
+     			.then(function(resultCount){
+     				return reply.view('ServiceProviderUser', {prov: result, countUpdate: resultCount}, {layout: 'layout2'}) 	
+     			})
+     		});
+     	}
+     	getJobCat();
+     }
+},
+{
+	method: 'GET',
+	path: '/service/provider/user/json',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting home data",
+         notes:"getting home data",
+         auth:{
+         	strategy: 'restricted'
+         }
+     },
+     handler: (request, reply) =>{
+     	async function getJobCat(){
+     		console.log('hello')
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		UserModel.find({lookingfor: 'i am service provider'}).limit(10).skip(10 * request.query.count)
+     		.then(function(result){
+     			return reply(result) 
      		});
      	}
      	getJobCat();
@@ -1083,12 +1246,33 @@ const routes = [
      			JobCategoryModel.find({})
      			.then(function(allJobCategory){
      				jobCat = allJobCategory
-	     			return reply.view('SearchRightWorker', {allResume : resumes, jobcategorys: jobCat})
+	     			return reply.view('SearchRightWorker', {allResume : resumes, jobcategorys: jobCat, link: '/get/rightworkers'})
      			});
      		});
      	}
      	getallDetails() 	   
 	}
+},
+{
+	method: 'GET',
+	path: '/get/rightworkers/json',
+	config	: {
+		 //include this route in swagger documentation
+		 tags:['api'],
+		 description:"getting Service",
+         notes:"in this route we are getting all services"
+     },
+	handler: (request, reply) =>{
+		async function getallDetails(){
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ResumeModel.find({verifi: 'Active'}).limit(20).skip(20 * request.query.count)
+     		.then(function(allResume){
+     			return reply(allResume)
+     			
+     		})
+     	}
+     	getallDetails() 	
+     }   
 },
 {
 	method: 'GET',
@@ -1112,7 +1296,7 @@ const routes = [
 },
 {
 	method: 'GET',
-	path: '/get/rightservice/with/limit',
+	path: '/get/rightservice/json',
 	config	: {
 		 //include this route in swagger documentation
 		 tags:['api'],
@@ -1122,7 +1306,7 @@ const routes = [
 	handler: (request, reply) =>{
 		async function getallDetails(){
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		ServiceModel.find({verifi: 'Active', TypeOfService: request.query.TypeOfService}).limit(20).skip(20 * request.query.count)
+     		ServiceModel.find({verifi: 'Active'}).limit(20).skip(20 * request.query.count)
      		.then(function(allService){
      			return reply(allService)
      		});
@@ -1252,36 +1436,338 @@ const routes = [
         }
     },
     {
-	method: 'GET',
-	path: '/search/worker',
-	config:{
-        //include this route in swagger documentation
-        tags:['api'],
-        description:"getting admin form",
-        notes:"getting form",
-    },
-	handler: (request, reply) =>{
-		// return reply('dsf')
-		async function getallDetails(){
-     		var worker;
-			var jobcat;
-			var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}, {State:{$regex: request.query.state, $options: 'i'}}]}
-     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		ResumeModel.find(query).limit(20).skip(20 * request.query.count)
-     		.then(function(allworker){
-     			worker = allworker
-     			JobCategoryModel.find({})
+		method: 'GET',
+		path: '/search/worker',
+		config:{
+	        //include this route in swagger documentation
+	        tags:['api'],
+	        description:"getting admin form",
+	        notes:"getting form",
+	    },
+		handler: (request, reply) =>{
+			// return reply('dsf')
+			async function getallDetails(){
+	     		var worker;
+				var jobcat;
+				var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}, {State:{$regex: request.query.state, $options: 'i'}}]}
+	     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+	     		ResumeModel.find(query).limit(20).skip(20 * request.query.count)
+	     		.then(function(allworker){
+	     			worker = allworker
+	     			JobCategoryModel.find({})
+	     			.then(function(allJobCategory){
+	     				jobcat = allJobCategory
+		     			return reply.view('SearchRightWorker', {allResume : worker, jobcategorys: jobcat})
+
+		     			// return reply({allResume : worker, jobcategorys: jobcat})
+	     			});
+	     		});
+	     	}
+	     	getallDetails();
+		}
+	},
+	{
+		method: 'GET',
+		path: '/search/worker/json',
+		config:{
+	        //include this route in swagger documentation
+	        tags:['api'],
+	        description:"getting admin form",
+	        notes:"getting form",
+	    },
+		handler: (request, reply) =>{
+			// return reply('dsf')
+			async function getallDetails(){
+				var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}, {State:{$regex: request.query.state, $options: 'i'}}]}
+	     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+	     		ResumeModel.find(query).limit(20).skip(20 * request.query.count)
+	     		.then(function(allworker){
+	     			return reply(allworker)
+	     		});
+	     	}
+	     	getallDetails();
+		}
+	},
+	{
+        method:'GET',
+        path:'/filter/search/worker/gender',
+        handler: function(request, reply){
+        	var jobcat;
+        	 ResumeModel.find({Gender : request.query.gender}).limit(20).exec()
+        	 .then(function(result){
+        	 	JobCategoryModel.find({})
      			.then(function(allJobCategory){
      				jobcat = allJobCategory
-	     			return reply.view('SearchRightWorker', {allResume : worker, jobcategorys: jobcat})
+     				if(result.length === 0){
+     					return reply.view('SearchRightWorker',{
+     						message: 'No Records Found',
+     						jobcategorys: jobcat
+     					})
 
-	     			// return reply({allResume : worker, jobcategorys: jobcat})
+     				} else {
+     					reply.view('SearchRightWorker',{allResume : result, jobcategorys: jobcat})
+     				}
      			});
-     		});
-     	}
-     	getallDetails();
-	}
-},
+        	 })       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/worker/gender/json',
+        handler: function(request, reply){
+        	var jobcat;
+        	 ResumeModel.find({Gender : request.query.gender}).limit(20).skip(20 * request.query.count)
+        	 .then(function(result){
+        	 	return reply(result)
+        	 })       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/worker/salary-range',
+        handler: function(request, reply){
+        	var query = {}
+        	var jobcat;
+        	var salarygte = request.query.salarygte
+            var salarylte = request.query.salarylte
+            if( salarygte && salarylte){ 
+           		query.ExpSalary = {
+            		$gte:salarygte,
+            		$lte:salarylte
+            	}   	
+            }
+        	 ResumeModel.find(query).limit(20).exec()
+        	 .then(function(result){
+        	 	JobCategoryModel.find({})
+     			.then(function(allJobCategory){
+     				jobcat = allJobCategory
+     				if(result.length === 0){
+     					return reply.view('SearchRightWorker',{
+     						message: 'No Records Found',
+     						jobcategorys: jobcat
+     					})
+     				} else {
+     					reply.view('SearchRightWorker',{allResume : result, jobcategorys: jobcat})
+     				}
+     			});
+        	 })       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/worker/salary-range/json',
+        handler: function(request, reply){
+        	var query = {}
+        	var jobcat;
+        	var salarygte = request.query.salarygte
+            var salarylte = request.query.salarylte
+            if( salarygte && salarylte){ 
+           		query.ExpSalary = {
+            		$gte:salarygte,
+            		$lte:salarylte
+            	}   	
+            }
+        	 ResumeModel.find(query).limit(20).skip(20 * request.query.count)
+        	 .then(function(result){
+        	 	return reply(result)
+        	 })       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/worker/worker-id',
+        handler: function(request, reply){
+        	var jobcat;
+        	 ResumeModel.find({pwid: request.query.pwid})
+        	 .then(function(result){
+        	 	JobCategoryModel.find({})
+     			.then(function(allJobCategory){
+     				jobcat = allJobCategory
+	     				if(result.length === 0){
+	                	return reply.view('SearchRightWorker',{message: 'No Records Found', jobcategorys: jobcat})
+	                } else {
+	                    return reply.view('SearchRightWorker',{allResume : result, jobcategorys: jobcat})
+	                }
+     			});
+        	 })       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/worker/experience',
+        handler: function(request, reply){
+        	var query = {}
+        	var jobcat;
+        	var experience = request.query.experience
+            if (experience){ 
+           		if (typeof(experience) == typeof([])){
+                       	var exp=[];
+                       	for (var i = experience.length - 1; i >= 0; i--) {
+                       	 	var val = experience[i].split('-');
+                       	 	exp=exp.concat(val);
+                       	} 
+                   	}else{
+                   		var exp = experience.split("-");
+                   	}
+                query.Experience = {
+            		$gte:Math.min.apply(null, exp),
+            		$lte:Math.max.apply(null, exp)
+            	}   	
+            }
+        	 ResumeModel.find(query).limit(20).exec()
+        	 .then(function(result){
+        	 	JobCategoryModel.find({})
+     			.then(function(allJobCategory){
+     				jobcat = allJobCategory
+	     				if(result.length === 0){
+		                	return reply.view('SearchRightWorker',{
+		                		message: 'No Records Found',
+		                		jobcategorys: jobcat
+
+		                	})
+		                } else {
+		                    reply.view('SearchRightWorker',{allResume : result, jobcategorys: jobcat})
+		                }
+     			});
+        	 })       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/worker/experience/json',
+        handler: function(request, reply){
+        	var query = {}
+        	var jobcat;
+        	var experience = request.query.experience
+            if (experience){ 
+           		if (typeof(experience) == typeof([])){
+                       	var exp=[];
+                       	for (var i = experience.length - 1; i >= 0; i--) {
+                       	 	var val = experience[i].split('-');
+                       	 	exp=exp.concat(val);
+                       	} 
+                   	}else{
+                   		var exp = experience.split("-");
+                   	}
+                query.Experience = {
+            		$gte:Math.min.apply(null, exp),
+            		$lte:Math.max.apply(null, exp)
+            	}   	
+            }
+        	 ResumeModel.find(query).limit(20).skip(20 * request.query.count)
+        	 .then(function(result){
+        	 	return reply(result)
+        	 })       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/service-by-area',
+        handler: function(request, reply){
+        	var services;
+        	ServiceModel.find({Area: request.query.Area}).limit(20).exec()
+    	 	.then(function(result){
+    	 		ServiceModel1.find()
+    	 		.then(function(allServiceCat){
+    	 			services = allServiceCat;
+    	 			if(result.length === 0){
+    	 				return reply.view('SearchRightWorker',{
+    	 					message: 'No Records Found',
+    	 					services : services
+    	 				})
+    	 			}else{
+    	 				return reply.view('searchRightService',{allService : result, services : services,})
+    	 			}
+ 				});
+ 			})       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/service-by-area/json',
+        handler: function(request, reply){
+        	ServiceModel.find({Area: request.query.Area}).limit(20).skip(20 * request.query.count)
+    	 	.then(function(result){
+    	 		return reply(result)
+ 			})       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/service-by-shift',
+        handler: function(request, reply){
+        	var services;
+        	var query = {}
+        	var shift = request.query.shift
+            if(shift){query.Timing = {
+            	$in:request.query.timing
+            }}
+        	ServiceModel.find(query).limit(20).exec()
+    	 	.then(function(result){
+    	 		ServiceModel1.find()
+    	 		.then(function(allServiceCat){
+    	 			services = allServiceCat;
+    	 			if(result.length === 0){
+    	 				return reply.view('SearchRightWorker',{
+    	 					message: 'No Records Found',
+    	 					services : services
+    	 				})
+    	 			}else{
+    	 				return reply.view('searchRightService',{allService : result, services : services,})
+    	 			}
+ 				});
+ 			})       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/service-by-shift/json',
+        handler: function(request, reply){
+        	var services;
+        	var query = {}
+        	var shift = request.query.shift
+            if(shift){query.Timing = {
+            	$in:request.query.timing
+            }}
+        	ServiceModel.find(query).limit(20).skip(20 * request.query.count)
+    	 	.then(function(result){
+    	 		return reply(result)
+ 			})       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/service-by-id',
+        handler: function(request, reply){
+        	var services;
+        	ServiceModel.find({serviceid: request.query.serviceid})
+    	 	.then(function(result){
+    	 		ServiceModel1.find()
+    	 		.then(function(allServiceCat){
+    	 			services = allServiceCat;
+    	 			if(result.length === 0){
+    	 				return reply.view('SearchRightWorker',{
+    	 					message: 'No Records Found',
+    	 					services : services
+    	 				})
+    	 			}else{
+    	 				return reply.view('searchRightService',{allService : result, services : services,})
+    	 			}
+ 				});
+ 			})       	 
+        }
+    },
+    {
+        method:'GET',
+        path:'/filter/search/service-by-id/json',
+        handler: function(request, reply){
+        	var services;
+        	ServiceModel.find({serviceid: request.query.serviceid})
+    	 	.then(function(result){
+    	 		return reply(result)
+ 			})       	 
+        }
+    },
     {
         method:'GET',
         path:'/filter/search/jobs',
@@ -1332,7 +1818,6 @@ const routes = [
                 		message: 'No Records Found'
 
                 	})
-                    return reply({'error':err});
                 } else {
                     reply.view('SearchRightJobs',{allJobs : data})
                 }
@@ -1361,7 +1846,7 @@ const routes = [
             var query = {$and:[{TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}},{State:{$regex: request.query.State, $options: 'i'}}]}
 			// var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}]}
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		ServiceModel.find(query)
+     		ServiceModel.find(query).limit(20).skip(20 * request.query.count)
      		.then(function(allService){
      			service = allService
      			ServiceModel1.find({})
@@ -1369,6 +1854,34 @@ const routes = [
      				serCat = allSerCat
 	     			return reply.view('searchRightService', {allService : service, services: serCat})
      			});
+     		});
+     	}
+     	getallDetails()            
+        }
+    },
+    {
+        method:'GET',
+        path:'/search/service/json',
+        config:{
+            //include this route in swagger documentation
+            tags:['api'],
+            description:"getting details of a particular user",
+            notes:"getting details of particular user",
+            validate:{
+                params:{
+                    TypeOfService:Joi.string(),
+                    State:Joi.string()
+                }
+            },
+        },
+        handler: function(request, reply){
+			async function getallDetails(){
+            var query = {$and:[{TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}},{State:{$regex: request.query.State, $options: 'i'}}]}
+			// var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}]}
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ServiceModel.find(query)
+     		.then(function(allService){
+     			return reply(allService)
      		});
      	}
      	getallDetails()            
@@ -1434,6 +1947,23 @@ const routes = [
 },
 {
 	method: 'GET',
+	path: '/user/user-account',
+	config:{
+            //include this route in swagger documentation
+            tags:['api'],
+            description:"getting new password form",
+            notes:"getting new password form",
+            auth:{
+            	strategy: 'restricted',
+            }
+    },
+	handler: (request, reply) =>{
+		var authenticated_user = request.auth.credentials
+		reply.view('user-account', {userdata: authenticated_user},{layout: 'layout3'})
+	}
+},
+{
+	method: 'GET',
 	path: '/forgot/pass',
 	config:{
             //include this route in swagger documentation
@@ -1442,7 +1972,7 @@ const routes = [
             notes:"getting forget password form",
     },
 	handler: (request, reply) =>{
-		reply.view('forget-pass', null,{layout: 'layout-forget-password'})
+		return reply.view('forget-pass', null,{layout: 'layout-forget-password'})
 	}
 },
 {
@@ -1461,20 +1991,45 @@ const routes = [
     },
 	handler: (request, reply) =>{
 		// password change
+		var otp = Math.floor(Math.random() * 90000) + 10000;
 		UserModel.find({mobile: request.params.mobile}, function(err, data){
 			if (data.length == 0) {
 				reply('user dose not Exists Please try with your Correct email and password')
 			}else{
-				let changepassword = 'merakaamkaaj.com \n Reset your merakaamkaaj \n password.\n To do so, click the following link: \n '+ 'https//merakaamkaaj.com/new/password?mobile=' + request.params.mobile
+				// Generate valid url 
+				let changepassword = 'merakaamkaaj.com \n Reset your merakaamkaaj \n password.\n here is your OTP, : \n '+ otp
 				axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+request.params.mobile+'&sid=MERAKK&msg='+changepassword+'&fl=1&gwid=2')
 				  .then(function(result){
-				  	reply('messages sent to your number')
+				  	var otpdata = {
+				  		"mobile": request.params.mobile,
+				  		"otp": otp
+				  	}
+				  	console.log(otpdata)
+				  	request.cookieAuth.set(otpdata);
+				  	reply('OTP Sent via SMS to your mobile number. Enter the OTP in the required field and click on validate')
 				  })
 				  .catch(error => {
 				    console.log(error);
 				  });
 			}
 		})	
+	}
+},
+{
+	method: 'GET',
+	path: '/verifi/otp',
+	config:{
+		auth:{
+			strategy: 'restricted'
+		},
+	},
+	handler: function(request, reply){
+		var authenticated_OTP = request.auth.credentials;
+		if (request.query.otp == authenticated_OTP.otp) {
+			return reply({message: 'success', mobile: authenticated_OTP.mobile})
+		}else{
+			return reply({message: 'invalid otp'})
+		}
 	}
 },
 {
@@ -1498,6 +2053,456 @@ const routes = [
 				throw err
 			}else{
 				reply('password changed successfully')
+			}
+		})
+	}
+},
+
+// Admin can change user passwrod
+{
+	method: 'PUT',
+	path: '/change/password/user',
+	config:{
+	//include this route in swagger documentation
+	    tags:['api'],
+	    description:"user can change the password",
+	    notes:"user can change the password with there email id and may be there password",
+	    auth:{
+	    	strategy: 'restricted'
+	    },
+		handler: (request, reply) =>{
+			// password edit with admin
+			var newContectInfo = { $set: 
+				{
+					password: request.payload.password,
+				}
+			};
+			UserModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+				if (err) {
+					throw err
+				}else{
+					reply('password changed successfully')
+				}
+			})
+		}
+	}
+},
+// Edit Country
+{
+	method: 'PUT',
+	path: '/edit/country',
+	config:{
+	//include this route in swagger documentation
+	    tags:['api'],
+	    description:"Admin can edit country",
+	    notes:"Admin can edit country",
+	    auth:{
+	    	strategy: 'restricted'
+	    },
+		handler: (request, reply) =>{
+			// password edit with admin
+			CountryModel.findOneAndUpdate({_id: request.query._id}, request.payload, function(err, data){
+				if (err) {
+					throw err
+				}else{
+					reply('Country Update successfully')
+				}
+			})
+		}
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/state',
+	config:{
+	//include this route in swagger documentation
+	    tags:['api'],
+	    description:"Admin can edit",
+	    notes:"Admin can edit",
+	    auth:{
+	    	strategy: 'restricted'
+	    },
+		handler: (request, reply) =>{
+			// password edit with admin
+			StateModel.findOneAndUpdate({_id: request.query._id}, request.payload, function(err, data){
+				if (err) {
+					throw err
+				}else{
+					reply('state Update successfully')
+				}
+			})
+		}
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/city',
+	config:{
+	//include this route in swagger documentation
+	    tags:['api'],
+	    description:"Admin can edit",
+	    notes:"Admin can edit",
+	    auth:{
+	    	strategy: 'restricted'
+	    },
+		handler: (request, reply) =>{
+			// password edit with admin
+			CityModel.findOneAndUpdate({_id: request.query._id}, request.payload, function(err, data){
+				if (err) {
+					throw err
+				}else{
+					reply('city Update successfully')
+				}
+			})
+		}
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/category',
+	config:{
+	//include this route in swagger documentation
+	    tags:['api'],
+	    description:"Admin can edit",
+	    notes:"Admin can edit",
+	    auth:{
+	    	strategy: 'restricted'
+	    },
+		handler: (request, reply) =>{
+			// password edit with admin
+			JobCategoryModel.findOneAndUpdate({_id: request.query._id}, request.payload, function(err, data){
+				if (err) {
+					throw err
+				}else{
+					reply('category Update successfully')
+				}
+			})
+		}
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/services',
+	config:{
+	//include this route in swagger documentation
+	    tags:['api'],
+	    description:"Admin can edit",
+	    notes:"Admin can edit",
+	    auth:{
+	    	strategy: 'restricted'
+	    },
+		handler: (request, reply) =>{
+			// password edit with admin
+			ServiceModel1.findOneAndUpdate({_id: request.query._id}, request.payload, function(err, data){
+				if (err) {
+					throw err
+				}else{
+					reply('service Update successfully')
+				}
+			})
+		}
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/specification',
+	config:{
+	//include this route in swagger documentation
+	    tags:['api'],
+	    description:"Admin can edit",
+	    notes:"Admin can edit",
+	    auth:{
+	    	strategy: 'restricted'
+	    },
+		handler: (request, reply) =>{
+			// password edit with admin
+			SpecificationModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, request.payload, function(err, data){
+				if (err) {
+					throw err
+				}else{
+					reply('specification Update successfully')
+				}
+			})
+		}
+	}
+},
+// Edit POSTED Resume 
+{
+	method: 'PUT',
+	path: '/edit/contect-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+				Name: request.payload.Name, 
+				Mobile: request.payload.Mobile,
+				AlternateNum: request.payload.AlternateNum,
+				EmailorMobile: request.payload.EmailorMobile,
+				AdharNo: request.payload.AdharNo,
+			    Country: request.payload.Country,
+			    State: request.payload.State,
+			    City: request.payload.City,
+			    Area: request.payload.Area,
+			    Pincode:request.payload.Pincode,
+			    Address: request.payload.Address
+			}
+		};
+		ResumeModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
+			}
+		})
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/about-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+				Gender: request.payload.Gender,
+			    DOB: request.payload.DOB,
+			    Religin: request.payload.Religin,
+			    knownLanguage: request.payload.knownLanguage,
+			}
+		};
+		ResumeModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
+			}
+		})
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/education-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+				Class: request.payload.Class,
+			    Degree: request.payload.Degree,
+			    PG: request.payload.PG,
+			    Diploma: request.payload.Diploma,
+			    Course: request.payload.Course,
+			    CareerObjective: request.payload.CareerObjective,
+			    OtherDetails: request.payload.OtherDetails
+			}
+		};
+		ResumeModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
+			}
+		})
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/other-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+				ReferenceName: request.payload.ReferenceName,
+				ReferenceMobile: request.payload.ReferenceMobile,
+			}
+		};
+		ResumeModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
+			}
+		})
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/current-work-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+				 NameofImpoloyer: request.payload.NameofImpoloyer,
+			     PositionDesignation: request.payload.PositionDesignation,
+			     MainJobCategory: request.payload.MainJobCategory,
+			     Skills: request.payload.Skills,
+			     Experience: request.payload.Experience,
+			     currentSalary: request.payload.currentSalary,
+			     ExpSalary: request.payload.ExpSalary,
+			     PriferredShift: request.payload.PriferredShift,
+			     PriferredJobDescription: request.payload.PriferredJobDescription,
+			     PriferredLocation: request.payload.PriferredLocation
+			}
+		};
+		ResumeModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
+			}
+		})
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/past-work-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+				 NameofImpoloyer1: request.payload.NameofImpoloyer1,
+			     PositionDesignation1: request.payload.PositionDesignation1,
+			     JobCategory1: request.payload.JobCategory1,
+			     State1City1: request.payload.State1City1,
+			     Experience1: request.payload.Experience1,
+			     shift1: request.payload.shift1,
+			     jobDescription1: request.payload.jobDescription1,
+			     SalaryWithdrawn: request.payload.SalaryWithdrawn,
+			}
+		};
+		ResumeModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
+			}
+		})
+	}
+},
+
+
+// Edit POSTED jobs
+{
+	method: 'PUT',
+	path: '/edit/job/job-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+				JobID: request.payload.JobID,
+			    Declration: request.payload.Declration,
+			    jobType: request.payload.jobType,
+			    skills: request.payload.skills,
+			    jobDescription: request.payload.jobDescription,
+			    aVacancy: request.payload.aVacancy,
+			    expiryDate: request.payload.expiryDate,
+			    country: request.payload.country,
+			    state: request.payload.state,
+			    city: request.payload.city,
+			    jobArea: request.payload.jobArea,
+			    pinCode: request.payload.pinCode,
+			    jobAddress: request.payload.jobAddress,
+			}
+		};
+		jobsModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
+			}
+		})
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/job/Professional-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+				salary: request.payload.salary,
+			    experience: request.payload.experience,
+			    shift: request.payload.shift,
+			    gender: request.payload.gender,
+			    educations: request.payload.educations,
+			    knownLanguage: request.payload.knownLanguage
+			}
+		};
+		jobsModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			console.log('salary')
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
+			}
+		})
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/job/contect-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+				companyName: request.payload.companyName,
+			    nameOfRepresentative: request.payload.nameOfRepresentative,
+			    mobile: request.payload.mobile,
+			    landline: request.payload.landline,
+			    email: request.payload.email,
+			    idCardNumber: request.payload.idCardNumber,
+			    addressOfEmployer: request.payload.addressOfEmployer,
+			    contactTiming: request.payload.contactTiming,
+			    lookingOverseas: request.payload.lookingOverseas,
+			}
+		};
+		jobsModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
+			}
+		})
+	}
+},
+// Edit Service
+{
+	method: 'PUT',
+	path: '/edit/service/Service-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+			    Specification: request.payload.Specification,
+			    ProvideServices: request.payload.ProvideServices,
+			    ProviderRegistered: request.payload.ProviderRegistered,
+			    RegisteredExpiry: request.payload.RegisteredExpiry,
+			    State: request.payload.State,
+			    City: request.payload.City,
+			    Area: request.payload.Area,
+			}
+		};
+		ServiceModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
+			}
+		})
+	}
+},
+{
+	method: 'PUT',
+	path: '/edit/service/Service-provider-info',
+	handler: function(request, reply){
+		var newContectInfo = { $set: 
+			{
+			    Agency: request.payload.Agency,
+			    Representative: request.payload.Representative,
+			    MobileNumber: request.payload.MobileNumber,
+			    LandNumber: request.payload.LandNumber,
+			    Timing: request.payload.Timing,
+			    aadharcard: request.payload.aadharcard,
+			    website: request.payload.website,
+			    emailMobile: request.payload.emailMobile,
+			    address: request.payload.address,
+			    pincode: request.payload.pincode,
+			    information: request.payload.information,
+			}
+		};
+		ServiceModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, newContectInfo, function(err, data){
+			if (err) {
+				reply(err)
+			}else{
+				reply(data)
 			}
 		})
 	}
@@ -1752,27 +2757,23 @@ const routes = [
 },
 {
 		method: 'GET',
-		path: '/delete/user/resume/{uuid}',
+		path: '/delete/user/resume',
 		config: {
 		// swager documention fields tags, descrioption and, note
-		tags : ['api'],
-		description: 'Deletting particular job specification',
-		notes: 'In this route we are Deletting of data particular data',
-
-		// Joi api validation
-		validate: {
-		    params: {
-		        uuid: Joi.string().required()
-		    }
-		}
+			tags : ['api'],
+			description: 'Deletting particular job specification',
+			notes: 'In this route we are Deletting of data particular data',
+			auth:{
+				strategy: 'restricted'	
+			}
 		},
 		handler: function(request, reply){
 		//find user data from his ID and remove data into databases.
-		ResumeModel.findOneAndRemove({_id: request.params.uuid}, function (error){
+		ResumeModel.findOneAndRemove({_id: ObjectID(request.query._id)}, function (error){
 			if(error){
-				reply.view('error', {message: 'error in deleting job specification'}, {layout: 'layout2'})
+				reply('user already deleted')
 			}else{
-				reply.redirect('/get/posted/details')
+				reply(data)
 			}
 		});
 	}
@@ -1887,6 +2888,7 @@ const routes = [
 			if (err) {
 				throw err
 			}else{
+				console.log(data)
 				reply(data)
 			}
 		});

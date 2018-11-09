@@ -118,83 +118,115 @@
                                 text-decoration: none;
                                 cursor: pointer;
                             }
-
+                            .dropdown-menu {
+                                float:right;
+                            }
 
 
                         </style>
 
-                        <div id="section_56">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="qunit"></div>
-                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                    <div class="h_container">
-                                        
+<div id="section_56">
+<div class="row">
+    <div class="col-lg-12">
+        <div id="qunit"></div>
+          <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+            <div class="h_container">
+                
+            </div>
+            <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Resume</h2>
+             
+                
+            <form style="margin-top: 150px;">
+                <h4 style="color: #555; margin-bottom: 10px;">Search By Resume Id</h4>
+                <input class="form-control" type="text" name="">
+                <input class="submit_btn" type="submit" name="" value="Search">
+            </form>
+            <div class="table-responsive" style="border-radius: 10px;">
+
+            <table id="" class="table tableres table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th scope="col">Worker ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col">Post Date</th>
+                            <th scope="col">Update / Active <br> Delete / View</th>
+                        </tr>
+                    </thead>
+                    <tbody id="updateTable">
+                        {{#each resumes}}
+                        <tr id="{{_id}}">
+                            <td data-label="Worker ID">{{pwid}}</td>
+                            <td data-label="Name">{{Name}}</td>
+                            <td data-label="Mobile">{{Mobile}}</td>
+                            <td data-label="Post Date">{{date}}</td>
+                            <td data-label="Action">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        More Option
+                                    </button>
+                                    <div class="dropdown-menu dropdownManue" aria-labelledby="dropdownMenuButton">
+                                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Edit</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item EditConInfoButton" title="{{_id}}" data-toggle="modal" data-target="#ModalEdit" href="#">Contact Information</a></li>
+                                                <li><a class="dropdown-item EditAboutButton" title="{{_id}}" data-toggle="modal" data-target="#ModalEditAbout" href="#">About</a></li>
+                                                <li><a class="dropdown-item EditEduButton" title="{{_id}}" data-toggle="modal" data-target="#ModalEditEducInfo" href="#">Education Details</a></li>
+                                                <li><a class="dropdown-item otherdet" data-toggle="modal" data-target="#ModalEditOtherInfo" title="{{_id}}" href="#">Other Details</a></li>
+                                                <li><a class="dropdown-item currentworkinfoedit" title="{{_id}}" data-toggle="modal" data-target="#ModalEditcurrentInfo" href="#">current Work Details</a></li>
+                                                <li><a class="dropdown-item pastworkinfoedit" title="{{_id}}" data-toggle="modal" data-target="#ModalEditPastDetails" href="#">past work Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <a class="dropdown-item changeStatusResume" data-toggle="modal" title="{{_id}}" value="{{verifi}}" data-target="#ModalActivateResume" href="#">{{verifi}}</a>
+                                        <a class="dropdown-item gettinguserdata" title="{{_id}}" data-toggle="modal" data-target="#ModalView" href="#">View</a>
+                                        <a class="dropdown-item DeleteResumeMOdal" title="{{Name}}" value="{{_id}}" data-toggle="modal" data-target="#ModalDelete" href="#">Delete</a>
                                     </div>
-                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Resume</h2>
-                                     
-                                        
-                                    <form style="margin-top: 150px;">
-                                        <h4 style="color: #555; margin-bottom: 10px;">Search By Resume Id</h4>
-                                        <input class="form-control" type="text" name="">
-                                        <input class="submit_btn" type="submit" name="" value="Search">
-                                    </form>
-                                    <div class="table-responsive" style="border-radius: 10px;">
+                                </div> 
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
-                                    <table id="example1" class="table tableres table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Worker ID</th>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Mobile</th>
-                                                    <th scope="col">Post Date</th>
-                                                    <th scope="col">Update / Active <br> Delete / View</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{#each resumes}}
-                                                <tr>
-                                                    <td data-label="Worker ID">{{pwid}}</td>
-                                                    <td data-label="Name">{{Name}}</td>
-                                                    <td data-label="Mobile">{{Mobile}}</td>
-                                                    <td data-label="Post Date">{{date}}</td>
-                                                    <td data-label="Update/Active/Delete/View">
-                                                            <div class="dropdown">
-                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                More Option
-                                                            </button>
-                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit</a>
-                                                                <a class="dropdown-item" href="#">Active</a>
-                                                                <a class="dropdown-item gettinguserdata" title="{{_id}}" data-toggle="modal" data-target="#ModalView" href="#">View</a>
-                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalDelete" href="#"><form method="GET" action="/delete/user/resume/{{_id}}"><button>Delete</button></form></a>
-                                                            </div>
-                                                            </div> 
-                                                    </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
+                
 
-                                  </div>
-                            
-                            
-                            </div>
-                        </div>
-                    </div>
+          </div>
 
+          <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex mt-4 float-left">
+                    <p style="margin-right: 6px;">Showing <span id="chachavaid" style="margin-right: 6px; margin-left: 2px">1</span>to<span id="chachivaid" style="margin-right: 6px; margin-left: 6px">10</span>of<span style="margin-right: 6px; margin-left: 6px;">{{numberCount}}</span>entries</p>
+                </div>
+                <div class="d-flex mt-4 float-left">
+                    <input type="number" id="gonumberpage" value="1" name="" style="background: #ddd; color: #555; text-align: center; width: 50px; border-radius: 3px; margin-right: 10px;">
+                    <button id="gobtn" style="background: #f16024; color: #fff; padding: 3px 10px; width: 100px; border-radius: 3px;">Go</button>
+                </div>
 
-    </div> 
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex mt-4 float-right">
+                    <button id="previousBtn" value="1" style="background: #f16024; color: #fff; padding: 3px 10px; width: 100px; border-radius: 3px; margin-right: 10px;">Priveiw</button>
+                    <div id="counter" style="background: #ddd; color: #555; text-align: center; width: 50px; border-radius: 3px;">1</div>
+                    <button id="nextBtn" value="1" class="buttonNext" style="background: #f16024; color: #fff; padding: 3px 10px; width: 100px; border-radius: 3px; margin-left: 10px;">Next</button>
+                </div>
+            </div>
+        </div>
+    
+    
+    </div>
+</div>
+</div>
+</div> 
 
 
 
-     <div class="modal fade" id="ModalView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+
+<div class="modal fade" id="ModalView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">JOb</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Resume</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body" id="bodyforSingleDetails">
@@ -203,37 +235,288 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
-            </div>
         </div>
-        </div>
+    </div>
+</div>
 
 
 
-
+<!-- Contect Information Edit Modal Box  -->
         <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">JOB</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Contect Information</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="recipient-name" class="col-form-label">Name</label>
+                        <input type="text" class="form-control EditContectInfo" value="" id="recipient-name">
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <label for="message-text" class="col-form-label">Mobile</label>
+                        <input ttype="text" class="form-control EditContectInfo" id="recipient-Mobile">
                     </div>
-                    </form>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Alternate Number</label>
+                        <input type="text" class="form-control EditContectInfo" id="recipient-Alernate-numebr">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Email id/Mobile</label>
+                        <input type="text" class="form-control EditContectInfo" id="recipient-Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Aadhar /Voter Card No</label>
+                        <input type="text" class="form-control EditContectInfo" id="recipient-aadhar">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">City</label>
+                        <input type="text" class="form-control EditContectInfo" id="recipient-city">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Pin Code</label>
+                        <input type="text" class="form-control EditContectInfo" id="recipient-pincode">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Address</label>
+                        <input type="text" class="form-control EditContectInfo" id="recipient-Address">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+                    <button type="button" class="btn btn-primary contectInfo">Update</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+<!-- About modal box -->
+
+<div class="modal fade" id="ModalEditAbout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit About Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Gender</label>
+                        <input type="text" class="form-control" id="recipient-Gender">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Date of Birth</label>
+                        <input ttype="text" class="form-control" id="recipient-Dateofbirth">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Religion</label>
+                        <input type="text" class="form-control" id="recipient-Religion">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Language Known</label>
+                        <input type="text" class="form-control" id="recipient-LanguageKnown">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary aboutEdit">Update</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- Education Edit Modal Box  -->
+        <div class="modal fade" id="ModalEditEducInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Education Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Class</label>
+                        <input type="text" class="form-control" id="recipient-class">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Degree</label>
+                        <input ttype="text" class="form-control" id="recipient-degree">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">P.G</label>
+                        <input type="text" class="form-control" id="recipient-pg">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Diploma</label>
+                        <input type="text" class="form-control" id="recipient-diploma">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Course</label>
+                        <input type="text" class="form-control" id="recipient-course">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Career Objective</label>
+                        <input type="text" class="form-control" id="recipient-objec">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Other Details</label>
+                        <input type="text" class="form-control" id="recipient-otherdet">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary udpateEducationIfoButton">Update</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+<!-- Other Details Edit Modal Box  -->
+        <div class="modal fade" id="ModalEditOtherInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Education Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Reffrence Name</label>
+                        <input type="text" class="form-control otherDetailsconte" id="recipient-ReffName">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Reference Mobile</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-ReffMobile">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary updateotherDetails">Update</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+<!-- Current Work Details -->
+<div class="modal fade" id="ModalEditcurrentInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Current Work Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name of Current Employer</label>
+                        <input type="text" class="form-control otherDetailsconte" id="recipient-currentName">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Position / Designation</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-currentPositon">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Job Category</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-currentJobCat">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Skills</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-currentSkills">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Experience</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-curretnExp">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Current Salary</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-currentSal">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Expected Salary</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-currentExpected">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Shift</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-currentShift">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Preferred Job Description</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-currentPreJobDes">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Preferred Location</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-currentPrefLocation">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary updateCurrentWorkInfo">Update</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+<!-- Current past Details -->
+<div class="modal fade" id="ModalEditPastDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Past Work Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name of Past Employer</label>
+                        <input type="text" class="form-control otherDetailsconte" id="recipient-pastName">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Position / Designation</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-pastPositon">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Job Category</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-pastJobCat">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">State/City</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-pastState">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Experience</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-pastExp">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Shift</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-pastshift">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Job Description</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-pastjobdes">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-Mobile" class="col-form-label">Salary Withdrown (INR/Month)</label>
+                        <input ttype="text" class="form-control otherDetailsconte" id="recipient-pastsalawid">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary pastworkedti">Update</button>
                 </div>
                 </div>
             </div>
@@ -261,7 +544,9 @@
                 </div>
                 </div>
 
-                     <div class="modal fade" id="ModalActivate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+                <div class="modal fade" id="ModalActivateResume" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -271,11 +556,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <h4> <span id="ServiceDisplayActive">  </span> Are you sure you want to do this?</h4>
+                        <h4> <span id="ResumeDisplayActive">  </span> Are you sure you want to do this?</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
-                        <button type="button" class="btn btn-primary dataactivate" data-dismiss="modal">Active</button>
+                        <button type="button" class="btn btn-primary Resumedataactivate">Active</button>
                     </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
-  <!-- MAIN CONTENT--><style type="text/css">
+<!-- MAIN CONTENT--><style type="text/css">
           .pagination>li>a, .pagination>li>span {
                                 position: relative;
-                                float: left;
+                                float: left; 
                                 padding: 6px 12px;
                                 margin-left: -1px;
                                 line-height: 1.42857143;
@@ -37,63 +37,78 @@
 
 
 
-                        <div id="section_654">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="qunit"></div>
-                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                    <div class="h_container">
-                                        
-                                    </div>
-                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Resume Users</h2>
-                                      <div style="margin-top: 130px;">
-                                    <form style="width: 100%; padding: 10px;">
-                                        <h4 style="color: #555; margin-bottom: 10px;">Search By Email OR Mobile</h4>
-                                        <input class="form-control" type="text" name="">
-                                        <input class="submit_btn" type="submit" name="" value="Search">
-                                    </form>
-                                    </div>
-                                    <div class="table-responsive" style="border-radius: 10px;">
+    <div id="section_654">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="qunit"></div>
+              <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+                <div class="h_container">
+                    
+                </div>
+                <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Resume Users</h2>
+                  <div style="margin-top: 130px;">
+                <form style="width: 100%; padding: 10px;">
+                    <h4 style="color: #555; margin-bottom: 10px;">Search By Email OR Mobile</h4>
+                    <input class="form-control" type="text" name="">
+                    <input class="submit_btn" type="submit" name="" value="Search">
+                </form>
+                </div>
+                <div class="table-responsive" style="border-radius: 10px;">
 
-                                    <table id="example9" class="table tableres table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Email</th>
-                                                    <th scope="col">Password</th>
-                                                    <th scope="col">Mobile</th>
-                                                    <th scope="col">City</th>
-                                                    <th scope="col">Registration Date</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{#each lookingforrightjob}}
-                                                <tr id="{{_id}}">
-                                                    <td data-label="Name">{{firstname}} {{ lastname}}</td>
-                                                    <td data-label="Email">{{emailid}}</td>
-                                                    <td data-label="Password">{{password}}</td>
-                                                    <td data-label="Mobile">{{mobile}}</td>           
-                                                    <td data-label="City" title="{{address}}">{{city}}</td>
-                                                    <td data-label="Registration Date">{{date}}</td>
-                                                    <td data-label="Action">
-                                                            <div class="dropdown">
-                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                More Option
-                                                            </button>
-                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit</a>
-                                                                <a class="dropdown-item gettinguserdata" title="{{_id}}" data-toggle="modal" data-target="#ModalView" href="#">View</a>
-                                                                <a class="dropdown-item delteRagisteruser" id="{{_id}}" value="{{_id}}" title="{{firstname}} {{ lastname}}" data-toggle="modal" data-target="#ModalDelete" href="#"><button>Delete</button></a>
-                                                            </div>
-                                                            </div> 
-                                                    </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
+                <table id="" class="table tableres table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Mobile</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="UpdateTableUser">
+                            {{#each lookingforrightjob}}
+                            <tr id="{{_id}}">
+                                <td data-label="Name">{{firstname}} {{ lastname}}</td>
+                                <td data-label="Email">{{emailid}}</td>
+                                <td data-label="Password">{{password}}</td>
+                                <td data-label="Mobile">{{mobile}}</td>           
+                                <td data-label="Action">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            More Option
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <!-- <a class="dropdown-item" data-toggle="modal" data-target="#ModalEditpassword" href="#">Edit</a> -->
+                                            <a class="dropdown-item GettingRegiU" title="{{_id}}" data-toggle="modal" data-target="#ModalViewForUserData" href="#">View</a>
+                                            <a class="dropdown-item delteRagisteruser" id="{{_id}}" value="{{_id}}" title="{{firstname}} {{ lastname}}" data-toggle="modal" data-target="#ModalDelete" href="#"><button>Delete</button></a>
+                                        </div>
+                                        </div> 
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
 
-                                  </div>
+              </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex mt-4 float-left">
+                    <p style="margin-right: 6px;">Showing <span id="chachavaid" style="margin-right: 6px; margin-left: 2px">1</span>to<span id="chachivaid" style="margin-right: 6px; margin-left: 6px">10</span>of<span style="margin-right: 6px; margin-left: 6px;">{{countUpdate}}</span>entries</p>
+                </div>
+                <div class="d-flex mt-4 float-left">
+                    <input type="number" id="gonumberpage" value="1" name="" style="background: #ddd; color: #555; text-align: center; width: 50px; border-radius: 3px; margin-right: 10px;">
+                    <button id="gobtnforUser" style="background: #f16024; color: #fff; padding: 3px 10px; width: 100px; border-radius: 3px;">Go</button>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex mt-4 float-right">
+                    <button id="previousBtnUser" value="1" style="background: #f16024; color: #fff; padding: 3px 10px; width: 100px; border-radius: 3px; margin-right: 10px;">Priveiw</button>
+                    <div id="counter" style="background: #ddd; color: #555; text-align: center; width: 50px; border-radius: 3px;">1</div>
+                    <button id="nextbtnRagisterdUser" value="1" class="buttonNext" style="background: #f16024; color: #fff; padding: 3px 10px; width: 100px; border-radius: 3px; margin-left: 10px;">Next</button>
+                </div>
+            </div>
+        </div>
                             
                             
                             </div>
@@ -123,3 +138,5 @@
             </div>
         </div>
     </div>
+
+

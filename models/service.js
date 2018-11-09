@@ -6,6 +6,7 @@ var Schema = mongoose.Schema;
 
 var PostServiceSchema = new Schema({
     //Job Details
+    // Service Details
     userobjectid:String,
     serviceid: String,
     verifi: String,
@@ -18,6 +19,8 @@ var PostServiceSchema = new Schema({
 	State: String(),
 	City: String(),
 	Area: String(),
+
+	// Provier Details
 	Agency: String(),
 	Representative: String(),
 	MobileNumber: {type: Number, required:true},

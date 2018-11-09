@@ -77,305 +77,532 @@
                             </div>
 
                         </div>
-                 <div id="section_1">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="qunit"></div>
-                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                    <div class="h_container">
-                                        
-                                    </div>
-                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD COUNTRY</h2>
-                                    <!-- <form style="margin-top: 110px;" id="messages" action="/add/country" method="POST">  -->
-                                        <h4 style="color: #555; margin-top: 110px;">Country Name</h4><br>
-                                        <input class="form-control" type="text" id="CountryModal" required>
-                                        <input class="submit_btn" id="addCountrySubmit" type="submit" value="submit">
-                                    <!-- </form> -->
-                                    <div class="table-responsive" style="border-radius: 10px;">
-
-                                    <table id="example3" class="table tableres table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Country Name</th>
-                                                    <th scope="col">Action</th> 
-                                                </tr>
-                                            </thead>
-                                            <tbody id="addcitytable">
-                                                {{#each allCountry}}
-                                                <tr>
-                                                    <td data-label="ID">{{_id}}</td>
-                                                    <td data-label="Country Name">{{Country}}</td>
-                                                    <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button> <button data-id="{{_id}}" id="addcitydeltebutton" class="country_delete">Delete</button></td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
-                                  </div>
-                            </div>
-                            
-                        </div>
+ <div id="section_1">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="qunit"></div>
+                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+                    <div class="h_container">
+                        
                     </div>
+                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD COUNTRY</h2>
+                    <!-- <form style="margin-top: 110px;" id="messages" action="/add/country" method="POST">  -->
+                        <h4 style="color: #555; margin-top: 110px;">Country Name</h4><br>
+                        <input class="form-control CountryModal" value="" type="text" id="CountryModal" required>
+                        <input class="submit_btn" value="Submit" id="addCountrySubmit" type="submit" value="submit">
+                    <!-- </form> -->
+                    <div class="table-responsive" style="border-radius: 10px;">
+
+                    <table id="" class="table tableres table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Country Name</th>
+                                    <th scope="col">Action</th> 
+                                </tr>
+                            </thead>
+                            <tbody id="addcitytable">
+                                {{#each allCountry}}
+                                <tr id="{{_id}}">
+                                    <td data-label="ID">{{_id}}</td>
+                                    <td data-label="Country Name" class="hello" data-id="{{_id}}">{{Country}}</td>
+                                    <td data-label="Action">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                More Option
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item getcountryDetails" title="{{_id}}" data-toggle="modal" data-target="#ModalEditCountry" href="#">EDIT</a>
+                                                <a class="dropdown-item addcitydeltebutton" value="{{_id}}" title="{{Country}}" data-toggle="modal" data-target="#ModalDeleteData" href="#"><button>Delete</button></a>
+                                            </div>
+                                            </div> 
+                                            <!-- addcitydeltebutton -->
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                  </div>
+        <!-- <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex mt-4 float-left">
+                    <p style="margin-right: 6px;">Showing <span id="chachavaid" style="margin-right: 6px; margin-left: 2px">1</span>to<span id="chachivaid" style="margin-right: 6px; margin-left: 6px">10</span>of<span style="margin-right: 6px; margin-left: 6px;">{{countUpdate}}</span>entries</p>
                 </div>
+                <div class="d-flex mt-4 float-left">
+                    <input type="number" id="gonumberpage" value="1" name="" style="background: #ddd; color: #555; text-align: center; width: 50px; border-radius: 3px; margin-right: 10px;">
+                    <button id="gobtnforUser" style="background: #f16024; color: #fff; padding: 3px 10px; width: 100px; border-radius: 3px;">Go</button>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex mt-4 float-right">
+                    <button id="previousBtnUser" value="1" style="background: #f16024; color: #fff; padding: 3px 10px; width: 100px; border-radius: 3px; margin-right: 10px;">Priveiw</button>
+                    <div id="counter" style="background: #ddd; color: #555; text-align: center; width: 50px; border-radius: 3px;">1</div>
+                    <button id="nextbtnRagisterdUser" value="1" class="buttonNext" style="background: #f16024; color: #fff; padding: 3px 10px; width: 100px; border-radius: 3px; margin-left: 10px;">Next</button>
+                </div>
+            </div>
+        </div> -->
+            </div>
+        </div>
+    </div>
+</div>
         <!-- END PAGE CONTAINER-->
-                    <div id="section_2">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="qunit"></div>
-                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                    <div class="h_container">
-                                        
+<div id="section_2">
+<div class="row">
+    <div class="col-lg-12">
+        <div id="qunit"></div>
+          <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+            <div class="h_container">
+                
+            </div>
+            <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD STATE</h2>
+            <h4 style="margin-top: 110px; color: #555; margin-bottom: 10px;">Country Name</h4>
+                <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="margin-bottom: 10px">
+                    <select class="js-select2" id="StateCountry" name="Country"> 
+                        <option selected="selected" value="INDIA">INDIA</option>
+                    </select>
+                </div>
+                <h4 style="color: #555; margin-bottom: 10px;">State Name</h4>
+                <input class="form-control CountryModal" id="StateNameCountry" type="text" name="State">
+                <input class="submit_btn" id="addStateSubmit" type="submit" name="" value="submit">
+
+            <div class="table-responsive" style="border-radius: 10px;">
+
+            <table id="" class="table tableres table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">State Name</th>
+                            <th scope="col">Country Name</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="addstatebody">
+                        {{#each allState}}
+                        <tr id="{{_id}}">
+                            <td data-label="ID">{{_id}}</td>
+                            <td data-label="State Name">{{State}}</td>
+                            <td data-label="Country Name">{{Country}}</td>
+                            <td data-label="Action">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        More Option
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item countryGet" title="{{_id}}" data-toggle="modal" data-target="#ModalEditState" href="#">EDIT</a>
+                                        <a class="dropdown-item addStateDelButton" value="{{_id}}" title="{{State}}" data-toggle="modal" data-target="#ModalDeleteData" href="#"><button>Delete</button></a>
                                     </div>
-                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD STATE</h2>
-                                    <h4 style="margin-top: 110px; color: #555; margin-bottom: 10px;">Country Name</h4>
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="margin-bottom: 10px">
-                                            <select class="js-select2" id="StateCountry" name="Country"> 
-                                                <option selected="selected" value="INDIA">INDIA</option>
-                                            </select>
-                                        </div>
-                                        <h4 style="color: #555; margin-bottom: 10px;">State Name</h4>
-                                        <input class="form-control" id="StateNameCountry" type="text" name="State">
-                                        <input class="submit_btn" id="addStateSubmit" type="submit" name="" value="submit">
+                                    </div> 
+                            </td>
+                            <!-- <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button><button data-id="{{_id}}" id="addStateDelButton" class="country_delete">Delete</button></td> -->
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
-                                    <div class="table-responsive" style="border-radius: 10px;">
-
-                                    <table id="example4" class="table tableres table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">State Name</th>
-                                                    <th scope="col">Country Name</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="addstatebody">
-                                                {{#each allState}}
-                                                <tr>
-                                                    <td data-label="ID">{{_id}}</td>
-                                                    <td data-label="State Name">{{State}}</td>
-                                                    <td data-label="Country Name">{{Country}}</td>
-                                                    <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button><button data-id="{{_id}}" id="addStateDelButton" class="country_delete">Delete</button></td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
-
-                                  </div>
+          </div>
                             
-                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="section_3">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div id="qunit"></div>
-                            <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                <div class="h_container">
-                                    
-                                </div>
-                                <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD CITY</h2>
-                                <h4 style="margin-top: 110px; color: #555; margin-bottom: 10px;">Country Name</h4>
-
-                                <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="margin-bottom: 10px">
-                                    <select class="js-select2" id="CountryCity" name="Country"> 
-                                        <option selected="selected" value="INDIA">INDIA</option>
-                                    </select>
-                                    <div class="dropDownSelect2"></div>
-                                </div>
-
-                                <h4 style="color: #555; margin-bottom: 10px;">State Name</h4>
-                                <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="margin-bottom: 10px">
-                                    <select class="" id="StateCity" name="State"> 
-                                        <option selected="selected" value="">Select State</option>
-                                        {{#each allState}}
-                                        <option value="{{State}}">{{State}}</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
-                                    <h4 style="color: #555; margin-bottom: 10px;">City Name</h4>
-                                    <input class="form-control" id="CityCity" type="text" name="City">
-                                    <input class="submit_btn" id="addcitysubmit" type="submit" value="submit">
-
-                                <div class="table-responsive" style="border-radius: 10px;">
-
-                                    <table id="example5" class="table tableres table-striped table-bordered" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">City Name</th>
-                                                <th scope="col">State Name</th>
-                                                <th scope="col">Country Name</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="addCityBody">
-                                            {{#each allCity}}
-                                            <tr>
-                                                <td data-label="ID">{{_id}}</td>
-                                                <td data-label="City Name">{{City}}</td>
-                                                <td data-label="State Name">{{State}}</td>
-                                                <td data-label="Country Name">{{Country}}</td>
-                                                <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button><button data-id="{{_id}}" id="DeleteCityButton" class="country_delete">Delete</button></td>
-                                            </tr>
-                                            {{/each}}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="section_4">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div id="qunit"></div>
-                            <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                <div class="h_container">
-                                    
-                                </div>
-                                <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD JOB CATEGORY</h2>
-
-                                <div style="display: flex; flex-direction: row; margin-top: 130px;">
-                                
-                                <!-- <form method="POST" action="/add/job/category" enctype="multipart/form-data" > -->
-                                <div style="width: 100%; padding: 10px;">
-                                    <h4 style="color: #555; margin-bottom: 10px;">Category Name</h4>
-                                    <input class="form-control" type="text" id="JobCategory" name="JobCategory" required>
-                                    <input style="margin-top: 20px;" class="form-control" id="ImageCat" type="file" name="logoImg" required>
-                                    <input class="submit_btn" id="SubmitCatagory" type="submit" value="submit">
-                                </div>
-                                <!-- </form> -->
-                                </div>
-                                <div class="table-responsive" style="border-radius: 10px;">
-
-                                <table id="example6" class="table tableres table-striped table-bordered" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">Job Category Name</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {{#each alljobcategory}}
-                                            <tr>
-                                                <td data-label="ID">{{_id}}</td>
-                                                <td data-label="Job Category Name">{{JobCategory}}</td>
-                                                <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button><button id="DeleteCat" class="country_delete" data-id="{{_id}}">Delete</button></td>
-                                            </tr>
-                                            {{/each}}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-
-                </div>
-    <div id="section_5">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="qunit"></div>
-                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                    <div class="h_container">
-                                        
-                                    </div>
-                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD SERVICES</h2>
-                                    
-                                    <div style="display: flex; flex-direction: row; margin-top: 130px;">
-                                        <div style="width: 100%; padding: 10px;">
-                                            <h4 style="color: #555; margin-bottom: 10px;">Service Name</h4>
-                                            <input class="form-control" type="text" id="ServiceCat" name="Service" required>
-                                            <input style="margin-top: 20px;" class="form-control" type="file" name="logoImgService" required>
-                                            <input class="submit_btn" id="addServiceButton" type="submit" value="submit">
-                                        </div>
-                                    </div>
-                                    <div class="table-responsive" style="border-radius: 10px;">
-                                    <table id="example7" class="table tableres table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Services Name</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="ServiceBody">
-                                                {{#each allService}}
-                                                <tr>
-                                                    <td data-label="ID">{{_id}}</td>
-                                                    <td data-label="Services Name">{{Service}}</td>
-                                                    <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button> <button data-id="{{_id}}" id="DeleteService" class="country_delete">Delete</button></td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
-
-                                  </div>
-                            
-                            
-                            </div>
-                        </div>
-                    </div>
-
     </div>
-    <div id="section_6">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="qunit"></div>
-                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                    <div class="h_container">
-                                        
-                                    </div>
-                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD SPECIFICATION</h2>
-                                    <h4 style="margin-top: 110px; color: #555; margin-bottom: 10px;">Service Name</h4>
-                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="margin-bottom: 10px">
-                                            <select class="js-select2" name="type">
-                                                <option selected="selected">Select Country</option>
-                                                <option value="">Option 1</option>
-                                                <option value="">Option 2</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-                                    <form action="/add/specification" method="POST">
-                                        <h4 style="color: #555; margin-bottom: 10px;">Specification</h4>
-                                        <input class="form-control" type="text" name="Specification">
-                                        <input class="submit_btn" type="submit" value="submit">
-                                    </form>
+</div>
+</div>
+</div>
+<div id="section_3">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="qunit"></div>
+            <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+                <div class="h_container">
+                    
+                </div>
+                <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD CITY</h2>
+                <h4 style="margin-top: 110px; color: #555; margin-bottom: 10px;">Country Name</h4>
 
-                                    div class="table-responsive" style="border-radius: 10px;">
-                                    <table id="example7" class="table tableres table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Specification Name</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{#each allService}}
-                                                <tr>
-                                                    <td data-label="ID">{{_id}}</td>
-                                                    <td data-label="Specification Name">{{Specification}}</td>
-                                                    <td data-label="Action"><button class="country_edit">Edit</button> <button class="country_delete">Delete</button></td>
-                                                </tr>
-                                                {{/each}}
-                                                <tr>
-                                                    <td data-label="ID">Cedric Kelly</td>
-                                                    <td data-label="Specification Name">Senior Javascript Developer</td>
-                                                    <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button> <form action="/delete/specification/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="margin-bottom: 10px">
+                    <select class="js-select2" id="CountryCity" name="Country"> 
+                        <option selected="selected" value="INDIA">INDIA</option>
+                    </select>
+                    <div class="dropDownSelect2"></div>
+                </div>
 
-                                  </div>
-                                    
-                            
-                            
+                <h4 style="color: #555; margin-bottom: 10px;">State Name</h4>
+                <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="margin-bottom: 10px">
+                    <select class="" id="StateCity" name="State"> 
+                        <option selected="selected" value="">Select State</option>
+                        {{#each allState}}
+                        <option value="{{State}}">{{State}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                    <h4 style="color: #555; margin-bottom: 10px;">City Name</h4>
+                    <input class="form-control CountryModal" id="CityCity" type="text" name="City">
+                    <input class="submit_btn" id="addcitysubmit" type="submit" value="submit">
+
+                <div class="table-responsive" style="border-radius: 10px;">
+
+                    <table id="" class="table tableres table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">City Name</th>
+                                <th scope="col">State Name</th>
+                                <th scope="col">Country Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="addCityBody">
+                            {{#each allCity}}
+                            <tr id="{{_id}}">
+                                <td data-label="ID">{{_id}}</td>
+                                <td data-label="City Name">{{City}}</td>
+                                <td data-label="State Name">{{State}}</td>
+                                <td data-label="Country Name">{{Country}}</td>
+                                <td data-label="Action">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                More Option
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item getcityDetails" title="{{_id}}" data-toggle="modal" data-target="#ModalEditCity" href="#">EDIT</a>
+                                                <a class="dropdown-item DeleteCityButton" value="{{_id}}" title="{{City}}" data-toggle="modal" data-target="#ModalDeleteData" href="#"><button>Delete</button></a>
+                                            </div>
+                                            </div> 
+                                    </td>
+                                <!-- <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button><button data-id="{{_id}}" id="DeleteCityButton" class="country_delete">Delete</button></td> -->
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="section_4">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="qunit"></div>
+            <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+                <div class="h_container">
+                    
+                </div>
+                <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD JOB CATEGORY</h2>
+
+                <div style="display: flex; flex-direction: row; margin-top: 130px;">
+                
+                <!-- <form method="POST" action="/add/job/category" enctype="multipart/form-data" > -->
+                <div style="width: 100%; padding: 10px;">
+                    <h4 style="color: #555; margin-bottom: 10px;">Category Name</h4>
+                    <input class="form-control CountryModal" type="text" id="JobCategory" name="JobCategory" required>
+                    <input style="margin-top: 20px;" class="form-control CountryModal" id="ImageCat" type="file" name="logoImg" required>
+                    <input class="submit_btn" id="SubmitCatagory" type="submit" value="submit">
+                </div>
+                <!-- </form> -->
+                </div>
+                <div class="table-responsive" style="border-radius: 10px;">
+
+                <table id="" class="table tableres table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Job Category Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="JobCategorying">
+                            {{#each alljobcategory}}
+                            <tr id="{{_id}}">
+                                <td data-label="ID">{{_id}}</td>
+                                <td data-label="Job Category Name">{{JobCategory}}</td>
+                                <td data-label="Action">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                More Option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item getcategoryinfo" title="{{_id}}" data-toggle="modal" data-target="#ModalEditCategory" href="#">EDIT</a>
+                                <a class="dropdown-item DeleteCat" value="{{_id}}" title="{{JobCategory}}" data-toggle="modal" data-target="#ModalDeleteData" href="#"><button>Delete</button></a>
                             </div>
-                        </div>
-                    </div>
+                            </div> 
+                    </td>
+                                <!-- <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button><button id="DeleteCat" class="country_delete" data-id="{{_id}}">Delete</button></td> -->
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+</div>
+</div>
 
+</div>
+<div id="section_5">
+<div class="row">
+    <div class="col-lg-12">
+        <div id="qunit"></div>
+          <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+            <div class="h_container">
+                
+            </div>
+            <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD SERVICES</h2>
+            
+            <div style="display: flex; flex-direction: row; margin-top: 130px;">
+                <div style="width: 100%; padding: 10px;">
+                    <h4 style="color: #555; margin-bottom: 10px;">Service Name</h4>
+                    <input class="form-control CountryModal" type="text" id="ServiceCat" name="Service" required>
+                    <input style="margin-top: 20px;" class="form-control CountryModal" type="file" name="logoImgService" required>
+                    <input class="submit_btn" id="addServiceButton" type="submit" value="submit">
+                </div>
+            </div>
+            <div class="table-responsive" style="border-radius: 10px;">
+            <table id="" class="table tableres table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Services Name</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ServiceBody">
+                        {{#each allService}}
+                        <tr id="{{_id}}">
+                            <td data-label="ID">{{_id}}</td>
+                            <td data-label="Services Name">{{Service}}</td>
+                            <td data-label="Action">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        More Option
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item getSerCatDet" title="{{_id}}" data-toggle="modal" data-target="#ModalEditSerCat" href="#">EDIT</a>
+                                        <a class="dropdown-item DeleteService" value="{{_id}}" title="{{Service}}" data-toggle="modal" data-target="#ModalDeleteData" href="#"><button>Delete</button></a>
+                                    </div>
+                                    </div> 
+                            </td>
+                            <!-- <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button> <button data-id="{{_id}}" id="DeleteService" class="country_delete">Delete</button></td> -->
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+          </div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="section_6">
+<div class="row">
+<div class="col-lg-12">
+<div id="qunit"></div>
+  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+    <div class="h_container">
+        
+    </div>
+    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">ADD SPECIFICATION</h2>
+    <h4 style="margin-top: 110px; color: #555; margin-bottom: 10px;">Service Name</h4>
+    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="margin-bottom: 10px">
+            <select class="js-select2" name="type">
+                <option selected="selected">Select Country</option>
+                <option value="">INIDA</option>
+            </select>
+            <div class="dropDownSelect2"></div>
+        </div>
+    <form action="/add/specification" method="POST">
+        <h4 style="color: #555; margin-bottom: 10px;">Specification</h4>
+        <input class="form-control" type="text" name="Specification">
+        <input class="submit_btn" type="submit" value="submit">
+    </form>
+
+    <div class="table-responsive" style="border-radius: 10px;">
+    <table id="" class="table tableres table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Specification Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- {{#each allService}}
+
+                {{/each}} -->
+                <tr>
+                    <td data-label="ID">Cedric Kelly</td>
+                    <td data-label="Specification Name">Senior Javascript Developer</td>
+                    <td data-label="Action">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                More Option
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" title="{{_id}}" data-toggle="modal" data-target="#" href="#">EDIT</a>
+                                                <a class="dropdown-item delteRagisteruser" id="{{_id}}" value="{{_id}}" title="{{firstname}} {{ lastname}}" data-toggle="modal" data-target="#ModalDelete" href="#"><button>Delete</button></a>
+                                            </div>
+                                            </div> 
+                                    </td>
+                    <!-- <td data-label="Action" style="display: flex;"><button class="country_edit">Edit</button> <form action="/delete/specification/{{_id}}" method="GET"><button class="country_delete">Delete</button></form></td> -->
+                </tr>
+            </tbody>
+        </table>
+  </div>
+            </div>
+        </div>
     </div>
 
+</div>
+
+<!-- Edit Country Name -->
+
+<div class="modal fade" id="ModalEditCountry" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Country</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Country Name</label>
+                        <input type="text" class="form-control" id="recipient-Country">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary countryEdit">Update</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- Edit State NCountry -->
+<div class="modal fade" id="ModalEditState" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit State</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">State Name</label>
+                        <input type="text" class="form-control" id="recipient-State">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Country Name</label>
+                        <input type="text" class="form-control" id="recipient-Country-state">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary EditState">Update</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- Edit State city -->
+<div class="modal fade" id="ModalEditCity" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit City</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">City Name</label>
+                        <input type="text" class="form-control" id="recipient-City">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">State Name</label>
+                        <input type="text" class="form-control" id="recipient-city-State">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Country Name</label>
+                        <input type="text" class="form-control" id="recipient-city-Country">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary EditCity">Update</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- Edit State city -->
+<div class="modal fade" id="ModalEditCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Job Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Job Category</label>
+                        <input type="text" class="form-control" id="recipient-JobCat">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary EditJobCat">Update</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- Edit State city -->
+<div class="modal fade" id="ModalEditSerCat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Service Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Service Category</label>
+                        <input type="text" class="form-control" id="recipient-SerCat">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary EditSerCat">Update</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+<!-- DELETE data modal -->
+     <div class="modal fade" id="ModalDeleteData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4><strong id="jobName"> </strong> will be permanently deleted. Are you sure you want to do this?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
+                <button type="button" class="btn btn-primary deletedsuccess">Delete</button>
+            </div>
+            </div>
+        </div>
+    </div>

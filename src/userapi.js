@@ -20,7 +20,7 @@ const ServiceModel1 = require('../models/addservice')
 const AuthCookie = require('hapi-auth-cookie')
 const async = require('async');
 var ObjectID = require('mongodb').ObjectID
-
+// var MongoDataTable = require('mongo-datatable');
 
 
 
@@ -48,6 +48,7 @@ const routes = [
 			await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
 			ResumeModel.find({Mobile: authenticated_u_m})
 			.then(function(resumes){
+				console.log(resume)
 				ServiceModel.find({MobileNumber: authenticated_u_m})
 				.then(function(services){
 					console.log(services)
@@ -267,19 +268,27 @@ const routes = [
 			"pincode": request.payload.pincode,
 			"gender": request.payload.gender,
 			"lookingfor": request.payload.lookingfor,
+			"Status": "User",
+			"picture": "N/A",
 			"otp": otp
 		});
 		request.cookieAuth.set(newUser);
-		console.log(newUser)
-		let otpmessage = 'merakaamkaaj.com \n Your OTP is:'+otp
-		axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+request.payload.mobile+'&sid=MERAKK&msg='+otpmessage+'&fl=1&gwid=2')
-		  .then(reply => {
-		  	console.log('messages sent to your number')
-		  })
-		  .catch(error => {
-		    console.log(error);
-		  });
-		  return reply.view('confirmemail', {message: "We've sent an OTP to "+request.payload.mobile+". If this is a valid Phone Number, you should receive an OTP within the next few minutes.", successmessage: '200'})
+		UserModel.findOne({mobile: request.payload.mobile})
+		.then(function(result){
+			console.log(result)
+			if (!result) {
+				let otpmessage = 'merakaamkaaj.com \n Your OTP is:'+otp
+				axios.request('http://zapsms.co.in/vendorsms/pushsms.aspx?user=merakaamkaaj&password=merakaamkaaj&msisdn='+request.payload.mobile+'&sid=MERAKK&msg='+otpmessage+'&fl=1&gwid=2')
+				.then(function(res){
+					return reply.view('confirmemail', {message: "We've sent an OTP to "+request.payload.mobile+". If this is a valid Phone Number, you should receive an OTP within the next few minutes.", successmessage: '200'})
+				})
+				.catch(error => {
+					console.log(error);
+				});
+			}else{
+				return reply.view('error', {errormessage: '400', message:'User already Exist Please Try with your another mobile number', message3: 'LOGIN'})
+			}
+		})
 	}
 },
 {
@@ -1229,6 +1238,44 @@ const routes = [
 },
 {
 	method: 'GET',
+	path: '/job/change/status/to/verify/unverify',
+	config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"admin can change the status of any data",
+        notes:"admin can cahnge the status of any data which is verify of not",
+    },
+	handler: function(request, reply){
+		var unverify = ({
+			verifi: "In Active"
+		});
+		var varify = ({
+			verifi: "Active"
+		});
+		jobsModel.findOne({_id: ObjectID(request.query._id)}, function(err, result){
+			if (result.verifi == "Active") {
+				jobsModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, unverify, function(err, data){
+				console.log('got it')
+					if (err) {
+						throw err
+					}else{
+						reply({message: "Successfully In Active Service"})
+					}
+				})
+			}else if (result.verifi == "In Active") {
+				jobsModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, varify, function(err, data){
+					if (err) {
+						throw err
+					}else{
+						reply({message:'Successfully Active Service'})
+					}
+				})
+			}
+		})
+	}
+},
+{
+	method: 'GET',
 	path: '/change/status/to/verify/unverify',
 	config:{
         //include this route in swagger documentation
@@ -1262,6 +1309,60 @@ const routes = [
 					}
 				})
 			}
+		})
+	}
+},
+{
+	method: 'GET',
+	path: '/resume/change/status/to/verify/unverify',
+	config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"admin can change the status of any data",
+        notes:"admin can cahnge the status of any data which is verify of not",
+    },
+	handler: function(request, reply){
+		var unverify = ({
+			verifi: "In Active"
+		});
+		var varify = ({
+			verifi: "Active"
+		});
+		ResumeModel.findOne({_id: ObjectID(request.query._id)}, function(err, result){
+			if (result.verifi == "Active") {
+				ResumeModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, unverify, function(err, data){
+				console.log('got it')
+					if (err) {
+						throw err
+					}else{
+						reply({message: "Successfully In Active Service"})
+					}
+				})
+			}else if (result.verifi == "In Active") {
+				ResumeModel.findOneAndUpdate({_id: ObjectID(request.query._id)}, varify, function(err, data){
+					if (err) {
+						throw err
+					}else{
+						reply({message:'Successfully Active Service'})
+					}
+				})
+			}
+		})
+	}
+},
+{
+	method: 'GET',
+	path: '/user/data/json',
+	config:{
+		auth:{
+			strategy: 'restricted'
+		},
+	},
+	handler: function(request, reply){
+		UserModel.findOne({_id: ObjectID(request.query._id)})
+		.then(function(res){
+			console.log(res)
+			return reply(res)
 		})
 	}
 },

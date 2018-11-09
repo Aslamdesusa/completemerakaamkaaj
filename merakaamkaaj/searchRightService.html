@@ -38,102 +38,56 @@
         20px; font-size: 20px; top: 13px;" class="fa fa-filter"></i></button>
         <div style="background:#fff;width:100%; display: none; padding: 15px;" id="filteraes">
 
-        <button style="margin-bottom: 10px;" class="filter_btn" id="filter1">Select Job Type <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus1" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
-        <div style="width:100%; height: 100px; display: none;" id="filteraes1">
-          <select style="padding: 5px 38px; color: #777; -webkit-appearance: none; border: 1px solid #ddd;border-radius: 5px;">
-            <option>work</option>
-          </select>
-        </div>
-
-
-      <button style="margin-bottom: 10px;" class="filter_btn" id="filter2">Any Sallery Range <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus2" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <button style="margin-bottom: 10px;" class="filter_btn" id="filter2">Find Service by Area <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus2" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
       <div style="width:100%; display: none;" id="filteraes2">
-        <form>
-          <input class="Sallery_input" type="text" name="" placeholder="Type Sallery"><br>
-          <div style="display: flex; justify-content: center; align-items: center; padding: 5px;">
-          <p style="text-align: center; margin-bottom: 0px; width: 35px; height: 34px; padding: 5px; border: 1px solid #555; border-radius: 100px;">To</p>
-        </div>
-          <input style="margin-bottom: 10px;" class="Sallery_input" type="text" name="" placeholder="Type Sallery">
+        <form action="/filter/search/service-by-area" method="GET">
+          <input class="Sallery_input" type="text" name="Area" placeholder="Area"><br>
+          <button type="submit" style="margin-bottom: 10px; margin-left: 10px;" class="ghst-btn Experiance_btn">Search</button>
         </form>
       </div>
 
 
-      <button style="margin-bottom: 10px;" class="filter_btn" id="filter3">Gender <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus3" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
-      <div style="width:100%; display: none;" id="filteraes3">
-        <div class="control-group">
-          <label class="control control--checkbox">Male
-            <input type="checkbox"/>
-            <div class="control__indicator"></div>
-          </label>
-          <label class="control control--checkbox">Female
-            <input type="checkbox"/>
-            <div class="control__indicator"></div>
-          </label>
-          
-        </div>
-      </div>
-
-
       <button style="margin-bottom: 10px;" class="filter_btn" id="filter4">Timing <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus4" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <form action="/filter/search/service-by-shift" method="GET">
       <div style="width:100%; display: none;" id="filteraes4">
         <div class="control-group">
           <label class="control control--checkbox">Full Time Day 
-            <input type="checkbox"/>
+            <input name="timing" value="Full Time Day" type="checkbox"/>
             <div class="control__indicator"></div>
           </label>
           <label class="control control--checkbox">Full Time Night
-            <input type="checkbox"/>
+            <input name="timing" value="Full Time Night" type="checkbox"/>
             <div class="control__indicator"></div>
           </label>
           <label class="control control--checkbox">Part Time Morning
-            <input type="checkbox"/>
+            <input name="timing" value="Part Time Morning" type="checkbox"/>
             <div class="control__indicator"></div>
           </label>
           <label class="control control--checkbox">Part Time Evening
-            <input type="checkbox"/>
+            <input name="timing" value="Part Time Evening" type="checkbox"/>
             <div class="control__indicator"></div>
           </label>
           <label class="control control--checkbox">Daily Based
-            <input type="checkbox"/>
+            <input name="timing" value="Daily Based" type="checkbox"/>
             <div class="control__indicator"></div>
           </label>
           <label class="control control--checkbox">On Requirement
-            <input type="checkbox"/>
+            <input name="timing" value="On Requirement" type="checkbox"/>
             <div class="control__indicator"></div>
           </label>
           
         </div>
+        <button type="submit" style="margin-bottom: 10px; margin-left: 10px;" class="ghst-btn Experiance_btn">Search</button>
       </div>
-
-
-      <button style="margin-bottom: 10px;" class="filter_btn" id="filter5">Experiance <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus5" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
-      <div style="width:100%; display: none;" id="filteraes5">
-        <div class="control-group">
-          <label class="control control--checkbox">0 - 2 years 
-            <input type="checkbox"/>
-            <div class="control__indicator"></div>
-          </label>
-          <label class="control control--checkbox">2 - 5 years
-            <input type="checkbox"/>
-            <div class="control__indicator"></div>
-          </label>
-          <label class="control control--checkbox">5 - 10 years
-            <input type="checkbox"/>
-            <div class="control__indicator"></div>
-          </label>
-          <label class="control control--checkbox">10 years
-            <input type="checkbox"/>
-            <div class="control__indicator"></div>
-          </label>
-        </div>
-        <button style="margin-bottom: 10px; margin-left: 10px;" class="ghst-btn Experiance_btn">Search</button>
-      </div>
-
+    </form>
 
       <button style="margin-bottom: 10px;" class="filter_btn" id="filter6">ID <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus6" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
       <div style="width:100%; display: none;" id="filteraes6">
-        <input style="margin-bottom: 10px;" class="Sallery_input" type="text" name="" placeholder="ID">
-        <button style="margin-bottom: 10px;" class="ghst-btn Experiance_btn">Search</button>
+        <form action="/filter/search/service-by-id" method="GEt">
+          <input style="margin-bottom: 10px;" class="Sallery_input" type="text" name="serviceid" placeholder="ID">
+    
+          <button style="margin-bottom: 10px;" class="ghst-btn Experiance_btn">Search</button>
+        </form>
       </div>
 
     </div>
@@ -149,15 +103,19 @@
 
 
 <div class="col-md-9" style="display: flex; flex-direction: column;">
+
+<h1 style="text-align: center; color: red; margin-bottom: 5%;">{{message}}</h1>
 {{#each allService}}
   <div class="details-card"">
     <div class="candDetails">
       <div class="imageUser">
-        <img src="/img/img/Female_avatar-06-512.png" style="width: 20px; height: 30px;">
+        <img src="/img/startup_logo_32dp.png" style="width: 20px; height: 30px;">
       </div>           
       <div class="userDetails mb5">
         <div class="candName">
-          <span class="TypeOfService" title="{{TypeOfService}}">{{TypeOfService}}</span>
+          <span class="TypeOfService" title="{{TypeOfService}}">{{TypeOfService}}</span><br>
+          <span class="TypeOfService" title="{{serviceid}}">{{serviceid}}</span>
+
           <!-- <span class="candAge">20 years  </span> -->
           <span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span>
         </div>
@@ -233,7 +191,7 @@
         <li>
            <span class="emp-heading">Mobile Number</span>
            <span class="emp-rep">
-             <span class="jsProfileItem more trucateText" title="{{MobileNumber}}">{{MobileNumber}}</span>
+             <a href="tel:{{MobileNumber}}"><span class="jsProfileItem more trucateText" title="{{MobileNumber}}">{{MobileNumber}}</span></a>
            </span>
          </li>
         <li>
@@ -299,8 +257,7 @@
       </div>
 
 
-    <div class="button-div">
-      <button data-toggle="modal" data-target="#myModal" class="ghst-btn demo-action InstantActionbuttons" type="button">Email</button> 
+    <div class="button-div"> 
       <button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="collapse" data-target="#{{_id}}" type="button">View all details</button> 
     </div>
 
@@ -314,29 +271,31 @@
 </div>
 
 <script type="text/javascript">
-          var counterload1 = 0;
-          $(".loadmorebtn1").click(function() {
-            $(".loadmorebtn1").val('Loading.......');
-            var title = $(".TypeOfService").attr('title');
-            counterload1++;
-            $.ajax({
-              url : "/get/rightservice/with/limit?TypeOfService="+title+"&count="+counterload1,
-              type : "GET",
-              dataType: 'json',
-              success : function(data){
-                if (data.length == 0) {
-                  $(".loadmorebtn1").val('Finish');
-                  return false
-                }
-                console.log(data)
-                var HTML = '';
-                for (var i = 0; i < data.length; i += 1) {
-                  HTML = '<div class="details-card""><div class="candDetails"><div class="imageUser"><img src="/img/img/Female_avatar-06-512.png" style="width: 20px; height: 30px;"></div><div class="userDetails mb5"><div class="candName"><span class="TypeOfService" title="'+data[i].TypeOfService+'">'+data[i].TypeOfService+'</span><span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span></div></div><div class="employee-name"><div class="cnctAndDwmload"></div></div><div class="employee-details"><ul class="emp-list"><li><span class="emp-heading">Service Specification</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Specification+'"><span class="brief-skills">'+data[i].Specification+'</span><span class="morecontent"></span></span></span></li><li><span class="emp-heading">Timing for Provide Services</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].ProvideServices+'">'+data[i].ProvideServices+'</span></span></li><li><span class="emp-heading">Services Provider Registered on</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].ProviderRegistered+'">'+data[i].ProviderRegistered+'</span></span></li><li><span class="emp-heading">Services Registered Expiry Date</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].RegisteredExpiry+'">'+data[i].RegisteredExpiry+'</span></span></li><li><span class="emp-heading">Service Providing Country</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Country+'">'+data[i].Country+'</span></span></li><div id="'+data[i]._id+'" class="collapse"><li><span class="emp-heading">Service Providing state</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].State+'">'+data[i].State+'</span></span></li><li><span class="emp-heading">Service Providing City</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].City+'">'+data[i].City+'</span></span></li><li><span class="emp-heading">Services Providing Area</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Area+'">'+data[i].Area+'</span></span></li><li><span class="emp-heading">Services Provider Agency Name</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Agency+'">'+data[i].Agency+'</span></span></li><li><span class="emp-heading">Name of Representative/Service Provider</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Representative+'">'+data[i].Representative+'</span></span></li><li><span class="emp-heading">Mobile Number</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].MobileNumber+'">'+data[i].MobileNumber+'</span></span></li><li><span class="emp-heading">Landline Number</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].LandNumber+'">'+data[i].LandNumber+'</span></span></li><li><span class="emp-heading">Contact Timing</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Timing+'">'+data[i].Timing+'</span></span></li><li><span class="emp-heading">Aadhar Card/Voter Card No./Other</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].aadharcard+'">'+data[i].aadharcard+'</span></span></li><li><span class="emp-heading">Website</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].website+'">'+data[i].website+'</span></span></li><li><span class="emp-heading">Email/Mobile</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].emailMobile+'">'+data[i].emailMobile+'</span></span></li><li><span class="emp-heading">Address Of Services Provider</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].address+'">'+data[i].address+'</span></span></li><li><span class="emp-heading">Pincode</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].pincode+'">'+data[i].pincode+'</span></span></li><li><span class="emp-heading">Any Information About Your Services</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].information+'">'+data[i].information+'</span></span></li> </div></ul></div><div class="hidden-lg hidden-md card-view pull-right hidden-xs hidden-sm"><i class="icon-basic_eye"></i><span></span></div><div class="button-div"><button data-toggle="modal" data-target="#myModal" class="ghst-btn demo-action InstantActionbuttons" type="button">Email</button><button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="collapse" data-target="#'+data[i]._id+'" type="button">View all details</button></div></div></div>'
-                  $("#main_header1").append(HTML);
-                  $(".loadmorebtn1").val('Laod more');
+var counterload1 = 0;
+$(".loadmorebtn1").click(function() {
+  $(".loadmorebtn1").val('Loading.......');
+  counterload1++;
+  var hash = window.location.search.substring(1);
+  var url1 = window.location.href;
+  var path = window.location.pathname;
+  $.ajax({
+    url : path+'/json?count='+counterload1+'&'+hash,
+    type : "GET",
+    dataType: 'json',
+    success : function(data){
+      if (data.length == 0) {
+        $(".loadmorebtn1").val('Finish');
+        return false
+      }
+      console.log(data)
+      var HTML = '';
+      for (var i = 0; i < data.length; i += 1) {
+        HTML = '<div class="details-card""><div class="candDetails"><div class="imageUser"><img src="/img/img/Female_avatar-06-512.png" style="width: 20px; height: 30px;"></div><div class="userDetails mb5"><div class="candName"><span class="TypeOfService" title="'+data[i].TypeOfService+'">'+data[i].TypeOfService+'</span><br><span class="TypeOfService" title="'+data[i].serviceid+'">'+data[i].serviceid+'</span><span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span></div></div><div class="employee-name"><div class="cnctAndDwmload"></div></div><div class="employee-details"><ul class="emp-list"><li><span class="emp-heading">Service Specification</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Specification+'"><span class="brief-skills">'+data[i].Specification+'</span><span class="morecontent"></span></span></span></li><li><span class="emp-heading">Timing for Provide Services</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].ProvideServices+'">'+data[i].ProvideServices+'</span></span></li><li><span class="emp-heading">Services Provider Registered on</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].ProviderRegistered+'">'+data[i].ProviderRegistered+'</span></span></li><li><span class="emp-heading">Services Registered Expiry Date</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].RegisteredExpiry+'">'+data[i].RegisteredExpiry+'</span></span></li><li><span class="emp-heading">Service Providing Country</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Country+'">'+data[i].Country+'</span></span></li><div id="'+data[i]._id+'" class="collapse"><li><span class="emp-heading">Service Providing state</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].State+'">'+data[i].State+'</span></span></li><li><span class="emp-heading">Service Providing City</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].City+'">'+data[i].City+'</span></span></li><li><span class="emp-heading">Services Providing Area</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Area+'">'+data[i].Area+'</span></span></li><li><span class="emp-heading">Services Provider Agency Name</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Agency+'">'+data[i].Agency+'</span></span></li><li><span class="emp-heading">Name of Representative/Service Provider</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Representative+'">'+data[i].Representative+'</span></span></li><li><span class="emp-heading">Mobile Number</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].MobileNumber+'">'+data[i].MobileNumber+'</span></span></li><li><span class="emp-heading">Landline Number</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].LandNumber+'">'+data[i].LandNumber+'</span></span></li><li><span class="emp-heading">Contact Timing</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Timing+'">'+data[i].Timing+'</span></span></li><li><span class="emp-heading">Aadhar Card/Voter Card No./Other</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].aadharcard+'">'+data[i].aadharcard+'</span></span></li><li><span class="emp-heading">Website</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].website+'">'+data[i].website+'</span></span></li><li><span class="emp-heading">Email/Mobile</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].emailMobile+'">'+data[i].emailMobile+'</span></span></li><li><span class="emp-heading">Address Of Services Provider</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].address+'">'+data[i].address+'</span></span></li><li><span class="emp-heading">Pincode</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].pincode+'">'+data[i].pincode+'</span></span></li><li><span class="emp-heading">Any Information About Your Services</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].information+'">'+data[i].information+'</span></span></li> </div></ul></div><div class="hidden-lg hidden-md card-view pull-right hidden-xs hidden-sm"><i class="icon-basic_eye"></i><span></span></div><div class="button-div"><button data-toggle="modal" data-target="#myModal" class="ghst-btn demo-action InstantActionbuttons" type="button">Email</button><button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="collapse" data-target="#'+data[i]._id+'" type="button">View all details</button></div></div></div>'
+        $("#main_header1").append(HTML);
+        $(".loadmorebtn1").val('Laod more');
 
-                }
-              },
-            });
-          });
+      }
+    },
+  });
+});
         </script>

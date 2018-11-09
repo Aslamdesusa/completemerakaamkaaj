@@ -47,7 +47,11 @@ Notes:	decreasing heading by 0.4em with every subsequent heading level
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 ul {
     margin: 0;
 }
@@ -203,6 +207,36 @@ strong {
     font-weight: 500;
     color: #fff;
 }
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu a::after {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 6px;
+  top: .8em;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  right: 100%;
+  margin-left: -13.9rem;
+  margin-right: .1rem;
+}
+
+
+
+@media (max-width: 991px) {
+.dropdown-submenu .dropdown-menu {
+    top: 33px !important;
+    right: 100% !important;
+    margin-left: -1.9rem !important;
+    margin-right: -9.9rem !important;
+}
+}
+
+
 
 .heading-title {
     font-size: 24px;

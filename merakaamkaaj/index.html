@@ -14,6 +14,11 @@
           border-radius: 5px !important;
           color: yellow !important;
         }
+        @media (max-width: 767px) {
+            .imageDiwal {
+                max-height: 173px;
+            }
+        }
        </style>
 
 
@@ -24,6 +29,16 @@
  
                       <div class="carousel-inner">
                         <div class="carousel-item active">
+                          <div class="img-caption-hide"></div>
+                          <img class="d-block w-100 img-fluid imageDiwal" id="diwaliimage" style="height: 460px;" src="https://images.indianexpress.com/2018/11/diwali-8-cover.jpg" alt="First slide">
+                          <div class="silder-para d-md-block">
+                            <!-- <h3>Welcome to <span>Startup</span></h3> -->
+                            We Wish You Happy Diwali 2018.
+                            <!-- <div class="btn btn-general btn-white">Buy now</div> -->
+                          </div>
+                        </div>
+
+                        <div class="carousel-item">
                           <div class="img-caption-hide"></div>
                           <img class="d-block w-100 img-fluid" src="/img/1.jpg" alt="First slide">
                           <div class="silder-para d-md-block">
@@ -71,7 +86,7 @@
         <!-- HEADER 
             =================-->
                 <header id="conent1" style="background: #f16024; margin-top: 78px;">
-                    <h3 style="text-align: center;color: #fff; padding-top: 20px;  font-weight: lighter;">OUR WORKERS</h3>
+                    <span style="display: flex; justify-content: center;"><h3 style="text-align: center; color: #fff; padding: 4px 32px; border: 2px solid #fff; font-weight: lighter; width: max-content; margin-top: 18px; border-radius: 100px;">OUR WORKERS</h3></span>
                     <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
  
                       <div class="carousel-inner">
@@ -114,7 +129,7 @@
 
 
                   <header id="conent2" style="background: #f16024;">
-                    <h3 style="text-align: center;color: #fff; padding-top: 20px; font-weight: lighter;">OUR SERVICE PROVIDER</h3>
+                    <span style="display: flex; justify-content: center;"><h3 style="text-align: center; color: #fff; padding: 4px 32px; border: 2px solid #fff; font-weight: lighter; width: max-content; margin-top: 18px; border-radius: 100px;">OUR SERVICE PROVIDER</h3></span>
                     <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
  
                       <div class="carousel-inner">
@@ -153,7 +168,7 @@
 
 <!-- ========================================================================================================  -->
       <div style="text-align: center;">
-        <h2>How We Work</h2>
+        <span style="display: flex; justify-content: center;"><h3 style="text-align: center; color: #555; padding: 4px 32px; border: 2px solid #555; font-weight: lighter; width: max-content; margin: 0px 0px 24px 0px; border-radius: 100px;">HOW WE WORK</h3></span>
       </div>
 
       <div class="container">
@@ -290,7 +305,9 @@
 
         <!-- RECENT RIGHT WORKERS/JOBS -->
     <div class="recents">
-      <h3 style="text-align: center; padding-bottom: 20px; color: #888; font-weight: lighter; text-shadow: 1px 1px #495057;">RECENT RIGHT WORKERS/JOBS</h3>
+      <span style="display: flex; justify-content: center;"><h3 style="text-align: center; color: #888; text-shadow: 1px 1px #495057; padding: 4px 32px; border: 2px solid #888; font-weight: lighter; width: max-content; margin:0px 0px 6px 0px; border-radius: 100px;">RECENT RIGHT WORKERS/JOBS</h3></span>
+      <p style="text-align: center; font-size: 10px;">Note: For contect note ID and login</p>
+
         <div class="container-fluid" style="padding: 0px !important;">
 
             <div class="row">
@@ -331,7 +348,11 @@
                                           <td>{{pwid}}</td>
                                         </tr>
                                         <tr>
-                                          <th>Salary (INR)</th>
+                                          <th>Worker Name</th>
+                                          <td>{{Name}}</td>
+                                        </tr>
+                                        <tr>
+                                          <th>Expected Salary (INR)</th>
                                           <td>{{ExpSalary}}</td>
                                         </tr>
                                         <tr>
@@ -381,6 +402,10 @@
                                        <div class="clearfix"></div>
                                        <table class="table" style="font-size: 12px;">
                                         <tr>
+                                          <th>Job Type</th>
+                                          <td>{{jobType}}</td>
+                                        </tr>
+                                        <tr>
                                           <th>Job Id</th>
                                           <td>{{JobID}}</td>
                                         </tr>
@@ -425,7 +450,10 @@
 
 
                   <div class="recents" style="background: #ededed !important;">
-                    <h3 style="text-align: center; padding-bottom: 20px; color: #888; font-weight: lighter; text-shadow: 1px 1px #495057;">Recent Services</h3>
+
+                    <span style="display: flex; justify-content: center;"><h3 style="text-align: center; color: #888; text-shadow: 1px 1px #495057; padding: 4px 32px; border: 2px solid #888; font-weight: lighter; width: max-content; margin:0px 0px 6px 0px; border-radius: 100px;">RECENT SERVICES</h3></span>
+                    <p style="text-align: center;font-size: 10px;">Note: For contect note ID and login</p>
+
                       <div class="container-fluid" style="padding: 0px !important;">
 
                           <div class="row">
@@ -498,135 +526,132 @@
             <!-- ====================== -->
 
         <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login modal</button> -->
-        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="myModalLabel">Login/Registration</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-8 mini_q" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
-                                <!-- Nav tabs -->
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#Login1" data-toggle="tab">Login</a></li>
-                                    <li><a href="#Registration1" data-toggle="tab">Registration</a></li>
-                                </ul>
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Login/Registration</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8 mini_q" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#Login1" data-toggle="tab">Login</a></li>
+                            <li><a href="#Registration1" data-toggle="tab">Registration</a></li>
+                        </ul>
                                 <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div class="tab-pane show active" id="Login1">
-                                        <form role="form" class="form-horizontal" action="/user/login" method="POST">
-                                        <div class="form-group">
-                                            <label for="email" class="col-sm-2 control-label">
-                                                Email/Mobile</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="email1" name="emailid" placeholder="Email/Mobile" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1" class="col-sm-2 control-label">
-                                                Password</label>
-                                            <div class="col-sm-10">
-                                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required/>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                            </div>
-                                            <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary btn-sm">
-                                                    Submit</button>
-                                                <a style="color: #6c757d;" href="/forgot/pass" target="_blank">Forgot your password?</a>
-                                            </div>
-                                        </div>
-                                        </form>
-                                    </div>
-                                    <div class="tab-pane" id="Registration1">
-                                        <form method="POST" action="/send/otp" role="form" class="form-horizontal">
-                                        <div class="form-group">
-                                            <div class="col-sm-10">
-                                                <input type="text" name="firstname" class="form-control" id="mobile" placeholder="First Name" required />
-                                            </div>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="lastname" class="form-control" id="mobile" placeholder="Last Name" required />
-                                            </div>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile" required />
-                                            </div>
-                                            <div class="form-group">
-                                            <div class="col-sm-10">
-                                                <input id="input" type="email" name="emailid" class="form-control" placeholder="Email" pattern="^(([-\w\d]+)(\.[-\w\d]+)*@([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|[\d]{1,3})){1,2})$" spellcheck="false" title="your email address like merakaamkaaj@gmail.com" required/>
-                                            </div>
-                                            </div>
-                                            <div class="form-group">
-                                              <div class="col-sm-10">
-                                                <input type="password" placeholder="Password" id="psw" name="password" class="form-control name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and one lowercase letter and special characters, and at least 8 or more characters" required>
-                                              </div>
-                                            </div>
-                                            <div id="message">
-                                              <h3>Password must contain the following:</h3>
-                                              <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                                              <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                                              <p id="number" class="invalid">A <b>number</b></p>
-                                              <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                                              <p id="spec" class="invalid">A <b>special character</b></p>
-                                            </div>  
-                                            <div class="col-sm-10">
-                                                <input type="text" name="address" class="form-control" id="mobile" placeholder="Address" required/>
-                                            </div>
-                                            <div class="form-group">
-                                            <div class="col-sm-10">
-                                                <select class="form-control" name="state" required>
-                                                  <option value="" disabled selected>Select State</option>
-                                                  <option value="Delhi">Delhi</option>
-                                                  <option value="NCR">NCR</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="city" class="form-control" id="mobile" placeholder="City" required />
-                                            </div>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="pincode" class="form-control" id="mobile" placeholder="Pin-Code" required />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-10">
-                                                <select class="form-control" name="gender" required>
-                                                  <option value="" disabled selected>Select Gender</option>
-                                                  <option value="male">Male</option>
-                                                  <option value="female">Female</option>
-                                                  <option value="other">Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-10">
-                                                <select class="form-control" name="lookingfor" required>
-                                                  <option value="" disabled selected>Select looking for</option>
-                                                  <option value="i am looking for right job">I am looking for right job.</option>
-                                                  <option value="i am looking for right Worker">I am looking for right worker.</option>
-                                                  <option value="i am looking for right service provider">I am looking for right service provider</option>
-                                                  <option value="i am service provider">I am service provider</option>
-                                                  <option value="i am looking for search right worker">I am looking for search right worker</option>
-                                                  <option value="i am looking for search right worker">I am looking for search right worker</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                            </div>
-                                            <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary btn-sm">
-                                                    Save & Continue</button>
-                                                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">
-                                                    Cancel</button>
-                                            </div>
-                                        </div>
-                                        </form>
-                                    </div>
+    <div class="tab-content">
+      <div class="tab-pane show active" id="Login1">
+          <form role="form" class="form-horizontal" action="/user/login" method="POST">
+          <div class="form-group">
+              <label for="email" class="col-sm-2 control-label">
+                  Email/Mobile</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="email1" name="emailid" placeholder="Email/Mobile" />
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="exampleInputPassword1" class="col-sm-2 control-label">
+                  Password</label>
+              <div class="col-sm-10">
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required/>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary btn-sm">
+                      Submit</button>
+                  <a style="color: #6c757d;" href="/forgot/pass" target="_blank">Forgot your password?</a>
+              </div>
+          </div>
+          </form>
+      </div>
+      <div class="tab-pane" id="Registration1">
+          <form method="POST" action="/send/otp" role="form" class="form-horizontal">
+          <div class="form-group">
+              <div class="col-sm-10">
+                  <input type="text" name="firstname" class="form-control" id="mobile" placeholder="First Name" required />
+              </div>
+              <div class="col-sm-10">
+                  <input type="text" name="lastname" class="form-control" id="mobile" placeholder="Last Name" required />
+              </div>
+              <div class="col-sm-10">
+                  <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile" required />
+              </div>
+              <div class="form-group">
+              <div class="col-sm-10">
+                  <input id="input" type="email" name="emailid" class="form-control" placeholder="Email" pattern="^(([-\w\d]+)(\.[-\w\d]+)*@([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|[\d]{1,3})){1,2})$" spellcheck="false" title="your email address like merakaamkaaj@gmail.com" required/>
+              </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <input type="password" placeholder="Password" id="psw" name="password" class="form-control name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and one lowercase letter and special characters, and at least 8 or more characters" required>
+                </div>
+              </div>
+              <div id="message">
+                <h3>Password must contain the following:</h3>
+                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                <p id="spec" class="invalid">A <b>special character</b></p>
+              </div>  
+              <div class="col-sm-10">
+                  <input type="text" name="address" class="form-control" id="mobile" placeholder="Address" required/>
+              </div>
+              <div class="form-group">
+              <div class="col-sm-10">
+                  <input type="text" name="state" class="form-control" id="state" placeholder="state" required/>
+              </div>
+          </div>
+              <div class="col-sm-10">
+                  <input type="text" name="city" class="form-control" id="mobile" placeholder="City" required />
+              </div>
+              <div class="col-sm-10">
+                  <input type="text" name="pincode" class="form-control" id="mobile" placeholder="Pin-Code" required />
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-sm-10">
+                  <select class="form-control" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-sm-10">
+                  <select class="form-control" name="lookingfor" required>
+                    <option value="" disabled selected>Select looking for</option>
+                    <option value="i am looking for right job">I am looking for right job.</option>
+                    <option value="i am looking for right Worker">I am looking for right worker.</option>
+                    <option value="i am looking for right service provider">I am looking for right service provider</option>
+                    <option value="i am service provider">I am service provider</option>
+                    <option value="i am looking for post resume">I am looking for post resume</option>
+                    <option value="i am looking for post job">I am looking for post job</option>
+                    </option>
+                  </select>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary btn-sm">
+                      Save & Continue</button>
+                  <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">
+                      Cancel</button>
+              </div>
+          </div>
+          </form>
+      </div>
                                 </div>
                                 <div id="OR" class="hidden-xs">
                                     OR</div>
@@ -639,8 +664,8 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="btn-group btn-group-justified">
-                                            <a href="#" class="btn btn-primary"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-facebook"></i> Facebook</a> 
                                             <a href="/login" class="btn btn-danger" id="googlelogin"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-google"></i> Google</a>
+                                            <a href="#" class="btn btn-primary"><i style="padding-right: 10px; font-size: 20px;" class="fa fa-facebook"></i> Facebook</a> 
                                         </div>
                                     </div>
                                 </div>
@@ -762,9 +787,6 @@
     font: 1rem 'Fira Sans', sans-serif;
 }
 
-#input:invalid:not(:focus) {
-    outline: 1px solid #f00;
-}
 
 /* Style the container for inputs */
 .container {

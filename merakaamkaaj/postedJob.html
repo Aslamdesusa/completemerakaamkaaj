@@ -1,3 +1,5 @@
+
+
 <style type="text/css">
                             .pagination>li>a, .pagination>li>span {
                                 position: relative;
@@ -96,11 +98,6 @@
                                 width: 80%;
                                 margin-bottom: 100px;
                             }
-
-                            
-
-                           
-
                             /* The Close Button */
                             .closealert {
                                 color: #aaaaaa;
@@ -120,77 +117,74 @@
                             }
 
 
-
                         </style>
 
 
 
 <div id="section_54">
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="qunit"></div>
-                                  <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
-                                    <div class="h_container">
-                                        
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="qunit"></div>
+            <div class="au-card m-b-30" style="position: relative; margin-bottom: 100px !important;" id="qunit-fixture">
+                <div class="h_container">
+                    
+                </div>
+                <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Job</h2>
+                <form style="margin-top: 150px;">
+                    <h4 style="color: #555; margin-bottom: 10px;">Search By Job ID</h4>
+                    <input class="form-control" type="text" name="">
+                    <input class="submit_btn" type="submit" name="" value="Search">
+                </form>
+                <div class="table-responsive" style="border-radius: 10px;">
+                    <table id="example" class="table tableres table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">JobID</th>
+                                <th scope="col">Company Name</th>
+                                <th scope="col">Representetive</th>
+                                <th scope="col">Mobile</th>
+                                <th scope="col">Post Date</th>
+                                <th scope="col">Update / Active <br> Delete / View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {{#each jobs}}
+                        <tr>
+                            <td data-label="JobID">{{JobID}}</td>
+                            <td data-label="Company Name">{{companyName}}</td>
+                            <td data-label="Representetive">{{nameOfRepresentative}}</td>
+                            <td data-label="Mobile">{{mobile}}</td>
+                            <td data-label="Post Date">{{date}}</td>
+                            <td data-label="Update/Active/Delete/View">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More Option
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Edit</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item editJobDetails" title="{{_id}}" data-toggle="modal" data-target="#ModalEdit" href="#">Job details</a></li>
+                                                <li><a class="dropdown-item editProffInfo" title="{{_id}}" data-toggle="modal" data-target="#ModalEditProfessional" href="#">Professional Details</a></li>
+                                                <li><a class="dropdown-item editContectDetails" title="{{_id}}" data-toggle="modal" data-target="#ModalEditContectDetails" href="#">Contect Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <a class="dropdown-item changeStatusJob" title="{{_id}}" value="{{verifi}}" data-toggle="modal" data-target="#ModalActivate" href="#">{{verifi}}</a>
+                                        <a class="dropdown-item getallData" title="{{_id}}" data-toggle="modal" data-target="#ModalView" href="#">View</a>
+                                        <a class="dropdown-item DeleteJobsBtn" data-toggle="modal" title="{{companyName}}" value="{{_id}}" data-target="#ModalDelete" href="#">DELETE</a>
                                     </div>
-                                    <h2 style="position: absolute; color: #fff; text-shadow: 1px 1px 1px #777; ">Posted Job</h2>
-                                      
-                                        
-                                    <form style="margin-top: 150px;">
-                                        <h4 style="color: #555; margin-bottom: 10px;">Search By Job ID</h4>
-                                        <input class="form-control" type="text" name="">
-                                        <input class="submit_btn" type="submit" name="" value="Search">
-                                    </form>
-                                    <div class="table-responsive" style="border-radius: 10px;">
-
-                                    <table id="example" class="table tableres table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">JobID</th>
-                                                    <th scope="col">Company Name</th>
-                                                    <th scope="col">Representetive</th>
-                                                    <th scope="col">Mobile</th>
-                                                    <th scope="col">Post Date</th>
-                                                    <th scope="col">Update / Active <br> Delete / View</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{#each jobs}}
-                                                <tr>
-                                                    <td data-label="JobID">{{JobID}}</td>
-                                                    <td data-label="Company Name">{{companyName}}</td>
-                                                    <td data-label="Representetive">{{nameOfRepresentative}}</td>
-                                                    <td data-label="Mobile">{{mobile}}</td>
-                                                    <td data-label="Post Date">{{date}}</td>
-                                                    <td data-label="Update/Active/Delete/View">
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                              More Option
-                                                            </button>
-                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                              <a class="dropdown-item" data-toggle="modal" data-target="#ModalEdit" href="#">Edit</a>
-                                                              <a class="dropdown-item" href="#">Active</a>
-                                                              <a class="dropdown-item getallData" title="{{_id}}" data-toggle="modal" data-target="#ModalView" href="#">View</a>
-                                                              <a class="dropdown-item DeleteJobsBtn" data-toggle="modal" title="{{companyName}}" value="{{_id}}" data-target="#ModalDelete" href="#">DELETE</a>
-                                                            </div>
-                                                          </div> 
-                                                    </td>
-                                                </tr>
-                                                {{/each}}
-                                                
-                                        </table>
-
-                                  </div>
-                            
-                            
-                            </div>
-                        </div>
-                    </div>
-
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+</div>
+</div>
 
 
+<!-- Delete Modal Box -->
      <div class="modal fade" id="ModalView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -212,12 +206,13 @@
 
 
 
+<!-- Personal Details Modal box -->
 
         <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">JOB</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Job Details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -225,22 +220,160 @@
                 <div class="modal-body">
                     <form>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="recipient-name" class="col-form-label">Specialsation/Skills</label>
+                        <input type="text" class="form-control" id="recipient-specialsationSkills">
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <label for="recipient-name" class="col-form-label">Job Description</label>
+                        <input type="text" class="form-control" id="recipient-JobDesc">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Available Vacancy</label>
+                        <input type="text" class="form-control" id="recipient-AvalVac">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Job Expiry Date</label>
+                        <input type="text" class="form-control" id="recipient-ExpieryDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Country</label>
+                        <input type="text" class="form-control" id="recipient-Country">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">State</label>
+                        <input type="text" class="form-control" id="recipient-state">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">City</label>
+                        <input type="text" class="form-control" id="recipient-city">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Job Area</label>
+                        <input type="text" class="form-control" id="recipient-jobArea">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Pin Code:</label>
+                        <input type="text" class="form-control" id="recipient-pincode">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Job Address</label>
+                        <input type="text" class="form-control" id="recipient-jobAddress">
                     </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+                    <button type="button" class="btn btn-primary jobinfo">Update</button>
                 </div>
                 </div>
             </div>
             </div>
+
+
+<!-- Professional Details Modal Box-->
+<div class="modal fade" id="ModalEditProfessional" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Professional Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Offered Salary (Monthly) INR</label>
+                <input type="text" class="form-control" id="recipient-offSal">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Required Experience (Yearly)</label>
+                <input type="text" class="form-control" id="recipient-reqexp">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Shift</label>
+                <input type="text" class="form-control" id="recipient-shift">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Job Expiry Date</label>
+                <input type="text" class="form-control" id="recipient-expdate">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Gender</label>
+                <input type="text" class="form-control" id="recipient-gender">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Education</label>
+                <input type="text" class="form-control" id="recipient-education">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Known Language</label>
+                <input type="text" class="form-control" id="recipient-knowLang">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary ProfessionalDetails">Update</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Contect Details Modal Box -->
+<div class="modal fade" id="ModalEditContectDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Contect Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Name of Company/Business/Other</label>
+                <input type="text" class="form-control" id="recipient-nameOfCom">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Name of Representative</label>
+                <input type="text" class="form-control" id="recipient-nameOfRep">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Mobile</label>
+                <input type="text" class="form-control" id="recipient-Mobile">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Landline No</label>
+                <input type="text" class="form-control" id="recipient-LandLine">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Email</label>
+                <input type="text" class="form-control" id="recipient-Email">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Aadhar/Voter Card No</label>
+                <input type="text" class="form-control" id="recipient-Aadhar">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Address of Employer</label>
+                <input type="text" class="form-control" id="recipient-Address">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Contect Timing</label>
+                <input type="text" class="form-control" id="recipient-ContectTime">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Looking Overseeas</label>
+                <input type="text" class="form-control" id="recipient-LookingO">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary updateContectDetails">Update</button>
+        </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -274,12 +407,16 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <h4> <span id="ServiceDisplayActive">  </span> Are you sure you want to do this?</h4>
+                        <h4> <span id="JobsDisplayActive">  </span> Are you sure you want to do this?</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
-                        <button type="button" class="btn btn-primary dataactivate" data-dismiss="modal">Active</button>
+                        <button type="button" class="btn btn-primary dataactivateJobs" data-dismiss="modal">Active</button>
                     </div>
                     </div>
                 </div>
                 </div>
+
+
+
+                

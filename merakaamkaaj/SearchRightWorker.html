@@ -16,7 +16,7 @@
   <form action="/search/worker" method="GET">
     <div class="row">
     <div class="col-md-12 text-center">
-      <h1>Find your Right Worker</h1>
+      <h1>FIND YOUR RIGHT WORKER</h1>
     </div>
     <div class="header-input">
       <select style="display: block!important; padding: 6px 38px; width: 100%; color: #777; -webkit-appearance: none; border: none; border-radius: 3px; background: #fff;" id="ContentPlaceHolder1_ddljobcat sort-news" name="JobCat" class="txt-dropdown">
@@ -33,27 +33,27 @@
 </div>
 </header>
 
-<form action="/filter/search/jobs" method="GET">
+<!-- <form action="/filter/search/worker" method="GET"> -->
   <div class="row">
     <div class="col-md-3">
       <div class="details-card_1">
         <button style="font-weight: bold;" type="button" class="filter_btn" id="filter">filter <i style="position: absolute; right:
         20px; font-size: 20px; top: 13px;" class="fa fa-filter"></i></button>
         <div style="background:#fff;width:100%; display: none; padding: 15px;" id="filteraes">
-
+<!-- 
         <button style="margin-bottom: 10px;" type="button" class="filter_btn" id="filter1">Select Job Type <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus1" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
         <div style="width:100%; height: 100px; display: none;" id="filteraes1">
           <select style="padding: 5px 38px; display: block!important; color: #777; -webkit-appearance: none; border: 1px solid #ddd;border-radius: 5px;">
             <option>work</option>
           </select>
 
-        </div>
+        </div> -->
 
 
 
-      <button type="button" style="margin-bottom: 10px;" class="filter_btn" id="filter2">Any Salery Range <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus2" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <button type="button" style="margin-bottom: 10px;" class="filter_btn" id="filter2">Any Salery Range <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus2" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size id="number": 20px; top: 13px;" class="fa fa-minus"></i></button>
       <div style="width:100%; display: none;" id="filteraes2">
-        <form>
+        <form action="/filter/search/worker/salary-range" method="GET">
           <input class="Sallery_input" type="text" name="salarygte" placeholder="Type Salery"><br>
           <div style="display: flex; justify-content: center; align-items: center; padding: 5px;">
           <p style="text-align: center; margin-bottom: 0px; width: 35px; height: 34px; padding: 5px; border: 1px solid #555; border-radius: 100px;">To</p>
@@ -66,7 +66,7 @@
 
       <button type="button" style="margin-bottom: 10px;" class="filter_btn" id="filter3">Gender <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus3" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
       <div style="width:100%; display: none;" id="filteraes3">
-        <form>
+        <form action="/filter/search/worker/gender" method="GET">
         <div class="control-group">
           <label class="control control--checkbox">Male
             <input name="gender" value="Male" type="checkbox"/>
@@ -87,8 +87,9 @@
 
       </div>
 
-
+<!-- 
       <button type="button" style="margin-bottom: 10px;" class="filter_btn" id="filter4">Timing <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus4" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <form action="/filter/search/worker/timing" method="GET">
       <div style="width:100%; display: none;" id="filteraes4">
         <div class="control-group">
           <label class="control control--checkbox">Full Time Day 
@@ -118,9 +119,10 @@
           
         </div>
       </div>
-
+  </form> -->
 
       <button type="button" style="margin-bottom: 10px;" class="filter_btn" id="filter5">Experiance <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus5" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <form action="/filter/search/worker/experience">
       <div style="width:100%; display: none;" id="filteraes5">
         <div class="control-group">
           <label class="control control--checkbox">0 - 2 years 
@@ -142,14 +144,15 @@
         </div>
         <button type="submit" style="margin-bottom: 10px; margin-left: 10px;" class="ghst-btn Experiance_btn">Search</button>
       </div>
+    </form>
 
-
-      <button type="button" style="margin-bottom: 10px;" class="filter_btn" id="filter6">ID <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus6" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
+      <form action="/filter/search/worker/worker-id" method="GET">
+      <button type="button" style="margin-bottom: 10px;" name="pwid" class="filter_btn" id="filter6">ID <i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" id="plus6" class="fa fa-plus"></i><i style="position: absolute; right: 20px; font-size: 20px; top: 13px;" class="fa fa-minus"></i></button>
       <div style="width:100%; display: none;" id="filteraes6">
-        <input style="margin-bottom: 10px;" class="Sallery_input" type="text" name="id" placeholder="ID">
+        <input style="margin-bottom: 10px;" class="Sallery_input" type="text" name="pwid" placeholder="ID">
         <button style="margin-bottom: 10px;" class="ghst-btn Experiance_btn">Search</button>
       </div>
-
+    </form>
     </div>
     <div>
       <img src="/img/contact_us.jpg" style="width: 100%;">
@@ -159,7 +162,6 @@
   </div>
   </div>
 <!-- </div> -->
-</form>
 
 
 <div class="col-md-9" style="display: flex; flex-direction: column;">
@@ -180,6 +182,8 @@
 <div class="userDetails mb5">
         <div class="candName">
             <span class="job-type" title="{{JobCat}}">{{JobCat}}</span>
+            <br>
+            <span class="job-type" title="{{pwid}}">{{pwid}}</span>
             <!-- <span class="candAge">20 years  </span> -->
             <span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span>
         </div>   
@@ -202,7 +206,7 @@
         <li>
            <span class="emp-heading">Mobile</span>
            <span class="emp-rep">
-             <span class="jsProfileItem more trucateText" title="**********">**********</span>
+             <span class="jsProfileItem more trucateText" id="number" title="**********">**********</span>
            </span>
          </li>
          <li>
@@ -527,3 +531,36 @@
 
 <!-- ================================================================================ -->
 </div> 
+
+<script type="text/javascript">
+
+var counterload = 0;
+
+$(".loadmorebtn").click(function() {
+  $(".loadmorebtn").val('Loading.......');
+  var title = $(".job-type").attr('title');
+  counterload++;
+  var hash = window.location.search.substring(1);
+  var url1 = window.location.href;
+  var path = window.location.pathname;
+  $.ajax({
+      url : path+'/json?count='+counterload+'&'+hash,
+      type : "GET",
+      dataType: 'json',
+      success : function(data){
+        if (data.length == 0) {
+          $(".loadmorebtn").val('Finish');
+          return false
+        }
+        console.log(data)
+        var HTML = '';
+        for (var i = 0; i < data.length; i += 1) {
+          HTML = '<div class="details-card" id="updatetable"><div class="candDetails"><div class="imageUser"><img src="/img/img/'+data[i].Gender+'.png" style="width: 54px; height: 54px;"></div><div class="userDetails mb5"><div class="candName"><span class="job-type" title="'+data[i].JobCat+'">'+data[i].JobCat+'</span><br><span class="job-type" title="'+data[i].pwid+'">'+data[i].pwid+'</span><span class="id_verified hidden-xs hidden-sm" title="One of following Govt. ID is verified for this candidate - PAN card, Aaadhar card, Driving License, Voter Id "></span></div></div><div class="employee-name"><div class="cnctAndDwmload"></div></div><div class="employee-details"><ul class="emp-list"><li><span class="emp-heading">Name</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Name+'">'+data[i].Name+'</span></span></li><li><span class="emp-heading">Mobile</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="***********">***********</span></span></li><li><span class="emp-heading">Alternate Number</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="***********">***********</span></span></li><li><span class="emp-heading">Email id/Phone</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="***********">***********</span></span></li><li><span class="emp-heading">Adhar /Voter Card No</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].AdharNo+'">'+data[i].AdharNo+'</span></span></li><li><span class="emp-heading">Country</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Country+'">'+data[i].Country+'</span></span></li><li><span class="emp-heading">State</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].State+'">'+data[i].State+'</span></span></li><li><span class="emp-heading">City</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].City+'">'+data[i].City+'</span></span></li><div id="'+data[i]._id+'" class="collapse"><li><span class="emp-heading">Pincode</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Pincode+'">'+data[i].Pincode+'</span></span></li><li><span class="emp-heading">Address</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Address+'">'+data[i].Address+'</span></span></li><li><span class="emp-heading">Gender</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Gender+'">'+data[i].Gender+'</span></span></li><li><span class="emp-heading">Shift</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].shift+'">'+data[i].shift+'</span></span></li><li><span class="emp-heading">DOB</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].DOB+'">'+data[i].DOB+'</span></span></li><li><span class="emp-heading">Religin</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Religin+'">'+data[i].Religin+'</span></span></li><li><span class="emp-heading">known Language</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].knownLanguage+'">'+data[i].knownLanguage+'</span></span></li><li><span class="emp-heading">Class</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Class+'">'+data[i].Class+'</span></span></li><li><span class="emp-heading">Degree</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Degree+'">'+data[i].Degree+'</span></span></li><li><span class="emp-heading">PG</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PG+'">'+data[i].PG+'</span></span></li><li><span class="emp-heading">Diploma</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Diploma+'">'+data[i].Diploma+'</span></span></li><li><span class="emp-heading">Course</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Course+'">'+data[i].Course+'</span></span></li><li><span class="emp-heading">Career Objective</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].CareerObjective+'">'+data[i].CareerObjective+'</span></span></li><li><span class="emp-heading">Other Details</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].OtherDetails+'">'+data[i].OtherDetails+'</span></span></li><li><span class="emp-heading">Reference Mobile</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].ReferenceMobile+'">'+data[i].ReferenceMobile+'</span></span></li><li><span class="emp-heading">Looking Overseas</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].LookingOverseas+'">'+data[i].LookingOverseas+'</span></span></li><li><span class="emp-heading">Name of Impoloyer</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].NameofImpoloyer+'">'+data[i].NameofImpoloyer+'</span></span></li><li><span class="emp-heading">Position Designation</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PositionDesignation+'">'+data[i].PositionDesignation+'</span></span></li><li><span class="emp-heading">Main Job Category</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].MainJobCategory+'">'+data[i].MainJobCategory+'</span></span></li><li><span class="emp-heading">Skills</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Skills+'">'+data[i].Skills+'</span></span></li><li><span class="emp-heading">Experience</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Experience+'">'+data[i].Experience+'</span></span></li><li><span class="emp-heading">Current Salary</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].currentSalary+'">'+data[i].currentSalary+'</span></span></li><li><span class="emp-heading">Expected Salary</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].ExpSalary+'">'+data[i].ExpSalary+'</span></span></li><li><span class="emp-heading">Priferred Shift</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PriferredShift+'">'+data[i].PriferredShift+'</span></span></li><li><span class="emp-heading">Priferred Job Description</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PriferredJobDescription+'">'+data[i].PriferredJobDescription+'</span></span></li><li><span class="emp-heading">Priferred Location</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PriferredLocation+'">'+data[i].PriferredLocation+'</span></span></li><li><span class="emp-heading">previous Name of Impoloyer</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].NameofImpoloyer1+'">'+data[i].NameofImpoloyer1+'</span></span></li><li><span class="emp-heading">previous Position Designation</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].PositionDesignation1+'">'+data[i].PositionDesignation1+'</span></span></li><li><span class="emp-heading">previous Job Category</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].JobCategory1+'">'+data[i].JobCategory1+'</span></span></li><li><span class="emp-heading">previous State/City</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].State1City1+'">'+data[i].State1City1+'</span></span></li><li><span class="emp-heading">previous Experience</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].Experience1+'">'+data[i].Experience1+'</span></span></li><li><span class="emp-heading">previous shift</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].shift1+'">'+data[i].shift1+'</span></span></li><li><span class="emp-heading">previous job Description</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].jobDescription1+'">'+data[i].jobDescription1+'</span></span></li><li><span class="emp-heading">Salary Withdrawn</span><span class="emp-rep"><span class="jsProfileItem more trucateText" title="'+data[i].SalaryWithdrawn+'">'+data[i].SalaryWithdrawn+'</span></span></li></div></ul></div><div class="hidden-lg hidden-md card-view pull-right hidden-xs hidden-sm"><i class="icon-basic_eye"></i><span></span></div><div class="button-div"><button data-toggle="modal" data-target="#myModal" class="ghst-btn demo-action InstantActionbuttons" type="button">Email</button><button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="modal" data-target="#myModal" type="button">View contact</button><button class="download-btn ghst-btn demo-action InstantActionbuttons" data-toggle="collapse" data-target="#'+data[i]._id+'" type="button">View all details</button><div class="container"></div></div></div></div>'
+        $('#main_header').append(HTML);
+        $(".loadmorebtn").val('load more');
+      }
+    },
+  });
+  });
+  
+        </script>

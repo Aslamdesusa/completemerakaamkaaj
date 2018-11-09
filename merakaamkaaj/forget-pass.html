@@ -204,7 +204,7 @@ div {
                         </div>
                         <div class="login-form" id="hideElemnet">
                                 <div class="form-group">
-                                    <label>Email Address</label>
+                                    <label>Email / Phone No.</label>
                                     <input class="au-input au-input--full" type="email" id="emailID" name="email" placeholder="Email">
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" id="submitEmailforget" type="submit">submit</button>
@@ -215,7 +215,7 @@ div {
         </div>
     </div>
 
- <script>
+ <script type="text/javascript">
           $(document).ready(function(){
             $('#submitEmailforget').click(function(){
                 var emailid = $('#emailID').val();
@@ -226,8 +226,15 @@ div {
                         console.log(json)
                         // alert(json)
                         $('#hideElemnet').empty();
-                        var HTML = '<h1 id="elementH1">'+json+'<h1>'
+                        if (json === 'user dose not Exists Please try with your Correct email and password') {
+                            var HTML = '<h1 style="font-size: 18px; text-align: center; padding: 10px; border: 2px solid #de3646; color:#bd434f; border-radius: 10px; background: #dc35452e;" id="elementH1">'+json+'<h1><button class="au-btn au-btn--block au-btn--green m-b-20" style="font-size: 18px;" onClick="location.reload();" type="submit">Reload</button>'
                         $('#hideElemnet').append(HTML);
+                    }else{
+                        $('#hideElemnet').empty();
+                        var inp = '<div class="form-group"><label style="font-size: 15px">Enter OTP</label><div class="coolboyes" style="color: red; font-size: 22px"></div><input class="au-input au-input--full inpotp" id="inp" type="number" name="otp" placeholder="OTP"></div><button onclick="myFunction()" class="au-btn au-btn--block au-btn--green m-b-20 checkBtn" style="font-size: 18px;" type="submit">validate</button>'
+                        var HTML = '<h1 style="font-size: 18px; text-align: center; padding: 10px; border: 2px solid #8fbf44; color: #466b0d; border-radius: 10px; background: #adff2f47;" id="elementH1">'+json+'<h1>'
+                        $('#hideElemnet').append(HTML + inp);
+                    }
                     },
                     error : function(err){
                         alert(err);
@@ -235,4 +242,29 @@ div {
                 });
             })
         });
+          function myFunction() {
+            var optgroupotp = $('.inpotp').val();
+                $.ajax({
+                    url : "/verifi/otp?otp="+optgroupotp,
+                    type : "GET",
+                    success : function(json){
+                        console.log(json)
+                        if (json.message === 'success') {
+                            window.location.href = '/new/password?mobile='+json.mobile
+                        }else{
+                            console.log(json)
+                            $('.coolboyes').empty();
+                            $('.coolboyes').append(json.message);
+
+                        }   
+
+                    },
+                    error : function(err){
+                        alert(err);
+                    }  
+                });
+          }          
       </script>
+
+            <!-- return reply.redirect('/new/password?mobile='+authenticated_OTP.mobile) -->
+

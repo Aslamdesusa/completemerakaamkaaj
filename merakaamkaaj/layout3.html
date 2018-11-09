@@ -52,13 +52,13 @@
 </head>
 
 <body class="animsition">
-    <div class="page-wrapper">
+
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar ">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="/user/user-account">
                             <img src="/img/logoadmin.png" style="width: 200px;" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -73,7 +73,7 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li>
-                            <a href="/user/deshboard">
+                            <a href="/user/user-account">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
@@ -97,7 +97,7 @@
         <!-- MENU SIDEBAR-->
        <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="/user/user-account">
                     <img src="/img/logoadmin.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -105,7 +105,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a href="/user/deshboard">
+                            <a href="/user/user-account">
                                 <i class="fas fa-tachometer-alt"></i>Deshboard</a>
                         </li>
                         <li>
@@ -170,7 +170,7 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="/user/user-account">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                             </div>
@@ -199,7 +199,7 @@
                 </div>
             </div>
 
-    </div>
+      
 
     <!-- Jquery JS-->
     <script src="/vendor/jquery-3.2.1.min.js"></script>
@@ -359,6 +359,18 @@ $(function () {
         $('#example2').DataTable();
     });
 </script>
+ <script type="text/javascript">
+          $(document).ready(function(){
+            $('.Edit_Profile').click(function(){
+              alert('Hello!')
+              $('.user_edit p').empty();
+              var input_edit = '<input class="form-control" type="text" style="margin-bottom: 5px;">'
+              $('.user_edit p').append(input_edit);
+
+            })
+        });
+
+      </script>
   
 </body>
 
