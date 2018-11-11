@@ -49,6 +49,38 @@ const routes = [
 },
 {
 	method: 'GET',
+	path: '/test-npm',
+	handler: function(request, reply){
+		// var a = '';
+		var str = "helloworld";
+		// var result = str.slice(1, -1);
+		// str = str.substring(0, str.length-1);
+		// str = str.toString();
+		// console.log("Original data: ",str);
+		// str = str.slice(0, -3);
+		// str = parseInt(str);
+		// console.log("After truncate: ",str);
+		return reply("After truncate: ",typeof(str))
+		// console.log()
+
+		// var data = [];
+		// for(var i = 0; i < a.length; i++){
+		// 	console.log(a[i])
+		// 	data.push(a[i]);
+		// 	if (a == 0) {
+		// 		reply('data is not avail')
+		// 	}else{
+		// 		if (i == 5) {
+		// 			var p = data.join('')
+		// 			return reply(p)
+		// 		}
+					
+		// 	}
+		// }
+	}
+},
+{
+	method: 'GET',
 	path: '/get/state-by-id',
 	handler: function(request, reply){
 		StateModel.findOne({_id: request.query._id})
@@ -1242,6 +1274,28 @@ const routes = [
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
      		ResumeModel.find({verifi: 'Active'}).limit(20).skip(20 * request.query.count)
      		.then(function(allResume){
+				 for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				}
      			resumes = allResume
      			JobCategoryModel.find({})
      			.then(function(allJobCategory){
@@ -1267,6 +1321,28 @@ const routes = [
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
      		ResumeModel.find({verifi: 'Active'}).limit(20).skip(20 * request.query.count)
      		.then(function(allResume){
+				for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				}
      			return reply(allResume)
      			
      		})
@@ -1348,7 +1424,7 @@ const routes = [
 		var allService = {}
 		async function getallDetails(){
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     			ServiceModel.find({}).limit(20).skip(20 * request.query.count)
+     			ServiceModel.find({verifi: 'Active'}).limit(20).skip(20 * request.query.count)
      			.then(function(allService){
      				allService = allService
      				ServiceModel1.find()
@@ -1420,7 +1496,7 @@ const routes = [
             async function getallDetails(){
      		var workers;
 			var jobcat;
-            var query = {$and:[{jobType:{$regex: request.query.jobType, $options: 'i'}},{state:{$regex: request.query.state, $options: 'i'}}]}
+            var query = {$and:[{verifi: 'Active'}, {jobType:{$regex: request.query.jobType, $options: 'i'}},{state:{$regex: request.query.state, $options: 'i'}}]}
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
      		jobsModel.find(query)
      		.then(function(allJobs){
@@ -1449,11 +1525,33 @@ const routes = [
 			async function getallDetails(){
 	     		var worker;
 				var jobcat;
-				var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}, {State:{$regex: request.query.state, $options: 'i'}}]}
+				var query = {$and:[{verifi: 'Active'}, {JobCat:{$regex: request.query.JobCat, $options: 'i'}}, {State:{$regex: request.query.state, $options: 'i'}}]}
 	     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
 	     		ResumeModel.find(query).limit(20).skip(20 * request.query.count)
-	     		.then(function(allworker){
-	     			worker = allworker
+	     		.then(function(allResume){
+					for(var i = 0; i < allResume.length; i++){
+						var str = allResume[i].Mobile;
+						var str1 = allResume[i].AlternateNum;
+						var str2 = allResume[i].EmailorMobile;
+	
+						if (allResume[i].Mobile == null) {
+							continue
+						}
+						str = str.toString();
+						str = str.slice(0, -4);
+						str = parseInt(str);
+						console.log(allResume[i].Mobile = str)
+	
+						if (allResume[i].AlternateNum == null) {
+							continue
+						}
+						str1 = str1.toString();
+						str1 = str1.slice(0, -4);
+						str1 = parseInt(str1);
+						console.log(allResume[i].AlternateNum = str1)
+						
+					} 
+	     			worker = allResume
 	     			JobCategoryModel.find({})
 	     			.then(function(allJobCategory){
 	     				jobcat = allJobCategory
@@ -1478,11 +1576,33 @@ const routes = [
 		handler: (request, reply) =>{
 			// return reply('dsf')
 			async function getallDetails(){
-				var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}, {State:{$regex: request.query.state, $options: 'i'}}]}
+				var query = {$and:[{verifi: 'Active'}, {JobCat:{$regex: request.query.JobCat, $options: 'i'}}, {State:{$regex: request.query.state, $options: 'i'}}]}
 	     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
 	     		ResumeModel.find(query).limit(20).skip(20 * request.query.count)
-	     		.then(function(allworker){
-	     			return reply(allworker)
+	     		.then(function(allResume){
+					for(var i = 0; i < allResume.length; i++){
+						var str = allResume[i].Mobile;
+						var str1 = allResume[i].AlternateNum;
+						var str2 = allResume[i].EmailorMobile;
+	
+						if (allResume[i].Mobile == null) {
+							continue
+						}
+						str = str.toString();
+						str = str.slice(0, -4);
+						str = parseInt(str);
+						console.log(allResume[i].Mobile = str)
+	
+						if (allResume[i].AlternateNum == null) {
+							continue
+						}
+						str1 = str1.toString();
+						str1 = str1.slice(0, -4);
+						str1 = parseInt(str1);
+						console.log(allResume[i].AlternateNum = str1)
+						
+					} 
+	     			return reply(allResume)
 	     		});
 	     	}
 	     	getallDetails();
@@ -1493,19 +1613,41 @@ const routes = [
         path:'/filter/search/worker/gender',
         handler: function(request, reply){
         	var jobcat;
-        	 ResumeModel.find({Gender : request.query.gender}).limit(20).exec()
-        	 .then(function(result){
+        	 ResumeModel.find({verifi: 'Active', Gender : request.query.gender}).limit(20).exec()
+        	 .then(function(allResume){
+				for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				}
         	 	JobCategoryModel.find({})
      			.then(function(allJobCategory){
      				jobcat = allJobCategory
-     				if(result.length === 0){
+     				if(allResume.length === 0){
      					return reply.view('SearchRightWorker',{
      						message: 'No Records Found',
      						jobcategorys: jobcat
      					})
 
      				} else {
-     					reply.view('SearchRightWorker',{allResume : result, jobcategorys: jobcat})
+     					reply.view('SearchRightWorker',{allResume : allResume, jobcategorys: jobcat})
      				}
      			});
         	 })       	 
@@ -1516,9 +1658,31 @@ const routes = [
         path:'/filter/search/worker/gender/json',
         handler: function(request, reply){
         	var jobcat;
-        	 ResumeModel.find({Gender : request.query.gender}).limit(20).skip(20 * request.query.count)
-        	 .then(function(result){
-        	 	return reply(result)
+        	 ResumeModel.find({verifi: 'Active', Gender : request.query.gender}).limit(20).skip(20 * request.query.count)
+        	 .then(function(allResume){
+				for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				}
+        	 	return reply(allResume)
         	 })       	 
         }
     },
@@ -1526,28 +1690,51 @@ const routes = [
         method:'GET',
         path:'/filter/search/worker/salary-range',
         handler: function(request, reply){
-        	var query = {}
-        	var jobcat;
+        	var query = {verifi: 'Active', }
+			var jobcat;
         	var salarygte = request.query.salarygte
             var salarylte = request.query.salarylte
             if( salarygte && salarylte){ 
            		query.ExpSalary = {
             		$gte:salarygte,
-            		$lte:salarylte
+					$lte:salarylte, 
             	}   	
-            }
+			}
+			console.log(query)
         	 ResumeModel.find(query).limit(20).exec()
-        	 .then(function(result){
+        	 .then(function(allResume){
+				for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				} 
         	 	JobCategoryModel.find({})
      			.then(function(allJobCategory){
      				jobcat = allJobCategory
-     				if(result.length === 0){
+     				if(allResume.length === 0){
      					return reply.view('SearchRightWorker',{
      						message: 'No Records Found',
      						jobcategorys: jobcat
      					})
      				} else {
-     					reply.view('SearchRightWorker',{allResume : result, jobcategorys: jobcat})
+     					reply.view('SearchRightWorker',{allResume : allResume, jobcategorys: jobcat})
      				}
      			});
         	 })       	 
@@ -1557,7 +1744,7 @@ const routes = [
         method:'GET',
         path:'/filter/search/worker/salary-range/json',
         handler: function(request, reply){
-        	var query = {}
+        	var query = {verifi: 'Active', }
         	var jobcat;
         	var salarygte = request.query.salarygte
             var salarylte = request.query.salarylte
@@ -1568,8 +1755,30 @@ const routes = [
             	}   	
             }
         	 ResumeModel.find(query).limit(20).skip(20 * request.query.count)
-        	 .then(function(result){
-        	 	return reply(result)
+        	 .then(function(allResume){
+				for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				} 
+        	 	return reply(allResume)
         	 })       	 
         }
     },
@@ -1578,15 +1787,37 @@ const routes = [
         path:'/filter/search/worker/worker-id',
         handler: function(request, reply){
         	var jobcat;
-        	 ResumeModel.find({pwid: request.query.pwid})
-        	 .then(function(result){
+        	 ResumeModel.find({ verifi: 'Active', pwid: request.query.pwid})
+        	 .then(function(allResume){
+				 for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				}
         	 	JobCategoryModel.find({})
      			.then(function(allJobCategory){
      				jobcat = allJobCategory
-	     				if(result.length === 0){
+	     				if(allResume.length === 0){
 	                	return reply.view('SearchRightWorker',{message: 'No Records Found', jobcategorys: jobcat})
 	                } else {
-	                    return reply.view('SearchRightWorker',{allResume : result, jobcategorys: jobcat})
+	                    return reply.view('SearchRightWorker',{allResume : allResume, jobcategorys: jobcat})
 	                }
      			});
         	 })       	 
@@ -1596,7 +1827,7 @@ const routes = [
         method:'GET',
         path:'/filter/search/worker/experience',
         handler: function(request, reply){
-        	var query = {}
+        	var query = {verifi: 'Active', }
         	var jobcat;
         	var experience = request.query.experience
             if (experience){ 
@@ -1615,18 +1846,40 @@ const routes = [
             	}   	
             }
         	 ResumeModel.find(query).limit(20).exec()
-        	 .then(function(result){
+        	 .then(function(allResume){
+				for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				}
         	 	JobCategoryModel.find({})
      			.then(function(allJobCategory){
      				jobcat = allJobCategory
-	     				if(result.length === 0){
+	     				if(allResume.length === 0){
 		                	return reply.view('SearchRightWorker',{
 		                		message: 'No Records Found',
 		                		jobcategorys: jobcat
 
 		                	})
 		                } else {
-		                    reply.view('SearchRightWorker',{allResume : result, jobcategorys: jobcat})
+		                    reply.view('SearchRightWorker',{allResume : allResume, jobcategorys: jobcat})
 		                }
      			});
         	 })       	 
@@ -1636,7 +1889,7 @@ const routes = [
         method:'GET',
         path:'/filter/search/worker/experience/json',
         handler: function(request, reply){
-        	var query = {}
+        	var query = {verifi: 'Active', }
         	var jobcat;
         	var experience = request.query.experience
             if (experience){ 
@@ -1655,8 +1908,30 @@ const routes = [
             	}   	
             }
         	 ResumeModel.find(query).limit(20).skip(20 * request.query.count)
-        	 .then(function(result){
-        	 	return reply(result)
+        	 .then(function(allResume){
+				for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				}
+        	 	return reply(allResume)
         	 })       	 
         }
     },
@@ -1664,14 +1939,15 @@ const routes = [
         method:'GET',
         path:'/filter/search/service-by-area',
         handler: function(request, reply){
-        	var services;
-        	ServiceModel.find({Area: request.query.Area}).limit(20).exec()
+			var services;
+			var query = {$and:[{verifi: "Active"}, {Area:{$regex: request.query.Area, $options: 'i'}}]}			
+        	ServiceModel.find(query).limit(20).exec()
     	 	.then(function(result){
     	 		ServiceModel1.find()
     	 		.then(function(allServiceCat){
     	 			services = allServiceCat;
     	 			if(result.length === 0){
-    	 				return reply.view('SearchRightWorker',{
+    	 				return reply.view('searchRightService',{
     	 					message: 'No Records Found',
     	 					services : services
     	 				})
@@ -1686,7 +1962,9 @@ const routes = [
         method:'GET',
         path:'/filter/search/service-by-area/json',
         handler: function(request, reply){
-        	ServiceModel.find({Area: request.query.Area}).limit(20).skip(20 * request.query.count)
+			var query = {$and:[{verifi: "Active"}, {Area:{$regex: request.query.Area, $options: 'i'}}]}
+
+        	ServiceModel.find(query).limit(20).skip(20 * request.query.count)
     	 	.then(function(result){
     	 		return reply(result)
  			})       	 
@@ -1694,14 +1972,10 @@ const routes = [
     },
     {
         method:'GET',
-        path:'/filter/search/service-by-shift',
+        path:'/filter/search/service-by-specification',
         handler: function(request, reply){
-        	var services;
-        	var query = {}
-        	var shift = request.query.shift
-            if(shift){query.Timing = {
-            	$in:request.query.timing
-            }}
+			var services;
+			var query = {$and:[{verifi: "Active"}, {Specification:{$regex: request.query.specification, $options: 'i'}}]}
         	ServiceModel.find(query).limit(20).exec()
     	 	.then(function(result){
     	 		ServiceModel1.find()
@@ -1721,14 +1995,10 @@ const routes = [
     },
     {
         method:'GET',
-        path:'/filter/search/service-by-shift/json',
+        path:'/filter/search/service-by-specification/json',
         handler: function(request, reply){
-        	var services;
-        	var query = {}
-        	var shift = request.query.shift
-            if(shift){query.Timing = {
-            	$in:request.query.timing
-            }}
+			var services;
+			var query = {$and:[{verifi: "Active"}, {Specification:{$regex: request.query.specification, $options: 'i'}}]}
         	ServiceModel.find(query).limit(20).skip(20 * request.query.count)
     	 	.then(function(result){
     	 		return reply(result)
@@ -1740,7 +2010,7 @@ const routes = [
         path:'/filter/search/service-by-id',
         handler: function(request, reply){
         	var services;
-        	ServiceModel.find({serviceid: request.query.serviceid})
+        	ServiceModel.find({verifi: "Active", serviceid: request.query.serviceid})
     	 	.then(function(result){
     	 		ServiceModel1.find()
     	 		.then(function(allServiceCat){
@@ -1759,20 +2029,9 @@ const routes = [
     },
     {
         method:'GET',
-        path:'/filter/search/service-by-id/json',
-        handler: function(request, reply){
-        	var services;
-        	ServiceModel.find({serviceid: request.query.serviceid})
-    	 	.then(function(result){
-    	 		return reply(result)
- 			})       	 
-        }
-    },
-    {
-        method:'GET',
         path:'/filter/search/jobs',
         handler: function(request, reply){
-        	var query={}
+        	var query={verifi: 'Active', }
             var experience = request.query.experience
             var salarygte = request.query.salarygte
             var salarylte = request.query.salarylte
@@ -1843,7 +2102,7 @@ const routes = [
 			async function getallDetails(){
      		var service;
 			var serCat;
-            var query = {$and:[{TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}},{State:{$regex: request.query.State, $options: 'i'}}]}
+            var query = {$and:[{verifi: "Active"}, {TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}},{State:{$regex: request.query.State, $options: 'i'}}]}
 			// var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}]}
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
      		ServiceModel.find(query).limit(20).skip(20 * request.query.count)
@@ -1876,10 +2135,10 @@ const routes = [
         },
         handler: function(request, reply){
 			async function getallDetails(){
-            var query = {$and:[{TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}},{State:{$regex: request.query.State, $options: 'i'}}]}
+            var query = {$and:[{verifi: "Active"}, {TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}},{State:{$regex: request.query.State, $options: 'i'}}]}
 			// var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}]}
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		ServiceModel.find(query)
+     		ServiceModel.find(query).limit(20).skip(20 * request.query.count)
      		.then(function(allService){
      			return reply(allService)
      		});

@@ -1094,16 +1094,82 @@ const routes = [
 			var jobcat;
 			var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}]}
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
-     		ResumeModel.find(query)
-     		.then(function(allworker){
-     			worker = allworker
+     		ResumeModel.find(query).limit(20).skip(20 * request.query.count)
+     		.then(function(allResume){
+				 for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				}
+     			worker = allResume
      			JobCategoryModel.find({})
      			.then(function(allJobCategory){
      				jobcat = allJobCategory
-	     			return reply.view('SearchRightWorker', {allResume : worker, jobcategorys: jobcat})
+	     			return reply.view('SearchRightWorker', {allResume : allResume, jobcategorys: jobcat})
 
 	     			// return reply({allResume : worker, jobcategorys: jobcat})
      			});
+     		});
+     	}
+     	getallDetails();
+	}
+},
+{
+	method: 'GET',
+	path: '/search/right/worker/json',
+	config:{
+        //include this route in swagger documentation
+        tags:['api'],
+        description:"getting admin form",
+        notes:"getting form",
+    },
+	handler: (request, reply) =>{
+		// return reply('dsf')
+		async function getallDetails(){
+			var query = {$and:[{JobCat:{$regex: request.query.JobCat, $options: 'i'}}]}
+     		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
+     		ResumeModel.find(query).limit(20).skip(20 * request.query.count)
+     		.then(function(allResume){
+				 for(var i = 0; i < allResume.length; i++){
+					var str = allResume[i].Mobile;
+					var str1 = allResume[i].AlternateNum;
+					var str2 = allResume[i].EmailorMobile;
+
+					if (allResume[i].Mobile == null) {
+						continue
+					}
+					str = str.toString();
+					str = str.slice(0, -4);
+					str = parseInt(str);
+					console.log(allResume[i].Mobile = str)
+
+					if (allResume[i].AlternateNum == null) {
+						continue
+					}
+					str1 = str1.toString();
+					str1 = str1.slice(0, -4);
+					str1 = parseInt(str1);
+					console.log(allResume[i].AlternateNum = str1)
+					
+				}
+				return reply(allResume)
      		});
      	}
      	getallDetails();
@@ -1123,7 +1189,7 @@ const routes = [
 		async function getallDetails(){
      		var jobs;
 			var jobcat;
-			var query = {$and:[{jobType:{$regex: request.query.jobType, $options: 'i'}}]}
+			var query = {$and:[{verifi: "Active"}, {jobType:{$regex: request.query.jobType, $options: 'i'}}]}
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
      		jobsModel.find(query)
      		.then(function(allService){
@@ -1155,7 +1221,7 @@ const routes = [
 		async function getallDetails(){
      		var service;
 			var serCat;
-			var query = {$and:[{TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}}]}
+			var query = {$and:[{verifi: 'Active'}, {TypeOfService:{$regex: request.query.TypeOfService, $options: 'i'}}]}
      		await new Promise((resolve, reject) => setTimeout(() => resolve(), 1000));
      		ServiceModel.find(query)
      		.then(function(allService){
