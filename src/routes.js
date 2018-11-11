@@ -1899,6 +1899,27 @@ const routes = [
 },
 {
 	method: 'GET',
+	path: '/gallery',
+	handler: (request, reply) =>{
+		reply.view('gallery')
+	}
+},
+{
+	method: 'GET',
+	path: '/advertising',
+	handler: (request, reply) =>{
+		reply.view('advertising')
+	}
+},
+{
+	method: 'GET',
+	path: '/clients',
+	handler: (request, reply) =>{
+		reply.view('client')
+	}
+},
+{
+	method: 'GET',
 	path: '/admin/deshboard',
 	config:{
 		auth:{
