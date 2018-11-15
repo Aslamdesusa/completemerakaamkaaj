@@ -6,3 +6,4 @@ src/googleAuth.js
 services/file-upload.js
 merakaamkaaj.pem
 user.json
+models/config.json
