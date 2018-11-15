@@ -13,6 +13,7 @@ const server = new Hapi.Server();
 import routes from './routes'
 import user from './userapi'
 import googleAuth from './googleAuth'
+import fileUpload from './image-upload.js'
 
 const port = process.env.PORT || 8000;
 
@@ -80,6 +81,7 @@ server.register( require( 'hapi-auth-jwt' ), ( err ) => {
     server.route(routes)
     server.route(user)
     server.route(googleAuth)
+    server.route(fileUpload)
 
 } );
 
