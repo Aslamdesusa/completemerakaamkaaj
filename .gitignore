@@ -3,3 +3,6 @@ database.js
 src/client_secret.json
 src/config.json
 src/googleAuth.js
+services/file-upload.js
+merakaamkaaj.pem
+user.json
