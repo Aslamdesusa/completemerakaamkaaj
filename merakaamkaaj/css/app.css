@@ -6322,11 +6322,21 @@ header {
     width: 100%;
     color: #fff; }
     header.header-cat.header-cat-2 {
-      background-image: url("../img/poster/p2.jpg"); }
+      background-image: url("../img/poster/p2.jpg"); 
+    }
+    header.header-cat.header-cat-3 {
+      background-image: url("../img/poster/p7.jpg"); 
+    }
+    header.header-cat.header-cat-4 {
+      background-image: url("../img/poster/p8.jpeg"); 
+    }
+    header.header-cat.header-cat-5 {
+      background-image: url("../img/poster/p6.png"); 
+    }
     header.header-cat h1 {
       text-shadow: 2px 2px 2px #ee5f24;
       text-align: center;
-      margin-top: 20vh;
+      margin-top: 17vh;
       font-size: 50px; }
     @media (max-width: 575px) {
       header.header-cat h1.testi-head {
