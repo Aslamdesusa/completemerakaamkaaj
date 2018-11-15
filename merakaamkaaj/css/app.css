@@ -6313,7 +6313,7 @@ header {
 
 
   header.header-cat {
-    background-image: url("../img/right_worker.jpg");
+    background-image: url("../img/poster/p1.jpeg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -6322,8 +6322,9 @@ header {
     width: 100%;
     color: #fff; }
     header.header-cat.header-cat-2 {
-      background-image: url("../img/banner-bg-2.jpg"); }
+      background-image: url("../img/poster/p2.jpg"); }
     header.header-cat h1 {
+      text-shadow: 2px 2px 2px #ee5f24;
       text-align: center;
       margin-top: 20vh;
       font-size: 50px; }
